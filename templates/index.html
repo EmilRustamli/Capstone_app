@@ -36,6 +36,29 @@
                 <input type="password" placeholder="Password" required>
                 <button type="submit">Login</button>
             </form>
+            <div class="forgot-password">
+                <button onclick="showForgotPassword(event)" class="link-button">Forgot Password?</button>
+            </div>
+            
+            <!-- Add forgot password form -->
+            <div id="forgotPasswordDiv" style="display: none;">
+                <h3>Reset Password</h3>
+                <form id="forgotPasswordForm" onsubmit="handleForgotPassword(event)">
+                    <input type="email" placeholder="Confirm your email" required>
+                    <button type="submit">Send Reset Code</button>
+                </form>
+            </div>
+            
+            <!-- Add reset password form -->
+            <div id="resetPasswordDiv" style="display: none;">
+                <h3>Enter Reset Code</h3>
+                <form id="resetPasswordForm" onsubmit="handleResetPassword(event)">
+                    <input type="text" placeholder="Enter 6-digit code" required pattern="[0-9]{6}">
+                    <input type="password" placeholder="New Password" required>
+                    <input type="password" placeholder="Confirm New Password" required>
+                    <button type="submit">Reset Password</button>
+                </form>
+            </div>
         </div>
 
         <div class="tab-content" id="register">

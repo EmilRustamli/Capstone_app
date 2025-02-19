@@ -200,6 +200,41 @@ def add_portfolio_item():
         }
     })
 
+@app.route('/forgot-password', methods=['POST'])
+def forgot_password():
+    data = request.json
+    user = User.query.filter_by(email=data['email']).first()
+    
+    if user:
+        # Generate confirmation code
+        reset_code = ''.join(random.choices('0123456789', k=6))
+        user.confirmation_code = reset_code
+        db.session.commit()
+        
+        # Send email with code
+        msg = Message('Password Reset Code',
+                     sender='rustamliemiluni@gmail.com',
+                     recipients=[user.email])
+        msg.body = f'Your password reset code is: {reset_code}'
+        mail.send(msg)
+        
+        return jsonify({'message': 'Password reset code sent to your email.'})
+    
+    return jsonify({'error': 'Email not found'}), 404
+
+@app.route('/reset-password', methods=['POST'])
+def reset_password():
+    data = request.json
+    user = User.query.filter_by(email=data['email'], confirmation_code=data['code']).first()
+    
+    if user:
+        user.password = generate_password_hash(data['new_password'], method='pbkdf2:sha256')
+        user.confirmation_code = None
+        db.session.commit()
+        return jsonify({'message': 'Password reset successful! You can now login.'})
+    
+    return jsonify({'error': 'Invalid code'}), 400
+
 if __name__ == '__main__':
     # Create the instance folder if it doesn't exist
     if not os.path.exists('instance'):

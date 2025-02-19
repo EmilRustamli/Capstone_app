@@ -507,4 +507,53 @@ input {
 
 [data-theme="dark"] .theme-toggle:hover {
     background-color: rgba(255, 255, 255, 0.2);
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.link-button {
+    background: transparent !important;
+    border: none;
+    color: #1877f2;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Override any default button styles */
+.link-button,
+.link-button:hover,
+.link-button:focus,
+.link-button:active,
+.link-button:visited {
+    background: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+[data-theme="dark"] .link-button {
+    color: #4d9eff;
+    background: transparent !important;
+}
+
+[data-theme="dark"] .link-button,
+[data-theme="dark"] .link-button:hover,
+[data-theme="dark"] .link-button:focus,
+[data-theme="dark"] .link-button:active,
+[data-theme="dark"] .link-button:visited {
+    color: #4d9eff;
+    background: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-tap-highlight-color: transparent !important;
 } 

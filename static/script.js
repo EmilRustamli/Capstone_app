@@ -106,4 +106,82 @@ async function handleVerification(event) {
     } catch (error) {
         alert('An error occurred. Please try again.');
     }
+}
+
+function showForgotPassword(event) {
+    event.preventDefault();
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('forgotPasswordDiv').style.display = 'block';
+}
+
+async function handleForgotPassword(event) {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.querySelector('input[type="email"]').value;
+
+    try {
+        const response = await fetch('/forgot-password', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email })
+        });
+
+        const data = await response.json();
+        
+        if (response.ok) {
+            alert(data.message);
+            document.getElementById('forgotPasswordDiv').style.display = 'none';
+            document.getElementById('resetPasswordDiv').style.display = 'block';
+            localStorage.setItem('resetPasswordEmail', email);
+        } else {
+            alert(data.error);
+        }
+    } catch (error) {
+        alert('An error occurred. Please try again.');
+    }
+}
+
+async function handleResetPassword(event) {
+    event.preventDefault();
+    const form = event.target;
+    const inputs = form.querySelectorAll('input');
+    const code = inputs[0].value;
+    const newPassword = inputs[1].value;
+    const confirmPassword = inputs[2].value;
+    const email = localStorage.getItem('resetPasswordEmail');
+
+    if (newPassword !== confirmPassword) {
+        alert('Passwords do not match!');
+        return;
+    }
+
+    try {
+        const response = await fetch('/reset-password', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email,
+                code,
+                new_password: newPassword
+            })
+        });
+
+        const data = await response.json();
+        
+        if (response.ok) {
+            alert(data.message);
+            localStorage.removeItem('resetPasswordEmail');
+            document.getElementById('resetPasswordDiv').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+            form.reset();
+        } else {
+            alert(data.error);
+        }
+    } catch (error) {
+        alert('An error occurred. Please try again.');
+    }
 } 

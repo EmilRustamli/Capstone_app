@@ -19,9 +19,32 @@
     </div>
     
     <div class="container dashboard">
-        <h1>Welcome to Your Dashboard, {{ username }}!</h1>
-        <p>You have successfully logged in!</p>
+        <h1 class="main-header">Stocks</h1>
+        
+        <div class="toggle-container">
+            <button class="toggle-btn active" onclick="switchView('market')">Market</button>
+            <button class="toggle-btn" onclick="switchView('portfolio')">Portfolio</button>
+        </div>
+
+        <div style="text-align: right; margin-bottom: 10px;">
+            <span id="last-updated" style="color: #666; font-size: 0.9em;"></span>
+        </div>
+
+        <div id="market-view" class="view-container">
+            <div class="stocks-grid"></div>
+            <div class="pagination">
+                <button onclick="changePage(1)" class="page-btn active">1</button>
+                <button onclick="changePage(2)" class="page-btn">2</button>
+                <button onclick="changePage(3)" class="page-btn">3</button>
+            </div>
+        </div>
+
+        <div id="portfolio-view" class="view-container" style="display: none;">
+            <p class="empty-message">Visit the Portfolio page to manage your stocks.</p>
+        </div>
     </div>
+
+    <!-- Logout Modal -->
     <div class="modal-overlay" id="logoutModal">
         <div class="modal">
             <h2>Confirm Logout</h2>
@@ -32,7 +55,82 @@
             </div>
         </div>
     </div>
+
     <script src="{{ url_for('static', filename='theme.js') }}"></script>
     <script src="{{ url_for('static', filename='logout.js') }}"></script>
+    <script>
+        let currentPage = 1;
+        const stocksPerPage = 4;
+        let allStocks = [];
+
+        // Initial load
+        fetch('/get-top-stocks')
+            .then(response => response.json())
+            .then(data => {
+                allStocks = data;
+                displayStocksPage(1);
+            })
+            .catch(error => console.error('Error:', error));
+
+        function displayStocksPage(page) {
+            const stocksGrid = document.querySelector('.stocks-grid');
+            const start = (page - 1) * stocksPerPage;
+            const end = start + stocksPerPage;
+            const pageStocks = allStocks.slice(start, end);
+
+            stocksGrid.innerHTML = pageStocks.map(stock => {
+                const changeNum = parseFloat(stock.change);
+                const changeColor = changeNum >= 0 ? '#00873c' : '#ff333a';
+                const changeSign = changeNum >= 0 ? '+' : '';
+                
+                return `
+                    <div class="stock-card">
+                        <div class="stock-header">
+                            <span class="stock-ticker">${stock.ticker}</span>
+                            <div class="price-info">
+                                <span class="stock-price">$${stock.price}</span>
+                                <span class="price-change" style="color: ${changeColor}">
+                                    ${changeSign}${stock.change}%
+                                </span>
+                            </div>
+                        </div>
+                        <div class="stock-name">${stock.name}</div>
+                        <div class="stock-market-cap">Market Cap: $${stock.marketCap}B</div>
+                    </div>
+                `;
+            }).join('');
+
+            // Update pagination buttons
+            document.querySelectorAll('.page-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (parseInt(btn.textContent) === page) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        function changePage(page) {
+            currentPage = page;
+            displayStocksPage(page);
+        }
+
+        function switchView(view) {
+            const marketView = document.getElementById('market-view');
+            const portfolioView = document.getElementById('portfolio-view');
+            const buttons = document.querySelectorAll('.toggle-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            if (view === 'market') {
+                marketView.style.display = 'block';
+                portfolioView.style.display = 'none';
+                buttons[0].classList.add('active');
+            } else {
+                marketView.style.display = 'none';
+                portfolioView.style.display = 'block';
+                buttons[1].classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html> 

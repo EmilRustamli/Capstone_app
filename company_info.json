@@ -5,7 +5,10 @@
     },
     "AAPL": {
         "ticker": "AAPL",
-        "name": "Apple Inc."
+        "name": "Apple Inc.",
+        "price": "244.87",
+        "marketCap": "3678",
+        "change": "0.16"
     },
     "ABBV": {
         "ticker": "ABBV",
@@ -121,7 +124,10 @@
     },
     "AMZN": {
         "ticker": "AMZN",
-        "name": "Amazon.com, Inc."
+        "name": "Amazon.com, Inc.",
+        "price": "226.63",
+        "marketCap": "2401",
+        "change": "-0.01"
     },
     "ANET": {
         "ticker": "ANET",
@@ -169,7 +175,10 @@
     },
     "AVGO": {
         "ticker": "AVGO",
-        "name": "Broadcom Inc."
+        "name": "Broadcom Inc.",
+        "price": "228.73",
+        "marketCap": "1072",
+        "change": "0.09"
     },
     "AVY": {
         "ticker": "AVY",
@@ -769,7 +778,10 @@
     },
     "GOOG": {
         "ticker": "GOOG",
-        "name": "Alphabet Inc."
+        "name": "Alphabet (Google)",
+        "price": "187.13",
+        "marketCap": "2267",
+        "change": "0.72"
     },
     "GOOGL": {
         "ticker": "GOOGL",
@@ -1125,7 +1137,10 @@
     },
     "META": {
         "ticker": "META",
-        "name": "Meta Platforms, Inc."
+        "name": "Meta Platforms (Facebook)",
+        "price": "703.77",
+        "marketCap": "1783",
+        "change": "-1.76"
     },
     "MGM": {
         "ticker": "MGM",
@@ -1193,7 +1208,10 @@
     },
     "MSFT": {
         "ticker": "MSFT",
-        "name": "Microsoft Corporation"
+        "name": "Microsoft Corporation",
+        "price": "414.77",
+        "marketCap": "3083",
+        "change": "1.25"
     },
     "MSI": {
         "ticker": "MSI",
@@ -1277,7 +1295,10 @@
     },
     "NVDA": {
         "ticker": "NVDA",
-        "name": "NVIDIA Corporation"
+        "name": "NVIDIA Corporation",
+        "price": "139.23",
+        "marketCap": "3409",
+        "change": "-0.12"
     },
     "NVR": {
         "ticker": "NVR",
@@ -1677,7 +1698,10 @@
     },
     "TSLA": {
         "ticker": "TSLA",
-        "name": "Tesla, Inc."
+        "name": "Tesla Inc.",
+        "price": "360.56",
+        "marketCap": "1159",
+        "change": "1.82"
     },
     "TSN": {
         "ticker": "TSN",
@@ -1817,7 +1841,10 @@
     },
     "WMT": {
         "ticker": "WMT",
-        "name": "Walmart Inc."
+        "name": "Walmart Inc.",
+        "price": "175.56",
+        "marketCap": "986",
+        "change": "0.15"
     },
     "WRB": {
         "ticker": "WRB",
@@ -1866,5 +1893,26 @@
     "ZTS": {
         "ticker": "ZTS",
         "name": "Zoetis Inc."
+    },
+    "2222.SR": {
+        "ticker": "2222.SR",
+        "name": "Saudi Aramco",
+        "price": "7.38",
+        "marketCap": "1784",
+        "change": "0.18"
+    },
+    "BRK.B": {
+        "ticker": "BRK.B",
+        "name": "Berkshire Hathaway",
+        "price": "483.77",
+        "marketCap": "1043",
+        "change": "0.20"
+    },
+    "TSM": {
+        "ticker": "TSM",
+        "name": "TSMC",
+        "price": "200.95",
+        "marketCap": "1042",
+        "change": "-0.88"
     }
 }

@@ -6,6 +6,7 @@ import random
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 import json
+from stock_api import update_stock_prices
 
 app = Flask(__name__)
 mail = Mail(app)
@@ -389,6 +390,23 @@ def delete_portfolio_item():
         return jsonify({'message': 'Portfolio item deleted'})
     except Exception as e:
         db.session.rollback()
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/get-top-stocks')
+def get_top_stocks():
+    try:
+        with open('company_info.json', 'r') as f:
+            companies = json.load(f)
+        
+        # Sort companies by market cap and get top 12
+        top_companies = sorted(
+            [{'ticker': k, **v} for k, v in companies.items()],
+            key=lambda x: float(x.get('marketCap', 0)),
+            reverse=True
+        )[:12]
+        
+        return jsonify(top_companies)
+    except Exception as e:
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <div class="nav-links">
+                <a href="{{ url_for('dashboard') }}">Home</a>
+                <a href="{{ url_for('portfolio') }}" class="active">Portfolio</a>
+                <a href="{{ url_for('account') }}">Account</a>
+            </div>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        </div>
+    </div>
+    
+    <div class="container dashboard">
+        <h1>Your Portfolio</h1>
+        
+        <div class="add-portfolio-item">
+            <h2>Add New Stock</h2>
+            <form id="portfolioForm" onsubmit="handleAddPortfolioItem(event)">
+                <input type="text" id="ticker" placeholder="Stock Ticker" required pattern="[A-Za-z]+" maxlength="5">
+                <input type="number" id="amount" placeholder="Amount in $" required min="0" step="0.01">
+                <button type="submit">Add to Portfolio</button>
+            </form>
+        </div>
+
+        <div class="portfolio-list">
+            <h2>Your Stocks</h2>
+            <div id="portfolioItems">
+                {% for item in portfolio_items %}
+                <div class="portfolio-item">
+                    <span class="ticker">{{ item.ticker }}</span>
+                    <span class="amount">${{ "%.2f"|format(item.amount) }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="logoutModal">
+        <div class="modal">
+            <h2>Confirm Logout</h2>
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-buttons">
+                <button onclick="confirmLogout()">Log Out</button>
+                <button class="cancel-btn" onclick="closeLogoutModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='portfolio.js') }}"></script>
+    <script src="{{ url_for('static', filename='theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='logout.js') }}"></script>
+</body>
+</html> 

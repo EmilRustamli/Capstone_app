@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <div class="nav-links">
+                <a href="{{ url_for('dashboard') }}">Home</a>
+                <a href="{{ url_for('portfolio') }}">Portfolio</a>
+                <a href="{{ url_for('account') }}" class="active">Account</a>
+            </div>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        </div>
+    </div>
+    
+    <div class="container dashboard">
+        <div class="header-actions">
+            <h1>Account Settings</h1>
+            <button id="themeToggle" class="theme-toggle">
+                <span class="light-icon">☀️</span>
+                <span class="dark-icon">🌙</span>
+            </button>
+        </div>
+        
+        <div class="account-info">
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+        </div>
+
+        <div class="password-change-section">
+            <h2>Change Password</h2>
+            <form id="passwordChangeForm" onsubmit="handlePasswordChange(event)">
+                <input type="password" placeholder="Current Password" required>
+                <input type="password" placeholder="New Password" required>
+                <input type="password" placeholder="Confirm New Password" required>
+                <button type="submit">Update Password</button>
+            </form>
+        </div>
+    </div>
+    <div class="modal-overlay" id="logoutModal">
+        <div class="modal">
+            <h2>Confirm Logout</h2>
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-buttons">
+                <button onclick="confirmLogout()">Log Out</button>
+                <button class="cancel-btn" onclick="closeLogoutModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='account.js') }}"></script>
+    <script src="{{ url_for('static', filename='logout.js') }}"></script>
+</body>
+</html> 

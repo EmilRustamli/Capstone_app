@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <div class="nav-links">
+                <a href="{{ url_for('dashboard') }}" class="active">Home</a>
+                <a href="{{ url_for('portfolio') }}">Portfolio</a>
+                <a href="{{ url_for('account') }}">Account</a>
+            </div>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        </div>
+    </div>
+    
+    <div class="container dashboard">
+        <h1>Welcome to Your Dashboard, {{ username }}!</h1>
+        <p>You have successfully logged in!</p>
+    </div>
+    <div class="modal-overlay" id="logoutModal">
+        <div class="modal">
+            <h2>Confirm Logout</h2>
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-buttons">
+                <button onclick="confirmLogout()">Log Out</button>
+                <button class="cancel-btn" onclick="closeLogoutModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='logout.js') }}"></script>
+</body>
+</html> 

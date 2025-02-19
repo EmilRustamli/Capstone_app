@@ -29,7 +29,7 @@
                     <input type="text" id="stock-ticker" placeholder="Search stocks..." autocomplete="off">
                     <div id="search-results" class="search-dropdown"></div>
                 </div>
-                <input type="number" id="stock-amount" placeholder="Amount in $">
+                <input type="number" id="stock-amount" placeholder="Amount in $" min="0" step="0.01">
                 <button id="add-to-portfolio">Add to Portfolio</button>
             </div>
         </div>
@@ -81,7 +81,7 @@
         <div class="modal">
             <h2>Edit Stock Amount</h2>
             <p>Update amount for <span id="editStockTicker"></span></p>
-            <input type="number" id="editAmount" placeholder="New amount" step="0.01">
+            <input type="number" id="editAmount" placeholder="New amount" min="0" step="0.01">
             <div class="modal-buttons">
                 <button onclick="confirmEdit()" class="primary-btn">Update</button>
                 <button onclick="closeEditModal()" class="cancel-btn">Cancel</button>
@@ -163,10 +163,15 @@
         // Handle form submission
         addButton.addEventListener('click', function() {
             const ticker = tickerInput.value.trim();
-            const amount = amountInput.value.trim();
+            const amount = parseFloat(amountInput.value.trim());
 
             if (!ticker || !amount) {
                 alert('Please fill in both fields');
+                return;
+            }
+
+            if (amount <= 0) {
+                alert('Amount must be greater than 0');
                 return;
             }
 
@@ -258,10 +263,15 @@
     }
 
     function confirmEdit() {
-        const newAmount = document.getElementById('editAmount').value;
+        const newAmount = parseFloat(document.getElementById('editAmount').value);
         
         if (!newAmount) {
             alert('Please enter an amount');
+            return;
+        }
+
+        if (newAmount <= 0) {
+            alert('Amount must be greater than 0');
             return;
         }
 

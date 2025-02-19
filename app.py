@@ -182,7 +182,12 @@ def add_portfolio_item():
     
     data = request.json
     ticker = data['ticker'].upper()
-    amount = float(data['amount'])
+    try:
+        amount = float(data['amount'])
+        if amount <= 0:
+            return jsonify({'error': 'Amount must be greater than 0'}), 400
+    except ValueError:
+        return jsonify({'error': 'Invalid amount'}), 400
     
     # Verify stock exists in company_info.json
     stock_info = get_stock_info(ticker)
@@ -332,6 +337,13 @@ def edit_portfolio_item():
         return jsonify({'error': 'Not logged in'}), 401
     
     data = request.json
+    try:
+        amount = float(data['amount'])
+        if amount <= 0:
+            return jsonify({'error': 'Amount must be greater than 0'}), 400
+    except ValueError:
+        return jsonify({'error': 'Invalid amount'}), 400
+
     user = User.query.filter_by(email=session['user_email']).first()
     
     try:
@@ -343,7 +355,7 @@ def edit_portfolio_item():
         if not item:
             return jsonify({'error': 'Item not found'}), 404
             
-        item.amount = float(data['amount'])
+        item.amount = amount
         db.session.commit()
         
         return jsonify({

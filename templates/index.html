@@ -7,19 +7,29 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <div class="tabs">
-            <button class="tab-btn active" onclick="showTab('home')">Home</button>
-            <button class="tab-btn" onclick="showTab('login')">Login</button>
-            <button class="tab-btn" onclick="showTab('register')">Register</button>
+    <div class="top-bar">
+        <div class="container">
+            <div class="nav-links">
+                <a href="#" onclick="showTab('home')" class="active" data-tab="home">Home</a>
+                <a href="#" onclick="showTab('login')" data-tab="login">Login</a>
+                <a href="#" onclick="showTab('register')" data-tab="register">Register</a>
+            </div>
+            <div class="header-actions">
+                <button id="themeToggle" class="theme-toggle">
+                    <span class="light-icon">☀️</span>
+                    <span class="dark-icon">🌙</span>
+                </button>
+            </div>
         </div>
+    </div>
 
-        <div id="home" class="tab-content active">
+    <div class="container dashboard">
+        <div class="tab-content active" id="home">
             <h1>Welcome to Our Website</h1>
-            <p>This is a simple landing page with authentication features.</p>
+            <p>Please login or register to continue.</p>
         </div>
 
-        <div id="login" class="tab-content">
+        <div class="tab-content" id="login">
             <h2>Login</h2>
             <form id="loginForm" onsubmit="handleLogin(event)">
                 <input type="email" placeholder="Email" required>
@@ -28,7 +38,7 @@
             </form>
         </div>
 
-        <div id="register" class="tab-content">
+        <div class="tab-content" id="register">
             <h2>Register</h2>
             <form id="registerForm" onsubmit="handleRegister(event)">
                 <input type="text" placeholder="Username" required>
@@ -46,6 +56,7 @@
             </div>
         </div>
     </div>
+
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <script src="{{ url_for('static', filename='theme.js') }}"></script>
 </body>

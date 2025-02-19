@@ -14,7 +14,8 @@ body {
 .tabs {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .tab-btn {
@@ -98,9 +99,9 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;  /* Consistent padding */
-    height: 100%;     /* Full height of top bar */
-    margin: 0 auto;   /* Center the container */
+    padding: 0 20px;
+    height: 100%;
+    margin: 0 auto;
 }
 
 /* Dark mode top bar */
@@ -117,7 +118,7 @@ button:hover {
 .nav-links {
     display: flex;
     gap: 20px;
-    height: 100%;     /* Full height */
+    height: 100%;
     align-items: center;
 }
 
@@ -231,10 +232,8 @@ button:hover {
 /* Theme Toggle Button */
 .header-actions {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
-    padding: 0;
+    margin-left: auto;  /* This will push it to the right */
 }
 
 .theme-toggle {
@@ -354,10 +353,8 @@ button:hover {
 /* Header actions consistent spacing */
 .header-actions {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
-    padding: 0;
+    gap: 10px;
 }
 
 /* Theme toggle button consistent positioning */
@@ -387,6 +384,10 @@ button:hover {
 
 [data-theme="dark"] .theme-toggle {
     background-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Account info and password section consistent spacing */
@@ -471,4 +472,39 @@ input {
 [data-theme="dark"] .modal-buttons .cancel-btn {
     background-color: #3a3b3c;
     color: white;
+}
+
+/* Add these styles for the logged-out page */
+[data-theme="dark"] .tab-btn {
+    background-color: #3d3d3d;
+    color: white;
+}
+
+[data-theme="dark"] .tab-btn:hover {
+    background-color: #4d4d4d;
+}
+
+[data-theme="dark"] .tab-btn.active {
+    background-color: #1877f2;
+}
+
+/* Update container spacing for logged-out page */
+.container .tab-content {
+    margin-bottom: 20px;
+}
+
+/* Ensure consistent header actions alignment */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Ensure theme toggle is visible in both modes */
+[data-theme="dark"] .theme-toggle {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 } 

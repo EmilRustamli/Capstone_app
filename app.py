@@ -182,6 +182,7 @@ def add_portfolio_item():
     
     data = request.json
     ticker = data['ticker'].upper()
+    amount = float(data['amount'])
     
     # Verify stock exists in company_info.json
     stock_info = get_stock_info(ticker)
@@ -190,24 +191,46 @@ def add_portfolio_item():
     
     user = User.query.filter_by(email=session['user_email']).first()
     
-    new_item = PortfolioItem(
+    # Check if user already has this stock
+    existing_item = PortfolioItem.query.filter_by(
         user_id=user.id,
-        ticker=ticker,
-        amount=float(data['amount'])
-    )
+        ticker=ticker
+    ).first()
     
-    db.session.add(new_item)
-    db.session.commit()
-    
-    return jsonify({
-        'message': 'Portfolio item added',
-        'item': {
-            'id': new_item.id,
-            'ticker': new_item.ticker,
-            'amount': new_item.amount,
-            'name': stock_info['name']
-        }
-    })
+    if existing_item:
+        # Update existing item's amount
+        existing_item.amount += amount
+        db.session.commit()
+        
+        return jsonify({
+            'message': 'Portfolio item updated',
+            'item': {
+                'id': existing_item.id,
+                'ticker': existing_item.ticker,
+                'amount': existing_item.amount,
+                'name': stock_info['name']
+            }
+        })
+    else:
+        # Create new item
+        new_item = PortfolioItem(
+            user_id=user.id,
+            ticker=ticker,
+            amount=amount
+        )
+        
+        db.session.add(new_item)
+        db.session.commit()
+        
+        return jsonify({
+            'message': 'Portfolio item added',
+            'item': {
+                'id': new_item.id,
+                'ticker': new_item.ticker,
+                'amount': new_item.amount,
+                'name': stock_info['name']
+            }
+        })
 
 @app.route('/forgot-password', methods=['POST'])
 def forgot_password():
@@ -253,6 +276,15 @@ def search_stocks_route():
     results = search_stocks(query)
     return jsonify(results)
 
+@app.route('/get-companies')
+def get_companies():
+    try:
+        with open('company_info.json', 'r') as f:
+            companies = json.load(f)
+        return jsonify(companies)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 # Add this function to load company info
 def get_stock_info(ticker):
     try:
@@ -278,6 +310,74 @@ def search_stocks(query):
         return results[:10]  # Return top 10 matches
     except:
         return []
+
+@app.route('/reset-portfolio', methods=['POST'])
+def reset_portfolio():
+    if 'user_email' not in session:
+        return jsonify({'error': 'Not logged in'}), 401
+    
+    try:
+        user = User.query.filter_by(email=session['user_email']).first()
+        # Delete all portfolio items for this user
+        PortfolioItem.query.filter_by(user_id=user.id).delete()
+        db.session.commit()
+        return jsonify({'message': 'Portfolio reset successfully'})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': 'Failed to reset portfolio'}), 500
+
+@app.route('/edit-portfolio-item', methods=['POST'])
+def edit_portfolio_item():
+    if 'user_email' not in session:
+        return jsonify({'error': 'Not logged in'}), 401
+    
+    data = request.json
+    user = User.query.filter_by(email=session['user_email']).first()
+    
+    try:
+        item = PortfolioItem.query.filter_by(
+            id=data['id'],
+            user_id=user.id
+        ).first()
+        
+        if not item:
+            return jsonify({'error': 'Item not found'}), 404
+            
+        item.amount = float(data['amount'])
+        db.session.commit()
+        
+        return jsonify({
+            'message': 'Portfolio item updated',
+            'amount': item.amount
+        })
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/delete-portfolio-item', methods=['POST'])
+def delete_portfolio_item():
+    if 'user_email' not in session:
+        return jsonify({'error': 'Not logged in'}), 401
+    
+    data = request.json
+    user = User.query.filter_by(email=session['user_email']).first()
+    
+    try:
+        item = PortfolioItem.query.filter_by(
+            id=data['id'],
+            user_id=user.id
+        ).first()
+        
+        if not item:
+            return jsonify({'error': 'Item not found'}), 404
+            
+        db.session.delete(item)
+        db.session.commit()
+        
+        return jsonify({'message': 'Portfolio item deleted'})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     # Create the instance folder if it doesn't exist

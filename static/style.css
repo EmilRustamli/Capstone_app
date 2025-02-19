@@ -199,6 +199,7 @@ button:hover {
 .portfolio-item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 15px;
     border-bottom: 1px solid #eee;
 }
@@ -627,4 +628,257 @@ input {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
+}
+
+.search-container {
+    position: relative;
+    flex: 1;  /* Take available space */
+    max-width: 300px;
+}
+
+/* Base dropdown styles (light mode) */
+.search-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;  /* Light mode background */
+    border: 1px solid #e0e0e0;  /* Light mode border */
+    border-radius: 4px;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Light shadow */
+}
+
+.search-result-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #e0e0e0;  /* Light mode border */
+}
+
+.search-result-item:hover {
+    background: #f5f5f5;  /* Light mode hover */
+}
+
+.search-result-item .ticker {
+    color: #1877f2;  /* Light mode blue */
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.search-result-item .company-name {
+    color: #666;  /* Light mode gray */
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] .search-dropdown {
+    background: #2a2a2a;
+    border-color: #404040;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .search-result-item {
+    border-bottom-color: #404040;
+}
+
+[data-theme="dark"] .search-result-item:hover {
+    background: #404040;
+}
+
+[data-theme="dark"] .search-result-item .ticker {
+    color: #4d9eff;
+}
+
+[data-theme="dark"] .search-result-item .company-name {
+    color: #999;
+}
+
+/* Update the search container and form layout */
+.add-stock-section {
+    padding: 20px;
+}
+
+.add-stock-form {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+#stock-amount {
+    width: 150px;  /* Fixed width for amount input */
+}
+
+#add-to-portfolio {
+    height: 42px;  /* Match input height */
+    white-space: nowrap;
+}
+
+/* Ensure dropdown appears above other elements */
+.search-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+/* Portfolio header with reset button */
+.portfolio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.reset-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.reset-button:hover {
+    background-color: #c82333;
+}
+
+/* Modal danger button */
+.danger-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.danger-btn:hover {
+    background-color: #c82333;
+}
+
+[data-theme="dark"] .reset-button {
+    background-color: #dc3545;
+}
+
+[data-theme="dark"] .reset-button:hover {
+    background-color: #c82333;
+}
+
+/* Portfolio item actions */
+.portfolio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.item-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #666;
+    transition: all 0.2s;
+}
+
+.edit-btn:hover {
+    color: #1877f2;
+    background-color: rgba(24, 119, 242, 0.1);
+}
+
+.delete-btn:hover {
+    color: #dc3545;
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+/* Dark mode styles */
+[data-theme="dark"] .action-btn {
+    color: #999;
+    background-color: transparent !important;  /* Force transparent background */
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Only show background on hover in dark mode */
+[data-theme="dark"] .edit-btn:hover {
+    color: #4d9eff;
+    background-color: #2d2d2d !important;  /* Slightly lighter than the row background */
+}
+
+[data-theme="dark"] .delete-btn:hover {
+    color: #ff4d4d;
+    background-color: #2d2d2d !important;
+}
+
+/* Remove any focus effects in dark mode */
+[data-theme="dark"] .action-btn:focus,
+[data-theme="dark"] .action-btn:active,
+[data-theme="dark"] .action-btn:focus-visible {
+    background-color: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Ensure no outline or shadow on any state */
+[data-theme="dark"] .action-btn * {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Update modal input styling */
+#editAmount {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+[data-theme="dark"] #editAmount {
+    background-color: #3d3d3d;
+    border-color: #4d4d4d;
+    color: white;
+}
+
+/* Remove ALL button and input focus effects in dark mode */
+[data-theme="dark"] button,
+[data-theme="dark"] input,
+[data-theme="dark"] .action-btn,
+[data-theme="dark"] .edit-btn,
+[data-theme="dark"] .delete-btn {
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+[data-theme="dark"] button:focus,
+[data-theme="dark"] input:focus,
+[data-theme="dark"] .action-btn:focus,
+[data-theme="dark"] .edit-btn:focus,
+[data-theme="dark"] .delete-btn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+[data-theme="dark"] *:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Ensure buttons maintain their hover states without focus effects */
+[data-theme="dark"] .action-btn:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
 } 

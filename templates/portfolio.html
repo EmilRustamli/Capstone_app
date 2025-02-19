@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="top-bar">
@@ -21,22 +22,36 @@
     <div class="container dashboard">
         <h1>Your Portfolio</h1>
         
-        <div class="add-portfolio-item">
+        <div class="add-stock-section">
             <h2>Add New Stock</h2>
-            <form id="portfolioForm" onsubmit="handleAddPortfolioItem(event)">
-                <input type="text" id="ticker" placeholder="Stock Ticker" required pattern="[A-Za-z]+" maxlength="5">
-                <input type="number" id="amount" placeholder="Amount in $" required min="0" step="0.01">
-                <button type="submit">Add to Portfolio</button>
-            </form>
+            <div class="add-stock-form">
+                <div class="search-container">
+                    <input type="text" id="stock-ticker" placeholder="Search stocks..." autocomplete="off">
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+                <input type="number" id="stock-amount" placeholder="Amount in $">
+                <button id="add-to-portfolio">Add to Portfolio</button>
+            </div>
         </div>
 
         <div class="portfolio-list">
-            <h2>Your Stocks</h2>
+            <div class="portfolio-header">
+                <h2>Your Stocks</h2>
+                <button id="reset-portfolio" class="reset-button">Reset Portfolio</button>
+            </div>
             <div id="portfolioItems">
                 {% for item in portfolio_items %}
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-id="{{ item.id }}">
                     <span class="ticker">{{ item.ticker }}</span>
                     <span class="amount">${{ "%.2f"|format(item.amount) }}</span>
+                    <div class="item-actions">
+                        <button class="action-btn edit-btn" onclick="showEditModal('{{ item.id }}', '{{ item.ticker }}', {{ item.amount }})">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="action-btn delete-btn" onclick="showDeleteModal('{{ item.id }}', '{{ item.ticker }}')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
@@ -52,8 +67,281 @@
             </div>
         </div>
     </div>
+    <div class="modal-overlay" id="resetModal">
+        <div class="modal">
+            <h2>Confirm Reset</h2>
+            <p>Are you sure you want to reset your portfolio? This action cannot be undone.</p>
+            <div class="modal-buttons">
+                <button onclick="confirmReset()" class="danger-btn">Reset Portfolio</button>
+                <button onclick="closeResetModal()" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="editModal">
+        <div class="modal">
+            <h2>Edit Stock Amount</h2>
+            <p>Update amount for <span id="editStockTicker"></span></p>
+            <input type="number" id="editAmount" placeholder="New amount" step="0.01">
+            <div class="modal-buttons">
+                <button onclick="confirmEdit()" class="primary-btn">Update</button>
+                <button onclick="closeEditModal()" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal">
+            <h2>Delete Stock</h2>
+            <p>Are you sure you want to delete <span id="deleteStockTicker"></span> from your portfolio?</p>
+            <div class="modal-buttons">
+                <button onclick="confirmDelete()" class="danger-btn">Delete</button>
+                <button onclick="closeDeleteModal()" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
     <script src="{{ url_for('static', filename='portfolio.js') }}"></script>
     <script src="{{ url_for('static', filename='theme.js') }}"></script>
     <script src="{{ url_for('static', filename='logout.js') }}"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tickerInput = document.getElementById('stock-ticker');
+        const searchResults = document.getElementById('search-results');
+        const amountInput = document.getElementById('stock-amount');
+        const addButton = document.getElementById('add-to-portfolio');
+
+        let companies = null;
+
+        // Fetch company info when page loads
+        fetch('/get-companies')
+            .then(response => response.json())
+            .then(data => {
+                companies = data;
+            })
+            .catch(error => console.error('Error loading companies:', error));
+
+        // Handle input changes for search
+        tickerInput.addEventListener('input', function() {
+            const query = this.value.trim();
+            if (query.length > 0) {
+                fetch(`/search-stocks?q=${encodeURIComponent(query)}`)
+                    .then(response => response.json())
+                    .then(results => {
+                        displaySearchResults(results);
+                    })
+                    .catch(error => console.error('Error searching stocks:', error));
+            } else {
+                searchResults.style.display = 'none';
+            }
+        });
+
+        function displaySearchResults(results) {
+            searchResults.innerHTML = '';
+            
+            results.forEach(result => {
+                const div = document.createElement('div');
+                div.className = 'search-result-item';
+                div.innerHTML = `
+                    <div class="ticker">${result.ticker}</div>
+                    <div class="company-name">${result.name}</div>
+                `;
+                div.onclick = () => {
+                    tickerInput.value = result.ticker;
+                    searchResults.style.display = 'none';
+                };
+                searchResults.appendChild(div);
+            });
+            
+            searchResults.style.display = results.length > 0 ? 'block' : 'none';
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!searchResults.contains(e.target) && e.target !== tickerInput) {
+                searchResults.style.display = 'none';
+            }
+        });
+
+        // Handle form submission
+        addButton.addEventListener('click', function() {
+            const ticker = tickerInput.value.trim();
+            const amount = amountInput.value.trim();
+
+            if (!ticker || !amount) {
+                alert('Please fill in both fields');
+                return;
+            }
+
+            fetch('/add-portfolio-item', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ticker: ticker,
+                    amount: amount
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    // Refresh the page or update the portfolio list
+                    location.reload();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while adding the stock');
+            });
+        });
+    });
+
+    const resetModal = document.getElementById('resetModal');
+    const resetButton = document.getElementById('reset-portfolio');
+
+    resetButton.addEventListener('click', function() {
+        resetModal.style.display = 'flex';
+    });
+
+    function closeResetModal() {
+        resetModal.style.display = 'none';
+    }
+
+    function confirmReset() {
+        fetch('/reset-portfolio', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error);
+            } else {
+                location.reload(); // Refresh the page to show empty portfolio
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while resetting the portfolio');
+        })
+        .finally(() => {
+            closeResetModal();
+        });
+    }
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function(e) {
+        if (e.target === resetModal) {
+            closeResetModal();
+        }
+    });
+
+    // Add these variables and functions after your existing script
+    let currentEditId = null;
+    let currentDeleteId = null;
+
+    const editModal = document.getElementById('editModal');
+    const deleteModal = document.getElementById('deleteModal');
+
+    function showEditModal(id, ticker, amount) {
+        currentEditId = id;
+        document.getElementById('editStockTicker').textContent = ticker;
+        document.getElementById('editAmount').value = amount;
+        editModal.style.display = 'flex';
+    }
+
+    function closeEditModal() {
+        editModal.style.display = 'none';
+        currentEditId = null;
+    }
+
+    function confirmEdit() {
+        const newAmount = document.getElementById('editAmount').value;
+        
+        if (!newAmount) {
+            alert('Please enter an amount');
+            return;
+        }
+
+        fetch('/edit-portfolio-item', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: currentEditId,
+                amount: newAmount
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error);
+            } else {
+                location.reload();
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while updating the stock');
+        })
+        .finally(() => {
+            closeEditModal();
+        });
+    }
+
+    function showDeleteModal(id, ticker) {
+        currentDeleteId = id;
+        document.getElementById('deleteStockTicker').textContent = ticker;
+        deleteModal.style.display = 'flex';
+    }
+
+    function closeDeleteModal() {
+        deleteModal.style.display = 'none';
+        currentDeleteId = null;
+    }
+
+    function confirmDelete() {
+        fetch('/delete-portfolio-item', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: currentDeleteId
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error);
+            } else {
+                location.reload();
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while deleting the stock');
+        })
+        .finally(() => {
+            closeDeleteModal();
+        });
+    }
+
+    // Update your existing window click handler to include these modals
+    window.addEventListener('click', function(e) {
+        if (e.target === resetModal) {
+            closeResetModal();
+        }
+        if (e.target === editModal) {
+            closeEditModal();
+        }
+        if (e.target === deleteModal) {
+            closeDeleteModal();
+        }
+    });
+    </script>
 </body>
 </html> 

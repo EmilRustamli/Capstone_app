@@ -5,6 +5,7 @@ import secrets
 import random
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
+import json
 
 app = Flask(__name__)
 mail = Mail(app)
@@ -18,7 +19,7 @@ app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = 'rustamliemiluni@gmail.com'
-app.config['MAIL_PASSWORD'] = 'ganh bjho orkp tkkw'  # You'll need to generate this from Google Account
+app.config['MAIL_PASSWORD'] = 'ganh bjho orkp tkkw'  # From personal google account
 
 # Add this near the top with other configurations
 app.config['SECRET_KEY'] = secrets.token_hex(16)
@@ -180,11 +181,18 @@ def add_portfolio_item():
         return jsonify({'error': 'Not logged in'}), 401
     
     data = request.json
+    ticker = data['ticker'].upper()
+    
+    # Verify stock exists in company_info.json
+    stock_info = get_stock_info(ticker)
+    if not stock_info:
+        return jsonify({'error': 'Invalid stock ticker'}), 400
+    
     user = User.query.filter_by(email=session['user_email']).first()
     
     new_item = PortfolioItem(
         user_id=user.id,
-        ticker=data['ticker'].upper(),
+        ticker=ticker,
         amount=float(data['amount'])
     )
     
@@ -196,7 +204,8 @@ def add_portfolio_item():
         'item': {
             'id': new_item.id,
             'ticker': new_item.ticker,
-            'amount': new_item.amount
+            'amount': new_item.amount,
+            'name': stock_info['name']
         }
     })
 
@@ -234,6 +243,41 @@ def reset_password():
         return jsonify({'message': 'Password reset successful! You can now login.'})
     
     return jsonify({'error': 'Invalid code'}), 400
+
+@app.route('/search-stocks')
+def search_stocks_route():
+    query = request.args.get('q', '').strip()
+    if not query:
+        return jsonify([])
+    
+    results = search_stocks(query)
+    return jsonify(results)
+
+# Add this function to load company info
+def get_stock_info(ticker):
+    try:
+        with open('company_info.json', 'r') as f:
+            company_info = json.load(f)
+        return company_info.get(ticker.upper())
+    except:
+        return None
+
+def search_stocks(query):
+    try:
+        with open('company_info.json', 'r') as f:
+            company_info = json.load(f)
+        
+        query = query.upper()
+        results = []
+        for ticker, info in company_info.items():
+            if query in ticker.upper() or query in info['name'].upper():
+                results.append({
+                    'ticker': ticker,
+                    'name': info['name']
+                })
+        return results[:10]  # Return top 10 matches
+    except:
+        return []
 
 if __name__ == '__main__':
     # Create the instance folder if it doesn't exist

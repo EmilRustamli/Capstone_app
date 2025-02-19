@@ -184,4 +184,10 @@ async function handleResetPassword(event) {
     } catch (error) {
         alert('An error occurred. Please try again.');
     }
+}
+
+function backToLogin() {
+    document.getElementById('forgotPasswordDiv').style.display = 'none';
+    document.getElementById('resetPasswordDiv').style.display = 'none';
+    document.getElementById('loginForm').style.display = 'block';
 } 

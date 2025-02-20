@@ -9,9 +9,15 @@ import json
 from stock_downloader import TOP_TICKERS  # Only import TOP_TICKERS
 import yfinance as yf
 import logging
+from datetime import datetime, timedelta
+import numpy as np
+import pandas as pd
+from scipy.stats import norm
+from flask_session import Session  # Add this to requirements.txt
+import time
+from sklearn.linear_model import LinearRegression
 
 app = Flask(__name__)
-mail = Mail(app)
 
 # Configure SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
@@ -24,14 +30,20 @@ app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = 'rustamliemiluni@gmail.com'
 app.config['MAIL_PASSWORD'] = 'ganh bjho orkp tkkw'  # From personal google account
 
-# Add this near the top with other configurations
+# Session and Security configurations
 app.config['SECRET_KEY'] = secrets.token_hex(16)
+app.config['SESSION_TYPE'] = 'filesystem'
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
+app.config['SESSION_COOKIE_SECURE'] = False
+app.config['SESSION_COOKIE_HTTPONLY'] = True
 
+# Initialize extensions
 db = SQLAlchemy(app)
+mail = Mail(app)
+Session(app)  # Initialize Flask-Session here
 
-# Initialize mail after all configurations
-mail.init_app(app)
-
+# Initialize logging
+logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 class User(db.Model):
@@ -50,8 +62,107 @@ class PortfolioItem(db.Model):
     
     user = db.relationship('User', backref=db.backref('portfolio_items', lazy=True))
 
+class Portfolio:
+    # Class-level attributes to store data
+    stock_data = pd.DataFrame()
+
+    @classmethod
+    def load_data(cls, csv_path):
+        """Load pre-downloaded stock data from a CSV file."""
+        cls.stock_data = pd.read_csv(csv_path, index_col=0, parse_dates=True)
+
+    def __init__(self, tickers, weights, start_date, end_date):
+        self.tickers = tickers
+        self.weights = np.array(weights)
+        self.start_date = start_date
+        self.end_date = end_date
+        self.data = self._fetch_data()
+        self.returns = self.data.pct_change().dropna()
+        self.benchmark_returns = self._fetch_benchmark()
+
+    def _fetch_data(self):
+        """Filter the preloaded data for the selected tickers and date range."""
+        if Portfolio.stock_data.empty:
+            raise ValueError("Stock data is not loaded. Use Portfolio.load_data(csv_path) first")
+
+        filtered_data = Portfolio.stock_data.loc[self.start_date:self.end_date, self.tickers]
+        if filtered_data.isnull().values.any():
+            raise ValueError("Missing data for selected tickers in the specified date range.")
+        return filtered_data
+
+    def _fetch_benchmark(self):
+        """Simulate a benchmark by averaging returns of all loaded stocks."""
+        benchmark = Portfolio.stock_data.mean(axis=1).loc[self.start_date:self.end_date]
+        return benchmark.pct_change().dropna().values.reshape(-1, 1)
+
+    def get_risk_metrics(self):
+        return {
+            'Annualized Return': self.calculate_annualized_return() * 100,
+            'Annualized Volatility': self.calculate_annualized_volatility() * 100,
+            'R²': self.calculate_r_squared() * 100,
+            'Idiosyncratic Risk': self.calculate_idiosyncratic_risk() * 100,
+            'VaR': self.calculate_var() * 100,
+            'CVaR': self.calculate_cvar() * 100
+        }
+
+    def calculate_portfolio_return_series(self):
+        return self.returns.dot(self.weights)
+
+    def calculate_annualized_return(self):
+        daily_return = np.dot(self.weights, self.returns.mean())
+        return daily_return * 252
+
+    def calculate_annualized_volatility(self):
+        covariance_matrix = self.returns.cov() * 252
+        portfolio_variance = np.dot(self.weights.T, np.dot(covariance_matrix, self.weights))
+        return np.sqrt(portfolio_variance)
+
+    def calculate_r_squared(self):
+        port_ret_series = self.calculate_portfolio_return_series()
+        lin_reg = LinearRegression().fit(self.benchmark_returns, port_ret_series.values.reshape(-1, 1))
+        return lin_reg.score(self.benchmark_returns, port_ret_series.values.reshape(-1, 1))
+
+    def calculate_idiosyncratic_risk(self):
+        port_ret_series = self.calculate_portfolio_return_series()
+        lin_reg = LinearRegression().fit(self.benchmark_returns, port_ret_series.values.reshape(-1, 1))
+        residuals = port_ret_series.values - (self.benchmark_returns.flatten() * lin_reg.coef_[0][0] + lin_reg.intercept_[0])
+        return np.std(residuals)
+
+    def calculate_var(self, confidence_level=0.95):
+        portfolio_mean = self.calculate_annualized_return() / 252
+        portfolio_std = self.calculate_annualized_volatility() / np.sqrt(252)
+        z_score = norm.ppf(1 - confidence_level)
+        return -(portfolio_mean + z_score * portfolio_std) * np.sqrt(252)
+
+    def calculate_cvar(self, confidence_level=0.95):
+        portfolio_mean = self.calculate_annualized_return() / 252
+        portfolio_std = self.calculate_annualized_volatility() / np.sqrt(252)
+        z_score = norm.ppf(1 - confidence_level)
+        conditional_var = portfolio_mean + portfolio_std * (norm.pdf(z_score) / (1 - confidence_level))
+        return -conditional_var * np.sqrt(252)
+
+    def explain_risk_metrics(self):
+        metrics = self.get_risk_metrics()
+        return {
+            'Annualized Return': f"Expected yearly return based on historical data.",
+            'Annualized Volatility': f"Expected risk or variability in portfolio returns over a year.",
+            'R²': f"Proportion of portfolio variance due to market movements.",
+            'Idiosyncratic Risk': f"Unique portfolio risk not explained by the market.",
+            'VaR': f"Maximum potential loss over a specified period with a 95% confidence.",
+            'CVaR': f"Average loss expected in the worst 5% of scenarios."
+        }
+
+# Load the data when app starts
+try:
+    Portfolio.load_data('stock_data.csv')
+    print("Successfully loaded stock data")
+except Exception as e:
+    print(f"Error loading stock data: {str(e)}")
+
 @app.route('/')
 def home():
+    if 'user_email' in session:
+        return redirect(url_for('dashboard'))
     return render_template('index.html')
 
 @app.route('/register', methods=['POST'])
@@ -459,13 +570,82 @@ def get_all_companies():
         print(f"Error loading companies: {str(e)}")
         return {}
 
+@app.route('/evaluate-portfolio', methods=['POST'])
+def evaluate_portfolio():
+    if 'user_email' not in session:
+        return jsonify({'error': 'Not logged in'}), 401
+    
+    try:
+        data = request.json
+        # Convert dates to YYYY-MM-DD format
+        try:
+            start_date = pd.to_datetime(data['start_date']).strftime('%Y-%m-%d')
+            end_date = pd.to_datetime(data['end_date']).strftime('%Y-%m-%-d')
+            print(f"Evaluating portfolio from {start_date} to {end_date}")
+        except Exception as e:
+            print(f"Date error: {str(e)}")
+            return jsonify({'error': 'Please use YYYY-MM-DD date format'}), 400
+
+        # Get user's portfolio
+        user = User.query.filter_by(email=session['user_email']).first()
+        portfolio_items = PortfolioItem.query.filter_by(user_id=user.id).all()
+        
+        if not portfolio_items:
+            return jsonify({'error': 'Portfolio is empty'}), 400
+
+        # Create portfolio dictionary treating amounts as share numbers
+        portfolio_input = {}
+        for item in portfolio_items:
+            # Use amount as share count (ignoring $ value)
+            portfolio_input[item.ticker] = int(item.amount)
+
+        print(f"Portfolio to evaluate: {portfolio_input}")
+
+        # Calculate weights based on share counts
+        tickers = list(portfolio_input.keys())
+        shares = list(portfolio_input.values())
+        total_shares = sum(shares)
+        weights = [share / total_shares for share in shares]
+
+        try:
+            portfolio = Portfolio(tickers, weights, start_date, end_date)
+            risk_metrics = portfolio.get_risk_metrics()
+            explanations = portfolio.explain_risk_metrics()
+            
+            print(f"Evaluation successful. Metrics: {risk_metrics}")
+            
+            return jsonify({
+                'metrics': risk_metrics,
+                'explanations': explanations
+            })
+            
+        except ValueError as e:
+            print(f"Portfolio evaluation error: {str(e)}")
+            return jsonify({'error': str(e)}), 400
+            
+    except Exception as e:
+        print(f"General error: {str(e)}")
+        return jsonify({'error': 'Failed to evaluate portfolio'}), 500
+
+@app.errorhandler(403)
+def forbidden_error(error):
+    session.clear()  # Clear any corrupted session
+    return redirect(url_for('home'))
+
+@app.errorhandler(500)
+def internal_error(error):
+    db.session.rollback()  # Rollback any failed database transactions
+    return jsonify({'error': str(error)}), 500
+
 if __name__ == '__main__':
-    # Create the instance folder if it doesn't exist
+    # Create necessary directories
     if not os.path.exists('instance'):
         os.makedirs('instance')
+    if not os.path.exists('flask_session'):
+        os.makedirs('flask_session')
     
-    # Only create tables if they don't exist
+    # Initialize database
     with app.app_context():
         db.create_all()
     
-    app.run(debug=True) 
+    app.run(debug=True, port=5001) 

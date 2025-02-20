@@ -31,16 +31,17 @@
         </div>
 
         <div id="market-view" class="view-container">
-            <div class="stocks-grid"></div>
+            <div class="market-stocks-grid stocks-grid"></div>
             <div class="pagination">
-                <button onclick="changePage(1)" class="page-btn active">1</button>
-                <button onclick="changePage(2)" class="page-btn">2</button>
-                <button onclick="changePage(3)" class="page-btn">3</button>
+                <button onclick="changePage(1, 'market')" class="market-page-btn page-btn active">1</button>
+                <button onclick="changePage(2, 'market')" class="market-page-btn page-btn">2</button>
+                <button onclick="changePage(3, 'market')" class="market-page-btn page-btn">3</button>
             </div>
         </div>
 
         <div id="portfolio-view" class="view-container" style="display: none;">
-            <p class="empty-message">Visit the Portfolio page to manage your stocks.</p>
+            <div class="portfolio-stocks-grid stocks-grid"></div>
+            <div class="pagination"></div>
         </div>
     </div>
 
@@ -62,26 +63,47 @@
         let currentPage = 1;
         const stocksPerPage = 4;
         let allStocks = [];
+        let portfolioStocks = [];
 
-        // Initial load
+        // Initial load of both market and portfolio data
         fetch('/get-top-stocks')
             .then(response => response.json())
             .then(data => {
                 allStocks = data;
-                displayStocksPage(1);
+                displayStocksPage(1, 'market');
             })
             .catch(error => console.error('Error:', error));
 
-        function displayStocksPage(page) {
-            const stocksGrid = document.querySelector('.stocks-grid');
+        fetch('/get-portfolio-stocks')
+            .then(response => response.json())
+            .then(data => {
+                portfolioStocks = data;
+                displayStocksPage(1, 'portfolio');
+            })
+            .catch(error => console.error('Error:', error));
+
+        function displayStocksPage(page, view) {
+            const stocksPerPage = 4;  // Force 4 stocks per page
+            const stocksGrid = document.querySelector(`.${view}-stocks-grid`);
+            const stocks = view === 'market' ? allStocks : portfolioStocks;
             const start = (page - 1) * stocksPerPage;
-            const end = start + stocksPerPage;
-            const pageStocks = allStocks.slice(start, end);
+            const end = Math.min(start + stocksPerPage, stocks.length);  // Ensure we don't take more than 4
+            const pageStocks = stocks.slice(start, end);
+
+            if (pageStocks.length === 0) {
+                stocksGrid.innerHTML = '<p class="empty-message">No stocks in your portfolio. Visit the Portfolio page to add stocks.</p>';
+                return;
+            }
 
             stocksGrid.innerHTML = pageStocks.map(stock => {
                 const changeNum = parseFloat(stock.change);
                 const changeColor = changeNum >= 0 ? '#00873c' : '#ff333a';
                 const changeSign = changeNum >= 0 ? '+' : '';
+                
+                let amountInfo = '';
+                if (view === 'portfolio') {
+                    amountInfo = `<div class="stock-amount">Amount: $${stock.amount}</div>`;
+                }
                 
                 return `
                     <div class="stock-card">
@@ -96,22 +118,42 @@
                         </div>
                         <div class="stock-name">${stock.name}</div>
                         <div class="stock-market-cap">Market Cap: $${stock.marketCap}B</div>
+                        ${amountInfo}
                     </div>
                 `;
             }).join('');
 
             // Update pagination buttons
-            document.querySelectorAll('.page-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (parseInt(btn.textContent) === page) {
-                    btn.classList.add('active');
+            const paginationDiv = stocksGrid.nextElementSibling;
+            if (view === 'market') {
+                // Update market view pagination
+                document.querySelectorAll('.market-page-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (parseInt(btn.textContent) === page) {
+                        btn.classList.add('active');
+                    }
+                });
+            } else {
+                // Update portfolio view pagination
+                const totalPages = Math.ceil(stocks.length / stocksPerPage);
+                if (totalPages <= 1) {
+                    paginationDiv.style.display = 'none';
+                } else {
+                    paginationDiv.style.display = 'flex';
+                    paginationDiv.innerHTML = Array.from({length: totalPages}, (_, i) => i + 1)
+                        .map(pageNum => `
+                            <button onclick="changePage(${pageNum}, 'portfolio')" 
+                                    class="portfolio-page-btn page-btn ${pageNum === page ? 'active' : ''}">
+                                ${pageNum}
+                            </button>
+                        `).join('');
                 }
-            });
+            }
         }
 
-        function changePage(page) {
-            currentPage = page;
-            displayStocksPage(page);
+        function changePage(page, view) {
+            currentPage = page;  // Update the current page
+            displayStocksPage(page, view);
         }
 
         function switchView(view) {
@@ -125,10 +167,12 @@
                 marketView.style.display = 'block';
                 portfolioView.style.display = 'none';
                 buttons[0].classList.add('active');
+                displayStocksPage(1, 'market');
             } else {
                 marketView.style.display = 'none';
                 portfolioView.style.display = 'block';
                 buttons[1].classList.add('active');
+                displayStocksPage(1, 'portfolio');
             }
         }
     </script>

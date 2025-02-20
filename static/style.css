@@ -920,13 +920,13 @@ input {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .stock-card {
-    background-color: white;
+    background: white;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -982,7 +982,7 @@ input {
 .empty-message {
     text-align: center;
     color: #666;
-    margin-top: 40px;
+    padding: 20px;
 }
 
 /* Dark mode styles */
@@ -1047,5 +1047,19 @@ input {
 }
 
 [data-theme="dark"] #last-updated {
+    color: #999;
+}
+
+.stock-amount {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 4px;
+}
+
+[data-theme="dark"] .stock-amount {
+    color: #999;
+}
+
+[data-theme="dark"] .empty-message {
     color: #999;
 } 

@@ -6,7 +6,9 @@ import random
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 import json
-from stock_api import update_stock_prices
+from stock_downloader import TOP_TICKERS  # Only import TOP_TICKERS
+import yfinance as yf
+import logging
 
 app = Flask(__name__)
 mail = Mail(app)
@@ -29,6 +31,8 @@ db = SQLAlchemy(app)
 
 # Initialize mail after all configurations
 mail.init_app(app)
+
+logger = logging.getLogger(__name__)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -398,16 +402,62 @@ def get_top_stocks():
         with open('company_info.json', 'r') as f:
             companies = json.load(f)
         
-        # Sort companies by market cap and get top 12
-        top_companies = sorted(
-            [{'ticker': k, **v} for k, v in companies.items()],
-            key=lambda x: float(x.get('marketCap', 0)),
-            reverse=True
-        )[:12]
+        # Debug: Print all TOP_TICKERS and which ones are missing
+        logger.info(f"Looking for these tickers: {TOP_TICKERS}")
+        missing_tickers = [t for t in TOP_TICKERS if t not in companies]
+        if missing_tickers:
+            logger.warning(f"Missing tickers in company_info.json: {missing_tickers}")
         
+        # Get info for our predefined TOP_TICKERS in the exact order
+        top_companies = []
+        for ticker in TOP_TICKERS:
+            if ticker in companies:
+                company_data = companies[ticker].copy()
+                company_data['ticker'] = ticker
+                top_companies.append(company_data)
+                logger.info(f"Added {ticker} to top companies")
+            else:
+                logger.warning(f"Ticker {ticker} not found in company_info.json")
+        
+        logger.info(f"Returning {len(top_companies)} top companies out of {len(TOP_TICKERS)} total")
         return jsonify(top_companies)
     except Exception as e:
+        logger.error(f"Error in get_top_stocks: {str(e)}")
         return jsonify({'error': str(e)}), 500
+
+@app.route('/get-portfolio-stocks')
+def get_portfolio_stocks():
+    if 'user_email' not in session:
+        return jsonify([])
+    
+    try:
+        user = User.query.filter_by(email=session['user_email']).first()
+        portfolio_items = PortfolioItem.query.filter_by(user_id=user.id).all()
+        
+        # Get stock info from company_info.json
+        with open('company_info.json', 'r') as f:
+            company_info = json.load(f)
+        
+        portfolio_stocks = []
+        for item in portfolio_items:
+            if item.ticker in company_info:
+                stock_info = company_info[item.ticker].copy()
+                stock_info['amount'] = item.amount  # Add amount owned
+                portfolio_stocks.append(stock_info)
+        
+        return jsonify(portfolio_stocks)
+    except Exception as e:
+        print(f"Error getting portfolio stocks: {str(e)}")
+        return jsonify([])
+
+# Add this helper function to get companies data
+def get_all_companies():
+    try:
+        with open('company_info.json', 'r') as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"Error loading companies: {str(e)}")
+        return {}
 
 if __name__ == '__main__':
     # Create the instance folder if it doesn't exist

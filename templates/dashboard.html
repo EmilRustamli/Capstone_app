@@ -77,7 +77,8 @@
         fetch('/get-top-stocks')
             .then(response => response.json())
             .then(data => {
-                allStocks = data;
+                // Sort stocks by market cap in descending order
+                allStocks = data.sort((a, b) => parseFloat(b.marketCap) - parseFloat(a.marketCap));
                 displayStocksPage(1, 'market');
             })
             .catch(error => console.error('Error:', error));
@@ -85,10 +86,26 @@
         fetch('/get-portfolio-stocks')
             .then(response => response.json())
             .then(data => {
-                portfolioStocks = data;
+                // Sort portfolio stocks by market cap as well
+                portfolioStocks = data.sort((a, b) => parseFloat(b.marketCap) - parseFloat(a.marketCap));
                 displayStocksPage(1, 'portfolio');
             })
             .catch(error => console.error('Error:', error));
+
+        function formatMarketCap(marketCap) {
+            const num = parseFloat(marketCap);
+            if (num >= 1e12) {
+                return `$${(num / 1e12).toFixed(1)}T`;
+            } else if (num >= 1e9) {
+                return `$${(num / 1e9).toFixed(1)}B`;
+            } else if (num >= 1e6) {
+                return `$${(num / 1e6).toFixed(1)}M`;
+            } else if (num >= 1e3) {
+                return `$${(num / 1e3).toFixed(1)}K`;
+            } else {
+                return `$${num.toFixed(1)}`;
+            }
+        }
 
         function displayStocksPage(page, view) {
             const stocksGrid = document.querySelector(`.${view}-stocks-grid`);
@@ -128,7 +145,7 @@
                             </div>
                         </div>
                         <div class="stock-market-cap">
-                            Market Cap: $${(parseFloat(stock.marketCap)/1000).toFixed(1)}B
+                            Market Cap: ${formatMarketCap(stock.marketCap)}
                         </div>
                         ${view === 'portfolio' ? `
                             <div class="stock-amount">

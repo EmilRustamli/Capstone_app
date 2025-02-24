@@ -6,7 +6,7 @@ import random
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 import json
-from stock_utils import fetch_stock_data, update_stock_data
+#from stock_utils import fetch_stock_data, update_stock_data
 import yfinance as yf
 import logging
 from datetime import datetime, timedelta
@@ -16,6 +16,9 @@ from scipy.stats import norm
 from flask_session import Session  # Add this to requirements.txt
 import time
 from sklearn.linear_model import LinearRegression
+import schedule
+import threading
+import pytz
 
 app = Flask(__name__)
 
@@ -48,7 +51,91 @@ logger = logging.getLogger(__name__)
 
 # Define TOP_TICKERS here since we're not using stock_downloader anymore
 TOP_TICKERS = ['AAPL', 'NVDA', 'MSFT', 'AMZN', 'GOOG', 'META', 
-               'TSLA', 'AVGO', 'BRK-B', 'TSM', 'WMT']
+               'TSLA', 'AVGO', 'BRK-B', 'TSM', 'WMT', '2222.SR']
+
+# Load tickers from CSV
+def load_tickers():
+    df = pd.read_csv('updated_tickers.csv')
+    # Get the first column, regardless of its name
+    return df.iloc[:, 0].tolist()
+
+# Get all tickers we want to track
+ALL_STOCKS = load_tickers()
+
+def fetch_stock_data(ticker):
+    """
+    Fetches stock data for a single ticker.
+    Returns a dictionary with ticker, name, price, marketCap, and change (%) for today.
+    """
+    try:
+        stock = yf.Ticker(ticker)
+        info = stock.info
+        name = info.get('longName', info.get('shortName', 'N/A'))
+        data = {
+            "name": name,
+            "price": info.get('regularMarketPrice', 'N/A'),
+            "marketCap": info.get('marketCap', 'N/A'),
+            "change": info.get('regularMarketChangePercent', 'N/A')
+        }
+        return data
+    except Exception as e:
+        logger.error(f"Error fetching data for {ticker}: {e}")
+        return {
+            "name": "N/A",
+            "price": "N/A",
+            "marketCap": "N/A",
+            "change": "N/A"
+        }
+
+def update_stock_data(tickers):
+    """Updates the company_info.json with new data for the given tickers."""
+    try:
+        # Load existing data if file exists
+        try:
+            with open('company_info.json', 'r') as f:
+                company_info = json.load(f)
+        except FileNotFoundError:
+            company_info = {}
+
+        # Update each ticker
+        for ticker in tickers:
+            company_info[ticker] = fetch_stock_data(ticker)
+            logger.info(f"Updated {ticker}")
+            time.sleep(1)  # Rate limiting
+
+        # Save updated data
+        with open('company_info.json', 'w') as f:
+            json.dump(company_info, f, indent=4)
+        
+        logger.info(f"Updated {len(tickers)} stocks")
+    except Exception as e:
+        logger.error(f"Error in update_stock_data: {e}")
+
+def update_major_stocks():
+    """Update major stocks every 15 minutes."""
+    logger.info(f"{datetime.now()}: Updating major stocks...")
+    update_stock_data(TOP_TICKERS)
+
+def update_all_stocks_job():
+    """Update all stocks from updated_tickers.csv."""
+    et = pytz.timezone('US/Eastern')
+    now_et = datetime.now(et)
+    logger.info(f"{now_et.strftime('%Y-%m-%d %H:%M:%S')} ET: Updating all stocks...")
+    update_stock_data(ALL_STOCKS)
+
+def run_scheduler():
+    """Run the scheduler in a separate thread."""
+    # Schedule major stocks update every 15 minutes
+    schedule.every(15).minutes.do(update_major_stocks)
+    
+    # Schedule all stocks update at market open and close (ET)
+    for day in ["monday", "tuesday", "wednesday", "thursday", "friday"]:
+        getattr(schedule.every(), day).at("09:30").do(update_all_stocks_job)
+        getattr(schedule.every(), day).at("16:00").do(update_all_stocks_job)
+    
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -330,11 +417,11 @@ def add_portfolio_item():
         ticker = data['ticker'].upper()
         amount = float(data['amount'])
         
-        # Check if ticker exists in company_info.json
-        with open('company_info.json', 'r') as f:
-            company_info = json.load(f)
+        # Check if ticker exists in stock_data.json
+        with open('stock_data.json', 'r') as f:
+            stock_data = json.load(f)
         
-        if ticker not in company_info:
+        if ticker not in stock_data:
             return jsonify({'error': 'Invalid ticker symbol'}), 400
 
         user = User.query.filter_by(email=session['user_email']).first()
@@ -431,7 +518,7 @@ def get_stock_info(ticker):
 
 def search_stocks(query):
     try:
-        with open('company_info.json', 'r') as f:
+        with open('stock_data.json', 'r') as f:
             company_info = json.load(f)
         
         query = query.upper()
@@ -524,7 +611,7 @@ def delete_portfolio_item():
 @app.route('/get-top-stocks')
 def get_top_stocks():
     try:
-        with open('company_info.json', 'r') as f:
+        with open('stock_data.json', 'r') as f:
             companies = json.load(f)
         
         # Debug: Print all TOP_TICKERS and which ones are missing
@@ -535,7 +622,6 @@ def get_top_stocks():
         for ticker in TOP_TICKERS:
             if ticker in companies:
                 company_data = companies[ticker].copy()
-                company_data['ticker'] = ticker
                 top_companies.append(company_data)
         
         return jsonify(top_companies)
@@ -552,8 +638,8 @@ def get_portfolio_stocks():
         user = User.query.filter_by(email=session['user_email']).first()
         portfolio_items = PortfolioItem.query.filter_by(user_id=user.id).all()
         
-        # Get stock info from company_info.json (same as market data)
-        with open('company_info.json', 'r') as f:
+        # Get stock info from stock_data.json
+        with open('stock_data.json', 'r') as f:
             stock_data = json.load(f)
         
         portfolio_stocks = []

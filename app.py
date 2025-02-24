@@ -6,7 +6,7 @@ import random
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 import json
-from stock_downloader import TOP_TICKERS  # Only import TOP_TICKERS
+from stock_utils import fetch_stock_data, update_stock_data
 import yfinance as yf
 import logging
 from datetime import datetime, timedelta
@@ -45,6 +45,10 @@ Session(app)  # Initialize Flask-Session here
 # Initialize logging
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
+
+# Define TOP_TICKERS here since we're not using stock_downloader anymore
+TOP_TICKERS = ['AAPL', 'NVDA', 'MSFT', 'AMZN', 'GOOG', 'META', 
+               'TSLA', 'AVGO', 'BRK-B', 'TSM', 'WMT']
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -248,8 +252,33 @@ def login():
 
 @app.route('/logout')
 def logout():
-    session.pop('user_email', None)
-    return redirect(url_for('home'))
+    session.clear()
+    response = redirect(url_for('home'))
+    
+    # Clear cache and prevent back navigation
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate, post-check=0, pre-check=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '-1'
+    response.headers['X-Frame-Options'] = 'DENY'
+    response.headers['Clear-Site-Data'] = '"cache", "cookies", "storage"'
+    
+    # Clear all cookies
+    for cookie in request.cookies:
+        response.delete_cookie(cookie)
+    
+    return response
+
+@app.before_request
+def check_session():
+    if 'user_email' in session:
+        # Check if the route requires authentication
+        protected_routes = ['dashboard', 'portfolio', 'account']
+        if request.endpoint in protected_routes:
+            # Verify user exists and session is valid
+            user = User.query.filter_by(email=session['user_email']).first()
+            if not user:
+                session.clear()
+                return redirect(url_for('home'))
 
 @app.route('/account')
 def account():
@@ -296,62 +325,47 @@ def add_portfolio_item():
     if 'user_email' not in session:
         return jsonify({'error': 'Not logged in'}), 401
     
-    data = request.json
-    ticker = data['ticker'].upper()
     try:
+        data = request.json
+        ticker = data['ticker'].upper()
         amount = float(data['amount'])
-        if amount <= 0:
-            return jsonify({'error': 'Amount must be greater than 0'}), 400
-    except ValueError:
-        return jsonify({'error': 'Invalid amount'}), 400
-    
-    # Verify stock exists in company_info.json
-    stock_info = get_stock_info(ticker)
-    if not stock_info:
-        return jsonify({'error': 'Invalid stock ticker'}), 400
-    
-    user = User.query.filter_by(email=session['user_email']).first()
-    
-    # Check if user already has this stock
-    existing_item = PortfolioItem.query.filter_by(
-        user_id=user.id,
-        ticker=ticker
-    ).first()
-    
-    if existing_item:
-        # Update existing item's amount
-        existing_item.amount += amount
-        db.session.commit()
         
-        return jsonify({
-            'message': 'Portfolio item updated',
-            'item': {
-                'id': existing_item.id,
-                'ticker': existing_item.ticker,
-                'amount': existing_item.amount,
-                'name': stock_info['name']
-            }
-        })
-    else:
-        # Create new item
-        new_item = PortfolioItem(
+        # Check if ticker exists in company_info.json
+        with open('company_info.json', 'r') as f:
+            company_info = json.load(f)
+        
+        if ticker not in company_info:
+            return jsonify({'error': 'Invalid ticker symbol'}), 400
+
+        user = User.query.filter_by(email=session['user_email']).first()
+        
+        # Check if stock already exists in portfolio
+        existing_item = PortfolioItem.query.filter_by(
+            user_id=user.id,
+            ticker=ticker
+        ).first()
+        
+        if existing_item:
+            # Add to existing amount
+            existing_item.amount += amount
+            db.session.commit()
+            return jsonify({'message': 'Stock amount updated in portfolio'})
+            
+        # Add new stock to portfolio
+        portfolio_item = PortfolioItem(
             user_id=user.id,
             ticker=ticker,
             amount=amount
         )
         
-        db.session.add(new_item)
+        db.session.add(portfolio_item)
         db.session.commit()
         
-        return jsonify({
-            'message': 'Portfolio item added',
-            'item': {
-                'id': new_item.id,
-                'ticker': new_item.ticker,
-                'amount': new_item.amount,
-                'name': stock_info['name']
-            }
-        })
+        return jsonify({'message': 'Stock added to portfolio'})
+        
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/forgot-password', methods=['POST'])
 def forgot_password():
@@ -515,9 +529,6 @@ def get_top_stocks():
         
         # Debug: Print all TOP_TICKERS and which ones are missing
         logger.info(f"Looking for these tickers: {TOP_TICKERS}")
-        missing_tickers = [t for t in TOP_TICKERS if t not in companies]
-        if missing_tickers:
-            logger.warning(f"Missing tickers in company_info.json: {missing_tickers}")
         
         # Get info for our predefined TOP_TICKERS in the exact order
         top_companies = []
@@ -526,11 +537,7 @@ def get_top_stocks():
                 company_data = companies[ticker].copy()
                 company_data['ticker'] = ticker
                 top_companies.append(company_data)
-                logger.info(f"Added {ticker} to top companies")
-            else:
-                logger.warning(f"Ticker {ticker} not found in company_info.json")
         
-        logger.info(f"Returning {len(top_companies)} top companies out of {len(TOP_TICKERS)} total")
         return jsonify(top_companies)
     except Exception as e:
         logger.error(f"Error in get_top_stocks: {str(e)}")
@@ -545,15 +552,15 @@ def get_portfolio_stocks():
         user = User.query.filter_by(email=session['user_email']).first()
         portfolio_items = PortfolioItem.query.filter_by(user_id=user.id).all()
         
-        # Get stock info from company_info.json
+        # Get stock info from company_info.json (same as market data)
         with open('company_info.json', 'r') as f:
-            company_info = json.load(f)
+            stock_data = json.load(f)
         
         portfolio_stocks = []
         for item in portfolio_items:
-            if item.ticker in company_info:
-                stock_info = company_info[item.ticker].copy()
-                stock_info['amount'] = item.amount  # Add amount owned
+            if item.ticker in stock_data:
+                stock_info = stock_data[item.ticker].copy()
+                stock_info['amount'] = item.amount
                 portfolio_stocks.append(stock_info)
         
         return jsonify(portfolio_stocks)
@@ -636,6 +643,23 @@ def forbidden_error(error):
 def internal_error(error):
     db.session.rollback()  # Rollback any failed database transactions
     return jsonify({'error': str(error)}), 500
+
+def update_all_stock_data():
+    """Update data for all stocks in portfolios and TOP_TICKERS"""
+    try:
+        # Get all unique tickers from portfolios
+        portfolio_tickers = PortfolioItem.query.with_entities(
+            PortfolioItem.ticker).distinct().all()
+        portfolio_tickers = [item[0] for item in portfolio_tickers]
+        
+        # Combine with TOP_TICKERS
+        all_tickers = list(set(TOP_TICKERS + portfolio_tickers))
+        
+        # Update data for all tickers
+        update_stock_data(all_tickers)
+        print("Successfully updated all stock data")
+    except Exception as e:
+        print(f"Error updating stock data: {e}")
 
 if __name__ == '__main__':
     # Create necessary directories

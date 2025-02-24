@@ -4,6 +4,7 @@ from pathlib import Path
 import json
 import time
 import logging
+from datetime import datetime
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -122,6 +123,96 @@ def update_company_info(new_data):
     except Exception as e:
         logger.error(f"Error updating company_info.json: {str(e)}")
 
+def get_stock_info(ticker):
+    try:
+        print(f"Fetching info for {ticker}...")
+        time.sleep(2)  # Wait 2 seconds before each request
+        
+        stock = yf.Ticker(ticker)
+        info = stock.info
+        
+        # Get current price with a separate request
+        time.sleep(2)  # Wait another 2 seconds before price request
+        data = yf.download(
+            ticker,
+            period='1d',  # Just get today's data
+            progress=False,
+            threads=False  # Disable multi-threading
+        )
+        
+        if data.empty:
+            print(f"No price data for {ticker}")
+            current_price = info.get('currentPrice', 0)
+        else:
+            current_price = data['Close'][-1]
+        
+        return {
+            'name': info.get('longName', ''),
+            'sector': info.get('sector', ''),
+            'price': current_price,
+            'currency': info.get('currency', 'USD'),
+            'last_updated': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        }
+    except Exception as e:
+        print(f"Error fetching info for {ticker}: {str(e)}")
+        return None
+
+def update_stock_data():
+    print("Starting stock data update...")
+    
+    # Read existing data first
+    try:
+        with open('company_info.json', 'r') as f:
+            company_info = json.load(f)
+    except:
+        company_info = {}
+        
+    try:
+        tickers_df = pd.read_csv('tickers.csv')
+        tickers = tickers_df['Symbol'].tolist()
+    except:
+        tickers = []
+        tickers_df = pd.DataFrame(columns=['Symbol', 'Name', 'Sector'])
+
+    # Process stocks in small batches
+    all_tickers = list(set(list(company_info.keys()) + tickers))
+    batch_size = 5  # Process 5 stocks at a time
+    
+    for i in range(0, len(all_tickers), batch_size):
+        batch = all_tickers[i:i+batch_size]
+        print(f"\nProcessing batch {i//batch_size + 1}: {batch}")
+        
+        for ticker in batch:
+            info = get_stock_info(ticker)
+            if info:
+                # Update company_info.json
+                company_info[ticker] = info
+                
+                # Add to tickers.csv if not exists
+                if ticker not in tickers:
+                    new_row = pd.DataFrame({
+                        'Symbol': [ticker],
+                        'Name': [info['name']],
+                        'Sector': [info['sector']]
+                    })
+                    tickers_df = pd.concat([tickers_df, new_row], ignore_index=True)
+                    tickers.append(ticker)
+            
+            time.sleep(3)  # Wait 3 seconds between stocks in the same batch
+        
+        # Wait 10 seconds between batches
+        if i + batch_size < len(all_tickers):
+            print("Waiting between batches...")
+            time.sleep(10)
+
+    # Save updated data
+    print("\nSaving updated data...")
+    tickers_df.to_csv('tickers.csv', index=False)
+    with open('company_info.json', 'w') as f:
+        json.dump(company_info, f, indent=4)
+
+    print("Stock data update completed!")
+
 def main():
     """Update TOP_TICKERS and portfolio stocks"""
     try:
@@ -151,4 +242,4 @@ def main():
         logger.error(f"Error in main: {str(e)}")
 
 if __name__ == "__main__":
-    main() 
+    update_stock_data() 

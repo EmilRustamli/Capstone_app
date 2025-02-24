@@ -43,6 +43,13 @@
             <div class="portfolio-stocks-grid stocks-grid"></div>
             <div class="pagination"></div>
         </div>
+
+        <div class="tab-content" id="portfolio">
+            <h2>Your Portfolio</h2>
+            <div id="portfolioStocks" class="stocks-grid">
+                <!-- Stocks will be loaded here -->
+            </div>
+        </div>
     </div>
 
     <!-- Logout Modal -->
@@ -59,6 +66,7 @@
 
     <script src="{{ url_for('static', filename='theme.js') }}"></script>
     <script src="{{ url_for('static', filename='logout.js') }}"></script>
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
     <script>
         let currentPage = 1;
         const stocksPerPage = 4;
@@ -83,44 +91,51 @@
             .catch(error => console.error('Error:', error));
 
         function displayStocksPage(page, view) {
-            const stocksPerPage = 4;  // Force 4 stocks per page
             const stocksGrid = document.querySelector(`.${view}-stocks-grid`);
             const stocks = view === 'market' ? allStocks : portfolioStocks;
-            const start = (page - 1) * stocksPerPage;
-            const end = Math.min(start + stocksPerPage, stocks.length);  // Ensure we don't take more than 4
-            const pageStocks = stocks.slice(start, end);
-
-            if (pageStocks.length === 0) {
-                stocksGrid.innerHTML = '<p class="empty-message">No stocks in your portfolio. Visit the Portfolio page to add stocks.</p>';
+            
+            if (!stocks || stocks.length === 0) {
+                stocksGrid.innerHTML = `
+                    <div class="empty-message">
+                        ${view === 'portfolio' 
+                            ? 'No stocks in your portfolio. Visit the Portfolio page to add stocks.' 
+                            : 'No market data available.'}
+                    </div>`;
                 return;
             }
 
+            const start = (page - 1) * stocksPerPage;
+            const end = start + stocksPerPage;
+            const pageStocks = stocks.slice(start, end);
+
             stocksGrid.innerHTML = pageStocks.map(stock => {
                 const changeNum = parseFloat(stock.change);
-                const changeColor = changeNum >= 0 ? '#00873c' : '#ff333a';
-                const changeSign = changeNum >= 0 ? '+' : '';
-                
-                let amountInfo = '';
-                if (view === 'portfolio') {
-                    amountInfo = `<div class="stock-amount">Amount: $${stock.amount}</div>`;
-                }
+                const isPositive = changeNum >= 0;
+                const changeSign = isPositive ? '+' : '';
                 
                 return `
                     <div class="stock-card">
                         <div class="stock-header">
-                            <span class="stock-ticker">${stock.ticker}</span>
-                            <div class="price-info">
-                                <span class="stock-price">$${stock.price}</span>
-                                <span class="price-change" style="color: ${changeColor}">
-                                    ${changeSign}${stock.change}%
-                                </span>
+                            <div>
+                                <div class="stock-ticker">${stock.ticker}</div>
+                                <div class="stock-name">${stock.name}</div>
+                            </div>
+                            <div>
+                                <div class="stock-price">$${parseFloat(stock.price).toFixed(2)}</div>
+                                <div class="price-change" data-positive="${isPositive}">
+                                    ${changeSign}${Math.abs(changeNum).toFixed(2)}%
+                                </div>
                             </div>
                         </div>
-                        <div class="stock-name">${stock.name}</div>
-                        <div class="stock-market-cap">Market Cap: $${stock.marketCap}B</div>
-                        ${amountInfo}
-                    </div>
-                `;
+                        <div class="stock-market-cap">
+                            Market Cap: $${(parseFloat(stock.marketCap)/1000).toFixed(1)}B
+                        </div>
+                        ${view === 'portfolio' ? `
+                            <div class="stock-amount">
+                                Amount: $${parseFloat(stock.amount).toFixed(2)}
+                            </div>
+                        ` : ''}
+                    </div>`;
             }).join('');
 
             // Update pagination buttons
@@ -160,6 +175,16 @@
             const marketView = document.getElementById('market-view');
             const portfolioView = document.getElementById('portfolio-view');
             const buttons = document.querySelectorAll('.toggle-btn');
+            
+            // Refresh data when switching views
+            if (view === 'portfolio') {
+                fetch('/get-portfolio-stocks')
+                    .then(response => response.json())
+                    .then(data => {
+                        portfolioStocks = data;
+                        displayStocksPage(1, 'portfolio');
+                    });
+            }
 
             buttons.forEach(btn => btn.classList.remove('active'));
             

@@ -1,0 +1,23 @@
+{
+    "ABT": {
+        "ticker": "ABT",
+        "name": "N/A",
+        "price": "N/A",
+        "marketCap": "N/A",
+        "change": "N/A"
+    },
+    "AAPL": {
+        "ticker": "AAPL",
+        "name": "N/A",
+        "price": "N/A",
+        "marketCap": "N/A",
+        "change": "N/A"
+    },
+    "ABBV": {
+        "ticker": "ABBV",
+        "name": "N/A",
+        "price": "N/A",
+        "marketCap": "N/A",
+        "change": "N/A"
+    }
+}

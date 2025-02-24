@@ -5,4 +5,5 @@ scipy
 numpy
 matplotlib
 Flask-Session==0.5.0
-scikit-learn 
+scikit-learn
+urllib3<2.0.0 

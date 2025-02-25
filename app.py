@@ -6,7 +6,6 @@ import random
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 import json
-#from stock_utils import fetch_stock_data, update_stock_data
 import yfinance as yf
 import logging
 from datetime import datetime, timedelta
@@ -72,12 +71,12 @@ class PortfolioItem(db.Model):
 
 class Portfolio:
     # Class-level attributes to store data
-    stock_data = pd.DataFrame()
+    trade_data = pd.DataFrame()
 
     @classmethod
     def load_data(cls, csv_path):
         """Load pre-downloaded stock data from a CSV file."""
-        cls.stock_data = pd.read_csv(csv_path, index_col=0, parse_dates=True)
+        cls.trade_data = pd.read_csv(csv_path, index_col=0, parse_dates=True)
 
     def __init__(self, tickers, weights, start_date, end_date):
         self.tickers = tickers
@@ -90,17 +89,17 @@ class Portfolio:
 
     def _fetch_data(self):
         """Filter the preloaded data for the selected tickers and date range."""
-        if Portfolio.stock_data.empty:
+        if Portfolio.trade_data.empty:
             raise ValueError("Stock data is not loaded. Use Portfolio.load_data(csv_path) first")
 
-        filtered_data = Portfolio.stock_data.loc[self.start_date:self.end_date, self.tickers]
+        filtered_data = Portfolio.trade_data.loc[self.start_date:self.end_date, self.tickers]
         if filtered_data.isnull().values.any():
             raise ValueError("Missing data for selected tickers in the specified date range.")
         return filtered_data
 
     def _fetch_benchmark(self):
         """Simulate a benchmark by averaging returns of all loaded stocks."""
-        benchmark = Portfolio.stock_data.mean(axis=1).loc[self.start_date:self.end_date]
+        benchmark = Portfolio.trade_data.mean(axis=1).loc[self.start_date:self.end_date]
         return benchmark.pct_change().dropna().values.reshape(-1, 1)
 
     def get_risk_metrics(self):
@@ -162,8 +161,8 @@ class Portfolio:
 
 # Load the data when app starts
 try:
-    Portfolio.load_data('stock_data.csv')
-    print("Successfully loaded stock data")
+    Portfolio.load_data('trade_data.csv')
+    print("Successfully loaded trade data")
 except Exception as e:
     print(f"Error loading stock data: {str(e)}")
 

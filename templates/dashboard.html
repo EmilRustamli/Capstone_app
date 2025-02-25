@@ -137,15 +137,23 @@
                                 <div class="stock-ticker">${stock.ticker}</div>
                                 <div class="stock-name">${stock.name}</div>
                             </div>
-                            <div>
+                            <div class="price-container">
                                 <div class="stock-price">$${parseFloat(stock.price).toFixed(2)}</div>
-                                <div class="price-change" data-positive="${isPositive}">
+                                <div class="price-change" data-positive="${isPositive}" style="text-align: center;">
                                     ${changeSign}${Math.abs(changeNum).toFixed(2)}%
                                 </div>
                             </div>
                         </div>
-                        <div class="stock-market-cap">
-                            Market Cap: ${formatMarketCap(stock.marketCap)}
+                        <div class="stock-details">
+                            <div class="stock-market-cap">Market Cap: ${formatMarketCap(stock.marketCap)}</div>
+                            ${stock['AH price'] !== 'N/A' ? `
+                                <div class="after-hours">
+                                    After Hours: $${parseFloat(stock['AH price']).toFixed(2)}
+                                    <span class="ah-change" data-positive="${parseFloat(stock['AH change']) >= 0}">
+                                        ${parseFloat(stock['AH change']) >= 0 ? '+' : ''}${parseFloat(stock['AH change']).toFixed(2)}%
+                                    </span>
+                                </div>
+                            ` : ''}
                         </div>
                         ${view === 'portfolio' ? `
                             <div class="stock-amount">

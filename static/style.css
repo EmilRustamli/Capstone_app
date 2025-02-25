@@ -1061,7 +1061,7 @@ input {
 
 [data-theme="dark"] .stock-name,
 [data-theme="dark"] .stock-market-cap {
-    color: #999;
+    color: #bbb;
 }
 
 [data-theme="dark"] .page-btn {
@@ -1120,4 +1120,34 @@ input {
 
 [data-theme="dark"] .empty-message {
     color: #999;
+}
+
+/* Add to existing styles */
+.price-container {
+    text-align: right;
+}
+
+.stock-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.after-hours {
+    font-size: 0.9em;
+    color: #6b7280;  /* Lighter gray for better contrast */
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .after-hours {
+    color: #bbb;  /* Even lighter gray for dark mode */
+}
+
+.ah-change[data-positive="true"] {
+    color: #0ecb81;
+}
+
+.ah-change[data-positive="false"] {
+    color: #f6465d;
 } 

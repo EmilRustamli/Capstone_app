@@ -58,6 +58,7 @@
         </div>
 
         <button onclick="evaluatePortfolio()" class="evaluate-btn">Evaluate Portfolio</button>
+        <button onclick="optimizePortfolio()" class="optimize-btn">Optimize Portfolio</button>
     </div>
     <div class="modal-overlay" id="logoutModal">
         <div class="modal">
@@ -125,6 +126,45 @@
                 <div id="resultButtons" style="display: none;">
                     <button class="cancel-btn" onclick="closeEvaluateModal()" style="margin: 0 auto;">Close</button>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div id="optimizeModal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <h2>Optimize Portfolio</h2>
+            <div class="optimize-inputs">
+                <div class="date-inputs">
+                    <div>
+                        <label for="optStartDate">Start Date:</label>
+                        <input type="date" id="optStartDate" required>
+                    </div>
+                    <div>
+                        <label for="optEndDate">End Date:</label>
+                        <input type="date" id="optEndDate" required>
+                    </div>
+                </div>
+                <div class="optimization-options">
+                    <div>
+                        <label for="optimizeFor">Optimize For:</label>
+                        <select id="optimizeFor">
+                            <option value="sharpe">Sharpe Ratio</option>
+                            <option value="return">Return</option>
+                            <option value="volatility">Volatility</option>
+                        </select>
+                    </div>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="buildNew">
+                        <label for="buildNew">Build New Portfolio</label>
+                    </div>
+                </div>
+            </div>
+            <div id="optimizationResults" style="display: none;">
+                <h3>Optimization Results</h3>
+                <div class="results-content"></div>
+            </div>
+            <div class="modal-buttons">
+                <button onclick="submitOptimization()" class="optimize-btn">Optimize</button>
+                <button onclick="closeOptimizeModal()" class="cancel-btn">Close</button>
             </div>
         </div>
     </div>
@@ -480,6 +520,88 @@
             alert('Failed to evaluate portfolio');
         });
     }
+
+    function optimizePortfolio() {
+        document.getElementById('optimizeModal').style.display = 'flex';
+        document.getElementById('optimizationResults').style.display = 'none';
+    }
+
+    function closeOptimizeModal() {
+        document.getElementById('optimizeModal').style.display = 'none';
+    }
+
+    function submitOptimization() {
+        const startDate = document.getElementById('optStartDate').value;
+        const endDate = document.getElementById('optEndDate').value;
+        const optimizeFor = document.getElementById('optimizeFor').value;
+        const buildNew = document.getElementById('buildNew').checked;
+
+        if (!startDate || !endDate) {
+            alert('Please select both start and end dates');
+            return;
+        }
+
+        if (new Date(startDate) >= new Date(endDate)) {
+            alert('Start date must be before end date');
+            return;
+        }
+
+        // Show loading state
+        const optimizeBtn = document.querySelector('.optimize-btn');
+        optimizeBtn.textContent = 'Optimizing...';
+        optimizeBtn.disabled = true;
+
+        fetch('/optimize-portfolio', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                start_date: startDate,
+                end_date: endDate,
+                optimize_for: optimizeFor,
+                build_new: buildNew
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            optimizeBtn.textContent = 'Optimize';
+            optimizeBtn.disabled = false;
+
+            if (data.error) {
+                alert(data.error);
+                return;
+            }
+
+            // Display results
+            const resultsDiv = document.querySelector('.results-content');
+            resultsDiv.innerHTML = `
+                <div class="optimization-summary">
+                    <h4>Portfolio Metrics:</h4>
+                    <ul>
+                        ${Object.entries(data.optimized_portfolio.metrics).map(([key, value]) => 
+                            `<li>${key}: ${typeof value === 'number' ? value.toFixed(2) + '%' : value}</li>`
+                        ).join('')}
+                    </ul>
+                    
+                    <h4>Recommended Allocation:</h4>
+                    <ul>
+                        ${Object.entries(data.optimized_portfolio.allocation).map(([ticker, amount]) => 
+                            `<li>${ticker}: $${parseFloat(amount).toFixed(2)}</li>`
+                        ).join('')}
+                    </ul>
+                </div>
+            `;
+
+            document.getElementById('optimizationResults').style.display = 'block';
+        })
+        .catch(error => {
+            optimizeBtn.textContent = 'Optimize';
+            optimizeBtn.disabled = false;
+            console.error('Error:', error);
+            alert('Failed to optimize portfolio');
+        });
+    }
     </script>
     <style>
     #evaluateModal .modal {
@@ -679,6 +801,63 @@
     .modal-buttons .cancel-btn:hover {
         background-color: #e4e6eb;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .optimize-btn {
+        background-color: #1877f2;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1em;
+        margin: 20px 0;
+    }
+
+    .optimize-btn:hover {
+        background-color: #166fe5;
+    }
+
+    .optimization-options {
+        display: grid;
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .optimization-options select {
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccd0d5;
+        font-size: 1em;
+    }
+
+    .checkbox-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .optimization-summary {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+
+    .optimization-summary h4 {
+        color: #1877f2;
+        margin: 0 0 10px 0;
+    }
+
+    .optimization-summary ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 20px 0;
+    }
+
+    .optimization-summary li {
+        padding: 5px 0;
+        border-bottom: 1px solid #eee;
     }
     </style>
 </body>

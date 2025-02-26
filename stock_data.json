@@ -2,4231 +2,4231 @@
     "A": {
         "ticker": "A",
         "name": "Agilent Technologies, Inc.",
-        "price": 135.37,
-        "marketCap": 38594027520,
-        "change": -0.06648174716466282,
-        "AH price": 137.4397,
-        "AH change": 1.5964655
+        "price": 134.18,
+        "marketCap": 38362943488,
+        "change": 0.21613396985541788,
+        "AH price": 129.4,
+        "AH change": -3.77036
     },
     "AAPL": {
         "ticker": "AAPL",
         "name": "Apple Inc.",
-        "price": 245.55,
-        "marketCap": 3711961137152,
-        "change": 0.6312372357947387,
-        "AH price": 248.1,
-        "AH change": 0.40469444
+        "price": 247.04,
+        "marketCap": 3610712211456,
+        "change": -2.7040126527384505,
+        "AH price": 239.5,
+        "AH change": -0.35779688
     },
     "ABBV": {
         "ticker": "ABBV",
         "name": "AbbVie Inc.",
-        "price": 202.08,
-        "marketCap": 360272625664,
-        "change": 0.989707037746399,
-        "AH price": 203.75,
-        "AH change": -0.161702
+        "price": 204.14,
+        "marketCap": 358383681536,
+        "change": -0.5535440806265626,
+        "AH price": 201.072,
+        "AH change": -0.954387
     },
     "ABT": {
         "ticker": "ABT",
         "name": "Abbott Laboratories",
-        "price": 134.92,
-        "marketCap": 234065379328,
-        "change": 0.022234494295879596,
-        "AH price": 135.27,
-        "AH change": 0.23713
+        "price": 135.82,
+        "marketCap": 235798151168,
+        "change": 0.10307714776825337,
+        "AH price": 135.16,
+        "AH change": -0.588411
     },
     "ACGL": {
         "ticker": "ACGL",
         "name": "Arch Capital Group Ltd.",
-        "price": 88.13,
-        "marketCap": 33706620928,
-        "change": 1.6112627284630618,
-        "AH price": 89.56,
-        "AH change": 0.0111608
+        "price": 90.35,
+        "marketCap": 33714147328,
+        "change": -0.8633080160153955,
+        "AH price": 89.57,
+        "AH change": 0.0
     },
     "ACN": {
         "ticker": "ACN",
         "name": "Accenture plc",
-        "price": 364.26,
-        "marketCap": 227618422784,
-        "change": -0.09608688687534726,
-        "AH price": 364.0,
-        "AH change": 0.0247304
+        "price": 362.95,
+        "marketCap": 224140754944,
+        "change": -1.2673938417976203,
+        "AH price": 359.98,
+        "AH change": 0.454864
     },
     "ADBE": {
         "ticker": "ADBE",
         "name": "Adobe Inc.",
-        "price": 444.32,
-        "marketCap": 193456029696,
-        "change": 0.022507675069119923,
-        "AH price": 445.11,
-        "AH change": 0.155252
+        "price": 443.41,
+        "marketCap": 192184942592,
+        "change": -0.43075339896139336,
+        "AH price": 439.61,
+        "AH change": -0.42808938
     },
     "ADI": {
         "ticker": "ADI",
         "name": "Analog Devices, Inc.",
-        "price": 238.91,
-        "marketCap": 117541355520,
-        "change": -0.8036491312690144,
-        "AH price": 237.0,
-        "AH change": 0.00421727
+        "price": 235.3,
+        "marketCap": 115924467712,
+        "change": -0.6672364232283512,
+        "AH price": 233.92,
+        "AH change": 0.0812914
     },
     "ADM": {
         "ticker": "ADM",
         "name": "Archer-Daniels-Midland Company",
-        "price": 48.19,
-        "marketCap": 23217819648,
-        "change": 0.43578108560793605,
-        "AH price": 48.6,
-        "AH change": 0.41321683
+        "price": 48.76,
+        "marketCap": 22536634368,
+        "change": -3.6505308461235093,
+        "AH price": 47.13,
+        "AH change": 0.31928805
     },
     "ADP": {
         "ticker": "ADP",
         "name": "Automatic Data Processing, Inc.",
-        "price": 310.76,
-        "marketCap": 127025135616,
-        "change": 0.4633808714616462,
-        "AH price": 311.67,
-        "AH change": -0.169831
+        "price": 313.37,
+        "marketCap": 126691500032,
+        "change": -0.635028964285756,
+        "AH price": 311.98,
+        "AH change": 0.192693
     },
     "ADSK": {
         "ticker": "ADSK",
         "name": "Autodesk, Inc.",
-        "price": 285.0,
-        "marketCap": 61476098048,
-        "change": 0.09123149671052631,
-        "AH price": 285.76,
-        "AH change": 0.175279
+        "price": 283.72,
+        "marketCap": 61564456960,
+        "change": 0.6873016349363237,
+        "AH price": 287.794,
+        "AH change": 0.74362
     },
     "AEE": {
         "ticker": "AEE",
         "name": "Ameren Corporation",
-        "price": 98.54,
-        "marketCap": 26677506048,
-        "change": 0.3044402471849478,
-        "AH price": 98.85,
-        "AH change": 0.010119523
+        "price": 99.41,
+        "marketCap": 26809761792,
+        "change": -0.08047664028522775,
+        "AH price": 98.52,
+        "AH change": -0.815469
     },
     "AEP": {
         "ticker": "AEP",
         "name": "American Electric Power Company, Inc.",
-        "price": 105.33,
-        "marketCap": 56675000320,
-        "change": 0.9114203624646834,
-        "AH price": 106.45,
-        "AH change": 0.150528
+        "price": 107.64,
+        "marketCap": 56994922496,
+        "change": -0.6967670050657082,
+        "AH price": 107.01,
+        "AH change": 0.112268
     },
     "AES": {
         "ticker": "AES",
         "name": "The AES Corporation",
-        "price": 10.59,
-        "marketCap": 7622209536,
-        "change": 1.2275742452104657,
-        "AH price": 10.75,
-        "AH change": 0.27984825
+        "price": 10.86,
+        "marketCap": 7764414976,
+        "change": 0.5524900691852977,
+        "AH price": 10.979,
+        "AH change": 0.540293
     },
     "AFL": {
         "ticker": "AFL",
         "name": "Aflac Incorporated",
-        "price": 102.16,
-        "marketCap": 57245753344,
-        "change": 1.8891861850011606,
-        "AH price": 104.79,
-        "AH change": 0.672499
+        "price": 106.73,
+        "marketCap": 58191691776,
+        "change": -0.8619936001155168,
+        "AH price": 105.82,
+        "AH change": 0.009452921
     },
     "AIG": {
         "ticker": "AIG",
         "name": "American International Group, Inc.",
-        "price": 76.65,
-        "marketCap": 46618173440,
-        "change": 2.5048899291894657,
-        "AH price": 78.61,
-        "AH change": 0.0509112
+        "price": 79.02,
+        "marketCap": 46380838912,
+        "change": -1.0756751584798714,
+        "AH price": 78.17,
+        "AH change": 0.0
     },
     "AIZ": {
         "ticker": "AIZ",
         "name": "Assurant, Inc.",
-        "price": 200.03,
-        "marketCap": 10300597248,
-        "change": 1.3847944255187554,
-        "AH price": 201.45,
-        "AH change": -0.665683
+        "price": 206.8,
+        "marketCap": 10477352960,
+        "change": -0.25145273925880507,
+        "AH price": 206.28,
+        "AH change": 0.0
     },
     "AJG": {
         "ticker": "AJG",
         "name": "Arthur J. Gallagher & Co.",
-        "price": 325.56,
-        "marketCap": 83666403328,
-        "change": 0.8999854704980806,
-        "AH price": 329.0,
-        "AH change": 0.15525885
+        "price": 331.83,
+        "marketCap": 83625648128,
+        "change": -1.054756996543401,
+        "AH price": 328.28,
+        "AH change": -0.015224864
     },
     "AKAM": {
         "ticker": "AKAM",
         "name": "Akamai Technologies, Inc.",
-        "price": 76.73,
-        "marketCap": 11647500288,
-        "change": 1.1990070750624804,
-        "AH price": 77.44,
-        "AH change": -0.270443
+        "price": 78.05,
+        "marketCap": 11962306560,
+        "change": 1.9602802299473028,
+        "AH price": 79.75,
+        "AH change": 0.213619
     },
     "ALB": {
         "ticker": "ALB",
         "name": "Albemarle Corporation",
-        "price": 81.2,
-        "marketCap": 9526939648,
-        "change": -0.2093573587861971,
-        "AH price": 80.7001,
-        "AH change": -0.407127
+        "price": 78.42,
+        "marketCap": 9115435008,
+        "change": -1.134913810799962,
+        "AH price": 78.0,
+        "AH change": 0.606219
     },
     "ALGN": {
         "ticker": "ALGN",
         "name": "Align Technology, Inc.",
-        "price": 190.43,
-        "marketCap": 14237840384,
-        "change": 0.15229142260989967,
-        "AH price": 190.75,
-        "AH change": 0.0157292
+        "price": 186.62,
+        "marketCap": 14111298560,
+        "change": 2.459549735706189,
+        "AH price": 193.6,
+        "AH change": 1.24993
     },
     "ALL": {
         "ticker": "ALL",
         "name": "The Allstate Corporation",
-        "price": 185.66,
-        "marketCap": 50013085696,
-        "change": 1.6643306457723883,
-        "AH price": 187.21,
-        "AH change": -0.8158905
+        "price": 190.48,
+        "marketCap": 49938845696,
+        "change": -1.0762301017111104,
+        "AH price": 189.88,
+        "AH change": 0.769523
     },
     "ALLE": {
         "ticker": "ALLE",
         "name": "Allegion plc",
-        "price": 127.16,
-        "marketCap": 11039130624,
-        "change": 0.605533674812127,
-        "AH price": 127.93,
+        "price": 129.89,
+        "marketCap": 11167703040,
+        "change": -0.36184557926834643,
+        "AH price": 129.42,
         "AH change": 0.0
     },
     "AMAT": {
         "ticker": "AMAT",
         "name": "Applied Materials, Inc.",
-        "price": 171.98,
-        "marketCap": 136953192448,
-        "change": -1.982782002578148,
-        "AH price": 169.0,
-        "AH change": 0.25508255
+        "price": 165.54,
+        "marketCap": 136904433664,
+        "change": 1.7941291175296432,
+        "AH price": 168.8,
+        "AH change": 0.172102
     },
     "AMCR": {
         "ticker": "AMCR",
         "name": "Amcor plc",
-        "price": 10.25,
-        "marketCap": 14829189120,
-        "change": 0.09756320860327744,
-        "AH price": 10.26,
-        "AH change": 0.0
+        "price": 10.1925,
+        "marketCap": 14583481344,
+        "change": -2.228677800753033,
+        "AH price": 10.15,
+        "AH change": 0.5946429
     },
     "AMD": {
         "ticker": "AMD",
         "name": "Advanced Micro Devices, Inc.",
-        "price": 110.84,
-        "marketCap": 175190097920,
-        "change": -2.463005970531428,
-        "AH price": 108.29,
-        "AH change": 0.16649736
+        "price": 103.96,
+        "marketCap": 169729064960,
+        "change": 0.7502874049307053,
+        "AH price": 104.64,
+        "AH change": -0.09547305
     },
     "AME": {
         "ticker": "AME",
         "name": "AMETEK, Inc.",
-        "price": 186.19,
-        "marketCap": 42851831808,
-        "change": -0.22020713074452136,
-        "AH price": 185.12,
-        "AH change": -0.35526088
+        "price": 186.95,
+        "marketCap": 43405410304,
+        "change": 0.6579276531786151,
+        "AH price": 188.18,
+        "AH change": 0.0
     },
     "AMGN": {
         "ticker": "AMGN",
         "name": "Amgen Inc.",
-        "price": 303.01,
-        "marketCap": 166383124480,
-        "change": 2.2144454766587516,
-        "AH price": 309.72,
-        "AH change": 0.0
+        "price": 315.63,
+        "marketCap": 164588863488,
+        "change": -2.9306465978842384,
+        "AH price": 305.5694,
+        "AH change": -0.264576
     },
     "AMP": {
         "ticker": "AMP",
         "name": "Ameriprise Financial, Inc.",
-        "price": 530.48,
-        "marketCap": 51041808384,
-        "change": 0.10368889465705347,
-        "AH price": 529.0,
-        "AH change": -0.38228145
+        "price": 522.0,
+        "marketCap": 50488164352,
+        "change": 0.6264405232279694,
+        "AH price": 525.0,
+        "AH change": -0.05140585
     },
     "AMT": {
         "ticker": "AMT",
         "name": "American Tower Corporation",
-        "price": 191.55,
-        "marketCap": 89719488512,
-        "change": 0.23492400995712642,
-        "AH price": 192.5,
-        "AH change": 0.260417
+        "price": 203.75,
+        "marketCap": 93798916096,
+        "change": -1.4822106858703987,
+        "AH price": 200.0,
+        "AH change": -0.36367
     },
     "AMZN": {
         "ticker": "AMZN",
         "name": "Amazon.com, Inc.",
-        "price": 216.58,
-        "marketCap": 2254236811264,
-        "change": -1.7868663239768217,
-        "AH price": 212.54,
-        "AH change": -0.07992733
+        "price": 212.8,
+        "marketCap": 2271616958464,
+        "change": 0.7283848822975894,
+        "AH price": 215.12,
+        "AH change": 0.35922042
     },
     "ANET": {
         "ticker": "ANET",
         "name": "Arista Networks Inc",
-        "price": 98.3,
-        "marketCap": 116893212672,
-        "change": -5.707019772316522,
-        "AH price": 92.71,
-        "AH change": 0.021573678
+        "price": 92.88,
+        "marketCap": 121546743808,
+        "change": 3.768303298341453,
+        "AH price": 97.32,
+        "AH change": 0.975309
     },
     "ANSS": {
         "ticker": "ANSS",
         "name": "ANSYS, Inc.",
-        "price": 334.21,
-        "marketCap": 29243271168,
-        "change": -0.17353956706694756,
-        "AH price": 333.84,
-        "AH change": 0.0629414
+        "price": 330.4,
+        "marketCap": 29128445952,
+        "change": 0.581117876272093,
+        "AH price": 334.18,
+        "AH change": 0.5596971
     },
     "AON": {
         "ticker": "AON",
         "name": "Aon plc",
-        "price": 389.56,
-        "marketCap": 84711268352,
-        "change": 0.672552401069729,
-        "AH price": 392.19,
-        "AH change": 0.0025523398
+        "price": 397.57,
+        "marketCap": 86234079232,
+        "change": 0.4175374478778628,
+        "AH price": 399.23,
+        "AH change": 0.0
     },
     "AOS": {
         "ticker": "AOS",
         "name": "A. O. Smith Corporation",
-        "price": 65.98,
-        "marketCap": 9534405632,
-        "change": 0.37890267850937964,
-        "AH price": 66.24,
-        "AH change": 0.015090603
+        "price": 66.99,
+        "marketCap": 9524328448,
+        "change": -1.2389822781425186,
+        "AH price": 67.49,
+        "AH change": 2.0102692
     },
     "APA": {
         "ticker": "APA",
         "name": "APA Corporation",
-        "price": 22.79,
-        "marketCap": 8460688384,
-        "change": 0.35103080514379853,
-        "AH price": 22.657,
-        "AH change": -0.931357
+        "price": 22.38,
+        "marketCap": 8142533632,
+        "change": -1.653257130292456,
+        "AH price": 21.97,
+        "AH change": -0.18174
     },
     "APD": {
         "ticker": "APD",
         "name": "Air Products and Chemicals, Inc.",
-        "price": 309.89,
-        "marketCap": 68831854592,
-        "change": -0.16134756731908176,
-        "AH price": 310.29,
-        "AH change": 0.290893
+        "price": 317.36,
+        "marketCap": 69824094208,
+        "change": -1.1059930079586493,
+        "AH price": 303.77,
+        "AH change": -3.2117307
     },
     "APH": {
         "ticker": "APH",
         "name": "Amphenol Corporation",
-        "price": 67.58,
-        "marketCap": 81299791872,
-        "change": -0.6658842341580561,
-        "AH price": 67.0,
-        "AH change": -0.19365002
+        "price": 65.01,
+        "marketCap": 80209829888,
+        "change": 1.8766361799936182,
+        "AH price": 66.7,
+        "AH change": 0.709638
     },
     "APTV": {
         "ticker": "APTV",
         "name": "Aptiv PLC",
-        "price": 66.68,
-        "marketCap": 15324698624,
-        "change": 0.16496792118794293,
-        "AH price": 65.91,
-        "AH change": -1.3175584
+        "price": 66.65,
+        "marketCap": 15193914368,
+        "change": -0.6451617334304492,
+        "AH price": 66.2,
+        "AH change": -0.030208807
     },
     "ARE": {
         "ticker": "ARE",
         "name": "Alexandria Real Estate Equities, Inc.",
-        "price": 95.57,
-        "marketCap": 16821081088,
-        "change": 1.6846297117219258,
-        "AH price": 98.57,
-        "AH change": 1.43033
+        "price": 100.93,
+        "marketCap": 17149956096,
+        "change": -1.8329520147898226,
+        "AH price": 98.2,
+        "AH change": -0.8881761
     },
     "ATO": {
         "ticker": "ATO",
         "name": "Atmos Energy Corporation",
-        "price": 149.9,
-        "marketCap": 23847294976,
-        "change": 0.2268256240987491,
-        "AH price": 149.7,
-        "AH change": -0.35943058
+        "price": 150.39,
+        "marketCap": 23807612928,
+        "change": -0.2659710739462289,
+        "AH price": 149.99,
+        "AH change": 0.0
     },
     "AVB": {
         "ticker": "AVB",
         "name": "AvalonBay Communities, Inc.",
-        "price": 218.92,
-        "marketCap": 31433867264,
-        "change": 0.936416530652344,
-        "AH price": 220.97,
+        "price": 223.62,
+        "marketCap": 31520641024,
+        "change": -0.9122588903840012,
+        "AH price": 221.58,
         "AH change": 0.0
     },
     "AVGO": {
         "ticker": "AVGO",
         "name": "Broadcom Inc.",
-        "price": 218.66,
-        "marketCap": 974642741248,
-        "change": -4.907166745917091,
-        "AH price": 208.57,
-        "AH change": 0.30780295
+        "price": 202.54,
+        "marketCap": 998126452736,
+        "change": 5.134792880426884,
+        "AH price": 213.3,
+        "AH change": 0.16906199
     },
     "AVY": {
         "ticker": "AVY",
         "name": "Avery Dennison Corporation",
-        "price": 184.36,
-        "marketCap": 14827123712,
-        "change": 0.09763108873148033,
-        "AH price": 184.54,
+        "price": 186.38,
+        "marketCap": 14924343296,
+        "change": -0.3380217117220376,
+        "AH price": 185.75,
         "AH change": 0.0
     },
     "AWK": {
         "ticker": "AWK",
         "name": "American Water Works Company, Inc.",
-        "price": 132.68,
-        "marketCap": 26042970112,
-        "change": 0.6858635154835085,
-        "AH price": 133.55,
-        "AH change": -0.0299373
+        "price": 137.25,
+        "marketCap": 26329542656,
+        "change": -1.5956301941029143,
+        "AH price": 133.68,
+        "AH change": -1.0217718
     },
     "AXON": {
         "ticker": "AXON",
         "name": "Axon Enterprise, Inc.",
-        "price": 513.22,
-        "marketCap": 38106812416,
-        "change": -2.6284946975690113,
-        "AH price": 501.0,
-        "AH change": 0.25413504
+        "price": 496.65,
+        "marketCap": 43648249856,
+        "change": 15.252196002919217,
+        "AH price": 572.0,
+        "AH change": -0.06988546
     },
     "AXP": {
         "ticker": "AXP",
         "name": "American Express Company",
-        "price": 295.4,
-        "marketCap": 207619276800,
-        "change": 0.04400977843555982,
-        "AH price": 295.01,
-        "AH change": -0.17595135
+        "price": 293.34,
+        "marketCap": 208019718144,
+        "change": 0.9408910479584984,
+        "AH price": 296.449,
+        "AH change": 0.117793
     },
     "AZO": {
         "ticker": "AZO",
         "name": "AutoZone, Inc.",
-        "price": 3368.98,
-        "marketCap": 57076260864,
-        "change": 0.9504366222679312,
-        "AH price": 3394.01,
-        "AH change": -0.205527
+        "price": 3425.6,
+        "marketCap": 56941502464,
+        "change": -0.9525375415376155,
+        "AH price": 3385.0,
+        "AH change": -0.234897
     },
     "BA": {
         "ticker": "BA",
         "name": "The Boeing Company",
-        "price": 177.15,
-        "marketCap": 134945816576,
-        "change": 1.5580072597901307,
-        "AH price": 180.0,
-        "AH change": 0.050022975
+        "price": 178.27,
+        "marketCap": 129792794624,
+        "change": -2.933758266104476,
+        "AH price": 173.41,
+        "AH change": 0.213829
     },
     "BAC": {
         "ticker": "BAC",
         "name": "Bank of America Corporation",
-        "price": 44.81,
-        "marketCap": 338378817536,
-        "change": -0.7810807366477299,
-        "AH price": 44.5,
-        "AH change": 0.089970574
+        "price": 43.94,
+        "marketCap": 334421164032,
+        "change": 0.0,
+        "AH price": 43.97,
+        "AH change": 0.06828082
     },
     "BALL": {
         "ticker": "BALL",
         "name": "Ball Corporation",
-        "price": 51.35,
-        "marketCap": 15154071552,
-        "change": -1.1100286499745118,
-        "AH price": 51.0,
-        "AH change": 0.43324384
+        "price": 51.59,
+        "marketCap": 14703968256,
+        "change": 0.7753470143357639,
+        "AH price": 51.47,
+        "AH change": -1.0001932
     },
     "BAX": {
         "ticker": "BAX",
         "name": "Baxter International Inc.",
-        "price": 33.82,
-        "marketCap": 17911427072,
-        "change": 3.725612500296085,
-        "AH price": 35.04,
-        "AH change": -0.114028
+        "price": 35.94,
+        "marketCap": 18039896064,
+        "change": -1.8920432141319998,
+        "AH price": 35.33,
+        "AH change": 0.1985352
     },
     "BBY": {
         "ticker": "BBY",
         "name": "Best Buy Co., Inc.",
-        "price": 89.78,
-        "marketCap": 18963703808,
-        "change": -1.2029425771207898,
-        "AH price": 90.0,
-        "AH change": 1.46562
+        "price": 90.09,
+        "marketCap": 19329296384,
+        "change": 0.3552084995303294,
+        "AH price": 91.1665,
+        "AH change": 0.836736
     },
     "BDX": {
         "ticker": "BDX",
         "name": "Becton, Dickinson and Company",
-        "price": 227.43,
-        "marketCap": 66130063360,
-        "change": 1.2663258917297535,
-        "AH price": 231.54,
-        "AH change": 0.534061
+        "price": 230.05,
+        "marketCap": 65349054464,
+        "change": -1.0693356580020226,
+        "AH price": 227.59,
+        "AH change": 0.0
     },
     "BEN": {
         "ticker": "BEN",
         "name": "Franklin Resources, Inc.",
-        "price": 20.53,
-        "marketCap": 10697104384,
-        "change": -0.8280568466056024,
-        "AH price": 20.34,
-        "AH change": -0.0982341
+        "price": 20.23,
+        "marketCap": 10471182336,
+        "change": -1.4829423818532792,
+        "AH price": 19.93,
+        "AH change": 0.0
     },
     "BG": {
         "ticker": "BG",
         "name": "Bunge Global SA",
-        "price": 73.06,
-        "marketCap": 9857366016,
-        "change": 0.7117496439058826,
-        "AH price": 72.7,
-        "AH change": -1.1959838
+        "price": 74.27,
+        "marketCap": 9814496256,
+        "change": -1.359895721673265,
+        "AH price": 73.7,
+        "AH change": 0.6005935
     },
     "BIIB": {
         "ticker": "BIIB",
         "name": "Biogen Inc.",
-        "price": 140.64,
-        "marketCap": 20678397952,
-        "change": 0.44795569222597026,
-        "AH price": 140.09,
-        "AH change": -0.835286
+        "price": 143.46,
+        "marketCap": 20564226048,
+        "change": -2.0702642420941957,
+        "AH price": 139.4,
+        "AH change": -0.775864
     },
     "BK": {
         "ticker": "BK",
         "name": "The Bank of New York Mellon Corporation",
-        "price": 87.25,
-        "marketCap": 63163019264,
-        "change": 0.8710626203214542,
-        "AH price": 88.4505,
-        "AH change": 0.500509
+        "price": 86.75,
+        "marketCap": 61964488704,
+        "change": -0.4726266998378963,
+        "AH price": 87.82,
+        "AH change": 1.7141573
     },
     "BKNG": {
         "ticker": "BKNG",
         "name": "Booking Holdings Inc.",
-        "price": 4990.64,
-        "marketCap": 165686575104,
-        "change": 1.1709908910537703,
-        "AH price": 5050.0,
-        "AH change": 0.0182196
+        "price": 5033.83,
+        "marketCap": 165209751552,
+        "change": 0.014297792164809893,
+        "AH price": 5036.0,
+        "AH change": 0.0288049
     },
     "BKR": {
         "ticker": "BKR",
         "name": "Baker Hughes Company",
-        "price": 45.62,
-        "marketCap": 44178796544,
-        "change": -2.1920210947244874,
-        "AH price": 44.88,
-        "AH change": 0.5827031
+        "price": 44.04,
+        "marketCap": 43079770112,
+        "change": -1.2034572728795645,
+        "AH price": 44.4,
+        "AH change": 2.04551
     },
     "BLDR": {
         "ticker": "BLDR",
         "name": "Builders FirstSource, Inc.",
-        "price": 137.35,
-        "marketCap": 15745598464,
-        "change": 0.8955192376271612,
-        "AH price": 136.35,
-        "AH change": -1.6091757
+        "price": 140.78,
+        "marketCap": 16143271936,
+        "change": 0.9234287988564688,
+        "AH price": 142.0,
+        "AH change": -0.056307595
     },
     "BLK": {
         "ticker": "BLK",
         "name": "BlackRock, Inc.",
-        "price": 974.22,
-        "marketCap": 147568721920,
-        "change": -2.198680334452267,
-        "AH price": 951.0,
-        "AH change": -0.1889156
+        "price": 958.01,
+        "marketCap": 147718946816,
+        "change": -0.4425830827605136,
+        "AH price": 953.77,
+        "AH change": 0.0
     },
     "BMY": {
         "ticker": "BMY",
         "name": "Bristol-Myers Squibb Company",
-        "price": 55.83,
-        "marketCap": 117456461824,
-        "change": 3.6718595196610977,
-        "AH price": 57.9,
-        "AH change": 0.03455504
+        "price": 58.21,
+        "marketCap": 116441808896,
+        "change": -1.4258684580169,
+        "AH price": 58.15,
+        "AH change": 1.34193
     },
     "BR": {
         "ticker": "BR",
         "name": "Broadridge Financial Solutions, Inc.",
-        "price": 235.33,
-        "marketCap": 27666800640,
-        "change": 0.46742482308577676,
-        "AH price": 236.43,
-        "AH change": 0.0
+        "price": 236.8,
+        "marketCap": 27656269824,
+        "change": -0.19425958950120578,
+        "AH price": 233.3,
+        "AH change": -1.2862797
     },
     "BRO": {
         "ticker": "BRO",
         "name": "Brown & Brown, Inc.",
-        "price": 111.71,
-        "marketCap": 32195942400,
-        "change": 0.796705216133284,
-        "AH price": 112.99,
-        "AH change": 0.346358
+        "price": 114.77,
+        "marketCap": 32822134784,
+        "change": 0.01742987979964014,
+        "AH price": 114.13,
+        "AH change": -0.57496613
     },
     "BSX": {
         "ticker": "BSX",
         "name": "Boston Scientific Corporation",
-        "price": 104.49,
-        "marketCap": 154056671232,
-        "change": -0.09570147972580909,
-        "AH price": 103.5,
-        "AH change": -0.852571
+        "price": 100.72,
+        "marketCap": 149880209408,
+        "change": 0.8339915882744874,
+        "AH price": 102.43,
+        "AH change": 0.856639
     },
     "BWA": {
         "ticker": "BWA",
         "name": "BorgWarner Inc.",
-        "price": 29.49,
-        "marketCap": 6503662080,
-        "change": 0.847745004884145,
-        "AH price": 29.74,
+        "price": 29.99,
+        "marketCap": 6573640704,
+        "change": 0.23341012123525218,
+        "AH price": 30.06,
         "AH change": 0.0
     },
     "BX": {
         "ticker": "BX",
         "name": "Blackstone Inc.",
-        "price": 158.38,
-        "marketCap": 191809191936,
-        "change": -0.8271230699626729,
-        "AH price": 157.07,
-        "AH change": 0.0
+        "price": 157.23,
+        "marketCap": 194727788544,
+        "change": 1.418311420800691,
+        "AH price": 160.0,
+        "AH change": 0.338639
     },
     "BXP": {
         "ticker": "BXP",
         "name": "BXP, Inc.",
-        "price": 68.86,
-        "marketCap": 12145991680,
-        "change": -0.029050642293968126,
-        "AH price": 67.95,
-        "AH change": -1.2928522
+        "price": 69.9,
+        "marketCap": 12348895232,
+        "change": 0.12875012292711593,
+        "AH price": 69.99,
+        "AH change": 0.0
     },
     "C": {
         "ticker": "C",
         "name": "Citigroup Inc.",
-        "price": 79.65,
-        "marketCap": 147427442688,
-        "change": -1.3935977264117372,
-        "AH price": 78.8,
-        "AH change": 0.33104423
+        "price": 78.14,
+        "marketCap": 149005828096,
+        "change": 1.190171886920929,
+        "AH price": 79.08,
+        "AH change": 0.0126497
     },
     "CAG": {
         "ticker": "CAG",
         "name": "Conagra Brands, Inc.",
-        "price": 25.79,
-        "marketCap": 12324402176,
-        "change": 0.11631941927855337,
-        "AH price": 25.702,
-        "AH change": -0.45701018
+        "price": 26.1,
+        "marketCap": 12104835072,
+        "change": -2.8352481237645626,
+        "AH price": 25.45,
+        "AH change": 0.35489
     },
     "CAH": {
         "ticker": "CAH",
         "name": "Cardinal Health, Inc.",
-        "price": 127.06,
-        "marketCap": 30811998208,
-        "change": 0.3856489080586487,
-        "AH price": 122.8,
-        "AH change": -3.72403
+        "price": 127.81,
+        "marketCap": 30722617344,
+        "change": -0.4929170373617684,
+        "AH price": 125.32,
+        "AH change": -1.46249
     },
     "CAT": {
         "ticker": "CAT",
         "name": "Caterpillar Inc.",
-        "price": 340.04,
-        "marketCap": 161980727296,
-        "change": -0.3293715707101978,
-        "AH price": 339.17,
-        "AH change": 0.0737637
+        "price": 342.36,
+        "marketCap": 163729932288,
+        "change": 0.06426020274454979,
+        "AH price": 343.32,
+        "AH change": 0.21601401
     },
     "CB": {
         "ticker": "CB",
         "name": "Chubb Limited",
-        "price": 267.25,
-        "marketCap": 109568499712,
-        "change": 2.316184262453227,
-        "AH price": 275.98,
-        "AH change": 0.928909
+        "price": 277.45,
+        "marketCap": 109656662016,
+        "change": -1.366014913740136,
+        "AH price": 279.625,
+        "AH change": 2.17971
     },
     "CBOE": {
         "ticker": "CBOE",
         "name": "Cboe Global Markets, Inc.",
-        "price": 210.93,
-        "marketCap": 22070134784,
-        "change": -0.06637244323220995,
-        "AH price": 207.42,
-        "AH change": -1.5987453
+        "price": 208.06,
+        "marketCap": 21496367104,
+        "change": -1.3217341306685089,
+        "AH price": 206.36,
+        "AH change": 0.51142323
     },
     "CBRE": {
         "ticker": "CBRE",
         "name": "CBRE Group, Inc.",
-        "price": 135.78,
-        "marketCap": 41372102656,
-        "change": 1.5539848499934483,
-        "AH price": 134.78,
-        "AH change": -2.25542
+        "price": 138.7,
+        "marketCap": 42209202176,
+        "change": 1.4275384074290391,
+        "AH price": 140.68,
+        "AH change": 0.0
     },
     "CCI": {
         "ticker": "CCI",
         "name": "Crown Castle Inc.",
-        "price": 92.19,
-        "marketCap": 40226390016,
-        "change": 0.40133974117492843,
-        "AH price": 91.1501,
-        "AH change": -1.5232248
+        "price": 93.33,
+        "marketCap": 39822213120,
+        "change": -1.8214984938220133,
+        "AH price": 91.7,
+        "AH change": 0.0763939
     },
     "CCL": {
         "ticker": "CCL",
         "name": "Carnival Corporation & plc",
-        "price": 23.22,
-        "marketCap": 31945160704,
-        "change": 1.765718602654336,
-        "AH price": 23.6,
-        "AH change": -0.1269521
+        "price": 23.74,
+        "marketCap": 32607588352,
+        "change": 1.6006784826406768,
+        "AH price": 24.1,
+        "AH change": -0.0829206
     },
     "CDNS": {
         "ticker": "CDNS",
         "name": "Cadence Design Systems, Inc.",
-        "price": 258.34,
-        "marketCap": 69335621632,
-        "change": -2.0863975636969103,
-        "AH price": 252.48,
-        "AH change": -0.185808
+        "price": 248.9,
+        "marketCap": 69606989824,
+        "change": 2.0249130849790125,
+        "AH price": 253.72,
+        "AH change": -0.08663512
     },
     "CDW": {
         "ticker": "CDW",
         "name": "CDW Corporation",
-        "price": 186.5,
-        "marketCap": 24879056896,
-        "change": 0.10187798466823057,
-        "AH price": 187.6,
-        "AH change": 0.48744103
+        "price": 182.58,
+        "marketCap": 23879032832,
+        "change": -1.2871103515981654,
+        "AH price": 180.0,
+        "AH change": -0.127612
     },
     "CE": {
         "ticker": "CE",
         "name": "Celanese Corporation",
-        "price": 52.76,
-        "marketCap": 5785884160,
-        "change": 0.3222175683299716,
-        "AH price": 52.17,
-        "AH change": -1.43586
+        "price": 54.42,
+        "marketCap": 5756329984,
+        "change": -3.252474646492091,
+        "AH price": 53.0,
+        "AH change": 0.6647644
     },
     "CF": {
         "ticker": "CF",
         "name": "CF Industries Holdings, Inc.",
-        "price": 77.9,
-        "marketCap": 13140812800,
-        "change": -0.5006410552108617,
-        "AH price": 78.0,
-        "AH change": 0.6321737
+        "price": 78.41,
+        "marketCap": 13186586624,
+        "change": -0.8034751350444609,
+        "AH price": 78.66,
+        "AH change": 1.1314025
     },
     "CFG": {
         "ticker": "CFG",
         "name": "Citizens Financial Group, Inc.",
-        "price": 44.88,
-        "marketCap": 19395768320,
-        "change": -1.1363683691906084,
-        "AH price": 43.36,
-        "AH change": -2.27631
+        "price": 44.41,
+        "marketCap": 19666794496,
+        "change": 1.3060162869793068,
+        "AH price": 44.8,
+        "AH change": -0.42232147
     },
     "CHD": {
         "ticker": "CHD",
         "name": "Church & Dwight Co., Inc.",
-        "price": 105.33,
-        "marketCap": 26463911936,
-        "change": 2.145632267680848,
-        "AH price": 109.3,
-        "AH change": 1.5893734
+        "price": 110.57,
+        "marketCap": 26709880832,
+        "change": -1.790723851314506,
+        "AH price": 106.67,
+        "AH change": -1.768117
     },
     "CHRW": {
         "ticker": "CHRW",
         "name": "C.H. Robinson Worldwide, Inc.",
-        "price": 100.88,
-        "marketCap": 11951320064,
-        "change": -0.19825233315558136,
-        "AH price": 100.68,
+        "price": 98.77,
+        "marketCap": 11654554624,
+        "change": -0.5973436852719003,
+        "AH price": 98.18,
         "AH change": 0.0
     },
     "CHTR": {
         "ticker": "CHTR",
         "name": "Charter Communications, Inc.",
-        "price": 361.0,
-        "marketCap": 51924578304,
-        "change": 1.329636507747576,
-        "AH price": 365.6,
-        "AH change": -0.0546697
+        "price": 358.73,
+        "marketCap": 50175778816,
+        "change": -1.4634961779654636,
+        "AH price": 355.783,
+        "AH change": 0.651378
     },
     "CI": {
         "ticker": "CI",
         "name": "The Cigna Group",
-        "price": 299.81,
-        "marketCap": 82415960064,
-        "change": 0.4035860928358964,
-        "AH price": 297.55,
-        "AH change": -1.1527478
+        "price": 313.9,
+        "marketCap": 83598729216,
+        "change": -2.726982390900142,
+        "AH price": 304.8,
+        "AH change": -0.17685483
     },
     "CINF": {
         "ticker": "CINF",
         "name": "Cincinnati Financial Corporation",
-        "price": 135.14,
-        "marketCap": 21435478016,
-        "change": 1.4725510597541815,
-        "AH price": 134.82,
-        "AH change": -1.68453
+        "price": 139.94,
+        "marketCap": 21941532672,
+        "change": 0.17149509088760048,
+        "AH price": 140.18,
+        "AH change": 0.0
     },
     "CL": {
         "ticker": "CL",
         "name": "Colgate-Palmolive Company",
-        "price": 89.47,
-        "marketCap": 73127510016,
-        "change": 0.7153228802017086,
-        "AH price": 91.04,
-        "AH change": 1.0320722
+        "price": 92.29,
+        "marketCap": 73176203264,
+        "change": -2.2971098987445684,
+        "AH price": 90.18,
+        "AH change": 0.0110925
     },
     "CLX": {
         "ticker": "CLX",
         "name": "The Clorox Company",
-        "price": 157.25,
-        "marketCap": 19053797376,
-        "change": -1.6407006874751588,
-        "AH price": 154.67,
-        "AH change": 0.0
+        "price": 157.02,
+        "marketCap": 18885027840,
+        "change": -2.369125665191158,
+        "AH price": 153.31,
+        "AH change": 0.0065195737
     },
     "CMCSA": {
         "ticker": "CMCSA",
         "name": "Comcast Corporation",
-        "price": 36.24,
-        "marketCap": 137251020800,
-        "change": 0.1655561694672866,
-        "AH price": 36.44,
-        "AH change": 0.38567325
+        "price": 35.85,
+        "marketCap": 132713791488,
+        "change": -2.0920502982486866,
+        "AH price": 35.02,
+        "AH change": -0.22791459
     },
     "CME": {
         "ticker": "CME",
         "name": "CME Group Inc.",
-        "price": 248.87,
-        "marketCap": 89279684608,
-        "change": -0.45003220121417953,
-        "AH price": 246.5,
-        "AH change": -0.504541
+        "price": 250.82,
+        "marketCap": 89366167552,
+        "change": -1.128299875773677,
+        "AH price": 249.05,
+        "AH change": 0.427436
     },
     "CMG": {
         "ticker": "CMG",
         "name": "Chipotle Mexican Grill, Inc.",
-        "price": 51.51,
-        "marketCap": 69406965760,
-        "change": -0.5824097201244431,
-        "AH price": 51.2011,
-        "AH change": -0.01737881
+        "price": 52.47,
+        "marketCap": 72402264064,
+        "change": 1.810552556014324,
+        "AH price": 53.65,
+        "AH change": 0.43055665
     },
     "CMI": {
         "ticker": "CMI",
         "name": "Cummins Inc.",
-        "price": 366.92,
-        "marketCap": 49557774336,
-        "change": -1.7578796388825468,
-        "AH price": 361.46,
-        "AH change": 0.274639
+        "price": 361.05,
+        "marketCap": 50417029120,
+        "change": 1.5704233816469872,
+        "AH price": 368.0,
+        "AH change": 0.3490398
     },
     "CMS": {
         "ticker": "CMS",
         "name": "CMS Energy Corporation",
-        "price": 71.49,
-        "marketCap": 21549096960,
-        "change": 0.8812489881633927,
-        "AH price": 72.56,
-        "AH change": 0.6100871
+        "price": 73.08,
+        "marketCap": 21871794176,
+        "change": 0.16419692690334492,
+        "AH price": 73.47,
+        "AH change": 0.3688583
     },
     "CNC": {
         "ticker": "CNC",
         "name": "Centene Corporation",
-        "price": 57.68,
-        "marketCap": 29231874048,
-        "change": 2.1671289760513996,
-        "AH price": 58.9,
-        "AH change": -0.0509058
+        "price": 61.33,
+        "marketCap": 28224905216,
+        "change": -7.2232189351291245,
+        "AH price": 56.94,
+        "AH change": 0.0702937
     },
     "CNP": {
         "ticker": "CNP",
         "name": "CenterPoint Energy, Inc.",
-        "price": 34.29,
-        "marketCap": 22289133568,
-        "change": -0.26246762958567427,
-        "AH price": 33.7175,
-        "AH change": -1.4108245
+        "price": 34.22,
+        "marketCap": 22184855552,
+        "change": -0.5260090553909184,
+        "AH price": 34.3198,
+        "AH change": 0.821975
     },
     "COF": {
         "ticker": "COF",
         "name": "Capital One Financial Corporation",
-        "price": 200.2,
-        "marketCap": 76235096064,
-        "change": -0.13985953225027434,
-        "AH price": 199.9,
-        "AH change": -0.0100061
+        "price": 193.91,
+        "marketCap": 75033911296,
+        "change": 1.474911328110307,
+        "AH price": 197.9,
+        "AH change": 0.57426924
     },
     "COO": {
         "ticker": "COO",
         "name": "The Cooper Companies, Inc.",
-        "price": 88.48,
-        "marketCap": 18008125440,
-        "change": 1.7857076646870882,
-        "AH price": 90.06,
+        "price": 90.26,
+        "marketCap": 18194085888,
+        "change": 0.8087698983623681,
+        "AH price": 90.99,
         "AH change": 0.0
     },
     "COP": {
         "ticker": "COP",
         "name": "ConocoPhillips",
-        "price": 97.94,
-        "marketCap": 125736591360,
-        "change": 0.8985064646536407,
-        "AH price": 99.56,
-        "AH change": 0.74883413
+        "price": 97.08,
+        "marketCap": 122313891840,
+        "change": -0.9785790685191604,
+        "AH price": 96.2499,
+        "AH change": 0.124731
     },
     "COR": {
         "ticker": "COR",
         "name": "Cencora, Inc.",
-        "price": 241.43,
-        "marketCap": 47312461824,
-        "change": 1.163903782723635,
-        "AH price": 246.2,
-        "AH change": 0.8024858
+        "price": 250.53,
+        "marketCap": 48554160128,
+        "change": 0.04789650651505774,
+        "AH price": 250.65,
+        "AH change": 0.0
     },
     "COST": {
         "ticker": "COST",
         "name": "Costco Wholesale Corporation",
-        "price": 1035.03,
-        "marketCap": 459701813248,
-        "change": 0.05506567664028845,
-        "AH price": 1034.0,
-        "AH change": -0.15449746
+        "price": 1055.66,
+        "marketCap": 458090446848,
+        "change": -2.244099682619048,
+        "AH price": 1033.655,
+        "AH change": 0.16328563
     },
     "CPAY": {
         "ticker": "CPAY",
         "name": "Corpay, Inc.",
-        "price": 363.84,
-        "marketCap": 25181706240,
-        "change": -0.7173442661148943,
-        "AH price": 361.0,
-        "AH change": -0.06367438
+        "price": 370.53,
+        "marketCap": 25920641024,
+        "change": 0.3508454908513567,
+        "AH price": 371.99,
+        "AH change": 0.043031402
     },
     "CPB": {
         "ticker": "CPB",
         "name": "The Campbell's Company",
-        "price": 40.59,
-        "marketCap": 12320844800,
-        "change": 1.823113268501963,
-        "AH price": 41.5,
-        "AH change": 0.411319
+        "price": 41.66,
+        "marketCap": 11936284672,
+        "change": -3.888619629904773,
+        "AH price": 40.15,
+        "AH change": 0.274727
     },
     "CPRT": {
         "ticker": "CPRT",
         "name": "Copart, Inc.",
-        "price": 56.59,
-        "marketCap": 54680215552,
-        "change": 0.2827351952300578,
-        "AH price": 56.3,
-        "AH change": -0.792953
+        "price": 56.77,
+        "marketCap": 54217719808,
+        "change": -0.8807468662467162,
+        "AH price": 55.1795,
+        "AH change": -1.93798
     },
     "CPT": {
         "ticker": "CPT",
         "name": "Camden Property Trust",
-        "price": 119.89,
-        "marketCap": 12936813568,
-        "change": 1.075987089911292,
-        "AH price": 121.18,
+        "price": 122.04,
+        "marketCap": 12928272384,
+        "change": -0.7702412605330061,
+        "AH price": 121.1,
         "AH change": 0.0
     },
     "CRL": {
         "ticker": "CRL",
         "name": "Charles River Laboratories International, Inc.",
-        "price": 163.02,
-        "marketCap": 8720153600,
-        "change": 4.5945221678786865,
-        "AH price": 169.9,
-        "AH change": -0.35775065
+        "price": 167.1,
+        "marketCap": 8589743616,
+        "change": 0.5146622255769439,
+        "AH price": 168.5,
+        "AH change": 0.3215011
     },
     "CRM": {
         "ticker": "CRM",
         "name": "Salesforce, Inc.",
-        "price": 309.8,
-        "marketCap": 295062241280,
-        "change": -0.4777212805247211,
-        "AH price": 308.25,
-        "AH change": -0.02270606
+        "price": 305.88,
+        "marketCap": 294114787328,
+        "change": 0.4740361142627273,
+        "AH price": 292.25,
+        "AH change": -4.9067736
     },
     "CSCO": {
         "ticker": "CSCO",
         "name": "Cisco Systems, Inc.",
-        "price": 63.98,
-        "marketCap": 251587067904,
-        "change": -1.156608110447113,
-        "AH price": 63.2,
-        "AH change": -0.06325255
+        "price": 64.27,
+        "marketCap": 254928830464,
+        "change": -0.29561976339735163,
+        "AH price": 64.59,
+        "AH change": 0.79587156
     },
     "CSGP": {
         "ticker": "CSGP",
         "name": "CoStar Group, Inc.",
-        "price": 76.79,
-        "marketCap": 31780663296,
-        "change": 0.9115730432302214,
-        "AH price": 77.53,
-        "AH change": 0.0516207
+        "price": 77.6,
+        "marketCap": 31546892288,
+        "change": -0.8762890702923857,
+        "AH price": 76.78,
+        "AH change": -0.182006
     },
     "CSX": {
         "ticker": "CSX",
         "name": "CSX Corporation",
-        "price": 32.3,
-        "marketCap": 61343039488,
-        "change": -1.5170271909974087,
-        "AH price": 31.85,
-        "AH change": 0.125749
+        "price": 32.09,
+        "marketCap": 61670871040,
+        "change": -0.3427878149844494,
+        "AH price": 31.95,
+        "AH change": -0.093804814
     },
     "CTAS": {
         "ticker": "CTAS",
         "name": "Cintas Corporation",
-        "price": 204.43,
-        "marketCap": 82060673024,
-        "change": -0.5282916455309205,
-        "AH price": 203.59,
-        "AH change": 0.118018
+        "price": 205.82,
+        "marketCap": 82448072704,
+        "change": -0.7336554814354619,
+        "AH price": 207.55,
+        "AH change": 1.58583
     },
     "CTRA": {
         "ticker": "CTRA",
         "name": "Coterra Energy Inc.",
-        "price": 28.14,
-        "marketCap": 20605730816,
-        "change": -0.5685851132994936,
-        "AH price": 27.85,
-        "AH change": -0.464615
+        "price": 27.38,
+        "marketCap": 20474404864,
+        "change": -1.8626674111224624,
+        "AH price": 26.95,
+        "AH change": 0.29772952
     },
     "CTSH": {
         "ticker": "CTSH",
         "name": "Cognizant Technology Solutions Corporation",
-        "price": 84.87,
-        "marketCap": 41819783168,
-        "change": -0.37704687695100386,
-        "AH price": 84.6,
-        "AH change": 0.0591312
+        "price": 84.84,
+        "marketCap": 41621938176,
+        "change": -0.8132895353551051,
+        "AH price": 84.0,
+        "AH change": -0.178255
     },
     "CVS": {
         "ticker": "CVS",
         "name": "CVS Health Corporation",
-        "price": 63.48,
-        "marketCap": 79455617024,
-        "change": -0.7246362441552894,
-        "AH price": 63.03,
-        "AH change": 0.015865315
+        "price": 63.66,
+        "marketCap": 80514686976,
+        "change": 0.3141702221470921,
+        "AH price": 64.0,
+        "AH change": 0.21922861
     },
     "CVX": {
         "ticker": "CVX",
         "name": "Chevron Corporation",
-        "price": 156.92,
-        "marketCap": 277981134848,
-        "change": 0.6181501606052718,
-        "AH price": 158.01,
-        "AH change": 0.0759992
+        "price": 156.42,
+        "marketCap": 273139499008,
+        "change": -0.8183089082473843,
+        "AH price": 155.1607,
+        "AH change": 0.013346769
     },
     "CZR": {
         "ticker": "CZR",
         "name": "Caesars Entertainment, Inc.",
-        "price": 35.34,
-        "marketCap": 7445299200,
-        "change": -0.8488942721144227,
-        "AH price": 34.9418,
-        "AH change": -0.280256
+        "price": 34.87,
+        "marketCap": 7343309312,
+        "change": -0.8890093722093333,
+        "AH price": 33.7247,
+        "AH change": -2.41696
     },
     "D": {
         "ticker": "D",
         "name": "Dominion Energy, Inc.",
         "price": 57.43,
-        "marketCap": 47771365376,
-        "change": -0.9751025079492233,
-        "AH price": 56.88,
-        "AH change": 0.0175877
+        "marketCap": 47972970496,
+        "change": -0.5571995353017251,
+        "AH price": 57.62,
+        "AH change": 0.89301056
     },
     "DAL": {
         "ticker": "DAL",
         "name": "Delta Air Lines, Inc.",
-        "price": 60.0,
-        "marketCap": 39720202240,
-        "change": 2.483336130777995,
-        "AH price": 61.55,
-        "AH change": 0.0975729
+        "price": 61.79,
+        "marketCap": 39855853568,
+        "change": -0.14565488146039868,
+        "AH price": 61.99,
+        "AH change": 0.470018
     },
     "DD": {
         "ticker": "DD",
         "name": "DuPont de Nemours, Inc.",
-        "price": 81.65,
-        "marketCap": 34204768256,
-        "change": 0.20820350982042748,
-        "AH price": 82.52,
-        "AH change": 0.855533
+        "price": 81.88,
+        "marketCap": 34050088960,
+        "change": -0.5251591592570938,
+        "AH price": 83.2488,
+        "AH change": 2.20848
     },
     "DE": {
         "ticker": "DE",
         "name": "Deere & Company",
-        "price": 489.98,
-        "marketCap": 131967680512,
-        "change": -1.1082132069895578,
-        "AH price": 484.4,
-        "AH change": -0.0309553
+        "price": 487.59,
+        "marketCap": 130325397504,
+        "change": -1.8601709207203272,
+        "AH price": 480.86,
+        "AH change": 0.489007
     },
     "DECK": {
         "ticker": "DECK",
         "name": "Deckers Outdoor Corporation",
-        "price": 146.57,
-        "marketCap": 21265055744,
-        "change": -4.4074547254250955,
-        "AH price": 139.9,
-        "AH change": -0.149887
+        "price": 142.79,
+        "marketCap": 22002677760,
+        "change": 1.5267231858480843,
+        "AH price": 145.1,
+        "AH change": 0.0896771
     },
     "DFS": {
         "ticker": "DFS",
         "name": "Discover Financial Services",
-        "price": 194.34,
-        "marketCap": 48602345472,
-        "change": -0.6020367350995968,
-        "AH price": 193.2,
-        "AH change": 0.0155297
+        "price": 187.73,
+        "marketCap": 47860113408,
+        "change": 1.3263759387593652,
+        "AH price": 192.5,
+        "AH change": 1.19861
     },
     "DG": {
         "ticker": "DG",
         "name": "Dollar General Corporation",
-        "price": 76.69,
-        "marketCap": 17380751360,
-        "change": 3.051240400831205,
-        "AH price": 79.664,
-        "AH change": 0.8022304
+        "price": 78.58,
+        "marketCap": 16316310528,
+        "change": -5.586662366191899,
+        "AH price": 74.26,
+        "AH change": 0.094351925
     },
     "DGX": {
         "ticker": "DGX",
         "name": "Quest Diagnostics Incorporated",
-        "price": 172.24,
-        "marketCap": 19316830208,
-        "change": 1.0566604780455144,
-        "AH price": 174.06,
+        "price": 175.41,
+        "marketCap": 19250245632,
+        "change": -1.1116794410417141,
+        "AH price": 173.46,
         "AH change": 0.0
     },
     "DHI": {
         "ticker": "DHI",
         "name": "D.R. Horton, Inc.",
-        "price": 125.98,
-        "marketCap": 40559202304,
-        "change": 0.3492576601741316,
-        "AH price": 126.13,
-        "AH change": -0.229395
+        "price": 132.11,
+        "marketCap": 41239355392,
+        "change": -2.702299074805257,
+        "AH price": 128.5,
+        "AH change": -0.031113496
     },
     "DHR": {
         "ticker": "DHR",
         "name": "Danaher Corporation",
-        "price": 210.23,
-        "marketCap": 150903865344,
-        "change": 0.4328610001442193,
-        "AH price": 211.47,
-        "AH change": 0.15629527
+        "price": 210.41,
+        "marketCap": 149688860672,
+        "change": -0.46100527723045837,
+        "AH price": 209.16,
+        "AH change": -0.13368925
     },
     "DIS": {
         "ticker": "DIS",
         "name": "The Walt Disney Company",
-        "price": 108.66,
-        "marketCap": 201026240512,
-        "change": 2.3375604643187846,
-        "AH price": 111.275,
-        "AH change": 0.06745016
+        "price": 110.53,
+        "marketCap": 202165157888,
+        "change": 1.1761540451598316,
+        "AH price": 111.84,
+        "AH change": 0.008937232
     },
     "DLR": {
         "ticker": "DLR",
         "name": "Digital Realty Trust, Inc.",
-        "price": 165.36,
-        "marketCap": 54737260544,
-        "change": -3.4288813183460825,
-        "AH price": 157.402,
-        "AH change": -1.43265
+        "price": 158.16,
+        "marketCap": 54632120320,
+        "change": 0.7713715177381489,
+        "AH price": 165.04,
+        "AH change": 3.55125
     },
     "DLTR": {
         "ticker": "DLTR",
         "name": "Dollar Tree, Inc.",
-        "price": 74.96,
-        "marketCap": 16194587648,
-        "change": 0.4669136584789434,
-        "AH price": 75.5,
-        "AH change": 0.252294
+        "price": 76.22,
+        "marketCap": 15942991872,
+        "change": -2.728944893390674,
+        "AH price": 74.5,
+        "AH change": 0.485569
     },
     "DOC": {
         "ticker": "DOC",
         "name": "Healthpeak Properties, Inc.",
-        "price": 19.74,
-        "marketCap": 13872394240,
-        "change": 0.4559278299464367,
-        "AH price": 19.89,
-        "AH change": 0.302569
+        "price": 20.21,
+        "marketCap": 14005311488,
+        "change": -0.9401218966653014,
+        "AH price": 20.24,
+        "AH change": 1.0989
     },
     "DOV": {
         "ticker": "DOV",
         "name": "Dover Corporation",
-        "price": 200.54,
-        "marketCap": 27370897408,
-        "change": -0.5385392482409668,
-        "AH price": 199.45,
-        "AH change": -0.00501843
+        "price": 198.36,
+        "marketCap": 27126634496,
+        "change": -0.34281504964606546,
+        "AH price": 196.2546,
+        "AH change": -0.72106427
     },
     "DPZ": {
         "ticker": "DPZ",
         "name": "Domino's Pizza, Inc.",
-        "price": 462.37,
-        "marketCap": 15734161408,
-        "change": -1.4555400523003854,
-        "AH price": 454.5,
-        "AH change": -0.250201
+        "price": 470.14,
+        "marketCap": 16431891456,
+        "change": 1.9079360240869068,
+        "AH price": 480.0,
+        "AH change": 0.185764
     },
     "DRI": {
         "ticker": "DRI",
         "name": "Darden Restaurants, Inc.",
-        "price": 191.21,
-        "marketCap": 22836635648,
-        "change": 1.9507324912763315,
-        "AH price": 196.34,
-        "AH change": 0.718167
+        "price": 197.69,
+        "marketCap": 22731202560,
+        "change": -1.8463296627027312,
+        "AH price": 194.04,
+        "AH change": 0.0
     },
     "DTE": {
         "ticker": "DTE",
         "name": "DTE Energy Company",
-        "price": 131.99,
-        "marketCap": 27434696704,
-        "change": 0.2954764553507319,
-        "AH price": 129.0,
-        "AH change": -2.5532594
+        "price": 133.39,
+        "marketCap": 27490650112,
+        "change": -0.5547683458655819,
+        "AH price": 132.65,
+        "AH change": 0.0
     },
     "DUK": {
         "ticker": "DUK",
         "name": "Duke Energy Corporation",
-        "price": 115.55,
-        "marketCap": 89953918976,
-        "change": 0.32020346812260114,
-        "AH price": 116.01,
-        "AH change": 0.07764318
+        "price": 117.29,
+        "marketCap": 90256556032,
+        "change": -0.8355387068667477,
+        "AH price": 116.0,
+        "AH change": -0.266527
     },
     "DVA": {
         "ticker": "DVA",
         "name": "DaVita Inc.",
-        "price": 142.4,
-        "marketCap": 11363198976,
-        "change": -0.2528094282175741,
-        "AH price": 142.01,
-        "AH change": -0.021119952
+        "price": 142.98,
+        "marketCap": 11676000256,
+        "change": 2.0772145121354764,
+        "AH price": 146.921,
+        "AH change": 0.665302
     },
     "DVN": {
         "ticker": "DVN",
         "name": "Devon Energy Corporation",
-        "price": 37.49,
-        "marketCap": 24197550080,
-        "change": -0.4801288266657197,
-        "AH price": 37.2701,
-        "AH change": -0.10694648
+        "price": 35.88,
+        "marketCap": 22997723136,
+        "change": -1.1705740555727377,
+        "AH price": 35.5,
+        "AH change": 0.11280575
     },
     "DXCM": {
         "ticker": "DXCM",
         "name": "DexCom, Inc.",
-        "price": 88.78,
-        "marketCap": 35462557696,
-        "change": 2.2189696415748554,
-        "AH price": 90.91,
-        "AH change": 0.17631258
+        "price": 88.32,
+        "marketCap": 35134312448,
+        "change": 1.8002762372952483,
+        "AH price": 89.91,
+        "AH change": 0.0
     },
     "EA": {
         "ticker": "EA",
         "name": "Electronic Arts Inc.",
-        "price": 130.95,
-        "marketCap": 34935844864,
-        "change": 2.3673204854986736,
-        "AH price": 134.14,
-        "AH change": 0.0671364
+        "price": 131.54,
+        "marketCap": 34190475264,
+        "change": -0.4099243176548006,
+        "AH price": 131.3,
+        "AH change": 0.0839181
     },
     "EBAY": {
         "ticker": "EBAY",
         "name": "eBay Inc.",
-        "price": 69.39,
-        "marketCap": 33525209088,
-        "change": 0.8646757160954828,
-        "AH price": 69.5258,
-        "AH change": -0.663231
+        "price": 70.93,
+        "marketCap": 33118060544,
+        "change": -2.523616111413899,
+        "AH price": 63.1,
+        "AH change": -8.7359
     },
     "ECL": {
         "ticker": "ECL",
         "name": "Ecolab Inc.",
-        "price": 264.69,
-        "marketCap": 74657439744,
-        "change": -0.3324662339701721,
-        "AH price": 263.0,
-        "AH change": -0.307038
+        "price": 265.69,
+        "marketCap": 75410210816,
+        "change": 0.29357475709643666,
+        "AH price": 268.0,
+        "AH change": 0.574173
     },
     "ED": {
         "ticker": "ED",
         "name": "Consolidated Edison, Inc.",
-        "price": 98.26,
-        "marketCap": 34560253952,
-        "change": 1.4451436373638447,
-        "AH price": 98.4777,
-        "AH change": -1.20616
+        "price": 100.97,
+        "marketCap": 34657333248,
+        "change": -1.0002992215705506,
+        "AH price": 99.95,
+        "AH change": -0.010006139
     },
     "EFX": {
         "ticker": "EFX",
         "name": "Equifax Inc.",
-        "price": 238.03,
-        "marketCap": 29749637120,
-        "change": 0.7730102706914194,
-        "AH price": 244.75,
-        "AH change": 2.03444
+        "price": 245.39,
+        "marketCap": 30214725632,
+        "change": -0.7213025293872687,
+        "AH price": 243.62,
+        "AH change": 0.0
     },
     "EG": {
         "ticker": "EG",
         "name": "Everest Group, Ltd.",
-        "price": 337.14,
-        "marketCap": 14652264448,
-        "change": 1.121195531547502,
-        "AH price": 335.0,
-        "AH change": -1.73648
+        "price": 343.2,
+        "marketCap": 14766586880,
+        "change": 0.11071513744736118,
+        "AH price": 340.4,
+        "AH change": -0.9255465
     },
     "EIX": {
         "ticker": "EIX",
         "name": "Edison International",
-        "price": 52.17,
-        "marketCap": 20220846080,
-        "change": 0.11501126202210989,
-        "AH price": 52.1799,
-        "AH change": -0.0959189
+        "price": 52.16,
+        "marketCap": 20367962112,
+        "change": 0.8627315265641813,
+        "AH price": 52.88,
+        "AH change": 0.5132113
     },
     "EL": {
         "ticker": "EL",
         "name": "The Est\u00e9e Lauder Companies Inc.",
-        "price": 71.8,
-        "marketCap": 27014596608,
-        "change": 4.59609370766244,
-        "AH price": 75.08,
-        "AH change": -0.02662669
+        "price": 74.78,
+        "marketCap": 26359914496,
+        "change": -2.005883958927371,
+        "AH price": 73.2,
+        "AH change": -0.109173
     },
     "ELV": {
         "ticker": "ELV",
         "name": "Elevance Health, Inc.",
-        "price": 385.1,
-        "marketCap": 87589634048,
-        "change": 0.04154860025277842,
-        "AH price": 385.2,
-        "AH change": -0.015573264
+        "price": 401.93,
+        "marketCap": 87787429888,
+        "change": -3.9310298014295952,
+        "AH price": 386.51,
+        "AH change": 0.09841371
     },
     "EMN": {
         "ticker": "EMN",
         "name": "Eastman Chemical Company",
-        "price": 98.72,
-        "marketCap": 11312953344,
-        "change": -0.4963511524620717,
-        "AH price": 99.4,
-        "AH change": 1.1910802
+        "price": 98.93,
+        "marketCap": 11308346368,
+        "change": -0.7480014772938561,
+        "AH price": 98.19,
+        "AH change": 0.0
     },
     "EMR": {
         "ticker": "EMR",
         "name": "Emerson Electric Co.",
-        "price": 121.85,
-        "marketCap": 68051456000,
-        "change": -0.960195472791738,
-        "AH price": 121.39,
-        "AH change": 0.588332
+        "price": 119.72,
+        "marketCap": 67589058560,
+        "change": 0.1169390145514194,
+        "AH price": 118.08,
+        "AH change": -1.48506
     },
     "ENPH": {
         "ticker": "ENPH",
         "name": "Enphase Energy, Inc.",
-        "price": 64.85,
-        "marketCap": 8753683456,
-        "change": 1.8966898779873316,
-        "AH price": 66.01,
-        "AH change": -0.10593174
+        "price": 64.83,
+        "marketCap": 8439727104,
+        "change": -1.7275994369099812,
+        "AH price": 63.71,
+        "AH change": 0.0
     },
     "EOG": {
         "ticker": "EOG",
         "name": "EOG Resources, Inc.",
-        "price": 133.08,
-        "marketCap": 75160190976,
-        "change": 0.4132875294486713,
-        "AH price": 132.0,
-        "AH change": -1.21979
+        "price": 131.32,
+        "marketCap": 73028501504,
+        "change": -1.1270262745828932,
+        "AH price": 130.99,
+        "AH change": 0.885713
     },
     "EPAM": {
         "ticker": "EPAM",
         "name": "EPAM Systems, Inc.",
-        "price": 208.84,
-        "marketCap": 11793492992,
-        "change": -0.6990957099596699,
-        "AH price": 207.467,
-        "AH change": 0.042043
+        "price": 210.5,
+        "marketCap": 12126176256,
+        "change": 1.2969100843415973,
+        "AH price": 214.66,
+        "AH change": 0.67064106
     },
     "EQIX": {
         "ticker": "EQIX",
         "name": "Equinix, Inc.",
-        "price": 919.68,
-        "marketCap": 88475762688,
-        "change": -1.1601843027064507,
-        "AH price": 909.0,
-        "AH change": -0.00110117
+        "price": 901.97,
+        "marketCap": 88599371776,
+        "change": 0.3992738468191619,
+        "AH price": 910.792,
+        "AH change": 0.0562424
     },
     "EQR": {
         "ticker": "EQR",
         "name": "Equity Residential",
-        "price": 71.56,
-        "marketCap": 28260755456,
-        "change": 0.9083308385340303,
-        "AH price": 72.21,
+        "price": 72.98,
+        "marketCap": 28499490816,
+        "change": -0.21924315531587812,
+        "AH price": 72.82,
         "AH change": 0.0
     },
     "EQT": {
         "ticker": "EQT",
         "name": "EQT Corporation",
-        "price": 50.24,
-        "marketCap": 29919848448,
-        "change": -0.3184710232218929,
-        "AH price": 50.83,
-        "AH change": 1.4976
+        "price": 48.84,
+        "marketCap": 29149147136,
+        "change": -0.10237353993517045,
+        "AH price": 48.82,
+        "AH change": 0.061485507
     },
     "ERIE": {
         "ticker": "ERIE",
         "name": "Erie Indemnity Company",
-        "price": 383.46,
-        "marketCap": 20409270272,
-        "change": 1.7863678757000376,
-        "AH price": 390.31,
-        "AH change": 0.0
+        "price": 396.69,
+        "marketCap": 20898705408,
+        "change": 0.7512190798829855,
+        "AH price": 391.93,
+        "AH change": -1.9366
     },
     "ES": {
         "ticker": "ES",
         "name": "Eversource Energy",
-        "price": 63.37,
-        "marketCap": 23118456832,
-        "change": -0.5365317316059142,
-        "AH price": 63.1,
-        "AH change": 0.111058
+        "price": 63.8,
+        "marketCap": 23276175360,
+        "change": -0.5329156060403041,
+        "AH price": 62.5,
+        "AH change": -1.5127625
     },
     "ESS": {
         "ticker": "ESS",
         "name": "Essex Property Trust, Inc.",
-        "price": 294.74,
-        "marketCap": 20577835008,
-        "change": 1.2655259245147048,
-        "AH price": 298.47,
+        "price": 301.24,
+        "marketCap": 20803784704,
+        "change": 0.10290717323173504,
+        "AH price": 301.55,
         "AH change": 0.0
     },
     "ETN": {
         "ticker": "ETN",
         "name": "Eaton Corporation plc",
-        "price": 297.37,
-        "marketCap": 114548719616,
-        "change": -2.5288324770992445,
-        "AH price": 290.5,
-        "AH change": 0.224252
+        "price": 287.55,
+        "marketCap": 117512724480,
+        "change": 3.4081094510783725,
+        "AH price": 298.5,
+        "AH change": 0.38674757
     },
     "ETR": {
         "ticker": "ETR",
         "name": "Entergy Corporation",
-        "price": 85.09,
-        "marketCap": 36709924864,
-        "change": 0.2350506360847692,
-        "AH price": 86.84,
-        "AH change": 1.81732
+        "price": 85.44,
+        "marketCap": 37080080384,
+        "change": 0.8309914140739465,
+        "AH price": 86.41,
+        "AH change": 0.30180165
     },
     "EVRG": {
         "ticker": "EVRG",
         "name": "Evergy, Inc.",
-        "price": 68.06,
-        "marketCap": 15728058368,
-        "change": 0.4848690021926383,
-        "AH price": 69.0,
-        "AH change": 0.891944
+        "price": 68.81,
+        "marketCap": 15891341312,
+        "change": 0.42145171605390536,
+        "AH price": 69.864,
+        "AH change": 1.10564
     },
     "EW": {
         "ticker": "EW",
         "name": "Edwards Lifesciences Corporation",
-        "price": 73.3,
-        "marketCap": 42913849344,
-        "change": -0.7366997176603719,
-        "AH price": 71.5,
-        "AH change": -1.73172
+        "price": 71.45,
+        "marketCap": 42442006528,
+        "change": 0.7137888845536414,
+        "AH price": 71.96,
+        "AH change": 0.0
     },
     "EXC": {
         "ticker": "EXC",
         "name": "Exelon Corporation",
-        "price": 42.99,
-        "marketCap": 43576283136,
-        "change": -0.0921892511869608,
-        "AH price": 43.82,
-        "AH change": 1.0842
+        "price": 44.04,
+        "marketCap": 44289994752,
+        "change": 0.045414299155067096,
+        "AH price": 43.65,
+        "AH change": -0.93054885
     },
     "EXPD": {
         "ticker": "EXPD",
         "name": "Expeditors International of Washington, Inc.",
-        "price": 116.4,
-        "marketCap": 16084250624,
-        "change": 0.1288672885846628,
-        "AH price": 114.74,
-        "AH change": -1.55299
+        "price": 118.48,
+        "marketCap": 16204956672,
+        "change": -0.9115477721595494,
+        "AH price": 117.4,
+        "AH change": 0.0
     },
     "EXPE": {
         "ticker": "EXPE",
         "name": "Expedia Group, Inc.",
-        "price": 196.81,
-        "marketCap": 25767534592,
-        "change": 1.605611351714278,
-        "AH price": 199.6813,
-        "AH change": -0.1443698
+        "price": 199.76,
+        "marketCap": 25712123904,
+        "change": -0.11013277270369387,
+        "AH price": 199.5,
+        "AH change": -0.0200427
     },
     "EXR": {
         "ticker": "EXR",
         "name": "Extra Space Storage Inc.",
-        "price": 155.95,
-        "marketCap": 35078017024,
-        "change": 1.9814019867638442,
-        "AH price": 159.0,
-        "AH change": -0.0251467
+        "price": 161.28,
+        "marketCap": 33946542080,
+        "change": -4.569689467367214,
+        "AH price": 153.9,
+        "AH change": -0.0065036486
     },
     "F": {
         "ticker": "F",
         "name": "Ford Motor Company",
-        "price": 9.28,
-        "marketCap": 37058260992,
-        "change": 0.7543173546635754,
-        "AH price": 9.34,
-        "AH change": -0.106954314
+        "price": 9.42,
+        "marketCap": 37533872128,
+        "change": 0.5307875831200053,
+        "AH price": 9.48,
+        "AH change": 0.105588965
     },
     "FANG": {
         "ticker": "FANG",
         "name": "Diamondback Energy, Inc.",
-        "price": 156.12,
-        "marketCap": 45325451264,
-        "change": -0.5700739286984874,
-        "AH price": 157.4,
-        "AH change": 1.3979245
+        "price": 151.92,
+        "marketCap": 44354686976,
+        "change": 0.3356993897990896,
+        "AH price": 153.0,
+        "AH change": 0.373947
     },
     "FAST": {
         "ticker": "FAST",
         "name": "Fastenal Company",
-        "price": 74.78,
-        "marketCap": 42880348160,
-        "change": 0.0,
-        "AH price": 74.75,
-        "AH change": -0.040116
+        "price": 74.6,
+        "marketCap": 42370007040,
+        "change": -0.9517414195644475,
+        "AH price": 73.69,
+        "AH change": -0.2706685
     },
     "FCX": {
         "ticker": "FCX",
         "name": "Freeport-McMoRan Inc.",
-        "price": 36.98,
-        "marketCap": 53329666048,
-        "change": 0.3515442664263827,
-        "AH price": 37.12,
-        "AH change": 0.0269424
+        "price": 36.76,
+        "marketCap": 54536806400,
+        "change": 3.237221152725604,
+        "AH price": 38.18,
+        "AH change": 0.6060594
     },
     "FDS": {
         "ticker": "FDS",
         "name": "FactSet Research Systems Inc.",
-        "price": 461.78,
-        "marketCap": 17553127424,
-        "change": -0.04764199863239906,
-        "AH price": 461.56,
+        "price": 462.94,
+        "marketCap": 17253449728,
+        "change": -2.0002613117878116,
+        "AH price": 453.68,
         "AH change": 0.0
     },
     "FDX": {
         "ticker": "FDX",
         "name": "FedEx Corporation",
-        "price": 254.19,
-        "marketCap": 61065363456,
-        "change": -0.2557178288014188,
-        "AH price": 253.25,
-        "AH change": -0.114378
+        "price": 256.48,
+        "marketCap": 61686759424,
+        "change": -0.14036800285376466,
+        "AH price": 256.25,
+        "AH change": 0.0507594
     },
     "FE": {
         "ticker": "FE",
         "name": "FirstEnergy Corp.",
-        "price": 42.29,
-        "marketCap": 24712472576,
-        "change": 1.3951292026840891,
-        "AH price": 42.94,
-        "AH change": 0.13991968
+        "price": 43.5,
+        "marketCap": 24810446848,
+        "change": -1.03448451250449,
+        "AH price": 41.4,
+        "AH change": -3.8327475
     },
     "FFIV": {
         "ticker": "FFIV",
         "name": "F5, Inc.",
-        "price": 295.56,
-        "marketCap": 16904229888,
-        "change": -0.7951028971874804,
-        "AH price": 291.02,
-        "AH change": -0.746906
+        "price": 292.98,
+        "marketCap": 16997051392,
+        "change": 0.6280279435092547,
+        "AH price": 296.02,
+        "AH change": 0.407022
     },
     "FI": {
         "ticker": "FI",
         "name": "Fiserv, Inc.",
-        "price": 232.34,
-        "marketCap": 130269569024,
-        "change": -0.10760093136802262,
-        "AH price": 233.75,
-        "AH change": 0.7152414
+        "price": 232.38,
+        "marketCap": 128933707776,
+        "change": -1.1489793066713172,
+        "AH price": 229.3,
+        "AH change": -0.178488
     },
     "FICO": {
         "ticker": "FICO",
         "name": "Fair Isaac Corporation",
-        "price": 1698.11,
-        "marketCap": 42297032704,
-        "change": 2.0075240187257246,
-        "AH price": 1731.0,
-        "AH change": -0.0692732
+        "price": 1816.76,
+        "marketCap": 45661114368,
+        "change": 2.9288381872938993,
+        "AH price": 1871.9,
+        "AH change": 0.10321309
     },
     "FIS": {
         "ticker": "FIS",
         "name": "Fidelity National Information Services, Inc.",
-        "price": 69.85,
-        "marketCap": 36744736768,
-        "change": -0.6871807273079574,
-        "AH price": 69.5,
-        "AH change": 0.187397
+        "price": 69.31,
+        "marketCap": 36501078016,
+        "change": -0.5771085133082359,
+        "AH price": 68.91,
+        "AH change": 0.0
     },
     "FITB": {
         "ticker": "FITB",
         "name": "Fifth Third Bancorp",
-        "price": 42.88,
-        "marketCap": 28797024256,
-        "change": 0.2565312677507298,
-        "AH price": 43.43,
-        "AH change": 1.02349
+        "price": 43.01,
+        "marketCap": 28508420096,
+        "change": -0.4184991804298661,
+        "AH price": 42.78,
+        "AH change": -0.116748
     },
     "FMC": {
         "ticker": "FMC",
         "name": "FMC Corporation",
-        "price": 38.25,
-        "marketCap": 4740023296,
-        "change": -0.7320229524101307,
-        "AH price": 38.05,
-        "AH change": 0.210687
+        "price": 38.24,
+        "marketCap": 4768735232,
+        "change": -0.1046049000302961,
+        "AH price": 38.35,
+        "AH change": 0.39266416
     },
     "FRT": {
         "ticker": "FRT",
         "name": "Federal Realty Investment Trust",
-        "price": 104.25,
-        "marketCap": 9114706944,
-        "change": 1.3237383725831835,
-        "AH price": 106.0,
-        "AH change": 0.350282
+        "price": 105.61,
+        "marketCap": 9063796736,
+        "change": -0.5397213251870289,
+        "AH price": 105.04,
+        "AH change": 0.0
     },
     "FSLR": {
         "ticker": "FSLR",
         "name": "First Solar, Inc.",
-        "price": 155.44,
-        "marketCap": 16370239488,
-        "change": -1.6276368628150069,
-        "AH price": 152.15,
-        "AH change": -0.497031
+        "price": 147.46,
+        "marketCap": 16790976512,
+        "change": 6.3610397375231775,
+        "AH price": 157.3,
+        "AH change": 0.293297
     },
     "FTNT": {
         "ticker": "FTNT",
         "name": "Fortinet, Inc.",
-        "price": 110.02,
-        "marketCap": 83305775104,
-        "change": -1.2088658809679886,
-        "AH price": 108.53,
-        "AH change": -0.147211
+        "price": 108.06,
+        "marketCap": 83833544704,
+        "change": 0.8883945087562236,
+        "AH price": 109.62,
+        "AH change": 0.55036336
     },
     "GD": {
         "ticker": "GD",
         "name": "General Dynamics Corporation",
-        "price": 243.06,
-        "marketCap": 66579345408,
-        "change": 1.3206643405373033,
-        "AH price": 246.8,
-        "AH change": 0.21521
+        "price": 249.91,
+        "marketCap": 67382288384,
+        "change": -0.26809577813106794,
+        "AH price": 249.01,
+        "AH change": -0.0922849
     },
     "GE": {
         "ticker": "GE",
         "name": "GE Aerospace",
-        "price": 199.83,
-        "marketCap": 213273460736,
-        "change": -0.5604739563253343,
-        "AH price": 199.0,
-        "AH change": 0.14593793
+        "price": 199.27,
+        "marketCap": 216385994752,
+        "change": 1.1742842814873227,
+        "AH price": 202.5,
+        "AH change": 0.441446
     },
     "GEN": {
         "ticker": "GEN",
         "name": "Gen Digital Inc.",
-        "price": 27.05,
-        "marketCap": 16855832576,
-        "change": 1.1090615632925986,
-        "AH price": 27.5,
-        "AH change": 0.548445
+        "price": 27.55,
+        "marketCap": 16942113792,
+        "change": -0.21778391144806605,
+        "AH price": 27.69,
+        "AH change": 0.72754
     },
     "GILD": {
         "ticker": "GILD",
         "name": "Gilead Sciences, Inc.",
-        "price": 109.95,
-        "marketCap": 138373349376,
-        "change": 0.9822663583729676,
-        "AH price": 110.81,
-        "AH change": -0.19814575
+        "price": 111.53,
+        "marketCap": 137662971904,
+        "change": -0.9593828624903035,
+        "AH price": 110.0,
+        "AH change": -0.4164395
     },
     "GIS": {
         "ticker": "GIS",
         "name": "General Mills, Inc.",
-        "price": 61.0,
-        "marketCap": 33812508672,
-        "change": 0.5573772993244108,
-        "AH price": 61.26,
-        "AH change": -0.13042359
+        "price": 61.59,
+        "marketCap": 32682485760,
+        "change": -3.7343712150711945,
+        "AH price": 59.35,
+        "AH change": 0.101193
     },
     "GL": {
         "ticker": "GL",
         "name": "Globe Life Inc.",
-        "price": 122.59,
-        "marketCap": 10301743104,
-        "change": 0.10604852491729584,
-        "AH price": 122.0,
-        "AH change": -0.5867024
+        "price": 123.48,
+        "marketCap": 10235426816,
+        "change": -1.2552664476995072,
+        "AH price": 121.93,
+        "AH change": 0.0
     },
     "GLW": {
         "ticker": "GLW",
         "name": "Corning Incorporated",
-        "price": 51.49,
-        "marketCap": 43496316928,
-        "change": -1.3789141115271049,
-        "AH price": 50.78,
-        "AH change": 0.0
+        "price": 49.67,
+        "marketCap": 42836762624,
+        "change": 0.6845181500338077,
+        "AH price": 50.25,
+        "AH change": 0.4799074
     },
     "GM": {
         "ticker": "GM",
         "name": "General Motors Company",
-        "price": 46.29,
-        "marketCap": 46337241088,
-        "change": 0.6048796149471521,
-        "AH price": 46.46,
-        "AH change": -0.23620488
+        "price": 46.71,
+        "marketCap": 48217796608,
+        "change": 3.746521160994275,
+        "AH price": 48.6899,
+        "AH change": 0.474413
     },
     "GNRC": {
         "ticker": "GNRC",
         "name": "Generac Holdings Inc.",
-        "price": 138.04,
-        "marketCap": 8252365824,
-        "change": 0.28252637541066583,
-        "AH price": 138.9,
-        "AH change": 0.3395227
+        "price": 138.78,
+        "marketCap": 8294691840,
+        "change": 0.259403814323471,
+        "AH price": 139.0,
+        "AH change": -0.100618
     },
     "GOOG": {
         "ticker": "GOOG",
         "name": "Alphabet Inc.",
-        "price": 181.58,
-        "marketCap": 2195877789696,
-        "change": -0.21478102528674933,
-        "AH price": 181.17,
-        "AH change": -0.011040495
+        "price": 177.37,
+        "marketCap": 2116735074304,
+        "change": -1.5053268548500875,
+        "AH price": 174.52,
+        "AH change": -0.10302958
     },
     "GOOGL": {
         "ticker": "GOOGL",
         "name": "Alphabet Inc.",
-        "price": 179.66,
-        "marketCap": 2195579469824,
-        "change": -0.2282108726216427,
-        "AH price": 179.4,
-        "AH change": 0.0836786
+        "price": 175.42,
+        "marketCap": 2116132536320,
+        "change": -1.533463954785551,
+        "AH price": 172.8,
+        "AH change": 0.040529918
     },
     "GPC": {
         "ticker": "GPC",
         "name": "Genuine Parts Company",
-        "price": 121.63,
-        "marketCap": 16956385280,
-        "change": 0.4521935905431887,
-        "AH price": 122.18,
+        "price": 123.13,
+        "marketCap": 16945282048,
+        "change": -0.8365132804941106,
+        "AH price": 122.1,
         "AH change": 0.0
     },
     "GPN": {
         "ticker": "GPN",
         "name": "Global Payments Inc.",
-        "price": 103.18,
-        "marketCap": 25712445440,
-        "change": 0.6396550017084431,
-        "AH price": 106.01,
-        "AH change": 2.089759
+        "price": 103.43,
+        "marketCap": 25137975296,
+        "change": -1.846663111741087,
+        "AH price": 101.502,
+        "AH change": -0.0174352
     },
     "GRMN": {
         "ticker": "GRMN",
         "name": "Garmin Ltd.",
-        "price": 224.71,
-        "marketCap": 42869534720,
-        "change": -0.8455382931356501,
-        "AH price": 222.83,
-        "AH change": 0.008978175
+        "price": 226.04,
+        "marketCap": 43660316672,
+        "change": 0.38931379797846016,
+        "AH price": 229.47,
+        "AH change": 1.12375
     },
     "GS": {
         "ticker": "GS",
         "name": "The Goldman Sachs Group, Inc.",
-        "price": 625.6,
-        "marketCap": 195380101120,
-        "change": 0.08632338292439971,
-        "AH price": 627.4,
-        "AH change": 0.2012345
+        "price": 614.91,
+        "marketCap": 192768344064,
+        "change": 0.46511627906976744,
+        "AH price": 616.0,
+        "AH change": -0.286518
     },
     "GWW": {
         "ticker": "GWW",
         "name": "W.W. Grainger, Inc.",
-        "price": 1007.9,
-        "marketCap": 48121233408,
-        "change": -0.9802564384851751,
-        "AH price": 999.8,
-        "AH change": 0.17835
+        "price": 1003.56,
+        "marketCap": 48606289920,
+        "change": 0.45039853543844494,
+        "AH price": 1008.08,
+        "AH change": 0.0
     },
     "HAL": {
         "ticker": "HAL",
         "name": "Halliburton Company",
-        "price": 26.26,
-        "marketCap": 23212781568,
-        "change": 1.8278733360725745,
-        "AH price": 26.76,
-        "AH change": 0.07479603
+        "price": 26.23,
+        "marketCap": 22500945920,
+        "change": -1.1818508248283133,
+        "AH price": 25.9237,
+        "AH change": 0.0142757
     },
     "HAS": {
         "ticker": "HAS",
         "name": "Hasbro, Inc.",
-        "price": 67.56,
-        "marketCap": 9353541632,
-        "change": -0.7548764435546746,
-        "AH price": 67.07,
-        "AH change": 0.029823478
+        "price": 68.55,
+        "marketCap": 9488857088,
+        "change": -0.773167593138153,
+        "AH price": 66.97,
+        "AH change": -1.54366
     },
     "HBAN": {
         "ticker": "HBAN",
         "name": "Huntington Bancshares Incorporated",
-        "price": 16.15,
-        "marketCap": 23289235456,
-        "change": -0.8049483828931019,
-        "AH price": 16.1853,
-        "AH change": 1.03184
+        "price": 15.81,
+        "marketCap": 23347384320,
+        "change": 1.581271598294775,
+        "AH price": 16.19,
+        "AH change": 0.809471
     },
     "HCA": {
         "ticker": "HCA",
         "name": "HCA Healthcare, Inc.",
-        "price": 316.42,
-        "marketCap": 79362654208,
-        "change": 0.9955103226123169,
-        "AH price": 321.0,
-        "AH change": 0.447474
+        "price": 333.07,
+        "marketCap": 79447089152,
+        "change": -3.951122398510982,
+        "AH price": 324.57,
+        "AH change": 1.45666
     },
     "HD": {
         "ticker": "HD",
         "name": "The Home Depot, Inc.",
-        "price": 385.3,
-        "marketCap": 379881881600,
-        "change": -0.7474628747670391,
-        "AH price": 378.0,
-        "AH change": -1.1558008
+        "price": 393.29,
+        "marketCap": 387888381952,
+        "change": -0.7144848578762687,
+        "AH price": 390.0,
+        "AH change": -0.122928
     },
     "HES": {
         "ticker": "HES",
         "name": "Hess Corporation",
-        "price": 148.11,
-        "marketCap": 45832556544,
-        "change": 0.4321108547775587,
-        "AH price": 148.848,
-        "AH change": 0.0660205
+        "price": 146.95,
+        "marketCap": 44821929984,
+        "change": -1.0071424010034769,
+        "AH price": 145.34,
+        "AH change": -0.0893689
     },
     "HIG": {
         "ticker": "HIG",
         "name": "The Hartford Insurance Group, Inc.",
-        "price": 111.44,
-        "marketCap": 32734631936,
-        "change": 2.1356758805432916,
-        "AH price": 112.81,
-        "AH change": -0.8873679
+        "price": 116.41,
+        "marketCap": 32985030656,
+        "change": -0.7129987156978737,
+        "AH price": 115.6,
+        "AH change": 0.017301127
     },
     "HII": {
         "ticker": "HII",
         "name": "Huntington Ingalls Industries, Inc.",
-        "price": 170.29,
-        "marketCap": 6605569024,
-        "change": -0.8691031686473045,
-        "AH price": 169.06,
-        "AH change": 0.148095
+        "price": 175.48,
+        "marketCap": 6776959488,
+        "change": -1.3049882276543907,
+        "AH price": 176.96,
+        "AH change": 2.1768
     },
     "HLT": {
         "ticker": "HLT",
         "name": "Hilton Worldwide Holdings Inc.",
-        "price": 259.49,
-        "marketCap": 62290558976,
-        "change": -0.2273676673839064,
-        "AH price": 264.5,
-        "AH change": 2.1629996
+        "price": 257.95,
+        "marketCap": 62545592320,
+        "change": 0.7792126973941219,
+        "AH price": 259.96,
+        "AH change": 0.0
     },
     "HOLX": {
         "ticker": "HOLX",
         "name": "Hologic, Inc.",
-        "price": 64.49,
-        "marketCap": 14587594752,
-        "change": 0.8063332139650695,
-        "AH price": 65.01,
+        "price": 65.23,
+        "marketCap": 14441740288,
+        "change": -1.3337462851587525,
+        "AH price": 64.36,
         "AH change": 0.0
     },
     "HON": {
         "ticker": "HON",
         "name": "Honeywell International Inc.",
-        "price": 211.94,
-        "marketCap": 136424497152,
-        "change": -0.9578176634484545,
-        "AH price": 210.33,
-        "AH change": 0.20008488
+        "price": 212.0,
+        "marketCap": 137347375104,
+        "change": -0.3160368721440153,
+        "AH price": 211.34,
+        "AH change": 0.0047293366
     },
     "HPQ": {
         "ticker": "HPQ",
         "name": "HP Inc.",
-        "price": 34.63,
-        "marketCap": 32513456128,
-        "change": 0.11549841061629226,
-        "AH price": 34.67,
-        "AH change": 0.0
+        "price": 34.1,
+        "marketCap": 31901186048,
+        "change": -0.7917790473548262,
+        "AH price": 33.9,
+        "AH change": 0.20691602
     },
     "HRL": {
         "ticker": "HRL",
         "name": "Hormel Foods Corporation",
-        "price": 29.65,
-        "marketCap": 16047649792,
-        "change": -1.41652641381978,
-        "AH price": 29.58,
-        "AH change": 1.1974
+        "price": 29.42,
+        "marketCap": 15773143040,
+        "change": -2.3453451130804246,
+        "AH price": 29.1,
+        "AH change": 1.28786
     },
     "HSIC": {
         "ticker": "HSIC",
         "name": "Henry Schein, Inc.",
-        "price": 77.24,
-        "marketCap": 9640402944,
-        "change": 0.5178683802974733,
-        "AH price": 80.29,
-        "AH change": 3.41319
+        "price": 75.82,
+        "marketCap": 9007767552,
+        "change": -4.319442810684252,
+        "AH price": 72.54,
+        "AH change": -0.00688849
     },
     "HST": {
         "ticker": "HST",
         "name": "Host Hotels & Resorts, Inc.",
-        "price": 16.34,
-        "marketCap": 11513092096,
-        "change": -0.5507965223221654,
-        "AH price": 16.34,
-        "AH change": 0.553847
+        "price": 16.02,
+        "marketCap": 11343052800,
+        "change": -0.0624233994761816,
+        "AH price": 16.0968,
+        "AH change": 0.542159
     },
     "HSY": {
         "ticker": "HSY",
         "name": "The Hershey Company",
-        "price": 172.86,
-        "marketCap": 35996774400,
-        "change": 2.8809416348230883,
-        "AH price": 178.2,
-        "AH change": 0.20243
+        "price": 178.65,
+        "marketCap": 34670981120,
+        "change": -4.119787775988499,
+        "AH price": 171.29,
+        "AH change": 0.0
     },
     "HUBB": {
         "ticker": "HUBB",
         "name": "Hubbell Incorporated",
-        "price": 377.48,
-        "marketCap": 19816798208,
-        "change": -2.180250807141734,
-        "AH price": 370.5,
-        "AH change": 0.338524
+        "price": 372.21,
+        "marketCap": 20253655040,
+        "change": 1.3916937514517393,
+        "AH price": 377.39,
+        "AH change": 0.0
     },
     "HUM": {
         "ticker": "HUM",
         "name": "Humana Inc.",
-        "price": 255.91,
-        "marketCap": 30764474368,
-        "change": -0.35559518935840345,
-        "AH price": 255.0,
+        "price": 259.27,
+        "marketCap": 30772920320,
+        "change": -1.6199258947905655,
+        "AH price": 255.07,
         "AH change": 0.0
     },
     "IBM": {
         "ticker": "IBM",
         "name": "International Business Machines Corporation",
-        "price": 261.48,
-        "marketCap": 242136776704,
-        "change": 0.14914491145549397,
-        "AH price": 262.38,
-        "AH change": 0.19475685
+        "price": 257.75,
+        "marketCap": 236561170432,
+        "change": -0.7410295488300194,
+        "AH price": 256.09,
+        "AH change": 0.0977173
     },
     "ICE": {
         "ticker": "ICE",
         "name": "Intercontinental Exchange, Inc.",
-        "price": 167.87,
-        "marketCap": 96768237568,
-        "change": 0.32763630652033066,
-        "AH price": 168.55,
-        "AH change": 0.0771909
+        "price": 171.21,
+        "marketCap": 98348285952,
+        "change": -0.023368111297804476,
+        "AH price": 169.01,
+        "AH change": -1.2619056
     },
     "IDXX": {
         "ticker": "IDXX",
         "name": "IDEXX Laboratories, Inc.",
-        "price": 452.77,
-        "marketCap": 37966663680,
-        "change": 2.405197984115653,
-        "AH price": 464.6,
-        "AH change": 0.202735
+        "price": 459.86,
+        "marketCap": 37232861184,
+        "change": -0.44578520816538025,
+        "AH price": 458.96,
+        "AH change": 0.251195
     },
     "IEX": {
         "ticker": "IEX",
         "name": "IDEX Corporation",
-        "price": 192.98,
-        "marketCap": 14900649984,
-        "change": 1.8862055499201125,
-        "AH price": 196.62,
+        "price": 196.44,
+        "marketCap": 14838507520,
+        "change": -0.32579891147137163,
+        "AH price": 195.8,
         "AH change": 0.0
     },
     "IFF": {
         "ticker": "IFF",
         "name": "International Flavors & Fragrances Inc.",
-        "price": 79.89,
-        "marketCap": 20354844672,
-        "change": -0.3504803873276224,
-        "AH price": 79.61,
-        "AH change": 0.0
+        "price": 80.28,
+        "marketCap": 20600299520,
+        "change": 0.3612368210475497,
+        "AH price": 81.75,
+        "AH change": 1.4645654
     },
     "INCY": {
         "ticker": "INCY",
         "name": "Incyte Corporation",
-        "price": 72.11,
-        "marketCap": 14322711552,
-        "change": 2.6348654968755563,
-        "AH price": 73.5,
-        "AH change": -0.689099
+        "price": 74.4,
+        "marketCap": 14378833920,
+        "change": -0.13440654848146852,
+        "AH price": 74.3,
+        "AH change": 0.0
     },
     "INTC": {
         "ticker": "INTC",
         "name": "Intel Corporation",
-        "price": 24.87,
-        "marketCap": 105089097728,
-        "change": -2.4125466876671853,
-        "AH price": 24.3,
-        "AH change": 0.123604365
+        "price": 22.99,
+        "marketCap": 101841600512,
+        "change": 2.305353161905361,
+        "AH price": 23.4815,
+        "AH change": -0.16368976
     },
     "INTU": {
         "ticker": "INTU",
         "name": "Intuit Inc.",
-        "price": 565.47,
-        "marketCap": 158780112896,
-        "change": 0.31301742319739745,
-        "AH price": 571.881,
-        "AH change": 0.81817067
+        "price": 555.63,
+        "marketCap": 175090876416,
+        "change": 12.576715488493253,
+        "AH price": 621.45,
+        "AH change": -0.64906996
     },
     "IP": {
         "ticker": "IP",
         "name": "International Paper Company",
-        "price": 55.0975,
-        "marketCap": 29157257216,
-        "change": -0.4679663963353641,
-        "AH price": 55.95,
-        "AH change": 1.17541
+        "price": 55.3,
+        "marketCap": 29321003008,
+        "change": 0.7775774161089081,
+        "AH price": 55.73,
+        "AH change": 0.0
     },
     "IPG": {
         "ticker": "IPG",
         "name": "The Interpublic Group of Companies, Inc.",
-        "price": 27.07,
-        "marketCap": 10273932288,
-        "change": 1.8470631903834116,
-        "AH price": 27.8938,
-        "AH change": 1.1744688
+        "price": 27.78,
+        "marketCap": 10307471360,
+        "change": -0.43196845308605636,
+        "AH price": 27.66,
+        "AH change": 0.0
     },
     "IQV": {
         "ticker": "IQV",
         "name": "IQVIA Holdings Inc.",
-        "price": 191.04,
-        "marketCap": 34295474176,
-        "change": 1.9420052576689915,
-        "AH price": 194.75,
-        "AH change": 0.0
+        "price": 190.97,
+        "marketCap": 33626294272,
+        "change": -0.010475086313592603,
+        "AH price": 190.8,
+        "AH change": -0.0785514
     },
     "IRM": {
         "ticker": "IRM",
         "name": "Iron Mountain Incorporated",
-        "price": 91.78,
-        "marketCap": 26865551360,
-        "change": -0.34865951087417335,
-        "AH price": 91.2,
-        "AH change": -0.28428
+        "price": 92.4,
+        "marketCap": 27341412352,
+        "change": 0.7359310540545071,
+        "AH price": 93.1,
+        "AH change": 0.0214833
     },
     "ISRG": {
         "ticker": "ISRG",
         "name": "Intuitive Surgical, Inc.",
-        "price": 591.79,
-        "marketCap": 210787860480,
-        "change": -0.13179815317567128,
-        "AH price": 591.982,
-        "AH change": 0.16441
+        "price": 573.74,
+        "marketCap": 207192735744,
+        "change": 1.25318133018218,
+        "AH price": 581.5,
+        "AH change": 0.0981198
     },
     "IT": {
         "ticker": "IT",
         "name": "Gartner, Inc.",
-        "price": 487.9,
-        "marketCap": 38221664256,
-        "change": 1.979914692140557,
-        "AH price": 500.99,
-        "AH change": 0.68936265
+        "price": 503.07,
+        "marketCap": 38268522496,
+        "change": -0.9740182927117785,
+        "AH price": 498.5,
+        "AH change": 0.06623975
     },
     "ITW": {
         "ticker": "ITW",
         "name": "Illinois Tool Works Inc.",
-        "price": 264.28,
-        "marketCap": 76779601920,
-        "change": -1.0140732133192347,
-        "AH price": 262.0,
-        "AH change": 0.15290286
+        "price": 264.53,
+        "marketCap": 76723838976,
+        "change": -1.1794485054946755,
+        "AH price": 262.65,
+        "AH change": 0.4743469
     },
     "IVZ": {
         "ticker": "IVZ",
         "name": "Invesco Ltd.",
-        "price": 17.48,
-        "marketCap": 7893760512,
-        "change": 0.8009227726739349,
-        "AH price": 17.62,
+        "price": 17.33,
+        "marketCap": 7701120000,
+        "change": -0.8078441446322774,
+        "AH price": 17.19,
         "AH change": 0.0
     },
     "J": {
         "ticker": "J",
         "name": "Jacobs Solutions Inc.",
-        "price": 129.06,
-        "marketCap": 15733424128,
-        "change": -0.5191369763052496,
-        "AH price": 128.2,
-        "AH change": -0.1479885
+        "price": 127.15,
+        "marketCap": 15489561600,
+        "change": -0.5898544954774162,
+        "AH price": 126.4,
+        "AH change": 0.0
     },
     "JBHT": {
         "ticker": "JBHT",
         "name": "J.B. Hunt Transport Services, Inc.",
-        "price": 167.71,
-        "marketCap": 16359292928,
-        "change": -2.993264606461825,
-        "AH price": 163.3,
-        "AH change": 0.374947
+        "price": 160.69,
+        "marketCap": 16033283072,
+        "change": -0.23025397446391505,
+        "AH price": 160.32,
+        "AH change": 0.0
     },
     "JBL": {
         "ticker": "JBL",
         "name": "Jabil Inc.",
-        "price": 162.61,
-        "marketCap": 17427019776,
-        "change": -2.158535449026064,
-        "AH price": 159.98,
-        "AH change": 0.5531047
+        "price": 157.51,
+        "marketCap": 17388681216,
+        "change": 0.7872551180301427,
+        "AH price": 158.75,
+        "AH change": 0.0
     },
     "JCI": {
         "ticker": "JCI",
         "name": "Johnson Controls International plc",
-        "price": 85.28,
-        "marketCap": 55471480832,
-        "change": -1.4657598708871675,
-        "AH price": 83.31,
-        "AH change": -0.856838
+        "price": 83.9,
+        "marketCap": 56052404224,
+        "change": 1.2038165886313295,
+        "AH price": 84.88,
+        "AH change": -0.0353391
     },
     "JKHY": {
         "ticker": "JKHY",
         "name": "Jack Henry & Associates, Inc.",
-        "price": 171.13,
-        "marketCap": 12582871040,
-        "change": 0.8648370743357037,
-        "AH price": 172.61,
+        "price": 174.05,
+        "marketCap": 12520907776,
+        "change": -1.3157187617175092,
+        "AH price": 171.76,
         "AH change": 0.0
     },
     "JNJ": {
         "ticker": "JNJ",
         "name": "Johnson & Johnson",
-        "price": 162.3,
-        "marketCap": 394223714304,
-        "change": 0.8872473286072768,
-        "AH price": 163.55,
-        "AH change": -0.116039
+        "price": 166.09,
+        "marketCap": 392634695680,
+        "change": -1.8122671883937287,
+        "AH price": 163.08,
+        "AH change": 0.0
     },
     "JNPR": {
         "ticker": "JNPR",
         "name": "Juniper Networks, Inc.",
-        "price": 35.99,
-        "marketCap": 11905959936,
-        "change": -0.0833636915668484,
-        "AH price": 35.96,
-        "AH change": 0.0
+        "price": 36.03,
+        "marketCap": 11991508992,
+        "change": -0.11101055283149433,
+        "AH price": 36.2,
+        "AH change": 0.583493
     },
     "JPM": {
         "ticker": "JPM",
         "name": "JPMorgan Chase & Co.",
-        "price": 264.24,
-        "marketCap": 730735378432,
-        "change": -1.097484863631786,
-        "AH price": 261.99,
-        "AH change": 0.24871582
+        "price": 257.4,
+        "marketCap": 723605323776,
+        "change": 0.5400212437442817,
+        "AH price": 259.75,
+        "AH change": 0.37095383
     },
     "K": {
         "ticker": "K",
         "name": "Kellanova",
-        "price": 82.66,
-        "marketCap": 28513417216,
-        "change": 0.07258354214331152,
-        "AH price": 82.57,
-        "AH change": -0.181336
+        "price": 82.69,
+        "marketCap": 28521746432,
+        "change": -0.08465315365520784,
+        "AH price": 82.62,
+        "AH change": 0.0
     },
     "KDP": {
         "ticker": "KDP",
         "name": "Keurig Dr Pepper Inc.",
-        "price": 34.04,
-        "marketCap": 46282076160,
-        "change": 0.23501179261405597,
-        "AH price": 34.9414,
-        "AH change": 2.4073849
+        "price": 34.94,
+        "marketCap": 45776744448,
+        "change": -3.4344504734035124,
+        "AH price": 32.85,
+        "AH change": -2.6378279
     },
     "KEY": {
         "ticker": "KEY",
         "name": "KeyCorp",
-        "price": 16.93,
-        "marketCap": 18560868352,
-        "change": -0.9450670084346944,
-        "AH price": 17.0,
-        "AH change": 1.3714939
+        "price": 16.67,
+        "marketCap": 18632323072,
+        "change": 1.1397752440794102,
+        "AH price": 16.86,
+        "AH change": 0.0
     },
     "KEYS": {
         "ticker": "KEYS",
         "name": "Keysight Technologies, Inc.",
-        "price": 175.45,
-        "marketCap": 29994178560,
-        "change": -1.1285242302530003,
-        "AH price": 173.4,
-        "AH change": -0.04035702
+        "price": 172.17,
+        "marketCap": 27727368192,
+        "change": -6.859497986986647,
+        "AH price": 161.0,
+        "AH change": 0.39910164
     },
     "KIM": {
         "ticker": "KIM",
         "name": "Kimco Realty Corporation",
-        "price": 21.52,
-        "marketCap": 14806174720,
-        "change": 1.2546489406149852,
-        "AH price": 21.79,
-        "AH change": 0.0
+        "price": 21.85,
+        "marketCap": 14731169792,
+        "change": -0.7780323722013152,
+        "AH price": 21.8,
+        "AH change": 0.553501
     },
     "KKR": {
         "ticker": "KKR",
         "name": "KKR & Co. Inc.",
-        "price": 132.22,
-        "marketCap": 121062268928,
-        "change": -0.7790037587260262,
-        "AH price": 131.938,
-        "AH change": 0.569782
+        "price": 129.59,
+        "marketCap": 122437230592,
+        "change": 2.3844404855401216,
+        "AH price": 132.998,
+        "AH change": 0.23983
     },
     "KLAC": {
         "ticker": "KLAC",
         "name": "KLA Corporation",
-        "price": 752.6,
-        "marketCap": 98013462528,
-        "change": -2.217947864178124,
-        "AH price": 738.71,
-        "AH change": 0.154564
+        "price": 724.97,
+        "marketCap": 98139709440,
+        "change": 1.8690496676687514,
+        "AH price": 739.25,
+        "AH change": 0.098843694
     },
     "KMB": {
         "ticker": "KMB",
         "name": "Kimberly-Clark Corporation",
-        "price": 140.26,
-        "marketCap": 46449164288,
-        "change": -0.15685243784349548,
-        "AH price": 139.66,
-        "AH change": -0.27134365
+        "price": 141.3,
+        "marketCap": 46157283328,
+        "change": -1.5145076740476513,
+        "AH price": 141.86,
+        "AH change": 1.9402105
     },
     "KMI": {
         "ticker": "KMI",
         "name": "Kinder Morgan, Inc.",
-        "price": 26.41,
-        "marketCap": 58815279104,
-        "change": 0.22718465084831155,
-        "AH price": 26.4,
-        "AH change": -0.26444918
+        "price": 26.1,
+        "marketCap": 58148691968,
+        "change": 0.26819806054070633,
+        "AH price": 26.22,
+        "AH change": 0.19105555
     },
     "KMX": {
         "ticker": "KMX",
         "name": "CarMax, Inc.",
-        "price": 82.61,
-        "marketCap": 12748481536,
-        "change": 0.33894053653086326,
-        "AH price": 82.75,
-        "AH change": -0.16889781
+        "price": 82.96,
+        "marketCap": 12691575808,
+        "change": -0.5303790335848784,
+        "AH price": 82.53,
+        "AH change": 0.012120863
     },
     "KO": {
         "ticker": "KO",
         "name": "The Coca-Cola Company",
-        "price": 71.35,
-        "marketCap": 303607578624,
-        "change": -1.0651747056534617,
-        "AH price": 70.595,
-        "AH change": 0.0070900735
+        "price": 71.49,
+        "marketCap": 304510828544,
+        "change": -0.9651627257376122,
+        "AH price": 70.72,
+        "AH change": -0.11299693
     },
     "KR": {
         "ticker": "KR",
         "name": "The Kroger Co.",
-        "price": 65.06,
-        "marketCap": 46947557376,
-        "change": -0.27666817081213535,
-        "AH price": 64.5,
-        "AH change": -0.58569247
+        "price": 65.47,
+        "marketCap": 46166065152,
+        "change": -2.5507896021154877,
+        "AH price": 63.75,
+        "AH change": -0.0783687
     },
     "L": {
         "ticker": "L",
         "name": "Loews Corporation",
-        "price": 82.76,
-        "marketCap": 17800888320,
-        "change": 1.957461425050281,
-        "AH price": 83.5,
-        "AH change": -1.0429
+        "price": 84.9275,
+        "marketCap": 17762914304,
+        "change": -0.92952222071312,
+        "AH price": 84.2,
+        "AH change": 0.0
     },
     "LDOS": {
         "ticker": "LDOS",
         "name": "Leidos Holdings, Inc.",
-        "price": 126.82,
-        "marketCap": 16828726272,
-        "change": 1.1670110081178273,
-        "AH price": 127.994,
-        "AH change": -0.2385033
+        "price": 130.74,
+        "marketCap": 16997931008,
+        "change": -0.8796153487492147,
+        "AH price": 129.99,
+        "AH change": 0.30867288
     },
     "LEN": {
         "ticker": "LEN",
         "name": "Lennar Corporation",
-        "price": 120.57,
-        "marketCap": 31669497856,
-        "change": -0.6303409954002793,
-        "AH price": 119.75,
-        "AH change": -0.0500773
+        "price": 124.32,
+        "marketCap": 32127821824,
+        "change": -2.2522547125411423,
+        "AH price": 122.28,
+        "AH change": 0.62541324
     },
     "LH": {
         "ticker": "LH",
         "name": "Labcorp Holdings Inc.",
-        "price": 249.85,
-        "marketCap": 20969261056,
-        "change": 0.6323740378901649,
-        "AH price": 251.44,
-        "AH change": 0.0039811344
+        "price": 252.87,
+        "marketCap": 21022638080,
+        "change": -0.3163632729925161,
+        "AH price": 250.13,
+        "AH change": -0.7696284
     },
     "LHX": {
         "ticker": "LHX",
         "name": "L3Harris Technologies, Inc.",
-        "price": 199.02,
-        "marketCap": 37634555904,
-        "change": 0.41704442429737076,
-        "AH price": 201.0,
-        "AH change": 0.5754285
+        "price": 203.97,
+        "marketCap": 38101573632,
+        "change": -0.8040395057280494,
+        "AH price": 202.36,
+        "AH change": 0.014826659
     },
     "LIN": {
         "ticker": "LIN",
         "name": "Linde plc",
-        "price": 458.0,
-        "marketCap": 218332741632,
-        "change": 0.11572025748840065,
-        "AH price": 455.65,
-        "AH change": -0.628095
+        "price": 467.49,
+        "marketCap": 219770732544,
+        "change": -1.2706159630130784,
+        "AH price": 456.78,
+        "AH change": -1.0334718
     },
     "LKQ": {
         "ticker": "LKQ",
         "name": "LKQ Corporation",
-        "price": 40.49,
-        "marketCap": 10690144256,
-        "change": 1.8770024451181533,
-        "AH price": 40.94,
-        "AH change": -0.751518
+        "price": 41.54,
+        "marketCap": 10822312960,
+        "change": 0.5296037582021959,
+        "AH price": 41.76,
+        "AH change": 0.0
     },
     "LLY": {
         "ticker": "LLY",
         "name": "Eli Lilly and Company",
-        "price": 873.68,
-        "marketCap": 791647027200,
-        "change": 0.8836223563546932,
-        "AH price": 881.9375,
-        "AH change": 0.060979757
+        "price": 901.8,
+        "marketCap": 821834547200,
+        "change": 1.464850537976382,
+        "AH price": 914.1,
+        "AH change": -0.0994562
     },
     "LMT": {
         "ticker": "LMT",
         "name": "Lockheed Martin Corporation",
-        "price": 440.72,
-        "marketCap": 103633395712,
-        "change": -0.1021084148177549,
-        "AH price": 439.0,
-        "AH change": -0.28845686
+        "price": 448.46,
+        "marketCap": 103922917376,
+        "change": -1.551976004034532,
+        "AH price": 441.3,
+        "AH change": -0.0453029
     },
     "LNT": {
         "ticker": "LNT",
         "name": "Alliant Energy Corporation",
-        "price": 62.81,
-        "marketCap": 16389656576,
-        "change": 1.6557826430367202,
-        "AH price": 63.85,
-        "AH change": 0.0
+        "price": 63.75,
+        "marketCap": 16423153664,
+        "change": 0.3607835956648284,
+        "AH price": 64.0,
+        "AH change": 0.0312605
     },
     "LOW": {
         "ticker": "LOW",
         "name": "Lowe's Companies, Inc.",
-        "price": 239.17,
-        "marketCap": 133867216896,
-        "change": -0.873853892165141,
-        "AH price": 235.84,
-        "AH change": -0.5230325
+        "price": 242.39,
+        "marketCap": 139508072448,
+        "change": 1.9307759999813663,
+        "AH price": 249.8,
+        "AH change": 1.10495
     },
     "LRCX": {
         "ticker": "LRCX",
         "name": "Lam Research Corporation",
-        "price": 86.02,
-        "marketCap": 106980220928,
-        "change": -3.1155549985618385,
-        "AH price": 83.374,
-        "AH change": 0.04080179
+        "price": 80.29,
+        "marketCap": 104361566208,
+        "change": 1.2579426139166274,
+        "AH price": 81.59,
+        "AH change": 0.3566953
     },
     "LULU": {
         "ticker": "LULU",
         "name": "Lululemon Athletica Inc.",
-        "price": 358.97,
-        "marketCap": 44843302912,
-        "change": 2.576816995443829,
-        "AH price": 368.0,
-        "AH change": -0.0597472
+        "price": 366.72,
+        "marketCap": 44576595968,
+        "change": -0.1881551153767001,
+        "AH price": 366.12,
+        "AH change": 0.024587149
     },
     "LUV": {
         "ticker": "LUV",
         "name": "Southwest Airlines Co.",
-        "price": 29.81,
-        "marketCap": 17939849216,
-        "change": 1.5431096949425829,
-        "AH price": 30.21,
-        "AH change": -0.198221
+        "price": 30.25,
+        "marketCap": 18188765184,
+        "change": 1.4545472200251808,
+        "AH price": 30.7202,
+        "AH change": 0.0984003
     },
     "LVS": {
         "ticker": "LVS",
         "name": "Las Vegas Sands Corp.",
-        "price": 44.02,
-        "marketCap": 32295827456,
-        "change": 2.4761475266991977,
-        "AH price": 44.51,
-        "AH change": -1.33009
+        "price": 44.36,
+        "marketCap": 31307835392,
+        "change": -1.4202007652096862,
+        "AH price": 43.73,
+        "AH change": 0.0
     },
     "LYB": {
         "ticker": "LYB",
         "name": "LyondellBasell Industries N.V.",
-        "price": 76.96,
-        "marketCap": 25048438784,
-        "change": 0.454779727500944,
-        "AH price": 76.5425,
-        "AH change": -0.992749
+        "price": 77.63,
+        "marketCap": 24688799744,
+        "change": -1.8420718224523958,
+        "AH price": 76.4,
+        "AH change": 0.2624732
     },
     "LYV": {
         "ticker": "LYV",
         "name": "Live Nation Entertainment, Inc.",
-        "price": 149.4,
-        "marketCap": 36237361152,
-        "change": 3.49397686342607,
-        "AH price": 153.2972,
-        "AH change": -0.85551655
+        "price": 144.46,
+        "marketCap": 32855023616,
+        "change": -1.5921382700150655,
+        "AH price": 142.316,
+        "AH change": 0.110083
     },
     "MA": {
         "ticker": "MA",
         "name": "Mastercard Incorporated",
-        "price": 557.51,
-        "marketCap": 509644800000,
-        "change": 0.2672580237620103,
-        "AH price": 555.0,
-        "AH change": -0.715564
+        "price": 564.03,
+        "marketCap": 511714394112,
+        "change": -0.4893373796188925,
+        "AH price": 561.27,
+        "AH change": 0.0
     },
     "MAA": {
         "ticker": "MAA",
         "name": "Mid-America Apartment Communities, Inc.",
-        "price": 160.67,
-        "marketCap": 19538255872,
-        "change": 1.356823277160944,
-        "AH price": 162.85,
+        "price": 164.72,
+        "marketCap": 19702622208,
+        "change": -0.30354540814388764,
+        "AH price": 164.22,
         "AH change": 0.0
     },
     "MAR": {
         "ticker": "MAR",
         "name": "Marriott International, Inc.",
-        "price": 277.47,
-        "marketCap": 76301352960,
-        "change": -0.25588043822920836,
-        "AH price": 276.96,
-        "AH change": 0.0722582
+        "price": 277.46,
+        "marketCap": 77790101504,
+        "change": 1.6939423166500749,
+        "AH price": 280.01,
+        "AH change": -0.761977
     },
     "MAS": {
         "ticker": "MAS",
         "name": "Masco Corporation",
-        "price": 74.83,
-        "marketCap": 15697342464,
-        "change": -1.0423610319533267,
-        "AH price": 74.05,
-        "AH change": 0.0
+        "price": 76.09,
+        "marketCap": 16117067776,
+        "change": -0.07885078391556309,
+        "AH price": 75.0901,
+        "AH change": -1.2362168
     },
     "MCD": {
         "ticker": "MCD",
         "name": "McDonald's Corporation",
-        "price": 304.81,
-        "marketCap": 220410822656,
-        "change": 0.9054853146981974,
-        "AH price": 308.55,
-        "AH change": 0.31862
+        "price": 310.72,
+        "marketCap": 218045972480,
+        "change": -2.0758278133662316,
+        "AH price": 306.409,
+        "AH change": 0.702936
     },
     "MCHP": {
         "ticker": "MCHP",
         "name": "Microchip Technology Incorporated",
-        "price": 60.615,
-        "marketCap": 32715530240,
-        "change": -0.3929881528882199,
-        "AH price": 60.8,
-        "AH change": -0.049322035
+        "price": 60.17,
+        "marketCap": 32145442816,
+        "change": -0.6647793308195341,
+        "AH price": 60.7,
+        "AH change": 1.55597
     },
     "MCK": {
         "ticker": "MCK",
         "name": "McKesson Corporation",
-        "price": 597.71,
-        "marketCap": 75917475840,
-        "change": 1.3468048881631463,
-        "AH price": 606.2,
-        "AH change": 0.07263643
+        "price": 627.08,
+        "marketCap": 78155800576,
+        "change": -0.551767219232011,
+        "AH price": 624.49,
+        "AH change": 0.13950725
     },
     "MCO": {
         "ticker": "MCO",
         "name": "Moody's Corporation",
-        "price": 500.28,
-        "marketCap": 90325794816,
-        "change": 0.13392768636948,
-        "AH price": 501.0,
-        "AH change": 0.009978599
+        "price": 501.9,
+        "marketCap": 89855180800,
+        "change": -0.7093041645519507,
+        "AH price": 499.5,
+        "AH change": 0.232774
     },
     "MDLZ": {
         "ticker": "MDLZ",
         "name": "Mondelez International, Inc.",
-        "price": 64.67,
-        "marketCap": 84545118208,
-        "change": 1.0669591169674577,
-        "AH price": 65.42,
-        "AH change": 0.0917955
+        "price": 65.88,
+        "marketCap": 82074476544,
+        "change": -3.688519416798311,
+        "AH price": 63.16,
+        "AH change": -0.45705423
     },
     "MDT": {
         "ticker": "MDT",
         "name": "Medtronic plc",
-        "price": 89.94,
-        "marketCap": 115712458752,
-        "change": 0.2557212822947155,
-        "AH price": 90.21,
-        "AH change": 0.04436167
+        "price": 90.48,
+        "marketCap": 116238598144,
+        "change": 0.11051997171862478,
+        "AH price": 90.7,
+        "AH change": 0.132474
     },
     "MET": {
         "ticker": "MET",
         "name": "MetLife, Inc.",
-        "price": 81.01,
-        "marketCap": 55322529792,
-        "change": 0.24687932720438968,
-        "AH price": 81.04,
-        "AH change": -0.209332
+        "price": 82.2,
+        "marketCap": 56228560896,
+        "change": 0.4136301458736576,
+        "AH price": 82.54,
+        "AH change": 0.0
     },
     "META": {
         "ticker": "META",
         "name": "Meta Platforms, Inc.",
-        "price": 683.55,
-        "marketCap": 1692814147584,
-        "change": -2.2558676300973914,
-        "AH price": 666.8,
-        "AH change": -0.19906561
+        "price": 657.5,
+        "marketCap": 1706926669824,
+        "change": 2.4638801835788975,
+        "AH price": 678.39,
+        "AH change": 0.6961559
     },
     "MGM": {
         "ticker": "MGM",
         "name": "MGM Resorts International",
-        "price": 36.0,
-        "marketCap": 10385489920,
-        "change": 1.0277748107910156,
-        "AH price": 36.18,
-        "AH change": -0.5224048
+        "price": 35.52,
+        "marketCap": 10042828800,
+        "change": -0.9853667914068361,
+        "AH price": 35.21,
+        "AH change": 0.113736
     },
     "MHK": {
         "ticker": "MHK",
         "name": "Mohawk Industries, Inc.",
-        "price": 115.9,
-        "marketCap": 7223188992,
-        "change": -0.42277640838522446,
-        "AH price": 115.41,
+        "price": 118.77,
+        "marketCap": 7427223040,
+        "change": -0.08419506352400953,
+        "AH price": 118.67,
         "AH change": 0.0
     },
     "MKC": {
         "ticker": "MKC",
         "name": "McCormick & Company, Incorporated",
-        "price": 80.14,
-        "marketCap": 21781174272,
-        "change": 1.3476439222361534,
-        "AH price": 82.04,
-        "AH change": 1.0096
+        "price": 82.8,
+        "marketCap": 21489774592,
+        "change": -3.1884049424469088,
+        "AH price": 80.16,
+        "AH change": 0.0
     },
     "MKTX": {
         "ticker": "MKTX",
         "name": "MarketAxess Holdings Inc.",
-        "price": 193.96,
-        "marketCap": 7324456448,
-        "change": 0.15466476726374662,
-        "AH price": 194.26,
-        "AH change": 0.0
+        "price": 196.77,
+        "marketCap": 7229932544,
+        "change": -2.52071281504839,
+        "AH price": 194.67,
+        "AH change": 1.49106
     },
     "MLM": {
         "ticker": "MLM",
         "name": "Martin Marietta Materials, Inc.",
-        "price": 489.84,
-        "marketCap": 29986985984,
-        "change": 0.1633223739441285,
-        "AH price": 489.84,
-        "AH change": -0.16305606
+        "price": 490.29,
+        "marketCap": 29946210304,
+        "change": 0.1713264238003867,
+        "AH price": 491.13,
+        "AH change": 0.0
     },
     "MMC": {
         "ticker": "MMC",
         "name": "Marsh & McLennan Companies, Inc.",
-        "price": 230.01,
-        "marketCap": 114359861248,
-        "change": 1.2347339961330601,
-        "AH price": 234.99,
-        "AH change": 0.9190463
+        "price": 234.2,
+        "marketCap": 113726291968,
+        "change": -1.1272414278604252,
+        "AH price": 231.0,
+        "AH change": -0.24183692
     },
     "MMM": {
         "ticker": "MMM",
         "name": "3M Company",
-        "price": 144.98,
-        "marketCap": 78981087232,
-        "change": 0.34487516535705387,
-        "AH price": 145.51,
-        "AH change": 0.0206206
+        "price": 146.54,
+        "marketCap": 80039739392,
+        "change": 0.6073423163809157,
+        "AH price": 147.87,
+        "AH change": 0.298448
     },
     "MNST": {
         "ticker": "MNST",
         "name": "Monster Beverage Corporation",
-        "price": 53.0,
-        "marketCap": 51115651072,
-        "change": -0.8301860881301591,
-        "AH price": 52.71,
-        "AH change": 0.285384
+        "price": 52.13,
+        "marketCap": 50230661120,
+        "change": -0.9207740886272776,
+        "AH price": 52.0,
+        "AH change": 0.677635
     },
     "MO": {
         "ticker": "MO",
         "name": "Altria Group, Inc.",
-        "price": 55.05,
-        "marketCap": 93408411648,
-        "change": 0.36330747631474875,
-        "AH price": 55.26,
-        "AH change": 0.01809651
+        "price": 56.0,
+        "marketCap": 92732145664,
+        "change": -2.0535741533551897,
+        "AH price": 54.98,
+        "AH change": 0.237012
     },
     "MOH": {
         "ticker": "MOH",
         "name": "Molina Healthcare, Inc.",
-        "price": 283.81,
-        "marketCap": 15951810560,
-        "change": 1.2719833339892552,
-        "AH price": 280.76,
-        "AH change": -2.3171678
+        "price": 305.97,
+        "marketCap": 15801404416,
+        "change": -6.948396797334936,
+        "AH price": 284.19,
+        "AH change": -0.182638
     },
     "MOS": {
         "ticker": "MOS",
         "name": "The Mosaic Company",
-        "price": 25.76,
-        "marketCap": 8049124352,
-        "change": -1.6304350642941599,
-        "AH price": 25.33,
-        "AH change": -0.0394642
+        "price": 25.51,
+        "marketCap": 8011006464,
+        "change": -1.1368126731688986,
+        "AH price": 25.01,
+        "AH change": -0.8326689
     },
     "MPC": {
         "ticker": "MPC",
         "name": "Marathon Petroleum Corporation",
-        "price": 153.74,
-        "marketCap": 48253198336,
-        "change": -0.6764722959295837,
-        "AH price": 150.7,
-        "AH change": -1.3097577
+        "price": 150.59,
+        "marketCap": 46230802432,
+        "change": -2.848790351589502,
+        "AH price": 147.05,
+        "AH change": 0.51264524
     },
     "MPWR": {
         "ticker": "MPWR",
         "name": "Monolithic Power Systems, Inc.",
-        "price": 661.08,
-        "marketCap": 31215984640,
-        "change": -1.2615760028842775,
-        "AH price": 658.63,
-        "AH change": 0.902352
+        "price": 651.32,
+        "marketCap": 32116971520,
+        "change": 3.110607618036801,
+        "AH price": 671.0,
+        "AH change": -0.086366
     },
     "MRK": {
         "ticker": "MRK",
         "name": "Merck & Co., Inc.",
-        "price": 89.5,
-        "marketCap": 230880231424,
-        "change": 1.9776498805211242,
-        "AH price": 91.27,
+        "price": 91.43,
+        "marketCap": 226099216384,
+        "change": -2.2421557966917818,
+        "AH price": 89.38,
         "AH change": 0.0
     },
     "MS": {
         "ticker": "MS",
         "name": "Morgan Stanley",
-        "price": 131.69,
-        "marketCap": 208861806592,
-        "change": -1.3060985563185916,
-        "AH price": 130.05,
-        "AH change": 0.0615541
+        "price": 129.6,
+        "marketCap": 211365314560,
+        "change": 1.1188247530513455,
+        "AH price": 131.3,
+        "AH change": 0.190767
     },
     "MSCI": {
         "ticker": "MSCI",
         "name": "MSCI Inc.",
-        "price": 578.34,
-        "marketCap": 44537303040,
-        "change": -0.8282392433641922,
-        "AH price": 565.17,
-        "AH change": -1.46108
+        "price": 584.54,
+        "marketCap": 44994674688,
+        "change": -0.8724767813398269,
+        "AH price": 570.63,
+        "AH change": -1.5204331
     },
     "MSFT": {
         "ticker": "MSFT",
         "name": "Microsoft Corporation",
-        "price": 408.21,
-        "marketCap": 3003327971328,
-        "change": -1.0313298408183176,
-        "AH price": 404.25,
-        "AH change": 0.06188119
+        "price": 397.9,
+        "marketCap": 2971584954368,
+        "change": 0.45991885345940414,
+        "AH price": 399.73,
+        "AH change": 0.0
     },
     "MSI": {
         "ticker": "MSI",
         "name": "Motorola Solutions, Inc.",
-        "price": 421.9,
-        "marketCap": 70230392832,
-        "change": -0.28442325357026377,
-        "AH price": 420.65,
-        "AH change": -0.011889306
+        "price": 426.47,
+        "marketCap": 71160225792,
+        "change": -0.046899478617193846,
+        "AH price": 426.16,
+        "AH change": -0.0258018
     },
     "MTB": {
         "ticker": "MTB",
         "name": "M&T Bank Corporation",
-        "price": 193.53,
-        "marketCap": 31699832832,
-        "change": -0.3255334505173859,
-        "AH price": 192.9,
+        "price": 190.61,
+        "marketCap": 31173967872,
+        "change": -0.47741653596110156,
+        "AH price": 189.7,
         "AH change": 0.0
     },
     "MTCH": {
         "ticker": "MTCH",
         "name": "Match Group, Inc.",
-        "price": 32.77,
-        "marketCap": 8248339456,
-        "change": 0.24411966811086577,
-        "AH price": 32.85,
-        "AH change": 0.0
+        "price": 32.48,
+        "marketCap": 8185566720,
+        "change": 0.3694548447536813,
+        "AH price": 33.0,
+        "AH change": 1.227
     },
     "MTD": {
         "ticker": "MTD",
         "name": "Mettler-Toledo International Inc.",
-        "price": 1286.54,
-        "marketCap": 27399987200,
-        "change": 1.8211583727855343,
-        "AH price": 1313.0,
-        "AH change": 0.23130524
+        "price": 1308.89,
+        "marketCap": 26972246016,
+        "change": -1.4798795086224414,
+        "AH price": 1290.0,
+        "AH change": 0.0372216
     },
     "MU": {
         "ticker": "MU",
         "name": "Micron Technology, Inc.",
-        "price": 98.84,
-        "marketCap": 106302963712,
-        "change": -3.4702476759060255,
-        "AH price": 95.55,
-        "AH change": 0.14673449
+        "price": 93.22,
+        "marketCap": 108865544192,
+        "change": 4.8165606146466695,
+        "AH price": 98.0101,
+        "AH change": 0.30713564
     },
     "NCLH": {
         "ticker": "NCLH",
         "name": "Norwegian Cruise Line Holdings Ltd.",
-        "price": 24.11,
-        "marketCap": 10926743552,
-        "change": 3.069264837763825,
-        "AH price": 24.58,
-        "AH change": -1.08652
+        "price": 24.59,
+        "marketCap": 11014684672,
+        "change": 1.870675403083498,
+        "AH price": 25.003,
+        "AH change": -0.187621
     },
     "NDAQ": {
         "ticker": "NDAQ",
         "name": "Nasdaq, Inc.",
-        "price": 81.07,
-        "marketCap": 45946159104,
-        "change": -1.3938537778113642,
-        "AH price": 79.8982,
-        "AH change": -0.052291032
+        "price": 79.55,
+        "marketCap": 46034608128,
+        "change": 0.6159620929878817,
+        "AH price": 80.3253,
+        "AH change": 0.356448
     },
     "NDSN": {
         "ticker": "NDSN",
         "name": "Nordson Corporation",
-        "price": 215.44,
-        "marketCap": 12110810112,
-        "change": -1.2253988858761011,
-        "AH price": 212.23,
-        "AH change": -0.267861
+        "price": 214.98,
+        "marketCap": 12007799808,
+        "change": -1.8559820977165828,
+        "AH price": 210.99,
+        "AH change": 0.0
     },
     "NEE": {
         "ticker": "NEE",
         "name": "NextEra Energy, Inc.",
-        "price": 71.58,
-        "marketCap": 145637736448,
-        "change": -1.0896881242582976,
-        "AH price": 70.81,
-        "AH change": 0.014116534
+        "price": 71.28,
+        "marketCap": 146069700608,
+        "change": -0.3787831757719196,
+        "AH price": 71.15,
+        "AH change": 0.197154
     },
     "NEM": {
         "ticker": "NEM",
         "name": "Newmont Corporation",
-        "price": 45.33,
-        "marketCap": 49626914816,
-        "change": -2.845799389850432,
-        "AH price": 44.03,
-        "AH change": -0.02271148
+        "price": 42.93,
+        "marketCap": 49108561920,
+        "change": 1.5140962526397652,
+        "AH price": 43.47,
+        "AH change": -0.25241074
     },
     "NFLX": {
         "ticker": "NFLX",
         "name": "Netflix, Inc.",
-        "price": 1003.15,
-        "marketCap": 422824935424,
-        "change": -1.4633956391031424,
-        "AH price": 987.65,
-        "AH change": -0.082951054
+        "price": 977.24,
+        "marketCap": 423505100800,
+        "change": 1.3118586480629064,
+        "AH price": 990.95,
+        "AH change": 0.089895025
     },
     "NI": {
         "ticker": "NI",
         "name": "NiSource Inc.",
-        "price": 40.07,
-        "marketCap": 18764703744,
-        "change": -0.34938704945016763,
-        "AH price": 39.27,
-        "AH change": -1.65289
+        "price": 39.84,
+        "marketCap": 18792900608,
+        "change": 0.37650985267168124,
+        "AH price": 40.4199,
+        "AH change": 1.07501
     },
     "NKE": {
         "ticker": "NKE",
         "name": "NIKE, Inc.",
-        "price": 76.5,
-        "marketCap": 118744555520,
-        "change": 4.941174874897876,
-        "AH price": 80.5,
-        "AH change": 0.27404237
+        "price": 81.72,
+        "marketCap": 120060977152,
+        "change": -0.6730335824058621,
+        "AH price": 81.4,
+        "AH change": 0.28336006
     },
     "NOC": {
         "ticker": "NOC",
         "name": "Northrop Grumman Corporation",
-        "price": 447.96,
-        "marketCap": 65131515904,
-        "change": 0.44200621129056394,
-        "AH price": 450.89,
-        "AH change": 0.21114197
+        "price": 461.01,
+        "marketCap": 65845161984,
+        "change": -1.3318614603529,
+        "AH price": 454.87,
+        "AH change": 0.0
     },
     "NOW": {
         "ticker": "NOW",
         "name": "ServiceNow, Inc.",
-        "price": 938.41,
-        "marketCap": 191533219840,
-        "change": -1.1540751233064208,
-        "AH price": 927.86,
-        "AH change": 0.0301827
+        "price": 922.29,
+        "marketCap": 194502508544,
+        "change": 2.132739638717979,
+        "AH price": 943.4,
+        "AH change": 0.152873
     },
     "NRG": {
         "ticker": "NRG",
         "name": "NRG Energy, Inc.",
-        "price": 105.96,
-        "marketCap": 20951400448,
-        "change": -2.387692337822623,
-        "AH price": 103.0,
-        "AH change": -0.4157404
+        "price": 102.44,
+        "marketCap": 22956806144,
+        "change": 10.630612192612269,
+        "AH price": 114.89,
+        "AH change": 1.37651
     },
     "NSC": {
         "ticker": "NSC",
         "name": "Norfolk Southern Corporation",
-        "price": 247.76,
-        "marketCap": 55272542208,
-        "change": -1.477231387014472,
-        "AH price": 250.0,
-        "AH change": 2.4170396
+        "price": 245.1,
+        "marketCap": 54810611712,
+        "change": -1.2403135329331476,
+        "AH price": 242.06,
+        "AH change": 0.0
     },
     "NTAP": {
         "ticker": "NTAP",
         "name": "NetApp, Inc.",
-        "price": 124.47,
-        "marketCap": 25108291584,
-        "change": -0.7793052230980331,
-        "AH price": 121.14,
-        "AH change": -1.91093
+        "price": 122.62,
+        "marketCap": 25309562880,
+        "change": 1.5250326825160874,
+        "AH price": 122.7,
+        "AH change": -1.43787
     },
     "NTRS": {
         "ticker": "NTRS",
         "name": "Northern Trust Corporation",
-        "price": 112.97,
-        "marketCap": 22109335552,
-        "change": -0.1327799630504179,
-        "AH price": 112.82,
+        "price": 110.76,
+        "marketCap": 21408382976,
+        "change": -1.2323993019476103,
+        "AH price": 109.395,
         "AH change": 0.0
     },
     "NUE": {
         "ticker": "NUE",
         "name": "Nucor Corporation",
-        "price": 135.23,
-        "marketCap": 31976830976,
-        "change": 0.7025046056765676,
-        "AH price": 136.68,
-        "AH change": 0.367161
+        "price": 136.08,
+        "marketCap": 31598786560,
+        "change": -1.1096373357715101,
+        "AH price": 136.45,
+        "AH change": 1.39703
     },
     "NVDA": {
         "ticker": "NVDA",
         "name": "NVIDIA Corporation",
-        "price": 134.43,
-        "marketCap": 3190557245440,
-        "change": -3.0871041602251257,
-        "AH price": 130.67,
-        "AH change": 0.29935476
+        "price": 126.63,
+        "marketCap": 3215047262208,
+        "change": 3.6721168970517324,
+        "AH price": 131.09,
+        "AH change": -0.14473069
     },
     "NVR": {
         "ticker": "NVR",
         "name": "NVR, Inc.",
-        "price": 7094.8,
-        "marketCap": 20365101056,
-        "change": -0.46202551246890083,
-        "AH price": 7065.02,
-        "AH change": 0.0424808
+        "price": 7335.4,
+        "marketCap": 20790886400,
+        "change": -1.71401671541558,
+        "AH price": 7207.0,
+        "AH change": -0.03703251
     },
     "NWS": {
         "ticker": "NWS",
         "name": "News Corporation",
-        "price": 32.3,
-        "marketCap": 16913572864,
-        "change": 0.06192092333155118,
-        "AH price": 32.32,
+        "price": 32.07,
+        "marketCap": 16633398272,
+        "change": -0.9042688211360163,
+        "AH price": 31.78,
         "AH change": 0.0
     },
     "NWSA": {
         "ticker": "NWSA",
         "name": "News Corporation",
-        "price": 28.53,
-        "marketCap": 16847550464,
-        "change": -0.2453613757030799,
-        "AH price": 28.46,
-        "AH change": 0.0
+        "price": 28.36,
+        "marketCap": 16619456512,
+        "change": -0.9873084648076699,
+        "AH price": 28.1385,
+        "AH change": 0.208334
     },
     "NXPI": {
         "ticker": "NXPI",
         "name": "NXP Semiconductors N.V.",
-        "price": 236.52,
-        "marketCap": 59131502592,
-        "change": -1.4248310143333391,
-        "AH price": 233.46,
-        "AH change": 0.13296711
+        "price": 228.56,
+        "marketCap": 58175356928,
+        "change": 0.35877114673512916,
+        "AH price": 229.38,
+        "AH change": 0.0
     },
     "O": {
         "ticker": "O",
         "name": "Realty Income Corporation",
-        "price": 57.09,
-        "marketCap": 50158342144,
-        "change": 0.3853585918989568,
-        "AH price": 56.39,
-        "AH change": -1.6053079
+        "price": 56.24,
+        "marketCap": 50013765632,
+        "change": -0.248938833867972,
+        "AH price": 56.0,
+        "AH change": -0.1782504
     },
     "ODFL": {
         "ticker": "ODFL",
         "name": "Old Dominion Freight Line, Inc.",
-        "price": 180.4,
-        "marketCap": 38850232320,
-        "change": 0.8702923377700548,
-        "AH price": 183.0,
-        "AH change": 0.566027
+        "price": 179.88,
+        "marketCap": 37509464064,
+        "change": -2.32933195890001,
+        "AH price": 175.05,
+        "AH change": -0.36427763
     },
     "OKE": {
         "ticker": "OKE",
         "name": "ONEOK, Inc.",
-        "price": 98.1,
-        "marketCap": 61222273024,
-        "change": 0.020391715364006507,
-        "AH price": 98.8667,
-        "AH change": 0.7610033
+        "price": 95.77,
+        "marketCap": 59764867072,
+        "change": -0.010435947777242703,
+        "AH price": 95.6,
+        "AH change": -0.167088
     },
     "OMC": {
         "ticker": "OMC",
         "name": "Omnicom Group Inc.",
-        "price": 82.3,
-        "marketCap": 16452192256,
-        "change": 1.7375458713852847,
-        "AH price": 83.73,
-        "AH change": 0.0
+        "price": 83.87,
+        "marketCap": 16458087424,
+        "change": -0.1311560829250663,
+        "AH price": 83.3,
+        "AH change": -0.54918706
     },
     "ON": {
         "ticker": "ON",
         "name": "ON Semiconductor Corporation",
-        "price": 54.05,
-        "marketCap": 22503880704,
-        "change": -1.202585976608036,
-        "AH price": 53.5,
-        "AH change": 0.18726306
+        "price": 51.22,
+        "marketCap": 21302831104,
+        "change": -1.3080866217780631,
+        "AH price": 50.55,
+        "AH change": 0.0
     },
     "ORCL": {
         "ticker": "ORCL",
         "name": "Oracle Corporation",
-        "price": 167.81,
-        "marketCap": 475371339776,
-        "change": 1.2812163676498027,
-        "AH price": 169.1075,
-        "AH change": -0.5015936
+        "price": 168.54,
+        "marketCap": 482391687168,
+        "change": 2.3317954735516575,
+        "AH price": 173.02,
+        "AH change": 0.318898
     },
     "ORLY": {
         "ticker": "ORLY",
         "name": "O'Reilly Automotive, Inc.",
-        "price": 1303.41,
-        "marketCap": 75452432384,
-        "change": 0.8823010179784004,
-        "AH price": 1315.82,
-        "AH change": 0.0691996
+        "price": 1346.58,
+        "marketCap": 76342427648,
+        "change": -1.2000707449056007,
+        "AH price": 1329.0,
+        "AH change": -0.106737
     },
     "OXY": {
         "ticker": "OXY",
         "name": "Occidental Petroleum Corporation",
-        "price": 50.42,
-        "marketCap": 46793658368,
-        "change": -1.1106655670976675,
-        "AH price": 49.85,
-        "AH change": -0.02006044
+        "price": 48.89,
+        "marketCap": 45564223488,
+        "change": -0.6954390608151234,
+        "AH price": 48.63,
+        "AH change": 0.16478236
     },
     "PANW": {
         "ticker": "PANW",
         "name": "Palo Alto Networks, Inc.",
-        "price": 191.03,
-        "marketCap": 126057209856,
-        "change": -0.33502559479563704,
-        "AH price": 190.39,
-        "AH change": 0.0
+        "price": 188.01,
+        "marketCap": 125501054976,
+        "change": 0.8191099355975361,
+        "AH price": 190.21,
+        "AH change": 0.34819502
     },
     "PARA": {
         "ticker": "PARA",
         "name": "Paramount Global",
-        "price": 11.49,
-        "marketCap": 8245368320,
-        "change": 1.5665823216832342,
-        "AH price": 11.65,
-        "AH change": -0.17138353
+        "price": 11.5,
+        "marketCap": 7929836032,
+        "change": -2.434780286706012,
+        "AH price": 10.9899,
+        "AH change": -2.0508077
     },
     "PAYC": {
         "ticker": "PAYC",
         "name": "Paycom Software, Inc.",
-        "price": 213.06,
-        "marketCap": 12271637504,
-        "change": 2.8771261396108314,
-        "AH price": 219.19,
+        "price": 219.07,
+        "marketCap": 12302430208,
+        "change": 0.3058374704638276,
+        "AH price": 219.74,
         "AH change": 0.0
     },
     "PAYX": {
         "ticker": "PAYX",
         "name": "Paychex, Inc.",
-        "price": 148.51,
-        "marketCap": 53969842176,
-        "change": 0.929233677097051,
-        "AH price": 151.135,
-        "AH change": 0.830606
+        "price": 151.0,
+        "marketCap": 53743001600,
+        "change": -1.152321518651697,
+        "AH price": 148.9,
+        "AH change": -0.24119028
     },
     "PCAR": {
         "ticker": "PCAR",
         "name": "PACCAR Inc",
-        "price": 104.46,
-        "marketCap": 55760318464,
-        "change": 1.713575465456247,
-        "AH price": 106.04,
-        "AH change": -0.197646
+        "price": 106.58,
+        "marketCap": 55644860416,
+        "change": -0.5160471404660416,
+        "AH price": 104.21,
+        "AH change": -1.7165
     },
     "PCG": {
         "ticker": "PCG",
         "name": "PG&E Corporation",
-        "price": 15.99,
-        "marketCap": 35119218688,
-        "change": 0.12508103846128613,
-        "AH price": 16.0,
-        "AH change": -0.0624624
+        "price": 15.93,
+        "marketCap": 35185025024,
+        "change": 0.6905248477353917,
+        "AH price": 16.1,
+        "AH change": 0.374061
     },
     "PEG": {
         "ticker": "PEG",
         "name": "Public Service Enterprise Group Incorporated",
-        "price": 83.96,
-        "marketCap": 42030260224,
-        "change": 0.4764191641741948,
-        "AH price": 83.4195,
-        "AH change": -1.11486
+        "price": 83.23,
+        "marketCap": 41317797888,
+        "change": -0.360450606341133,
+        "AH price": 82.97,
+        "AH change": 0.0482346
     },
     "PEP": {
         "ticker": "PEP",
         "name": "PepsiCo, Inc.",
-        "price": 153.5,
-        "marketCap": 211005292544,
-        "change": 0.22801700554763846,
-        "AH price": 154.5,
-        "AH change": 0.42248544
+        "price": 156.42,
+        "marketCap": 207795961856,
+        "change": -3.1389871625022034,
+        "AH price": 151.44,
+        "AH change": -0.046196334
     },
     "PFE": {
         "ticker": "PFE",
         "name": "Pfizer Inc.",
-        "price": 26.3,
-        "marketCap": 151025287168,
-        "change": 1.330799968148002,
-        "AH price": 26.5216,
-        "AH change": -0.48179698
+        "price": 26.74,
+        "marketCap": 149721874432,
+        "change": -1.1967079190847636,
+        "AH price": 26.3,
+        "AH change": -0.45420453
     },
     "PFG": {
         "ticker": "PFG",
         "name": "Principal Financial Group, Inc.",
-        "price": 84.38,
-        "marketCap": 19198349312,
-        "change": 0.8651379245026269,
-        "AH price": 85.11,
+        "price": 85.36,
+        "marketCap": 19376549888,
+        "change": 0.6326158758975666,
+        "AH price": 85.9,
         "AH change": 0.0
     },
     "PG": {
         "ticker": "PG",
         "name": "The Procter & Gamble Company",
-        "price": 170.23,
-        "marketCap": 399890677760,
-        "change": 0.18210513210017074,
-        "AH price": 170.4,
-        "AH change": -0.0820918
+        "price": 172.65,
+        "marketCap": 401672798208,
+        "change": -0.7819234824508452,
+        "AH price": 170.88,
+        "AH change": -0.245183
     },
     "PGR": {
         "ticker": "PGR",
         "name": "The Progressive Corporation",
-        "price": 266.19,
-        "marketCap": 159815712768,
-        "change": 2.4193254375974633,
-        "AH price": 273.71,
-        "AH change": 0.396103
+        "price": 278.52,
+        "marketCap": 160284655616,
+        "change": -1.827515632151188,
+        "AH price": 280.16,
+        "AH change": 2.46133
     },
     "PH": {
         "ticker": "PH",
         "name": "Parker-Hannifin Corporation",
-        "price": 666.97,
-        "marketCap": 84866441216,
-        "change": -1.1829548495209758,
-        "AH price": 659.08,
-        "AH change": 0.0
+        "price": 657.17,
+        "marketCap": 85060878336,
+        "change": 0.5204199878648542,
+        "AH price": 666.66,
+        "AH change": 0.9188674
     },
     "PHM": {
         "ticker": "PHM",
         "name": "PulteGroup, Inc.",
-        "price": 103.11,
-        "marketCap": 20589977600,
-        "change": -1.367475175795722,
-        "AH price": 100.75,
-        "AH change": -0.934117
+        "price": 106.23,
+        "marketCap": 21146736640,
+        "change": -1.6756155063937743,
+        "AH price": 104.45,
+        "AH change": 0.0
     },
     "PKG": {
         "ticker": "PKG",
         "name": "Packaging Corporation of America",
-        "price": 207.92,
-        "marketCap": 18835679232,
-        "change": 0.875340198271791,
-        "AH price": 209.74,
-        "AH change": 0.0
+        "price": 212.64,
+        "marketCap": 19105990656,
+        "change": 0.05173091171336669,
+        "AH price": 212.64,
+        "AH change": -0.051704165
     },
     "PLD": {
         "ticker": "PLD",
         "name": "Prologis, Inc.",
-        "price": 120.97,
-        "marketCap": 111899811840,
-        "change": -0.19839452868291563,
-        "AH price": 119.915,
-        "AH change": -0.67506206
+        "price": 122.61,
+        "marketCap": 113225228288,
+        "change": -0.36701488133276766,
+        "AH price": 122.13,
+        "AH change": -0.024563203
     },
     "PM": {
         "ticker": "PM",
         "name": "Philip Morris International Inc.",
-        "price": 154.4,
-        "marketCap": 242993528832,
-        "change": 1.2176197908873798,
-        "AH price": 155.99,
-        "AH change": -0.18556
+        "price": 157.42,
+        "marketCap": 240599056384,
+        "change": -1.702447406272388,
+        "AH price": 156.27,
+        "AH change": 0.988755
     },
     "PNC": {
         "ticker": "PNC",
         "name": "The PNC Financial Services Group, Inc.",
-        "price": 188.05,
-        "marketCap": 74024386560,
-        "change": -0.5796311194903946,
-        "AH price": 185.221,
-        "AH change": -0.930039
+        "price": 186.47,
+        "marketCap": 74013171712,
+        "change": 0.2949552465046842,
+        "AH price": 188.0,
+        "AH change": 0.52400583
     },
     "PNR": {
         "ticker": "PNR",
         "name": "Pentair plc",
-        "price": 92.94,
-        "marketCap": 15303696384,
-        "change": -0.3443078183971015,
-        "AH price": 92.62,
-        "AH change": 0.0
+        "price": 93.34,
+        "marketCap": 15412748288,
+        "change": -0.0642785096932712,
+        "AH price": 94.0,
+        "AH change": 0.771871
     },
     "PNW": {
         "ticker": "PNW",
         "name": "Pinnacle West Capital Corporation",
-        "price": 91.58,
-        "marketCap": 10472906752,
-        "change": 0.5787276356191915,
-        "AH price": 92.11,
+        "price": 93.16,
+        "marketCap": 10909925376,
+        "change": -1.6316060677433863,
+        "AH price": 91.64,
         "AH change": 0.0
     },
     "PODD": {
         "ticker": "PODD",
         "name": "Insulet Corporation",
-        "price": 282.8,
-        "marketCap": 19907694592,
-        "change": 0.24046082839904648,
-        "AH price": 283.5,
-        "AH change": 0.0070513
+        "price": 266.68,
+        "marketCap": 19005990912,
+        "change": 1.4849340338293338,
+        "AH price": 271.0,
+        "AH change": 0.133013
     },
     "POOL": {
         "ticker": "POOL",
         "name": "Pool Corporation",
-        "price": 344.0,
-        "marketCap": 13118872576,
-        "change": 0.21221249602561776,
-        "AH price": 344.49,
-        "AH change": -0.0696257
+        "price": 348.72,
+        "marketCap": 13233419264,
+        "change": -0.28103090814910875,
+        "AH price": 347.76,
+        "AH change": 0.00575704
     },
     "PPG": {
         "ticker": "PPG",
         "name": "PPG Industries, Inc.",
-        "price": 114.8,
-        "marketCap": 25766086656,
-        "change": -1.106275469250949,
-        "AH price": 116.4,
-        "AH change": 2.52797
+        "price": 114.39,
+        "marketCap": 26108788736,
+        "change": 0.5682328257252593,
+        "AH price": 115.04,
+        "AH change": 0.0
     },
     "PPL": {
         "ticker": "PPL",
         "name": "PPL Corporation",
-        "price": 34.72,
-        "marketCap": 25733138432,
-        "change": 0.460829037404248,
-        "AH price": 34.88,
-        "AH change": 0.0
+        "price": 34.98,
+        "marketCap": 25744312320,
+        "change": -0.3144671577789563,
+        "AH price": 34.65,
+        "AH change": -0.6309074
     },
     "PRU": {
         "ticker": "PRU",
         "name": "Prudential Financial, Inc.",
-        "price": 109.5,
-        "marketCap": 39120539648,
-        "change": 0.9223763801191496,
-        "AH price": 109.0,
-        "AH change": -1.366394
+        "price": 111.1,
+        "marketCap": 39619678208,
+        "change": 0.7380735428319778,
+        "AH price": 111.92,
+        "AH change": 0.0
     },
     "PSA": {
         "ticker": "PSA",
         "name": "Public Storage",
-        "price": 304.19,
-        "marketCap": 53141766144,
-        "change": -0.27614199386859434,
-        "AH price": 300.79,
-        "AH change": -0.843909
+        "price": 308.6,
+        "marketCap": 53379088384,
+        "change": -1.393395406837579,
+        "AH price": 304.0,
+        "AH change": -0.098582916
     },
     "PSX": {
         "ticker": "PSX",
         "name": "Phillips 66",
-        "price": 127.63,
-        "marketCap": 52482641920,
-        "change": -1.3200784006494997,
-        "AH price": 127.97,
-        "AH change": 0.70034575
+        "price": 126.26,
+        "marketCap": 51141636096,
+        "change": -0.6494532559404407,
+        "AH price": 125.53,
+        "AH change": 0.0717445
     },
     "PTC": {
         "ticker": "PTC",
         "name": "PTC Inc.",
-        "price": 161.65,
-        "marketCap": 19562276864,
-        "change": 0.5753219732045648,
-        "AH price": 164.42,
-        "AH change": 1.13175
+        "price": 162.72,
+        "marketCap": 19616421888,
+        "change": 0.19050980596619396,
+        "AH price": 168.0,
+        "AH change": 3.04852
     },
     "PWR": {
         "ticker": "PWR",
         "name": "Quanta Services, Inc.",
-        "price": 269.36,
-        "marketCap": 38436630528,
-        "change": -3.7125039143985057,
-        "AH price": 259.448,
-        "AH change": 0.0341228
+        "price": 264.39,
+        "marketCap": 39837102080,
+        "change": 1.671766203437582,
+        "AH price": 274.0,
+        "AH change": 1.93073
     },
     "QCOM": {
         "ticker": "QCOM",
         "name": "QUALCOMM Incorporated",
-        "price": 165.43,
-        "marketCap": 178176606208,
-        "change": -2.617413264807289,
-        "AH price": 161.61,
-        "AH change": 0.31657
+        "price": 161.22,
+        "marketCap": 179282608128,
+        "change": 0.5458410098929424,
+        "AH price": 161.2001,
+        "AH change": -0.5551526
     },
     "RCL": {
         "ticker": "RCL",
         "name": "Royal Caribbean Cruises Ltd.",
-        "price": 234.26,
-        "marketCap": 63961198592,
-        "change": 1.4513827520704659,
-        "AH price": 237.73,
-        "AH change": 0.029450502
+        "price": 237.57,
+        "marketCap": 65697079296,
+        "change": 2.752869926550742,
+        "AH price": 242.5,
+        "AH change": -0.659539
     },
     "REG": {
         "ticker": "REG",
         "name": "Regency Centers Corporation",
-        "price": 73.33,
-        "marketCap": 13562400768,
-        "change": 1.3636983158733642,
-        "AH price": 74.33,
-        "AH change": 0.0
+        "price": 75.45,
+        "marketCap": 13730265088,
+        "change": -0.26507217538972605,
+        "AH price": 74.23,
+        "AH change": -1.35548
     },
     "REGN": {
         "ticker": "REGN",
         "name": "Regeneron Pharmaceuticals, Inc.",
-        "price": 700.33,
-        "marketCap": 77976059904,
-        "change": 1.8448420879978895,
-        "AH price": 715.7,
-        "AH change": 0.3435
+        "price": 723.47,
+        "marketCap": 77286219776,
+        "change": -2.2848174673585455,
+        "AH price": 706.0,
+        "AH change": -0.13296779
     },
     "RF": {
         "ticker": "RF",
         "name": "Regions Financial Corporation",
-        "price": 23.39,
-        "marketCap": 21303773184,
-        "change": 0.21377146521563561,
-        "AH price": 23.52,
-        "AH change": 0.341297
+        "price": 23.37,
+        "marketCap": 21169770496,
+        "change": 0.042782717903963485,
+        "AH price": 23.38,
+        "AH change": 0.0
     },
     "RJF": {
         "ticker": "RJF",
         "name": "Raymond James Financial, Inc.",
-        "price": 151.54,
-        "marketCap": 31080747008,
-        "change": 0.09238445021182974,
-        "AH price": 151.68,
+        "price": 150.94,
+        "marketCap": 31021324288,
+        "change": 0.2981296813062348,
+        "AH price": 151.39,
         "AH change": 0.0
     },
     "RL": {
         "ticker": "RL",
         "name": "Ralph Lauren Corporation",
-        "price": 277.68,
-        "marketCap": 17025301504,
-        "change": -0.7310569118557629,
-        "AH price": 275.0001,
-        "AH change": -0.23577085
+        "price": 268.17,
+        "marketCap": 17033949184,
+        "change": 2.8414791869490332,
+        "AH price": 276.0,
+        "AH change": 0.07614179
     },
     "RMD": {
         "ticker": "RMD",
         "name": "ResMed Inc.",
-        "price": 231.69,
-        "marketCap": 33728008192,
-        "change": -0.8804905362447771,
-        "AH price": 229.65,
+        "price": 236.19,
+        "marketCap": 34456469504,
+        "change": -0.6689537299304836,
+        "AH price": 234.61,
         "AH change": 0.0
     },
     "ROK": {
         "ticker": "ROK",
         "name": "Rockwell Automation, Inc.",
-        "price": 295.22,
-        "marketCap": 33088552960,
-        "change": -0.8773105911460155,
-        "AH price": 293.97,
-        "AH change": 0.457915
+        "price": 288.75,
+        "marketCap": 32462127104,
+        "change": -0.5748930431547619,
+        "AH price": 289.0,
+        "AH change": 0.66529787
     },
     "ROL": {
         "ticker": "ROL",
         "name": "Rollins, Inc.",
-        "price": 51.29,
-        "marketCap": 24898848768,
-        "change": 0.25345535406027625,
-        "AH price": 51.42,
-        "AH change": 0.0
+        "price": 51.38,
+        "marketCap": 24826216448,
+        "change": -0.21409226949165114,
+        "AH price": 51.5,
+        "AH change": 0.44860452
     },
     "ROP": {
         "ticker": "ROP",
         "name": "Roper Technologies, Inc.",
-        "price": 574.05,
-        "marketCap": 61826097152,
-        "change": 0.44073327248069827,
-        "AH price": 576.58,
-        "AH change": 0.0
+        "price": 587.34,
+        "marketCap": 61762486272,
+        "change": -2.0754591691408657,
+        "AH price": 577.7,
+        "AH change": 0.44336045
     },
     "ROST": {
         "ticker": "ROST",
         "name": "Ross Stores, Inc.",
-        "price": 136.61,
-        "marketCap": 44847247360,
-        "change": -0.49777317292449025,
-        "AH price": 136.61,
-        "AH change": 0.500263
+        "price": 136.45,
+        "marketCap": 45787545600,
+        "change": 1.707586576156903,
+        "AH price": 138.32,
+        "AH change": -0.331454
     },
     "RSG": {
         "ticker": "RSG",
         "name": "Republic Services, Inc.",
-        "price": 230.87,
-        "marketCap": 72671846400,
-        "change": 0.7969903563023486,
-        "AH price": 233.88,
-        "AH change": 0.5027709
+        "price": 233.51,
+        "marketCap": 72315838464,
+        "change": -0.8307940680288075,
+        "AH price": 240.29,
+        "AH change": 3.7655938
     },
     "RTX": {
         "ticker": "RTX",
         "name": "RTX Corporation",
-        "price": 123.29,
-        "marketCap": 167087816704,
-        "change": 1.7357444835406133,
-        "AH price": 125.43,
-        "AH change": 0.0
+        "price": 127.34,
+        "marketCap": 169592209408,
+        "change": -0.023558018030151867,
+        "AH price": 127.92,
+        "AH change": 0.47914588
     },
     "RVTY": {
         "ticker": "RVTY",
         "name": "Revvity, Inc.",
-        "price": 113.84,
-        "marketCap": 13984777216,
-        "change": 0.9399221351367942,
-        "AH price": 114.91,
+        "price": 115.49,
+        "marketCap": 14009117696,
+        "change": -0.3290304445811909,
+        "AH price": 115.11,
         "AH change": 0.0
     },
     "SBAC": {
         "ticker": "SBAC",
         "name": "SBA Communications Corporation",
-        "price": 213.0,
-        "marketCap": 22885195776,
-        "change": -0.07511909019219484,
-        "AH price": 209.3,
-        "AH change": -1.66322
+        "price": 219.17,
+        "marketCap": 23178319872,
+        "change": -1.679058587637784,
+        "AH price": 214.84,
+        "AH change": -0.301642
     },
     "SBUX": {
         "ticker": "SBUX",
         "name": "Starbucks Corporation",
-        "price": 111.75,
-        "marketCap": 128575913984,
-        "change": 1.2885927887304252,
-        "AH price": 113.8387,
-        "AH change": 0.57310444
+        "price": 114.59,
+        "marketCap": 128360087552,
+        "change": -1.3875524816339249,
+        "AH price": 112.3386,
+        "AH change": -0.58530957
     },
     "SCHW": {
         "ticker": "SCHW",
         "name": "The Charles Schwab Corporation",
-        "price": 80.44,
-        "marketCap": 145247944704,
-        "change": -0.39781164235706173,
-        "AH price": 80.16,
-        "AH change": 0.0499263
+        "price": 79.0,
+        "marketCap": 142673657856,
+        "change": -0.3797506984276108,
+        "AH price": 78.63,
+        "AH change": -0.088945
     },
     "SHW": {
         "ticker": "SHW",
         "name": "The Sherwin-Williams Company",
-        "price": 344.57,
-        "marketCap": 86436536320,
-        "change": -0.20315529272766403,
-        "AH price": 344.0,
-        "AH change": 0.0378064
+        "price": 353.03,
+        "marketCap": 90387980288,
+        "change": 1.85819833478085,
+        "AH price": 360.81,
+        "AH change": 0.33927563
     },
     "SJM": {
         "ticker": "SJM",
         "name": "The J. M. Smucker Company",
-        "price": 110.01,
-        "marketCap": 11807919104,
-        "change": 0.8635550675344614,
-        "AH price": 107.68,
-        "AH change": -2.95602
+        "price": 112.47,
+        "marketCap": 11616370688,
+        "change": -2.9430048214354034,
+        "AH price": 110.49,
+        "AH change": 1.2183896
     },
     "SLB": {
         "ticker": "SLB",
         "name": "Schlumberger Limited",
-        "price": 41.74,
-        "marketCap": 56474984448,
-        "change": -0.5031214439990309,
-        "AH price": 41.75,
-        "AH change": 0.529741
+        "price": 41.01,
+        "marketCap": 55210311680,
+        "change": -0.999755825878271,
+        "AH price": 40.67,
+        "AH change": 0.172413
     },
     "SMCI": {
         "ticker": "SMCI",
         "name": "Super Micro Computer, Inc.",
-        "price": 56.07,
-        "marketCap": 30221008896,
-        "change": -7.954341196267841,
-        "AH price": 50.7,
-        "AH change": -1.7632239
+        "price": 45.54,
+        "marketCap": 29928226816,
+        "change": 12.231004793249946,
+        "AH price": 49.389,
+        "AH change": -3.3672483
     },
     "SNA": {
         "ticker": "SNA",
         "name": "Snap-on Incorporated",
-        "price": 333.74,
-        "marketCap": 17603067904,
-        "change": 0.029774354549779412,
-        "AH price": 336.99,
-        "AH change": 0.30060694
+        "price": 341.52,
+        "marketCap": 17764438016,
+        "change": -0.7203067270477236,
+        "AH price": 339.06,
+        "AH change": 0.0
     },
     "SNPS": {
         "ticker": "SNPS",
         "name": "Synopsys, Inc.",
-        "price": 474.84,
-        "marketCap": 72683298816,
-        "change": -1.002444992489182,
-        "AH price": 470.8,
-        "AH change": 0.153166
+        "price": 457.95,
+        "marketCap": 72742060032,
+        "change": 2.731734668540926,
+        "AH price": 480.2,
+        "AH change": 2.0703187
     },
     "SO": {
         "ticker": "SO",
         "name": "The Southern Company",
-        "price": 88.4,
-        "marketCap": 97494548480,
-        "change": 0.5542962164158848,
-        "AH price": 88.82,
-        "AH change": -0.0787487
+        "price": 89.85,
+        "marketCap": 97340997632,
+        "change": -1.224260982528474,
+        "AH price": 89.97,
+        "AH change": 1.3746493
     },
     "SPG": {
         "ticker": "SPG",
         "name": "Simon Property Group, Inc.",
         "price": 183.8,
-        "marketCap": 69620064256,
-        "change": 0.4624542059921546,
-        "AH price": 184.62,
-        "AH change": -0.016246293
+        "marketCap": 69465489408,
+        "change": 0.23939196632240858,
+        "AH price": 184.49,
+        "AH change": 0.135693
     },
     "SPGI": {
         "ticker": "SPGI",
         "name": "S&P Global Inc.",
-        "price": 533.4,
-        "marketCap": 164125114368,
-        "change": -0.033755849774339285,
-        "AH price": 538.694,
-        "AH change": 1.02659
+        "price": 532.42,
+        "marketCap": 162900066304,
+        "change": -0.7761848233038079,
+        "AH price": 535.99,
+        "AH change": 1.27541
     },
     "SRE": {
         "ticker": "SRE",
         "name": "Sempra",
-        "price": 87.1,
-        "marketCap": 55219724288,
-        "change": 0.09185055391069544,
-        "AH price": 87.1794,
-        "AH change": -0.000691354
+        "price": 70.64,
+        "marketCap": 46143115264,
+        "change": 3.1285378023325814,
+        "AH price": 72.9,
+        "AH change": 0.0686384
     },
     "STE": {
         "ticker": "STE",
         "name": "STERIS plc",
-        "price": 220.56,
-        "marketCap": 21976737792,
-        "change": 1.4145788682096105,
-        "AH price": 223.68,
+        "price": 223.79,
+        "marketCap": 21914841088,
+        "change": -0.3306627894790922,
+        "AH price": 223.05,
         "AH change": 0.0
     },
     "STLD": {
         "ticker": "STLD",
         "name": "Steel Dynamics, Inc.",
-        "price": 130.71,
-        "marketCap": 20271419392,
-        "change": 1.8667179690063669,
-        "AH price": 130.31,
-        "AH change": -2.13293
+        "price": 133.48,
+        "marketCap": 20321660928,
+        "change": 0.0,
+        "AH price": 131.07,
+        "AH change": -1.80551
     },
     "STT": {
         "ticker": "STT",
         "name": "State Street Corporation",
-        "price": 98.7,
-        "marketCap": 28428619776,
-        "change": -0.15196950468299517,
-        "AH price": 99.32,
-        "AH change": 0.781326
+        "price": 97.21,
+        "marketCap": 28076687360,
+        "change": 0.12344691668781146,
+        "AH price": 98.3,
+        "AH change": 0.9966107
     },
     "STX": {
         "ticker": "STX",
         "name": "Seagate Technology Holdings plc",
-        "price": 100.85,
-        "marketCap": 21187637248,
-        "change": -0.7635068465211663,
-        "AH price": 99.5,
-        "AH change": -0.579538
+        "price": 99.72,
+        "marketCap": 21227859968,
+        "change": 0.551539726865843,
+        "AH price": 101.0,
+        "AH change": 0.728038
     },
     "STZ": {
         "ticker": "STZ",
         "name": "Constellation Brands, Inc.",
-        "price": 175.97,
-        "marketCap": 32349900800,
-        "change": 1.7048360397732645,
-        "AH price": 179.67,
-        "AH change": 0.391125
+        "price": 178.02,
+        "marketCap": 32237834240,
+        "change": 0.1853734541819341,
+        "AH price": 178.32,
+        "AH change": -0.016820174
     },
     "SWK": {
         "ticker": "SWK",
         "name": "Stanley Black & Decker, Inc.",
-        "price": 87.95,
-        "marketCap": 13403136000,
-        "change": -1.3075542198837558,
-        "AH price": 85.71,
-        "AH change": -1.25576
+        "price": 87.8,
+        "marketCap": 13498871808,
+        "change": -0.4328073685697806,
+        "AH price": 87.43,
+        "AH change": 0.011441474
     },
     "SWKS": {
         "ticker": "SWKS",
         "name": "Skyworks Solutions, Inc.",
-        "price": 66.51,
-        "marketCap": 10694097920,
-        "change": -1.0117546710886356,
-        "AH price": 66.7,
-        "AH change": 0.2555211
+        "price": 66.14,
+        "marketCap": 10734282752,
+        "change": 0.9676434767984042,
+        "AH price": 67.4366,
+        "AH change": 0.98323
     },
     "SYF": {
         "ticker": "SYF",
         "name": "Synchrony Financial",
-        "price": 61.41,
-        "marketCap": 23546589184,
-        "change": -1.3678556500164025,
-        "AH price": 60.3539,
-        "AH change": -0.35677528
+        "price": 59.51,
+        "marketCap": 23220037632,
+        "change": 0.36968782878207435,
+        "AH price": 58.69,
+        "AH change": -1.74117
     },
     "SYK": {
         "ticker": "SYK",
         "name": "Stryker Corporation",
-        "price": 382.78,
-        "marketCap": 148022132736,
-        "change": 1.3428117103373334,
-        "AH price": 388.04,
-        "AH change": 0.030933
+        "price": 390.3,
+        "marketCap": 149479751680,
+        "change": 0.3689476009335893,
+        "AH price": 391.74,
+        "AH change": 0.0
     },
     "SYY": {
         "ticker": "SYY",
         "name": "Sysco Corporation",
-        "price": 73.22,
-        "marketCap": 36031791104,
-        "change": 0.5872716443689401,
-        "AH price": 73.29,
-        "AH change": -0.48879918
+        "price": 74.44,
+        "marketCap": 36315545600,
+        "change": -0.28210515527313723,
+        "AH price": 74.0,
+        "AH change": -0.309852
     },
     "T": {
         "ticker": "T",
         "name": "AT&T Inc.",
-        "price": 26.62,
-        "marketCap": 191944540160,
-        "change": 0.450784853875389,
-        "AH price": 26.7499,
-        "AH change": 0.037027102
+        "price": 26.65,
+        "marketCap": 190724243456,
+        "change": -0.3001873352764672,
+        "AH price": 26.59,
+        "AH change": 0.0752746
     },
     "TAP": {
         "ticker": "TAP",
         "name": "Molson Coors Beverage Company",
-        "price": 60.33,
-        "marketCap": 12403221504,
-        "change": 1.4420668083536112,
-        "AH price": 61.0,
-        "AH change": -0.32679862
+        "price": 60.82,
+        "marketCap": 12572238848,
+        "change": 2.0388057952790835,
+        "AH price": 62.06,
+        "AH change": 0.0
     },
     "TDG": {
         "ticker": "TDG",
         "name": "TransDigm Group Incorporated",
-        "price": 1290.13,
-        "marketCap": 73640763392,
-        "change": 1.7750168066312508,
-        "AH price": 1313.0,
-        "AH change": -0.0022870228
+        "price": 1333.73,
+        "marketCap": 74749558784,
+        "change": -0.06972413113921065,
+        "AH price": 1332.8,
+        "AH change": 0.0
     },
     "TDY": {
         "ticker": "TDY",
         "name": "Teledyne Technologies Incorporated",
-        "price": 491.03,
-        "marketCap": 23231465472,
-        "change": 1.0182677254811368,
-        "AH price": 492.1,
-        "AH change": -0.7922893
+        "price": 500.43,
+        "marketCap": 23477817344,
+        "change": 0.1718553807181202,
+        "AH price": 498.81,
+        "AH change": -0.4947258
     },
     "TECH": {
         "ticker": "TECH",
         "name": "Bio-Techne Corporation",
-        "price": 64.92,
-        "marketCap": 10364249088,
-        "change": 0.9858277999067833,
-        "AH price": 65.56,
+        "price": 64.22,
+        "marketCap": 10141345792,
+        "change": -0.10899983415393082,
+        "AH price": 64.15,
         "AH change": 0.0
     },
     "TEL": {
         "ticker": "TEL",
         "name": "TE Connectivity plc",
-        "price": 154.51,
-        "marketCap": 45707677696,
-        "change": -0.8478400136994324,
-        "AH price": 153.2,
-        "AH change": 0.0
+        "price": 151.94,
+        "marketCap": 45564469248,
+        "change": 0.513359725394023,
+        "AH price": 154.48,
+        "AH change": 1.1524322
     },
     "TER": {
         "ticker": "TER",
         "name": "Teradyne, Inc.",
-        "price": 115.91,
-        "marketCap": 18368045056,
-        "change": -2.0101818285218105,
-        "AH price": 116.39,
-        "AH change": 2.47403
+        "price": 111.35,
+        "marketCap": 18566959104,
+        "change": 3.1073184839574077,
+        "AH price": 115.99,
+        "AH change": 1.02779
     },
     "TFC": {
         "ticker": "TFC",
         "name": "Truist Financial Corporation",
-        "price": 45.66,
+        "price": 45.15,
         "marketCap": 59664719872,
-        "change": -0.7008315722593141,
-        "AH price": 45.4,
-        "AH change": 0.132337
+        "change": 0.42081643474603575,
+        "AH price": 45.699,
+        "AH change": 0.7917979
     },
     "TFX": {
         "ticker": "TFX",
         "name": "Teleflex Incorporated",
-        "price": 175.64,
-        "marketCap": 8250258944,
-        "change": 1.1386927846447445,
-        "AH price": 177.64,
-        "AH change": 0.0
+        "price": 177.63,
+        "marketCap": 8249794560,
+        "change": 0.0,
+        "AH price": 178.0,
+        "AH change": 0.20829539
     },
     "TGT": {
         "ticker": "TGT",
         "name": "Target Corporation",
-        "price": 124.27,
-        "marketCap": 57629323264,
-        "change": 1.2070491997423674,
-        "AH price": 125.8,
-        "AH change": 0.023858162
+        "price": 127.39,
+        "marketCap": 56836616192,
+        "change": -2.6297185730211337,
+        "AH price": 124.2,
+        "AH change": 0.128987
     },
     "TJX": {
         "ticker": "TJX",
         "name": "The TJX Companies, Inc.",
-        "price": 121.11,
-        "marketCap": 136551718912,
-        "change": 0.2972509359568052,
-        "AH price": 122.747,
-        "AH change": 1.05129
+        "price": 122.7,
+        "marketCap": 140396347392,
+        "change": 1.7848431099228517,
+        "AH price": 124.6,
+        "AH change": -0.232205
     },
     "TMO": {
         "ticker": "TMO",
         "name": "Thermo Fisher Scientific Inc.",
-        "price": 532.55,
-        "marketCap": 202042114048,
-        "change": 0.5633274000123091,
-        "AH price": 539.98,
-        "AH change": 0.82718563
+        "price": 539.55,
+        "marketCap": 201189507072,
+        "change": -1.1602279505614659,
+        "AH price": 541.0,
+        "AH change": 1.44575
     },
     "TMUS": {
         "ticker": "TMUS",
         "name": "T-Mobile US, Inc.",
-        "price": 265.17,
-        "marketCap": 306134745088,
-        "change": 1.1162617585659995,
-        "AH price": 268.25,
-        "AH change": 0.0447867
+        "price": 270.54,
+        "marketCap": 300939837440,
+        "change": -2.5726405532734993,
+        "AH price": 264.43,
+        "AH change": 0.322485
     },
     "TPL": {
         "ticker": "TPL",
         "name": "Texas Pacific Land Corporation",
-        "price": 1345.56,
-        "marketCap": 29740492800,
-        "change": -3.8378082285235697,
-        "AH price": 1335.0,
-        "AH change": 3.17484
+        "price": 1289.23,
+        "marketCap": 31063267328,
+        "change": 4.827687160342426,
+        "AH price": 1358.74,
+        "AH change": 0.537934
     },
     "TPR": {
         "ticker": "TPR",
         "name": "Tapestry, Inc.",
-        "price": 84.59,
-        "marketCap": 17469997056,
-        "change": -0.23643096926415438,
-        "AH price": 83.56,
-        "AH change": -0.983531
+        "price": 84.03,
+        "marketCap": 17919217664,
+        "change": 3.0108280567061136,
+        "AH price": 86.64,
+        "AH change": 0.0924236
     },
     "TRGP": {
         "ticker": "TRGP",
         "name": "Targa Resources Corp.",
-        "price": 200.36,
-        "marketCap": 43287699456,
-        "change": -0.9433017487976545,
-        "AH price": 199.585,
-        "AH change": 0.561801
+        "price": 194.92,
+        "marketCap": 43309510656,
+        "change": 1.8725678173410518,
+        "AH price": 199.03,
+        "AH change": 0.23165204
     },
     "TRMB": {
         "ticker": "TRMB",
         "name": "Trimble Inc.",
-        "price": 71.47,
-        "marketCap": 17434025984,
-        "change": -0.7555630422613153,
-        "AH price": 70.36,
-        "AH change": -0.803609
+        "price": 71.36,
+        "marketCap": 17547089920,
+        "change": 0.04203864775825596,
+        "AH price": 57.27,
+        "AH change": -19.7787
     },
     "TROW": {
         "ticker": "TROW",
         "name": "T. Rowe Price Group, Inc.",
-        "price": 106.27,
-        "marketCap": 23726104576,
-        "change": 0.28230268300981093,
-        "AH price": 106.037,
-        "AH change": -0.499673
+        "price": 106.23,
+        "marketCap": 23318685696,
+        "change": -1.4026220898794788,
+        "AH price": 106.53,
+        "AH change": 1.70899
     },
     "TRV": {
         "ticker": "TRV",
         "name": "The Travelers Companies, Inc.",
-        "price": 240.03,
-        "marketCap": 56282714112,
-        "change": 3.420408597100455,
-        "AH price": 248.4,
-        "AH change": 0.0644491
+        "price": 252.51,
+        "marketCap": 56421015552,
+        "change": -1.4494429856008053,
+        "AH price": 250.01,
+        "AH change": 0.46613958
     },
     "TSCO": {
         "ticker": "TSCO",
         "name": "Tractor Supply Company",
-        "price": 56.37,
-        "marketCap": 29798582272,
-        "change": -0.5499335896180139,
-        "AH price": 55.99,
-        "AH change": -0.124866
+        "price": 56.78,
+        "marketCap": 29309556736,
+        "change": -3.280124516647196,
+        "AH price": 56.33,
+        "AH change": 2.15815
     },
     "TSLA": {
         "ticker": "TSLA",
         "name": "Tesla, Inc.",
-        "price": 337.8,
-        "marketCap": 1063156318208,
-        "change": -2.152157867491551,
-        "AH price": 326.87,
-        "AH change": -1.1073136
+        "price": 302.8,
+        "marketCap": 935363936256,
+        "change": -3.9630120487999068,
+        "AH price": 289.3313,
+        "AH change": -0.50505126
     },
     "TSN": {
         "ticker": "TSN",
         "name": "Tyson Foods, Inc.",
-        "price": 60.45,
-        "marketCap": 21681526784,
-        "change": 0.694786044076949,
-        "AH price": 60.74,
-        "AH change": -0.213565
+        "price": 61.34,
+        "marketCap": 21478496256,
+        "change": -1.6954693722534446,
+        "AH price": 60.3,
+        "AH change": 0.0
     },
     "TT": {
         "ticker": "TT",
         "name": "Trane Technologies plc",
-        "price": 354.83,
-        "marketCap": 77802070016,
-        "change": -2.240504464194717,
-        "AH price": 340.16,
-        "AH change": -1.93727
+        "price": 348.78,
+        "marketCap": 78661099520,
+        "change": 0.5533553192660347,
+        "AH price": 351.9,
+        "AH change": 0.33931237
     },
     "TTWO": {
         "ticker": "TTWO",
         "name": "Take-Two Interactive Software, Inc.",
-        "price": 211.65,
-        "marketCap": 37420683264,
-        "change": 0.1748218221813559,
-        "AH price": 212.0,
-        "AH change": -0.00943509
+        "price": 207.91,
+        "marketCap": 36907077632,
+        "change": 0.577171337167785,
+        "AH price": 209.08,
+        "AH change": -0.014345933
     },
     "TXN": {
         "ticker": "TXN",
         "name": "Texas Instruments Incorporated",
-        "price": 202.0,
-        "marketCap": 182740254720,
-        "change": -0.623759656849474,
-        "AH price": 201.965,
-        "AH change": 0.61039
+        "price": 199.98,
+        "marketCap": 180464418816,
+        "change": -0.8700821439888589,
+        "AH price": 198.44,
+        "AH change": 0.100886
     },
     "TXT": {
         "ticker": "TXT",
         "name": "Textron Inc.",
-        "price": 72.34,
-        "marketCap": 13242018816,
-        "change": 0.2626519920166619,
-        "AH price": 72.7,
-        "AH change": 0.23438326
+        "price": 73.24,
+        "marketCap": 13340608512,
+        "change": -0.23211110582160113,
+        "AH price": 73.83,
+        "AH change": 1.0401
     },
     "TYL": {
         "ticker": "TYL",
         "name": "Tyler Technologies, Inc.",
-        "price": 615.21,
-        "marketCap": 26391977984,
-        "change": -0.26657801236378303,
-        "AH price": 616.59,
-        "AH change": 0.49220455
+        "price": 615.83,
+        "marketCap": 26516715520,
+        "change": 0.1039172491632357,
+        "AH price": 624.84,
+        "AH change": 1.3577394
     },
     "UAL": {
         "ticker": "UAL",
         "name": "United Airlines Holdings, Inc.",
-        "price": 95.89,
-        "marketCap": 32154206208,
-        "change": 1.9605769792307655,
-        "AH price": 97.866,
-        "AH change": 0.098190315
+        "price": 96.58,
+        "marketCap": 32032522240,
+        "change": 0.8490367356366657,
+        "AH price": 97.0,
+        "AH change": -0.4106792
     },
     "UDR": {
         "ticker": "UDR",
         "name": "UDR, Inc.",
-        "price": 42.83,
-        "marketCap": 16275416064,
-        "change": 0.8405248196680546,
-        "AH price": 42.77,
-        "AH change": -0.9724431
+        "price": 43.79,
+        "marketCap": 16475139072,
+        "change": -0.15985314766092595,
+        "AH price": 44.08,
+        "AH change": 0.82342315
     },
     "UHS": {
         "ticker": "UHS",
         "name": "Universal Health Services, Inc.",
-        "price": 180.03,
-        "marketCap": 11970118656,
-        "change": 0.7943164718472246,
-        "AH price": 181.65,
-        "AH change": 0.104699
+        "price": 189.01,
+        "marketCap": 11881723904,
+        "change": -4.7034546574344835,
+        "AH price": 187.5,
+        "AH change": 4.09727
     },
     "ULTA": {
         "ticker": "ULTA",
         "name": "Ulta Beauty, Inc.",
-        "price": 361.54,
-        "marketCap": 16874489856,
-        "change": 0.6499989068910014,
-        "AH price": 363.15,
-        "AH change": -0.203364
+        "price": 365.7,
+        "marketCap": 17006187520,
+        "change": 0.28165128381613747,
+        "AH price": 367.03,
+        "AH change": 0.0818007
     },
     "UNH": {
         "ticker": "UNH",
         "name": "UnitedHealth Group Incorporated",
-        "price": 466.42,
-        "marketCap": 424729477120,
-        "change": -1.0505604976193188,
-        "AH price": 460.96,
-        "AH change": -0.12133766
+        "price": 470.38,
+        "marketCap": 426634477568,
+        "change": -1.4435155564517448,
+        "AH price": 461.88,
+        "AH change": -0.36885858
     },
     "UNP": {
         "ticker": "UNP",
         "name": "Union Pacific Corporation",
-        "price": 245.55,
-        "marketCap": 146436636672,
-        "change": -1.3113423663954924,
-        "AH price": 243.47,
-        "AH change": 0.470433
+        "price": 245.89,
+        "marketCap": 148340129792,
+        "change": -0.16674271549355069,
+        "AH price": 244.49,
+        "AH change": -0.40328753
     },
     "UPS": {
         "ticker": "UPS",
         "name": "United Parcel Service, Inc.",
-        "price": 116.33,
-        "marketCap": 99220627456,
-        "change": -0.14613441611752034,
-        "AH price": 116.05,
-        "AH change": -0.09469749
+        "price": 118.11,
+        "marketCap": 99844169728,
+        "change": -1.032936427396987,
+        "AH price": 116.893,
+        "AH change": 0.00214085
     },
     "URI": {
         "ticker": "URI",
         "name": "United Rentals, Inc.",
-        "price": 657.29,
-        "marketCap": 41274085376,
-        "change": -3.8476135150035207,
-        "AH price": 615.0,
-        "AH change": -2.68987
+        "price": 638.62,
+        "marketCap": 41990504448,
+        "change": 0.68115242541682,
+        "AH price": 646.37,
+        "AH change": 0.5287999
     },
     "USB": {
         "ticker": "USB",
         "name": "U.S. Bancorp",
-        "price": 45.87,
-        "marketCap": 71151599616,
-        "change": -0.5668156258719145,
-        "AH price": 45.65,
-        "AH change": 0.0877021
+        "price": 45.91,
+        "marketCap": 71364968448,
+        "change": -0.34850761913284645,
+        "AH price": 45.9,
+        "AH change": 0.327872
     },
     "V": {
         "ticker": "V",
         "name": "Visa Inc.",
-        "price": 348.53,
-        "marketCap": 674883436544,
-        "change": 0.38159888013192966,
-        "AH price": 350.19,
-        "AH change": 0.0943283
+        "price": 352.09,
+        "marketCap": 676368809984,
+        "change": -0.41466428193461463,
+        "AH price": 351.4782,
+        "AH change": 0.24190901
     },
     "VLO": {
         "ticker": "VLO",
         "name": "Valero Energy Corporation",
-        "price": 134.74,
-        "marketCap": 42757967872,
-        "change": 0.23748853524124436,
-        "AH price": 136.6,
-        "AH change": 1.14024
+        "price": 133.66,
+        "marketCap": 41206702080,
+        "change": -2.618584396307478,
+        "AH price": 130.579,
+        "AH change": 0.321752
     },
     "VMC": {
         "ticker": "VMC",
         "name": "Vulcan Materials Company",
-        "price": 252.86,
-        "marketCap": 33233590272,
-        "change": -0.5141196901921518,
-        "AH price": 251.12,
-        "AH change": -0.17491
+        "price": 249.79,
+        "marketCap": 33097519104,
+        "change": 0.2962510561087173,
+        "AH price": 250.01,
+        "AH change": -0.20756169
     },
     "VRSK": {
         "ticker": "VRSK",
         "name": "Verisk Analytics, Inc.",
-        "price": 295.11,
-        "marketCap": 41941082112,
-        "change": 0.6438360300818063,
-        "AH price": 297.37,
-        "AH change": 0.121203
+        "price": 299.72,
+        "marketCap": 40673005568,
+        "change": -3.900307751833402,
+        "AH price": 288.03,
+        "AH change": 0.0
     },
     "VRSN": {
         "ticker": "VRSN",
         "name": "VeriSign, Inc.",
-        "price": 231.87,
-        "marketCap": 22055989248,
-        "change": 0.552032952193733,
-        "AH price": 233.5,
-        "AH change": 0.150121
+        "price": 238.24,
+        "marketCap": 22426822656,
+        "change": -0.4911006304433971,
+        "AH price": 237.0,
+        "AH change": -0.0295302
     },
     "VRTX": {
         "ticker": "VRTX",
         "name": "Vertex Pharmaceuticals Incorporated",
-        "price": 484.24,
-        "marketCap": 123682897920,
-        "change": -0.534858002255669,
-        "AH price": 475.0,
-        "AH change": -1.3806694
+        "price": 480.35,
+        "marketCap": 123028086784,
+        "change": -0.2602269145658394,
+        "AH price": 485.725,
+        "AH change": 1.382801
     },
     "VTR": {
         "ticker": "VTR",
         "name": "Ventas, Inc.",
-        "price": 66.08,
-        "marketCap": 29620606976,
-        "change": 2.5423732727353756,
-        "AH price": 65.46,
-        "AH change": -3.3943374
+        "price": 68.15,
+        "marketCap": 29847918592,
+        "change": 0.1907516515147902,
+        "AH price": 68.28,
+        "AH change": 0.0
     },
     "VTRS": {
         "ticker": "VTRS",
         "name": "Viatris Inc.",
-        "price": 11.25,
-        "marketCap": 13594990592,
-        "change": 1.244447496202257,
-        "AH price": 11.35,
-        "AH change": -0.351185
+        "price": 11.48,
+        "marketCap": 13415951360,
+        "change": -2.0905904241126096,
+        "AH price": 11.2,
+        "AH change": -0.355872
     },
     "VZ": {
         "ticker": "VZ",
         "name": "Verizon Communications Inc.",
-        "price": 42.76,
-        "marketCap": 182364209152,
-        "change": 1.3096384360918194,
-        "AH price": 43.3788,
-        "AH change": 0.13573349
+        "price": 43.71,
+        "marketCap": 181774843904,
+        "change": -1.2125344095126036,
+        "AH price": 43.1,
+        "AH change": -0.1852752
     },
     "WAB": {
         "ticker": "WAB",
         "name": "Westinghouse Air Brake Technologies Corporation",
-        "price": 184.63,
-        "marketCap": 31094335488,
-        "change": -1.4244731697222262,
-        "AH price": 175.25,
-        "AH change": -3.7087913
+        "price": 182.05,
+        "marketCap": 31265183744,
+        "change": 0.5218329757303537,
+        "AH price": 189.99,
+        "AH change": 3.81968
     },
     "WAT": {
         "ticker": "WAT",
         "name": "Waters Corporation",
-        "price": 374.82,
-        "marketCap": 22519611392,
-        "change": 1.1872316318493366,
-        "AH price": 378.56,
-        "AH change": -0.18719949
+        "price": 380.83,
+        "marketCap": 22872008704,
+        "change": 1.0897315233539255,
+        "AH price": 382.99,
+        "AH change": -0.5169153
     },
     "WBA": {
         "ticker": "WBA",
         "name": "Walgreens Boots Alliance, Inc.",
-        "price": 10.16,
-        "marketCap": 9350135808,
-        "change": 6.4960615878377235,
-        "AH price": 10.8,
-        "AH change": -0.18483831
+        "price": 11.38,
+        "marketCap": 9540249600,
+        "change": -2.9876990260873497,
+        "AH price": 11.04,
+        "AH change": 0.0
     },
     "WBD": {
         "ticker": "WBD",
         "name": "Warner Bros. Discovery, Inc.",
-        "price": 10.78,
-        "marketCap": 27205654528,
-        "change": 2.8756996966200914,
-        "AH price": 11.0894,
-        "AH change": -0.0054090274
+        "price": 10.69,
+        "marketCap": 25758283776,
+        "change": -1.7773581650270573,
+        "AH price": 10.52,
+        "AH change": 0.190481
     },
     "WDC": {
         "ticker": "WDC",
         "name": "Western Digital Corporation",
-        "price": 51.9152,
-        "marketCap": 17050332160,
-        "change": -28.656671356525464,
-        "AH price": 48.5,
-        "AH change": -1.0607924
+        "price": 49.07,
+        "marketCap": 17446852608,
+        "change": 2.2213168114261492,
+        "AH price": 50.16,
+        "AH change": 0.0
     },
     "WEC": {
         "ticker": "WEC",
         "name": "WEC Energy Group, Inc.",
-        "price": 104.05,
-        "marketCap": 33325828096,
-        "change": 0.7976878205830427,
-        "AH price": 105.15,
-        "AH change": 0.25744116
+        "price": 105.89,
+        "marketCap": 33589563392,
+        "change": -0.16998801228945673,
+        "AH price": 106.0838,
+        "AH change": 0.353611
     },
     "WELL": {
         "ticker": "WELL",
         "name": "Welltower Inc.",
-        "price": 148.58,
-        "marketCap": 96606642176,
-        "change": 1.3864568133039221,
-        "AH price": 152.0,
-        "AH change": 0.902815
+        "price": 151.74,
+        "marketCap": 96613048320,
+        "change": -0.7183416088177175,
+        "AH price": 150.8,
+        "AH change": 0.09957462
     },
     "WFC": {
         "ticker": "WFC",
         "name": "Wells Fargo & Company",
-        "price": 77.5,
-        "marketCap": 253971955712,
-        "change": -0.36128874747983875,
-        "AH price": 77.0,
-        "AH change": -0.28490186
+        "price": 76.0,
+        "marketCap": 251439448064,
+        "change": 0.5921012476870888,
+        "AH price": 77.18,
+        "AH change": 0.954877
     },
     "WM": {
         "ticker": "WM",
         "name": "Waste Management, Inc.",
-        "price": 228.03,
-        "marketCap": 92357771264,
-        "change": 0.723586328692372,
-        "AH price": 229.0,
-        "AH change": -0.296061
+        "price": 230.75,
+        "marketCap": 91959681024,
+        "change": -0.8927400037242686,
+        "AH price": 232.0,
+        "AH change": 1.44737
     },
     "WMB": {
         "ticker": "WMB",
         "name": "The Williams Companies, Inc.",
-        "price": 57.44,
-        "marketCap": 69885845504,
-        "change": -0.19149860425510098,
-        "AH price": 57.88,
-        "AH change": 0.959357
+        "price": 56.18,
+        "marketCap": 69361672192,
+        "change": 1.281597039501604,
+        "AH price": 57.24,
+        "AH change": 0.5975398
     },
     "WMT": {
         "ticker": "WMT",
         "name": "Walmart Inc.",
-        "price": 94.78,
-        "marketCap": 752487628800,
-        "change": -1.1711338095037238,
-        "AH price": 93.57,
-        "AH change": -0.10675614
+        "price": 97.69,
+        "marketCap": 772812111872,
+        "change": -1.5252384644557224,
+        "AH price": 96.55,
+        "AH change": 0.36383173
     },
     "WRB": {
         "ticker": "WRB",
         "name": "W. R. Berkley Corporation",
-        "price": 60.97,
-        "marketCap": 23609260032,
-        "change": 2.197802404066341,
-        "AH price": 62.01,
-        "AH change": -0.48146853
+        "price": 62.82,
+        "marketCap": 23280683008,
+        "change": -2.2763456098736654,
+        "AH price": 61.37,
+        "AH change": -0.0325793
     },
     "WST": {
         "ticker": "WST",
         "name": "West Pharmaceutical Services, Inc.",
-        "price": 210.91,
-        "marketCap": 15984201728,
-        "change": 4.817222268122625,
-        "AH price": 219.11,
-        "AH change": -0.8866
+        "price": 220.15,
+        "marketCap": 15887313920,
+        "change": -0.19077818786713105,
+        "AH price": 217.1,
+        "AH change": -1.1969188
     },
     "WTW": {
         "ticker": "WTW",
         "name": "Willis Towers Watson Public Limited Company",
-        "price": 325.95,
-        "marketCap": 32756264960,
-        "change": 0.6902898959153541,
-        "AH price": 328.2,
-        "AH change": 0.0
+        "price": 332.82,
+        "marketCap": 33568681984,
+        "change": 1.0576254240157068,
+        "AH price": 338.5,
+        "AH change": 0.642208
     },
     "WY": {
         "ticker": "WY",
         "name": "Weyerhaeuser Company",
-        "price": 29.71,
-        "marketCap": 21752827904,
-        "change": 0.9087864896797735,
-        "AH price": 30.33,
-        "AH change": 1.1674463
+        "price": 30.2,
+        "marketCap": 21643991040,
+        "change": -1.2251683108811458,
+        "AH price": 29.83,
+        "AH change": 0.0
     },
     "WYNN": {
         "ticker": "WYNN",
         "name": "Wynn Resorts, Limited",
-        "price": 90.51,
-        "marketCap": 9592050688,
-        "change": -0.6721029043564295,
-        "AH price": 90.0,
-        "AH change": -0.16639104
+        "price": 91.03,
+        "marketCap": 9693130752,
+        "change": 0.07689739180809362,
+        "AH price": 91.0,
+        "AH change": -0.109768
     },
     "XEL": {
         "ticker": "XEL",
         "name": "Xcel Energy Inc.",
-        "price": 69.94,
-        "marketCap": 40644845568,
-        "change": 1.20102417582034,
-        "AH price": 70.76,
-        "AH change": -0.0282518
+        "price": 70.45,
+        "marketCap": 40179712000,
+        "change": -0.6813282446154016,
+        "AH price": 69.76,
+        "AH change": -0.30012733
     },
     "XOM": {
         "ticker": "XOM",
         "name": "Exxon Mobil Corporation",
-        "price": 110.69,
-        "marketCap": 482816098304,
-        "change": 0.5239806566696719,
-        "AH price": 111.29,
-        "AH change": 0.017978137
+        "price": 109.73,
+        "marketCap": 474962264064,
+        "change": -0.2460623933297971,
+        "AH price": 109.6,
+        "AH change": 0.1279
     },
     "XYL": {
         "ticker": "XYL",
         "name": "Xylem Inc.",
-        "price": 127.34,
-        "marketCap": 31152834560,
-        "change": 0.6989158278965757,
-        "AH price": 128.3799,
-        "AH change": 0.11690115
+        "price": 128.06,
+        "marketCap": 31218432000,
+        "change": 0.3435908556885043,
+        "AH price": 128.5,
+        "AH change": 0.0
     },
     "YUM": {
         "ticker": "YUM",
         "name": "Yum! Brands, Inc.",
-        "price": 148.75,
-        "marketCap": 41929494528,
-        "change": 0.9949551109506303,
-        "AH price": 150.75,
-        "AH change": 0.346139
+        "price": 154.15,
+        "marketCap": 42283954176,
+        "change": -1.7191008766850246,
+        "AH price": 150.65,
+        "AH change": -0.56106013
     },
     "ZBH": {
         "ticker": "ZBH",
         "name": "Zimmer Biomet Holdings, Inc.",
-        "price": 104.83,
-        "marketCap": 21097863168,
-        "change": 1.0970156499016976,
-        "AH price": 107.63,
-        "AH change": 1.5568917
+        "price": 107.35,
+        "marketCap": 20886843392,
+        "change": -2.263623977378614,
+        "AH price": 102.49,
+        "AH change": -2.31605
     },
     "ZBRA": {
         "ticker": "ZBRA",
         "name": "Zebra Technologies Corporation",
-        "price": 311.05,
-        "marketCap": 15904431104,
-        "change": -0.48223760130747295,
-        "AH price": 311.07,
-        "AH change": 0.491042
+        "price": 310.34,
+        "marketCap": 16414627840,
+        "change": 2.945161679542612,
+        "AH price": 316.26,
+        "AH change": -1.00789
     },
     "BRK-B": {
         "ticker": "BRK-B",
         "name": "Berkshire Hathaway Inc.",
-        "price": 478.74,
-        "marketCap": 1075166707712,
-        "change": 4.110795754439628,
-        "AH price": 501.5,
-        "AH change": 0.61795
+        "price": 499.82,
+        "marketCap": 1066104717312,
+        "change": -1.144412215774453,
+        "AH price": 494.8,
+        "AH change": 0.14166802
     },
     "TSM": {
         "ticker": "TSM",
         "name": "Taiwan Semiconductor Manufacturing Company Limited",
-        "price": 198.24,
-        "marketCap": 994002206720,
-        "change": -3.324259187889768,
-        "AH price": 192.19,
-        "AH change": 0.2817681
+        "price": 189.37,
+        "marketCap": 1009406312448,
+        "change": 2.772350496577429,
+        "AH price": 195.0,
+        "AH change": 0.1952548
     },
     "2222.SR": {
         "ticker": "2222.SR",
         "name": "Saudi Arabian Oil Company",
-        "price": 27.7,
+        "price": 27.4,
         "marketCap": 6578129862656,
-        "change": -1.8050541019080508,
+        "change": -0.7299228407856021,
         "AH price": "N/A",
         "AH change": "N/A"
     },
     "ZTS": {
         "ticker": "ZTS",
         "name": "Zoetis Inc.",
-        "price": 160.46,
-        "marketCap": 74024493056,
-        "change": 3.0225543074886456,
-        "AH price": 163.394,
-        "AH change": -1.15879
+        "price": 168.53,
+        "marketCap": 73881206784,
+        "change": -2.1005122599975263,
+        "AH price": 165.7,
+        "AH change": 0.430324
     }
 }

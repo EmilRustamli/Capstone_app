@@ -1150,4 +1150,494 @@ input {
 
 .ah-change[data-positive="false"] {
     color: #f6465d;
+}
+
+/* Add these to your existing dark mode styles */
+[data-theme="dark"] .optimization-summary {
+    background: #2c2c2c;
+}
+
+[data-theme="dark"] .metrics-comparison {
+    background: #1c1c1c;
+}
+
+[data-theme="dark"] .allocation-item {
+    background: #2c2c2c;
+    border-color: #404040;
+}
+
+[data-theme="dark"] .metric-label {
+    color: #e4e6eb;
+}
+
+[data-theme="dark"] .current-value {
+    color: #b0b3b8;
+}
+
+[data-theme="dark"] .optimization-options label {
+    color: #e4e6eb;
+}
+
+[data-theme="dark"] .optimization-options select {
+    background: #242526;
+    border-color: #404040;
+    color: #e4e6eb;
+}
+
+[data-theme="dark"] .modal-buttons .cancel-btn {
+    background: #3a3b3c;
+    color: #e4e6eb;
+    border-color: #404040;
+}
+
+/* Add transition properties to elements that change in dark mode */
+.optimization-summary,
+.metrics-comparison,
+.allocation-item,
+.metric-label,
+.current-value,
+.optimization-options label,
+.optimization-options select,
+.modal-buttons .cancel-btn {
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* Move all the existing styles from portfolio.html to here */
+.portfolio-action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.portfolio-action-buttons button {
+    width: 200px;
+    height: 45px;
+    margin: 0;
+    background-color: #1877f2;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ... (rest of the styles from portfolio.html) ... */
+
+/* Update optimization options styling */
+.optimization-options {
+    display: grid;
+    gap: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+.optimization-options > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.optimization-options select {
+    padding: 10px 15px;  /* Increased padding */
+    border-radius: 6px;
+    border: 1px solid #ccd0d5;
+    font-size: 1.1em;    /* Larger font */
+    width: 200px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.optimization-options label {
+    color: #1c1e21;
+    font-weight: 500;
+    font-size: 1.1em;    /* Larger font */
+}
+
+/* Update checkbox container to be inline with label */
+.checkbox-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin: 0;
+    width: 200px;  /* Match select width */
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .optimization-options select {
+    background-color: #242526;
+    border-color: #404040;
+    color: #e4e6eb;
+}
+
+[data-theme="dark"] .optimization-options select option {
+    background-color: #242526;
+    color: #e4e6eb;
+}
+
+[data-theme="dark"] .optimization-options label {
+    color: #e4e6eb;
+}
+
+/* Add hover effects */
+.optimization-options select:hover {
+    border-color: #1877f2;
+}
+
+[data-theme="dark"] .optimization-options select:hover {
+    border-color: #2d88ff;
+}
+
+/* Optimization Modal Styling */
+.optimization-summary {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.metrics-comparison {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.metric-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.metric-row:last-child {
+    border-bottom: none;
+}
+
+.metric-label {
+    font-weight: 600;
+    font-size: 1.1em;
+    color: #1c1e21;
+}
+
+.metric-values {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1em;
+}
+
+.current-value {
+    color: #666;
+}
+
+.arrow {
+    color: #1877f2;
+    font-weight: bold;
+}
+
+.optimized-value.better {
+    color: #00873c;
+    font-weight: 600;
+}
+
+.optimized-value.worse {
+    color: #ff333a;
+    font-weight: 600;
+}
+
+/* Recommended Allocation Styling */
+.allocation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.allocation-item {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    font-size: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.allocation-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Headers */
+.optimization-summary h4 {
+    color: #1877f2;
+    font-size: 1.2em;
+    margin: 0 0 15px 0;
+    font-weight: 600;
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] .optimization-summary {
+    background: #242526;
+}
+
+[data-theme="dark"] .metrics-comparison {
+    background: #18191a;
+}
+
+[data-theme="dark"] .allocation-item {
+    background: #242526;
+    border-color: #3e4042;
+}
+
+[data-theme="dark"] .allocation-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .metric-label {
+    color: #e4e6eb;
+}
+
+[data-theme="dark"] .current-value {
+    color: #b0b3b8;
+}
+
+[data-theme="dark"] .optimized-value.better {
+    color: #00d647;
+}
+
+[data-theme="dark"] .optimized-value.worse {
+    color: #ff4d4d;
+}
+
+/* Modal Layout Improvements */
+#optimizeModal .modal {
+    max-width: 700px;
+    max-height: 90vh;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Modal Header */
+#optimizeModal .modal h2 {
+    padding: 20px 30px;
+    margin: 0;
+    border-bottom: 1px solid #e0e0e0;
+    background: white;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Content wrapper that scrolls */
+#optimizeModal .modal-content {
+    padding: 20px 30px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+/* Keep buttons at bottom */
+#optimizeModal .modal-buttons {
+    padding: 20px 30px;
+    border-top: 1px solid #e0e0e0;
+    background: white;
+    border-radius: 0 0 8px 8px;
+    margin-top: auto;
+}
+
+/* Remove individual section scrolling */
+#optimizeModal .optimize-inputs,
+#optimizeModal #optimizationResults {
+    padding: 0;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] #optimizeModal .modal h2 {
+    background: #242526;
+    border-bottom-color: #3e4042;
+}
+
+[data-theme="dark"] #optimizeModal .modal-buttons {
+    background: #242526;
+    border-top-color: #3e4042;
+}
+
+/* Scrollbar styling */
+#optimizeModal .modal::-webkit-scrollbar {
+    width: 8px;
+}
+
+#optimizeModal .modal::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+#optimizeModal .modal::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+#optimizeModal .modal::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Dark mode scrollbar */
+[data-theme="dark"] #optimizeModal .modal::-webkit-scrollbar-track {
+    background: #18191a;
+}
+
+[data-theme="dark"] #optimizeModal .modal::-webkit-scrollbar-thumb {
+    background: #4e4f50;
+}
+
+[data-theme="dark"] #optimizeModal .modal::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+.portfolio-header-main {
+    margin-bottom: 30px;
+}
+
+.portfolio-header-main h1 {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 2em;
+    color: #1c1e21;
+}
+
+.portfolio-value {
+    font-size: 0.8em;  /* Slightly smaller than the main title */
+    color: inherit;    /* Inherit color from parent h1 */
+    font-weight: normal;
+}
+
+/* Dark mode adjustment */
+[data-theme="dark"] .portfolio-header-main h1 {
+    color: #e4e6eb;
+}
+
+/* Date inputs styling */
+.date-inputs {
+    max-width: 400px;  /* Match width with optimization options */
+    margin: 0 auto 25px;
+}
+
+.date-inputs > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.date-inputs label {
+    color: #1c1e21;
+    font-weight: 500;
+    font-size: 1.1em;
+    width: 100px;  /* Fixed width for labels to align */
+}
+
+.date-inputs input[type="date"] {
+    width: 200px;  /* Match width with select and checkbox */
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccd0d5;
+    font-size: 1em;
+    background-color: white;
+}
+
+/* Dark mode adjustments for date inputs */
+[data-theme="dark"] .date-inputs label {
+    color: #e4e6eb;
+}
+
+[data-theme="dark"] .date-inputs input[type="date"] {
+    background: #242526;
+    border-color: #3e4042;
+    color: #e4e6eb;
+}
+
+/* Hover effects for date inputs */
+.date-inputs input[type="date"]:hover {
+    border-color: #1877f2;
+}
+
+[data-theme="dark"] .date-inputs input[type="date"]:hover {
+    border-color: #2d88ff;
+}
+
+/* Common input styles */
+.date-inputs input[type="date"],
+.optimization-options select,
+.checkbox-container input[type="checkbox"] {
+    width: 250px;  /* Consistent width for all inputs */
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 1px solid #ccd0d5;
+    font-size: 1.1em;
+    background-color: white;
+}
+
+/* Label styles */
+.date-inputs label,
+.optimization-options label {
+    color: #1c1e21;
+    font-weight: 500;
+    font-size: 1.1em;
+    width: 150px;  /* Consistent width for all labels */
+}
+
+/* Container styles */
+.date-inputs,
+.optimization-options {
+    max-width: 450px;  /* Increased to accommodate wider inputs */
+    margin: 0 auto 25px;
+}
+
+.date-inputs > div,
+.optimization-options > div,
+.checkbox-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .date-inputs input[type="date"],
+[data-theme="dark"] .optimization-options select {
+    background: #242526;
+    border-color: #3e4042;
+    color: #e4e6eb;
+}
+
+[data-theme="dark"] .date-inputs label,
+[data-theme="dark"] .optimization-options label {
+    color: #e4e6eb;
+}
+
+/* Hover effects */
+.date-inputs input[type="date"]:hover,
+.optimization-options select:hover {
+    border-color: #1877f2;
+}
+
+[data-theme="dark"] .date-inputs input[type="date"]:hover,
+[data-theme="dark"] .optimization-options select:hover {
+    border-color: #2d88ff;
 } 

@@ -1640,4 +1640,168 @@ input {
 [data-theme="dark"] .date-inputs input[type="date"]:hover,
 [data-theme="dark"] .optimization-options select:hover {
     border-color: #2d88ff;
+}
+
+.chart-container {
+    position: relative;
+    height: 600px;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.future-btn {
+    background-color: #1877f2;
+    color: white;
+}
+
+.future-btn:hover {
+    background-color: #166fe5;
+}
+
+/* Update modal size and scrolling for future performance */
+#futureModal .modal {
+    max-width: 1000px;
+    width: 90%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+#futureModal .modal h2 {
+    padding: 20px 30px;
+    margin: 0;
+    border-bottom: 1px solid #e0e0e0;
+    background: white;
+    border-radius: 8px 8px 0 0;
+}
+
+#futureModal .modal-content {
+    padding: 20px 30px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+#futureModal .modal-buttons {
+    padding: 20px 30px;
+    border-top: 1px solid #e0e0e0;
+    background: white;
+    border-radius: 0 0 8px 8px;
+    margin-top: auto;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] #futureModal .modal h2 {
+    background: #242526;
+    border-bottom-color: #3e4042;
+}
+
+[data-theme="dark"] #futureModal .modal-buttons {
+    background: #242526;
+    border-top-color: #3e4042;
+}
+
+/* Scrollbar styling for future modal */
+#futureModal .modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+#futureModal .modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+#futureModal .modal-content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+#futureModal .modal-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Dark mode scrollbar */
+[data-theme="dark"] #futureModal .modal-content::-webkit-scrollbar-track {
+    background: #18191a;
+}
+
+[data-theme="dark"] #futureModal .modal-content::-webkit-scrollbar-thumb {
+    background: #4e4f50;
+}
+
+[data-theme="dark"] #futureModal .modal-content::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+#portfolioDetailsModal .modal {
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#portfolioDetailsModal .modal-content {
+    overflow-y: auto;
+    max-height: 70vh;
+    padding: 20px;
+}
+
+#portfolioDetailsModal .allocation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#portfolioDetailsModal .results-content h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #1c1e21;
+    font-size: 1.4em;
+}
+
+[data-theme="dark"] #portfolioDetailsModal .results-content h3 {
+    color: #e4e6eb;
+}
+
+#portfolioDetailsModal .metric-values {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1em;
+}
+
+#portfolioDetailsModal .current-value {
+    color: #666;
+}
+
+#portfolioDetailsModal .arrow {
+    color: #1877f2;
+    font-weight: bold;
+}
+
+#portfolioDetailsModal .optimized-value.better {
+    color: #00873c;
+    font-weight: 600;
+}
+
+#portfolioDetailsModal .optimized-value.worse {
+    color: #ff333a;
+    font-weight: 600;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] #portfolioDetailsModal .current-value {
+    color: #b0b3b8;
+}
+
+[data-theme="dark"] #portfolioDetailsModal .optimized-value.better {
+    color: #00d647;
+}
+
+[data-theme="dark"] #portfolioDetailsModal .optimized-value.worse {
+    color: #ff4d4d;
 } 

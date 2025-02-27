@@ -66,6 +66,7 @@
         <div class="portfolio-action-buttons">
             <button onclick="evaluatePortfolio()" class="evaluate-btn">Evaluate Portfolio</button>
             <button onclick="optimizePortfolio()" class="optimize-btn">Optimize Portfolio</button>
+            <button onclick="showFuturePerformance()" class="future-btn">Future Performance</button>
         </div>
     </div>
     <div class="modal-overlay" id="logoutModal">
@@ -179,9 +180,61 @@
             </div>
         </div>
     </div>
+    <div id="futureModal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <h2>Future Performance Analysis</h2>
+            <div class="modal-content">
+                <div class="future-inputs">
+                    <div class="date-inputs">
+                        <div>
+                            <label for="futureStartDate">Start Date:</label>
+                            <input type="date" id="futureStartDate" required>
+                        </div>
+                        <div>
+                            <label for="futureEndDate">End Date:</label>
+                            <input type="date" id="futureEndDate" required>
+                        </div>
+                    </div>
+                    <div class="optimization-options">
+                        <div class="checkbox-container">
+                            <label for="includeBuildNew">Include Build New Portfolios:</label>
+                            <input type="checkbox" id="includeBuildNew">
+                        </div>
+                    </div>
+                </div>
+                <div id="futureResults" style="display: none;">
+                    <h3>Portfolio Performance Comparison</h3>
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button onclick="calculateFuturePerformance()" class="analyze-btn">Analyze</button>
+                <button onclick="closeFutureModal()" class="cancel-btn">Close</button>
+            </div>
+        </div>
+    </div>
+    <div id="portfolioDetailsModal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <h2>Portfolio Details</h2>
+            <div class="modal-content">
+                <div class="optimization-summary">
+                    <div class="metrics-comparison">
+                        <div class="results-content"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button id="acceptPortfolioBtn" onclick="acceptPortfolioDetails()" class="accept-btn" style="display: none;">Accept</button>
+                <button onclick="closePortfolioDetailsModal()" class="cancel-btn">Close</button>
+            </div>
+        </div>
+    </div>
     <script src="{{ url_for('static', filename='portfolio.js') }}"></script>
     <script src="{{ url_for('static', filename='theme.js') }}"></script>
     <script src="{{ url_for('static', filename='logout.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const tickerInput = document.getElementById('stock-ticker');
@@ -708,6 +761,333 @@
         acceptBtn.textContent = 'Accept';
         acceptBtn.disabled = false;
         lastOptimizationResult = null;
+    }
+
+    let performanceChart = null;
+
+    function showFuturePerformance() {
+        document.getElementById('futureModal').style.display = 'flex';
+        document.getElementById('futureResults').style.display = 'none';
+        if (performanceChart) {
+            performanceChart.destroy();
+            performanceChart = null;
+        }
+    }
+
+    function calculateFuturePerformance() {
+        const startDate = document.getElementById('futureStartDate').value;
+        const endDate = document.getElementById('futureEndDate').value;
+        const includeBuildNew = document.getElementById('includeBuildNew').checked;
+
+        if (!startDate || !endDate) {
+            alert('Please select both start and end dates');
+            return;
+        }
+
+        if (new Date(startDate) >= new Date(endDate)) {
+            alert('Start date must be before end date');
+            return;
+        }
+
+        // Show loading state
+        const analyzeBtn = document.querySelector('.analyze-btn');
+        analyzeBtn.textContent = 'Analyzing...';
+        analyzeBtn.disabled = true;
+
+        fetch('/calculate-future-performance', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                start_date: startDate,
+                end_date: endDate,
+                include_build_new: includeBuildNew
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            analyzeBtn.textContent = 'Analyze';
+            analyzeBtn.disabled = false;
+
+            if (data.error) {
+                alert(data.error);
+                return;
+            }
+
+            // First, get all values from all portfolios
+            const allValues = data.portfolios.flatMap(p => p.values);
+            const maxValue = Math.max(...allValues);
+            const minValue = Math.min(...allValues);
+
+            // Round to exact 0.1 intervals
+            const yMax = roundUp01(maxValue);    // If max is 1.23, this will give 1.3
+            const yMin = roundDown01(minValue);  // If min is 0.87, this will give 0.8
+
+            // Create the chart
+            const ctx = document.getElementById('performanceChart').getContext('2d');
+            if (performanceChart) {
+                performanceChart.destroy();
+            }
+
+            performanceChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.dates,
+                    datasets: data.portfolios.map(portfolio => ({
+                        label: portfolio.name,
+                        data: portfolio.values,
+                        borderColor: portfolio.color,
+                        fill: false,
+                        tension: 0.4,
+                        borderWidth: 2,
+                        pointRadius: 0,
+                        pointHitRadius: 10,
+                        optimizationData: portfolio.optimizationData
+                    }))
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Portfolio Performance Over Time',
+                            font: {
+                                size: 18
+                            },
+                            padding: 20
+                        },
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 14
+                                },
+                                padding: 20,
+                                usePointStyle: true,
+                                pointStyle: 'circle',  // Ensure we use circles
+                                cursor: 'pointer'
+                            },
+                            onClick: (evt, item, legend) => {
+                                // Get the clicked dataset
+                                const index = item.datasetIndex;
+                                const dataset = performanceChart.data.datasets[index];
+                                
+                                // Handle both legend item click behaviors
+                                if (evt.native.altKey || evt.native.metaKey || evt.native.ctrlKey) {
+                                    // If holding alt/meta/ctrl, show portfolio details
+                                    showPortfolioDetails(dataset.optimizationData, dataset.label);
+                                } else {
+                                    // Otherwise, toggle visibility
+                                    const ci = legend.chart;
+                                    ci.getDatasetMeta(index).hidden = !ci.getDatasetMeta(index).hidden;
+                                    ci.update();
+                                }
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,  // Don't force axis to start at 0
+                            min: yMin,
+                            max: yMax,
+                            ticks: {
+                                stepSize: 0.1,
+                                font: {
+                                    size: 12
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Normalized Portfolio Value',
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Date',
+                                font: {
+                                    size: 14
+                                }
+                            },
+                            ticks: {
+                                maxTicksLimit: 12,
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        }
+                    },
+                    interaction: {
+                        mode: 'nearest',
+                        axis: 'x',
+                        intersect: false
+                    }
+                }
+            });
+
+            document.getElementById('futureResults').style.display = 'block';
+        })
+        .catch(error => {
+            analyzeBtn.textContent = 'Analyze';
+            analyzeBtn.disabled = false;
+            console.error('Error:', error);
+            alert('Failed to analyze future performance');
+        });
+    }
+
+    function closeFutureModal() {
+        document.getElementById('futureModal').style.display = 'none';
+        if (performanceChart) {
+            performanceChart.destroy();
+            performanceChart = null;
+        }
+    }
+
+    // Update the showPortfolioDetails function to include an Accept button
+    function showPortfolioDetails(optimizationData, portfolioName) {
+        const modal = document.getElementById('portfolioDetailsModal');
+        const resultsContent = modal.querySelector('.results-content');
+        
+        // Helper function to determine if the change is positive
+        const isPositiveChange = (current, optimized, isVolatility = false) => {
+            if (isVolatility) {
+                return optimized <= current;  // For volatility, lower is better
+            }
+            return optimized >= current;  // For return and Sharpe, higher is better
+        };
+
+        // Helper function to get the color class
+        const getColorClass = (current, optimized, isVolatility = false) => {
+            return isPositiveChange(current, optimized, isVolatility) ? 'better' : 'worse';
+        };
+        
+        // Create metrics comparison HTML
+        let metricsHtml = `
+            <h3>${portfolioName}</h3>
+            <div class="metric-row">
+                <div class="metric-label">Return:</div>
+                <div class="metric-values">
+                    <span class="current-value">${optimizationData.metrics['Current Return'].toFixed(2)}%</span>
+                    <span class="arrow">→</span>
+                    <span class="optimized-value ${getColorClass(
+                        optimizationData.metrics['Current Return'],
+                        optimizationData.metrics['Optimized Return']
+                    )}">
+                        ${optimizationData.metrics['Optimized Return'].toFixed(2)}%
+                    </span>
+                </div>
+            </div>
+            <div class="metric-row">
+                <div class="metric-label">Volatility:</div>
+                <div class="metric-values">
+                    <span class="current-value">${optimizationData.metrics['Current Volatility'].toFixed(2)}%</span>
+                    <span class="arrow">→</span>
+                    <span class="optimized-value ${getColorClass(
+                        optimizationData.metrics['Current Volatility'],
+                        optimizationData.metrics['Optimized Volatility'],
+                        true
+                    )}">
+                        ${optimizationData.metrics['Optimized Volatility'].toFixed(2)}%
+                    </span>
+                </div>
+            </div>
+            <div class="metric-row">
+                <div class="metric-label">Sharpe Ratio:</div>
+                <div class="metric-values">
+                    <span class="current-value">${optimizationData.metrics['Current Sharpe'].toFixed(2)}</span>
+                    <span class="arrow">→</span>
+                    <span class="optimized-value ${getColorClass(
+                        optimizationData.metrics['Current Sharpe'],
+                        optimizationData.metrics['Optimized Sharpe']
+                    )}">
+                        ${optimizationData.metrics['Optimized Sharpe'].toFixed(2)}
+                    </span>
+                </div>
+            </div>
+            <h4>Recommended Allocation:</h4>
+            <div class="allocation-grid">
+                ${Object.entries(optimizationData.allocation)
+                    .map(([ticker, amount]) => `
+                        <div class="allocation-item">
+                            <span class="ticker">${ticker}</span>
+                            <span class="amount">$${amount.toFixed(2)}</span>
+                        </div>
+                    `).join('')}
+            </div>
+        `;
+        
+        resultsContent.innerHTML = metricsHtml;
+        modal.style.display = 'flex';
+        
+        // Store the current optimization data for the accept button
+        lastPortfolioDetails = optimizationData;
+        
+        // Show the accept button
+        document.getElementById('acceptPortfolioBtn').style.display = 'block';
+    }
+
+    function closePortfolioDetailsModal() {
+        document.getElementById('portfolioDetailsModal').style.display = 'none';
+        document.getElementById('acceptPortfolioBtn').style.display = 'none';
+    }
+
+    // Add a new function to accept the portfolio from the details modal
+    function acceptPortfolioDetails() {
+        if (!lastPortfolioDetails) return;
+        
+        const acceptBtn = document.getElementById('acceptPortfolioBtn');
+        acceptBtn.textContent = 'Updating...';
+        acceptBtn.disabled = true;
+        
+        fetch('/update-portfolio', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                allocation: lastPortfolioDetails.allocation
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Close the modal
+                closePortfolioDetailsModal();
+                // Refresh the portfolio display
+                window.location.reload();
+            } else {
+                alert('Failed to update portfolio: ' + data.error);
+                acceptBtn.textContent = 'Accept';
+                acceptBtn.disabled = false;
+            }
+        })
+        .catch(error => {
+            console.error('Error accepting portfolio:', error);
+            alert('Failed to update portfolio');
+            acceptBtn.textContent = 'Accept';
+            acceptBtn.disabled = false;
+        });
+    }
+
+    // Add this variable to store the last portfolio details
+    let lastPortfolioDetails = null;
+
+    // Add these helper functions at the top of the script
+    function roundDown01(x) {
+        return Math.floor(x * 10) / 10;
+    }
+
+    function roundUp01(x) {
+        return Math.ceil(x * 10) / 10;
     }
     </script>
 </body>

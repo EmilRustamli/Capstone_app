@@ -284,6 +284,29 @@ class Portfolio:
             print(f"Error in optimize_with_pypfopt: {str(e)}")
             raise
 
+    @classmethod
+    def calculate_portfolio_value(cls, portfolio, data, start_date):
+        """
+        Calculate portfolio value over time starting from start_date
+        portfolio: dict of {ticker: amount}
+        data: DataFrame of price data
+        start_date: date to start calculating from
+        """
+        # Get data after start_date
+        future_data = data[data.index >= start_date]
+        
+        # Calculate initial prices and shares
+        initial_prices = data.loc[start_date]
+        shares = {ticker: amount/initial_prices[ticker] for ticker, amount in portfolio.items()}
+        
+        # Calculate portfolio values
+        portfolio_values = sum(future_data[ticker] * shares[ticker] for ticker in portfolio)
+        
+        # Normalize to start at 1
+        normalized_values = portfolio_values / portfolio_values.iloc[0]
+        
+        return normalized_values
+
 # Load the data when app starts
 try:
     Portfolio.load_data('trade_data.csv')
@@ -714,7 +737,7 @@ def evaluate_portfolio():
         # Convert dates to YYYY-MM-DD format
         try:
             start_date = pd.to_datetime(data['start_date']).strftime('%Y-%m-%d')
-            end_date = pd.to_datetime(data['end_date']).strftime('%Y-%m-%-d')
+            end_date = pd.to_datetime(data['end_date']).strftime('%Y-%m-%d')
             print(f"Evaluating portfolio from {start_date} to {end_date}")
         except Exception as e:
             print(f"Date error: {str(e)}")
@@ -841,6 +864,147 @@ def update_all_stock_data():
         print("Successfully updated all stock data")
     except Exception as e:
         print(f"Error updating stock data: {e}")
+
+@app.route('/calculate-future-performance', methods=['POST'])
+def calculate_future_performance():
+    if 'user_email' not in session:
+        return jsonify({'error': 'Not logged in'}), 401
+        
+    try:
+        data = request.json
+        
+        # Ensure consistent date formatting
+        try:
+            start_date = pd.to_datetime(data['start_date']).strftime('%Y-%m-%d')
+            end_date = pd.to_datetime(data['end_date']).strftime('%Y-%m-%d')
+            include_build_new = data['include_build_new']
+        except Exception as e:
+            print(f"Date parsing error: {str(e)}")
+            return jsonify({'error': 'Invalid date format. Please use YYYY-MM-DD format.'}), 400
+
+        # Get current user's portfolio (fix: filter by user_id)
+        user = User.query.filter_by(email=session['user_email']).first()
+        if not user:
+            return jsonify({'error': 'User not found'}), 404
+            
+        portfolio_items = PortfolioItem.query.filter_by(user_id=user.id).all()
+        if not portfolio_items:
+            return jsonify({'error': 'Portfolio is empty'}), 400
+            
+        current_portfolio = {item.ticker: item.amount for item in portfolio_items}
+        
+        # Use the trade data loaded at app startup
+        df = Portfolio.trade_data
+        
+        portfolios = []
+        colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2']
+        
+        # Add current portfolio performance
+        base_values = Portfolio.calculate_portfolio_value(current_portfolio, df, end_date)
+        
+        # Get optimization results for current portfolio
+        current_portfolio_metrics = Portfolio.optimize_user_portfolio(
+            portfolio_input=current_portfolio,
+            start_date=start_date,
+            end_date=end_date,
+            optimize_for='sharpe',
+            build_new=False,
+            full_tickers_list=TOP_TICKERS
+        )
+        
+        portfolios.append({
+            'name': 'User Portfolio',
+            'values': base_values.tolist(),
+            'color': colors[0],
+            'optimizationData': current_portfolio_metrics
+        })
+        
+        # Load full ticker list for build_new portfolios
+        full_tickers = pd.read_csv('updated_tickers.csv')['0'].tolist()
+        
+        # Optimize for different strategies
+        strategies = ['sharpe', 'return', 'volatility']
+        for i, strategy in enumerate(strategies):
+            optimized_result = Portfolio.optimize_user_portfolio(
+                portfolio_input=current_portfolio,
+                start_date=start_date,
+                end_date=end_date,
+                optimize_for=strategy,
+                build_new=False,
+                full_tickers_list=full_tickers
+            )
+            
+            values = Portfolio.calculate_portfolio_value(optimized_result['allocation'], df, end_date)
+            portfolios.append({
+                'name': f'Adjusted Portfolio ({strategy})',
+                'values': values.tolist(),
+                'color': colors[i+1],
+                'optimizationData': optimized_result
+            })
+            
+            if include_build_new:
+                new_portfolio_result = Portfolio.optimize_user_portfolio(
+                    portfolio_input=current_portfolio,
+                    start_date=start_date,
+                    end_date=end_date,
+                    optimize_for=strategy,
+                    build_new=True,
+                    full_tickers_list=full_tickers
+                )
+                
+                values = Portfolio.calculate_portfolio_value(new_portfolio_result['allocation'], df, end_date)
+                portfolios.append({
+                    'name': f'Built New Portfolio ({strategy})',
+                    'values': values.tolist(),
+                    'color': colors[i+4],
+                    'optimizationData': new_portfolio_result
+                })
+        
+        # Resample data to weekly points before calculating values
+        df = Portfolio.trade_data.resample('W').last()  # Resample to weekly data
+        
+        return jsonify({
+            'dates': df.index[df.index >= end_date].strftime('%Y-%m-%d').tolist(),
+            'portfolios': portfolios
+        })
+        
+    except Exception as e:
+        print(f"Error in calculate_future_performance: {str(e)}")
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/update-portfolio', methods=['POST'])
+def update_portfolio():
+    if 'user_email' not in session:
+        return jsonify({'error': 'Not logged in'}), 401
+    
+    try:
+        data = request.json
+        allocation = data.get('allocation', {})
+        
+        if not allocation:
+            return jsonify({'success': False, 'error': 'No allocation provided'}), 400
+        
+        # Get the current user
+        user = User.query.filter_by(email=session['user_email']).first()
+        if not user:
+            return jsonify({'success': False, 'error': 'User not found'}), 404
+        
+        # Delete existing portfolio items for this user
+        PortfolioItem.query.filter_by(user_id=user.id).delete()
+        
+        # Add new portfolio items
+        for ticker, amount in allocation.items():
+            new_item = PortfolioItem(ticker=ticker, amount=amount, user_id=user.id)
+            db.session.add(new_item)
+        
+        db.session.commit()
+        
+        return jsonify({'success': True})
+    
+    except Exception as e:
+        db.session.rollback()
+        print(f"Error updating portfolio: {str(e)}")
+        return jsonify({'success': False, 'error': str(e)}), 500
 
 if __name__ == '__main__':
     # Create necessary directories

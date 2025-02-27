@@ -162,30 +162,28 @@ class Portfolio:
     
     @classmethod
     def optimize_user_portfolio(cls, portfolio_input, start_date, end_date, optimize_for="sharpe", build_new=False, full_tickers_list=None):
-        """
-        Optimize a user's portfolio based on historical data.
-        
-        Args:
-            portfolio_input (dict): Dictionary of {ticker: dollar_amount}
-            start_date (str): Start date in YYYY-MM-DD format
-            end_date (str): End date in YYYY-MM-DD format
-            optimize_for (str): 'sharpe', 'return', or 'volatility'
-            build_new (bool): If True, consider all available stocks
-            full_tickers_list (list): List of all available tickers
-        """
         try:
             # Get historical data
             if build_new:
-                tickers = full_tickers_list
+                # Filter tickers that exist in our trade_data
+                available_tickers = [ticker for ticker in full_tickers_list 
+                                   if ticker in cls.trade_data.columns]
+                tickers = available_tickers
             else:
                 tickers = list(portfolio_input.keys())
 
             # Filter data for the specified date range
             data = cls.trade_data.loc[start_date:end_date, tickers]
             
-            # Calculate current portfolio weights
-            total_value = sum(portfolio_input.values())
-            original_weights = {ticker: value/total_value for ticker, value in portfolio_input.items()}
+            if build_new:
+                # For new portfolio, start with equal weights
+                total_value = sum(portfolio_input.values())  # Use total value from current portfolio
+                num_stocks = len(tickers)
+                original_weights = {ticker: 1.0/num_stocks for ticker in tickers}
+            else:
+                # Calculate current portfolio weights
+                total_value = sum(portfolio_input.values())
+                original_weights = {ticker: value/total_value for ticker, value in portfolio_input.items()}
             
             # Calculate current portfolio metrics
             returns = data.pct_change()
@@ -244,35 +242,47 @@ class Portfolio:
 
     @classmethod
     def optimize_with_pypfopt(cls, data, original_weights, original_return, original_volatility, optimize_for="sharpe"):
-        """
-        Optimize portfolio using PyPortfolioOpt.
-        
-        Args:
-            data (pd.DataFrame): Historical price data
-            original_weights (dict): Current portfolio weights
-            original_return (float): Current portfolio return
-            original_volatility (float): Current portfolio volatility
-            optimize_for (str): Optimization target ('sharpe', 'return', or 'volatility')
-        """
-        # Calculate expected returns and sample covariance
-        mu = expected_returns.mean_historical_return(data)
-        S = risk_models.sample_cov(data)
+        try:
+            # Calculate expected returns and sample covariance
+            mu = expected_returns.mean_historical_return(data)
+            S = risk_models.sample_cov(data)
 
-        # Initialize the efficient frontier
-        ef = EfficientFrontier(mu, S)
-
-        # Optimize based on the specified target
-        if optimize_for == "sharpe":
-            ef.max_sharpe()
-        elif optimize_for == "return":
-            ef.maximize_return()
-        elif optimize_for == "volatility":
-            ef.min_volatility()
-
-        # Get optimized weights
-        weights = ef.clean_weights()
-        
-        return weights
+            try:
+                # Try OSQP first (faster)
+                ef = EfficientFrontier(mu, S, solver="OSQP")
+                
+                # Optimize based on the specified target
+                if optimize_for == "sharpe":
+                    ef.max_sharpe()
+                elif optimize_for == "return":
+                    target_volatility = original_volatility * 1.2
+                    ef.efficient_risk(target_volatility)
+                elif optimize_for == "volatility":
+                    ef.min_volatility()
+                    
+                weights = ef.clean_weights()
+                
+            except Exception as e:
+                print(f"OSQP solver failed: {str(e)}, trying SCS solver...")
+                
+                # Fallback to SCS if OSQP fails
+                ef = EfficientFrontier(mu, S, solver="SCS")
+                
+                if optimize_for == "sharpe":
+                    ef.max_sharpe()
+                elif optimize_for == "return":
+                    target_volatility = original_volatility * 1.2
+                    ef.efficient_risk(target_volatility)
+                elif optimize_for == "volatility":
+                    ef.min_volatility()
+                    
+                weights = ef.clean_weights()
+            
+            return weights
+            
+        except Exception as e:
+            print(f"Error in optimize_with_pypfopt: {str(e)}")
+            raise
 
 # Load the data when app starts
 try:
@@ -763,6 +773,8 @@ def optimize_portfolio():
         optimize_for = data.get('optimize_for', 'sharpe')  # Default to sharpe
         build_new = data.get('build_new', False)  # Default to False
         
+        print(f"Optimizing portfolio with parameters: start_date={start_date}, end_date={end_date}, optimize_for={optimize_for}, build_new={build_new}")
+        
         # Get user's portfolio
         user = User.query.filter_by(email=session['user_email']).first()
         portfolio_items = PortfolioItem.query.filter_by(user_id=user.id).all()
@@ -772,6 +784,7 @@ def optimize_portfolio():
 
         # Create portfolio dictionary with dollar values
         portfolio_input = {item.ticker: float(item.amount) for item in portfolio_items}
+        print(f"Portfolio input: {portfolio_input}")
         
         # Load full ticker list
         full_tickers = pd.read_csv('updated_tickers.csv')['0'].tolist()
@@ -787,6 +800,7 @@ def optimize_portfolio():
                 full_tickers_list=full_tickers
             )
             
+            print(f"Optimization successful: {optimized_portfolio}")
             return jsonify({
                 'success': True,
                 'optimized_portfolio': optimized_portfolio,
@@ -794,12 +808,12 @@ def optimize_portfolio():
             })
             
         except Exception as e:
-            print(f"Optimization error: {str(e)}")
-            return jsonify({'error': 'Failed to optimize portfolio'}), 500
+            print(f"Detailed optimization error: {str(e)}")
+            return jsonify({'error': f'Failed to optimize portfolio: {str(e)}'}), 500
             
     except Exception as e:
-        print(f"General error: {str(e)}")
-        return jsonify({'error': 'Failed to process request'}), 500
+        print(f"Detailed general error: {str(e)}")
+        return jsonify({'error': f'Failed to process request: {str(e)}'}), 500
 
 @app.errorhandler(403)
 def forbidden_error(error):

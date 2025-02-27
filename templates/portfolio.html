@@ -153,8 +153,8 @@
                         </select>
                     </div>
                     <div class="checkbox-container">
+                        <label for="buildNew">Build New Portfolio:</label>
                         <input type="checkbox" id="buildNew">
-                        <label for="buildNew">Build New Portfolio</label>
                     </div>
                 </div>
             </div>
@@ -573,23 +573,61 @@
                 return;
             }
 
-            // Display results
+            const metrics = data.optimized_portfolio.metrics;
             const resultsDiv = document.querySelector('.results-content');
+            
+            // Helper function to determine color class
+            const getColorClass = (current, optimized, isVolatility = false) => {
+                if (isVolatility) {
+                    return optimized <= current ? 'better' : 'worse';
+                }
+                return optimized >= current ? 'better' : 'worse';
+            };
+
             resultsDiv.innerHTML = `
                 <div class="optimization-summary">
                     <h4>Portfolio Metrics:</h4>
-                    <ul>
-                        ${Object.entries(data.optimized_portfolio.metrics).map(([key, value]) => 
-                            `<li>${key}: ${typeof value === 'number' ? value.toFixed(2) + '%' : value}</li>`
-                        ).join('')}
-                    </ul>
+                    <div class="metrics-comparison">
+                        <div class="metric-row">
+                            <span class="metric-label">Return:</span>
+                            <span class="metric-values">
+                                <span class="current-value">${metrics['Current Return'].toFixed(2)}%</span>
+                                <span class="arrow">→</span>
+                                <span class="optimized-value ${getColorClass(metrics['Current Return'], metrics['Optimized Return'])}">
+                                    ${metrics['Optimized Return'].toFixed(2)}%
+                                </span>
+                            </span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Sharpe:</span>
+                            <span class="metric-values">
+                                <span class="current-value">${metrics['Current Sharpe'].toFixed(2)}</span>
+                                <span class="arrow">→</span>
+                                <span class="optimized-value ${getColorClass(metrics['Current Sharpe'], metrics['Optimized Sharpe'])}">
+                                    ${metrics['Optimized Sharpe'].toFixed(2)}
+                                </span>
+                            </span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Volatility:</span>
+                            <span class="metric-values">
+                                <span class="current-value">${metrics['Current Volatility'].toFixed(2)}%</span>
+                                <span class="arrow">→</span>
+                                <span class="optimized-value ${getColorClass(metrics['Current Volatility'], metrics['Optimized Volatility'], true)}">
+                                    ${metrics['Optimized Volatility'].toFixed(2)}%
+                                </span>
+                            </span>
+                        </div>
+                    </div>
                     
                     <h4>Recommended Allocation:</h4>
-                    <ul>
+                    <div class="allocation-grid">
                         ${Object.entries(data.optimized_portfolio.allocation).map(([ticker, amount]) => 
-                            `<li>${ticker}: $${parseFloat(amount).toFixed(2)}</li>`
+                            `<div class="allocation-item">
+                                ${ticker}: $${parseFloat(amount).toFixed(2)}
+                            </div>`
                         ).join('')}
-                    </ul>
+                    </div>
                 </div>
             `;
 
@@ -755,23 +793,14 @@
     .modal-buttons {
         display: flex;
         justify-content: center;
+        gap: 10px;  /* Add consistent gap between buttons */
         margin-top: 20px;
-    }
-
-    #initialButtons {
-        display: flex;
-        gap: 10px;
-    }
-
-    #resultButtons {
-        display: flex;
-        justify-content: center;
-        width: 100%;
     }
 
     .modal-buttons button {
         min-width: 120px;
-        padding: 8px 16px;
+        width: 150px;  /* Set fixed width for both buttons */
+        padding: 12px 24px;  /* Match the padding of optimize button */
         font-size: 1.1em;
         border-radius: 8px;
         cursor: pointer;
@@ -779,28 +808,27 @@
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     }
 
-    .modal-buttons .evaluate-btn {
+    /* Make both buttons use the same height */
+    .modal-buttons .optimize-btn,
+    .modal-buttons .cancel-btn {
+        height: 45px;  /* Set fixed height */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;  /* Remove any margin */
+    }
+
+    /* Keep the existing color styles */
+    .modal-buttons .optimize-btn {
         background-color: #1877f2;
         color: white;
         border: none;
-        margin: 0;
-    }
-
-    .modal-buttons .evaluate-btn:hover {
-        background-color: #166fe5;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .modal-buttons .cancel-btn {
         background-color: #f0f2f5;
         color: #1c1e21;
         border: 1px solid #ccd0d5;
-        margin: 0;
-    }
-
-    .modal-buttons .cancel-btn:hover {
-        background-color: #e4e6eb;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .optimize-btn {
@@ -821,7 +849,14 @@
     .optimization-options {
         display: grid;
         gap: 15px;
-        margin: 20px 0;
+        margin: 20px auto;  /* Center the container */
+        max-width: 400px;   /* Match date inputs width */
+    }
+
+    .optimization-options > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .optimization-options select {
@@ -829,17 +864,29 @@
         border-radius: 4px;
         border: 1px solid #ccd0d5;
         font-size: 1em;
+        width: 200px;  /* Fixed width to align with date inputs */
     }
 
     .checkbox-container {
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        gap: 10px;
+    }
+
+    .checkbox-container input[type="checkbox"] {
+        margin: 0;
+        width: 200px;  /* Match select width for alignment */
+        height: 20px;
+    }
+
+    .optimization-options label {
+        color: #1c1e21;
+        font-weight: 500;
     }
 
     .optimization-summary {
         background: #f8f9fa;
-        padding: 20px;
+        padding: 25px;
         border-radius: 8px;
         margin-top: 20px;
     }
@@ -849,15 +896,93 @@
         margin: 0 0 10px 0;
     }
 
-    .optimization-summary ul {
+    .metrics-list {
         list-style: none;
         padding: 0;
         margin: 0 0 20px 0;
     }
 
-    .optimization-summary li {
+    .metrics-list li {
         padding: 5px 0;
         border-bottom: 1px solid #eee;
+    }
+
+    .allocation-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);  /* Two columns */
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .allocation-item {
+        background: #fff;
+        padding: 8px 12px;
+        border-radius: 4px;
+        border: 1px solid #e0e0e0;
+        font-size: 0.9em;
+    }
+
+    /* Make the modal content scrollable if needed */
+    .modal {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    /* Ensure the modal doesn't get too wide */
+    #optimizeModal .modal {
+        max-width: 600px;
+        width: 90%;
+    }
+
+    .metrics-comparison {
+        background: white;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .metric-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .metric-row:last-child {
+        border-bottom: none;
+    }
+
+    .metric-label {
+        font-weight: 500;
+        color: #1c1e21;
+    }
+
+    .metric-values {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .current-value {
+        color: #666;
+    }
+
+    .arrow {
+        color: #1877f2;
+        font-weight: bold;
+    }
+
+    .optimized-value {
+        font-weight: 500;
+    }
+
+    .optimized-value.better {
+        color: #00873c;
+    }
+
+    .optimized-value.worse {
+        color: #ff333a;
     }
     </style>
 </body>

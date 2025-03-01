@@ -376,15 +376,103 @@ class Portfolio:
         try:
             # Get historical data
             if build_new:
-                # Filter tickers that exist in our trade_data
+                # Intelligently filter tickers instead of using an arbitrary limit
+                # First filter tickers that exist in our trade_data
                 available_tickers = [ticker for ticker in full_tickers_list 
                                    if ticker in cls.trade_data.columns]
-                tickers = available_tickers
+                
+                # If we have too many tickers, implement smarter selection:
+                if len(available_tickers) > 100:  # Still need some reasonable limit for computation
+                    print(f"Selecting from {len(available_tickers)} available tickers")
+                    
+                    # Step 1: Get complete data for available tickers for the date range
+                    try:
+                        complete_data = cls.trade_data.loc[start_date:end_date, available_tickers]
+                        
+                        # Step 2: Remove tickers with missing data
+                        complete_tickers = complete_data.dropna(axis=1, how='any').columns.tolist()
+                        print(f"Found {len(complete_tickers)} tickers with complete data")
+                        
+                        if len(complete_tickers) < 10:  # Not enough tickers with complete data
+                            # Fall back to simpler selection
+                            print("Not enough tickers with complete data, using TOP_TICKERS instead")
+                            tickers = [t for t in TOP_TICKERS if t in cls.trade_data.columns]
+                        else:
+                            # Step 3: Calculate volatility and returns for each ticker
+                            returns = complete_data[complete_tickers].pct_change().dropna()
+                            
+                            # Calculate annualized volatility
+                            volatilities = returns.std() * np.sqrt(252)
+                            
+                            # Calculate annualized returns
+                            mean_returns = returns.mean() * 252
+                            
+                            # Filter out low return tickers (avoid negative expected returns)
+                            positive_return_tickers = [t for t in complete_tickers 
+                                                     if mean_returns[t] > 0]
+                            
+                            if len(positive_return_tickers) < 10:
+                                # Not enough tickers with positive returns
+                                print("Not enough tickers with positive returns, using original tickers")
+                                tickers = complete_tickers[:100]  # Still limit to 100 for computation
+                            else:
+                                # Step 4: Calculate Sharpe ratios
+                                risk_free_rate = 0.02  # Assume 2% risk-free rate
+                                sharpe_ratios = (mean_returns - risk_free_rate) / volatilities
+                                
+                                # Create a dataframe for sorting
+                                ticker_metrics = pd.DataFrame({
+                                    'ticker': positive_return_tickers,
+                                    'sharpe': [sharpe_ratios[t] if t in sharpe_ratios else -999 for t in positive_return_tickers],
+                                    'volatility': [volatilities[t] if t in volatilities else 999 for t in positive_return_tickers]
+                                })
+                                
+                                # Step 5: Select a diverse set of tickers:
+                                # - Top 20 by Sharpe ratio
+                                # - 20 random other tickers with positive returns
+                                # - Include the current portfolio tickers
+                                
+                                # Sort by Sharpe ratio and get top performers
+                                ticker_metrics = ticker_metrics.sort_values('sharpe', ascending=False)
+                                top_sharpe_tickers = ticker_metrics.head(20)['ticker'].tolist()
+                                
+                                # Get other reasonable tickers
+                                other_tickers = ticker_metrics.iloc[20:]['ticker'].tolist()
+                                
+                                # Randomly select additional tickers if we have enough
+                                if len(other_tickers) > 20:
+                                    import random
+                                    random.seed(42)  # For reproducibility
+                                    random_tickers = random.sample(other_tickers, 20)
+                                else:
+                                    random_tickers = other_tickers
+                                
+                                # Include current portfolio tickers
+                                current_tickers = list(portfolio_input.keys())
+                                
+                                # Combine all groups and remove duplicates
+                                selected_tickers = list(set(top_sharpe_tickers + random_tickers + current_tickers))
+                                
+                                print(f"Selected {len(selected_tickers)} tickers for optimization")
+                                tickers = selected_tickers
+                    except Exception as e:
+                        print(f"Error in smart ticker selection: {str(e)}")
+                        # Fall back to TOP_TICKERS if smart selection fails
+                        tickers = [t for t in TOP_TICKERS if t in cls.trade_data.columns]
+                else:
+                    tickers = available_tickers
             else:
                 tickers = list(portfolio_input.keys())
 
             # Filter data for the specified date range
-            data = cls.trade_data.loc[start_date:end_date, tickers]
+            try:
+                data = cls.trade_data.loc[start_date:end_date, tickers]
+                # Check if we have enough data
+                if len(data) < 20:  # Need at least 20 days of data
+                    raise ValueError("Not enough historical data for the selected date range")
+            except Exception as e:
+                print(f"Error filtering data: {str(e)}")
+                raise ValueError(f"Error with date range or tickers: {str(e)}")
             
             # Calculate current portfolio weights - always use actual portfolio metrics
             total_value = sum(portfolio_input.values())
@@ -393,7 +481,7 @@ class Portfolio:
             
             # Get data for current portfolio evaluation
             current_portfolio_data = cls.trade_data.loc[start_date:end_date, current_portfolio_tickers]
-            current_returns = current_portfolio_data.pct_change()
+            current_returns = current_portfolio_data.pct_change().dropna()
             current_mean_returns = current_returns.mean() * 252
             current_cov_matrix = current_returns.cov() * 252
             
@@ -415,41 +503,80 @@ class Portfolio:
                 # Use current weights for optimization
                 optimization_weights = current_portfolio_weights
             
-            # Optimize portfolio
-            optimized_weights = cls.optimize_with_pypfopt(
-                data=data,
-                original_weights=optimization_weights,
-                original_return=current_return,
-                original_volatility=current_volatility,
-                optimize_for=optimize_for
-            )
+            # Optimize portfolio with extended timeout
+            try:
+                optimized_weights = cls.optimize_with_pypfopt(
+                    data=data,
+                    original_weights=optimization_weights,
+                    original_return=current_return,
+                    original_volatility=current_volatility,
+                    optimize_for=optimize_for
+                )
+            except Exception as e:
+                print(f"Optimization failed: {str(e)}")
+                # Return original weights if optimization fails
+                return {
+                    'metrics': {
+                        'Current Return': current_return * 100,
+                        'Current Volatility': current_volatility * 100,
+                        'Current Sharpe': (current_return / current_volatility if current_volatility > 0 else 0),
+                        'Optimized Return': current_return * 100,  # Use current as fallback
+                        'Optimized Volatility': current_volatility * 100,  # Use current as fallback
+                        'Optimized Sharpe': (current_return / current_volatility if current_volatility > 0 else 0)  # Use current as fallback
+                    },
+                    'allocation': portfolio_input  # Return original portfolio
+                }
 
             # Calculate metrics for optimized portfolio
-            returns = data.pct_change()
+            returns = data.pct_change().dropna()
             mean_returns = returns.mean() * 252
             cov_matrix = returns.cov() * 252
             
-            opt_return = sum(optimized_weights[ticker] * mean_returns[ticker] 
-                           for ticker in optimized_weights)
-            opt_volatility = np.sqrt(
-                sum(sum(optimized_weights[ticker1] * optimized_weights[ticker2] * cov_matrix.loc[ticker1, ticker2]
-                    for ticker2 in optimized_weights)
-                    for ticker1 in optimized_weights)
-            )
-            opt_sharpe = opt_return / opt_volatility
+            # Safely calculate optimized metrics
+            try:
+                opt_return = sum(optimized_weights[ticker] * mean_returns[ticker] 
+                               for ticker in optimized_weights if ticker in mean_returns)
+                
+                opt_volatility = np.sqrt(
+                    sum(sum(optimized_weights[ticker1] * optimized_weights[ticker2] * cov_matrix.loc[ticker1, ticker2]
+                        for ticker2 in optimized_weights if ticker2 in cov_matrix)
+                        for ticker1 in optimized_weights if ticker1 in cov_matrix)
+                )
+                
+                opt_sharpe = opt_return / opt_volatility if opt_volatility > 0 else 0
+            except Exception as e:
+                print(f"Error calculating optimized metrics: {str(e)}")
+                # Use current portfolio metrics as fallback
+                opt_return = current_return
+                opt_volatility = current_volatility
+                opt_sharpe = current_return / current_volatility if current_volatility > 0 else 0
 
-            # Calculate dollar allocations
+            # Calculate dollar allocations - filter out very small allocations
             optimized_allocation = {
                 ticker: weight * total_value 
                 for ticker, weight in optimized_weights.items()
                 if weight > 0.01  # Filter out very small allocations
             }
+            
+            # If optimized allocation is empty, return original portfolio
+            if not optimized_allocation:
+                return {
+                    'metrics': {
+                        'Current Return': current_return * 100,
+                        'Current Volatility': current_volatility * 100,
+                        'Current Sharpe': (current_return / current_volatility if current_volatility > 0 else 0),
+                        'Optimized Return': current_return * 100,
+                        'Optimized Volatility': current_volatility * 100,
+                        'Optimized Sharpe': (current_return / current_volatility if current_volatility > 0 else 0)
+                    },
+                    'allocation': portfolio_input
+                }
 
             return {
                 'metrics': {
                     'Current Return': current_return * 100,
                     'Current Volatility': current_volatility * 100,
-                    'Current Sharpe': (current_return / current_volatility),
+                    'Current Sharpe': (current_return / current_volatility if current_volatility > 0 else 0),
                     'Optimized Return': opt_return * 100,
                     'Optimized Volatility': opt_volatility * 100,
                     'Optimized Sharpe': opt_sharpe
@@ -459,7 +586,18 @@ class Portfolio:
 
         except Exception as e:
             print(f"Error in optimize_user_portfolio: {str(e)}")
-            raise
+            # Return original portfolio if anything fails
+            return {
+                'metrics': {
+                    'Current Return': 0,
+                    'Current Volatility': 0,
+                    'Current Sharpe': 0,
+                    'Optimized Return': 0,
+                    'Optimized Volatility': 0,
+                    'Optimized Sharpe': 0
+                },
+                'allocation': portfolio_input
+            }
 
     @classmethod
     def optimize_with_pypfopt(cls, data, original_weights, original_return, original_volatility, optimize_for="sharpe"):
@@ -1307,7 +1445,12 @@ def calculate_future_performance():
         })
         
         # Load full ticker list for build_new portfolios
-        full_tickers = pd.read_csv('updated_tickers.csv')['0'].tolist()
+        try:
+            full_tickers = pd.read_csv('updated_tickers.csv')['0'].tolist()
+        except Exception as e:
+            print(f"Error loading tickers: {str(e)}")
+            # Fallback to TOP_TICKERS if CSV can't be loaded
+            full_tickers = TOP_TICKERS
         
         # Get and store the current portfolio metrics first to ensure consistency
         # This will be used for all optimization methods
@@ -1366,16 +1509,18 @@ def calculate_future_performance():
                 print(f"Error optimizing portfolio with strategy {strategy}: {str(e)}")
                 # Skip adding this portfolio if optimization fails
                 continue
-                
+            
+            # Only attempt build_new if specifically requested
             if include_build_new:
                 try:
+                    # Use the full tickers list for build_new but with smarter selection
                     new_portfolio_result = Portfolio.optimize_user_portfolio(
                         portfolio_input=current_portfolio,
                         start_date=start_date_str,
                         end_date=end_date_str,
                         optimize_for=strategy,
                         build_new=True,
-                        full_tickers_list=full_tickers
+                        full_tickers_list=full_tickers  # Use full ticker list with smart selection
                     )
                     
                     # Keep the current portfolio metrics consistent

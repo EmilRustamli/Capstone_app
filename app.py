@@ -19,31 +19,74 @@ import schedule
 import threading
 import pytz
 from pypfopt import EfficientFrontier, risk_models, expected_returns
+from tempfile import mkdtemp
+
+# Conditionally import redis
+REDIS_AVAILABLE = False
+try:
+    import redis
+    REDIS_AVAILABLE = True
+except ImportError:
+    print("Redis module not available. Will use alternative session storage.")
 
 app = Flask(__name__)
 
-# Configure SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# Determine environment (development or production)
+IS_PRODUCTION = os.environ.get('VERCEL_ENV') == 'production'
+
+# Database configuration - Use PostgreSQL in production, SQLite in development
+if IS_PRODUCTION:
+    # Use PostgreSQL database URL from environment variable on Vercel
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', '')
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'vercel-production-key')
+else:
+    # Development configuration (SQLite)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///portfolio.db'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['SECRET_KEY'] = 'dev-key'
 
 # Configure Mail Settings
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'rustamliemiluni@gmail.com'
-app.config['MAIL_PASSWORD'] = 'ganh bjho orkp tkkw'  # From personal google account
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = '**********'
+app.config['MAIL_PASSWORD'] = '**********'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
 
-# Session and Security configurations
-app.config['SECRET_KEY'] = secrets.token_hex(16)
-app.config['SESSION_TYPE'] = 'filesystem'
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
-app.config['SESSION_COOKIE_SECURE'] = False
-app.config['SESSION_COOKIE_HTTPONLY'] = True
+# Session configuration
+if IS_PRODUCTION:
+    # In production, check if Redis is available
+    if REDIS_AVAILABLE and os.environ.get('REDIS_URL'):
+        app.config['SESSION_TYPE'] = 'redis'
+        app.config['SESSION_REDIS'] = redis.from_url(os.environ.get('REDIS_URL'))
+        print("Using Redis for session storage")
+    else:
+        # Fallback to filesystem sessions if Redis is not available
+        app.config['SESSION_TYPE'] = 'filesystem' 
+        app.config['SESSION_FILE_DIR'] = mkdtemp()
+        print("Redis not available. Using filesystem sessions instead.")
+else:
+    # In development, use filesystem sessions
+    app.config['SESSION_TYPE'] = 'filesystem'
+    app.config['SESSION_FILE_DIR'] = mkdtemp()
+    print("Using filesystem sessions for development")
+
+app.config['SESSION_PERMANENT'] = False
+app.config['SESSION_USE_SIGNER'] = True
+Session(app)
 
 # Initialize extensions
 db = SQLAlchemy(app)
 mail = Mail(app)
-Session(app)  # Initialize Flask-Session here
+
+# Make sure database is initialized
+with app.app_context():
+    try:
+        db.create_all()
+        logger.info("Database tables created successfully")
+    except Exception as e:
+        logger.error(f"Error creating database tables: {e}")
 
 # Initialize logging
 logging.basicConfig(level=logging.DEBUG)
@@ -77,7 +120,13 @@ class Portfolio:
     @classmethod
     def load_data(cls, csv_path):
         """Load pre-downloaded stock data from a CSV file."""
-        cls.trade_data = pd.read_csv(csv_path, index_col=0, parse_dates=True)
+        try:
+            cls.trade_data = pd.read_csv(csv_path, index_col=0, parse_dates=True)
+        except FileNotFoundError:
+            # In production (Vercel), we'll use an alternative approach
+            logger.warning(f"CSV file {csv_path} not found. Using on-demand data fetching instead.")
+            # Initialize with empty DataFrame - we'll fetch data on demand
+            cls.trade_data = pd.DataFrame()
 
     @classmethod
     def monte_carlo_simulation(cls, portfolio, num_simulations=100, confidence_interval=0.95, 
@@ -100,11 +149,30 @@ class Portfolio:
             # Convert start_date and end_date to datetime objects
             start_date_dt = pd.to_datetime(start_date)
             end_date_dt = pd.to_datetime(end_date)
-            #start_date_dt = end_date_dt - pd.Timedelta(days=365)
             
-            # Filter the data for the specified date range
             tickers = list(portfolio.keys())
-            filtered_data = cls.trade_data.loc[start_date_dt:end_date_dt, tickers]
+            
+            # Check if we need to fetch data on-demand (for Vercel deployment)
+            if cls.trade_data.empty or not all(ticker in cls.trade_data.columns for ticker in tickers):
+                logger.info("Fetching data on-demand for Monte Carlo simulation")
+                # Calculate lookback period (1 year before start_date)
+                lookback_start = start_date_dt - pd.Timedelta(days=365)
+                
+                # Fetch data directly with yfinance
+                fetched_data = {}
+                for ticker in tickers:
+                    try:
+                        ticker_data = yf.download(ticker, start=lookback_start, end=end_date_dt, progress=False)['Adj Close']
+                        fetched_data[ticker] = ticker_data
+                    except Exception as e:
+                        logger.error(f"Error fetching data for {ticker}: {e}")
+                
+                # Create a DataFrame from the fetched data
+                filtered_data = pd.DataFrame(fetched_data)
+            else:
+                # Use the preloaded data
+                # Filter the data for the specified date range
+                filtered_data = cls.trade_data.loc[start_date_dt:end_date_dt, tickers]
             
             # Calculate daily returns
             returns = filtered_data.pct_change().dropna()
@@ -1055,6 +1123,17 @@ def internal_error(error):
     db.session.rollback()  # Rollback any failed database transactions
     return jsonify({'error': str(error)}), 500
 
+# Error handlers
+@app.errorhandler(404)
+def page_not_found(e):
+    logger.error(f"404 error: {request.path}")
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    logger.error(f"500 error: {str(e)}")
+    return render_template('error.html', error=str(e)), 500
+
 # def update_all_stock_data():
 #     """Update data for all stocks in portfolios and TOP_TICKERS"""
 #     try:
@@ -1393,15 +1472,9 @@ def monte_carlo_prediction():
         print(f"Error in monte_carlo_prediction: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
+# Main entry point for the application
 if __name__ == '__main__':
-    # Create necessary directories
-    if not os.path.exists('instance'):
-        os.makedirs('instance')
-    if not os.path.exists('flask_session'):
-        os.makedirs('flask_session')
+    app.run(debug=True)
     
-    # Initialize database
-    with app.app_context():
-        db.create_all()
-    
-    app.run(debug=True, port=5001) 
+# This is needed for Vercel serverless functions
+# The variable name 'app' is what Vercel looks for by default 

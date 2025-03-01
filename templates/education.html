@@ -25,7 +25,44 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
         
-        .topic-card h3 {
+        .education-container {
+            display: flex;
+            gap: 30px;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .education-section {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .topic-list, .quiz-cards {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .quiz-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            height: 60px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .quiz-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        /* Ensure quiz cards have consistent height and vertical centering */
+        .quiz-card h3 {
             margin: 0;
             color: var(--text-color);
         }
@@ -138,6 +175,89 @@
                 flex-direction: column;
             }
         }
+        
+        .quiz-container {
+            margin-top: 20px;
+        }
+        
+        .quiz-question {
+            margin-bottom: 25px;
+        }
+        
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .quiz-option {
+            background-color: var(--card-bg);
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .quiz-option:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .quiz-option.selected {
+            background-color: #e3f2fd;
+            border-color: #2196F3;
+        }
+        
+        .quiz-option span {
+            font-weight: bold;
+            margin-right: 10px;
+            min-width: 20px;
+        }
+        
+        .quiz-feedback {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .quiz-submit-btn {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.2s;
+        }
+        
+        .quiz-submit-btn:hover {
+            background-color: #0b7dda;
+        }
+        
+        .quiz-results {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        
+        .correct {
+            color: #4CAF50;
+            background-color: rgba(76, 175, 80, 0.1) !important;
+            border-color: #4CAF50 !important;
+        }
+        
+        .incorrect {
+            color: #F44336;
+            background-color: rgba(244, 67, 54, 0.1) !important;
+            border-color: #F44336 !important;
+        }
+        
+        .quiz-modal-content {
+            max-width: 700px;
+        }
     </style>
 </head>
 <body>
@@ -174,7 +294,7 @@
                         </div>
                         
                         <div class="topic-card" onclick="openModal('rSquared')">
-                            <h3>Topic 3: R² (Proportion of portfolio variance due to market movements)</h3>
+                            <h3>Topic 3: R² (R-Squared)</h3>
                         </div>
                         
                         <div class="topic-card" onclick="openModal('var')">
@@ -249,84 +369,84 @@
                 
                 <div class="education-section">
                     <h2>Quizzes</h2>
-                    <div class="quiz-list">
-                        <div class="quiz-card">
+                    <div class="quiz-cards">
+                        <div class="quiz-card" onclick="openQuizModal('annualReturnQuiz')">
                             <h3>Quiz 1: Annual Return</h3>
                         </div>
                         
-                        <div class="quiz-card">
+                        <div class="quiz-card" onclick="openQuizModal('annualizedVolatilityQuiz')">
                             <h3>Quiz 2: Annualized Volatility</h3>
                         </div>
                         
-                        <div class="quiz-card">
-                            <h3>Quiz 3: R² (Proportion of portfolio variance due to market movements)</h3>
+                        <div class="quiz-card" onclick="openQuizModal('rSquaredQuiz')">
+                            <h3>Quiz 3: R² (R-Squared)</h3>
                         </div>
                         
-                        <div class="quiz-card">
+                        <div class="quiz-card" onclick="openQuizModal('varQuiz')">
                             <h3>Quiz 4: VaR (Value at Risk)</h3>
                         </div>
                         
-                        <div class="quiz-card">
+                        <div class="quiz-card" onclick="openQuizModal('cvarQuiz')">
                             <h3>Quiz 5: CVaR (Conditional Value at Risk)</h3>
                         </div>
                         
-                        <div class="quiz-card">
+                        <div class="quiz-card" onclick="openQuizModal('assetAllocationQuiz')">
                             <h3>Quiz 6: Asset Allocation</h3>
                         </div>
                         
-                        <div class="quiz-card">
+                        <div class="quiz-card" onclick="openQuizModal('dollarCostAveragingQuiz')">
                             <h3>Quiz 7: Dollar-Cost Averaging</h3>
                         </div>
                         
-                        <div class="quiz-card">
+                        <div class="quiz-card" onclick="openQuizModal('compoundInterestQuiz')">
                             <h3>Quiz 8: Compound Interest</h3>
                         </div>
                         
-                        <div class="quiz-card">
+                        <div class="quiz-card" onclick="openQuizModal('diversificationQuiz')">
                             <h3>Quiz 9: Diversification</h3>
                         </div>
                         
-                        <div class="quiz-card">
+                        <div class="quiz-card" onclick="openQuizModal('riskReturnQuiz')">
                             <h3>Quiz 10: Risk vs. Return Tradeoff</h3>
                         </div>
                         
-                        <div class="quiz-card">
+                        <div class="quiz-card" onclick="openQuizModal('marketCapQuiz')">
                             <h3>Quiz 11: Market Capitalization</h3>
                         </div>
                         
-                        <div class="quiz-card">
+                        <div class="quiz-card" onclick="openQuizModal('marketIndicesQuiz')">
                             <h3>Quiz 12: Market Indices</h3>
                         </div>
                         
-                        <div class="quiz-card">
+                        <div class="quiz-card" onclick="openQuizModal('etfsMutualFundsQuiz')">
                             <h3>Quiz 13: ETFs vs. Mutual Funds</h3>
                         </div>
                         
-                        <div class="quiz-card">
+                        <div class="quiz-card" onclick="openQuizModal('stockFundamentalsQuiz')">
                             <h3>Quiz 14: Stock Fundamentals</h3>
                         </div>
                         
-                        <div class="quiz-card">
+                        <div class="quiz-card" onclick="openQuizModal('inflationQuiz')">
                             <h3>Quiz 15: Inflation and Investing</h3>
                         </div>
                         
-                        <div class="quiz-card">
+                        <div class="quiz-card" onclick="openQuizModal('taxEfficientInvestingQuiz')">
                             <h3>Quiz 16: Tax-Efficient Investing</h3>
                         </div>
                         
-                        <div class="quiz-card">
+                        <div class="quiz-card" onclick="openQuizModal('timeHorizonQuiz')">
                             <h3>Quiz 17: Investment Time Horizon</h3>
                         </div>
                         
-                        <div class="quiz-card">
+                        <div class="quiz-card" onclick="openQuizModal('portfolioRebalancingQuiz')">
                             <h3>Quiz 18: Portfolio Rebalancing</h3>
                         </div>
                         
-                        <div class="quiz-card">
+                        <div class="quiz-card" onclick="openQuizModal('investmentFeesQuiz')">
                             <h3>Quiz 19: Investment Fees</h3>
                         </div>
                         
-                        <div class="quiz-card">
+                        <div class="quiz-card" onclick="openQuizModal('behavioralFinanceQuiz')">
                             <h3>Quiz 20: Behavioral Finance</h3>
                         </div>
                     </div>
@@ -549,6 +669,2273 @@
         </div>
     </div>
 
+    <!-- Quiz Modals -->
+    <div id="annualReturnQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('annualReturnQuiz')">&times;</span>
+            <h2>Quiz: Annual Return</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="ar-q1">
+                    <p><strong>Question 1:</strong> If you invested $1,000 and it's worth $1,100 after one year, what is your annual return?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('ar-q1', this)">
+                            <span>A.</span> 5%
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('ar-q1', this)">
+                            <span>B.</span> 10%
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('ar-q1', this)">
+                            <span>C.</span> 1%
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('ar-q1', this)">
+                            <span>D.</span> 100%
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="ar-q2">
+                    <p><strong>Question 2:</strong> Which of the following is NOT a factor that affects annual returns?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('ar-q2', this)">
+                            <span>A.</span> Dividend payments
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('ar-q2', this)">
+                            <span>B.</span> Change in price
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('ar-q2', this)">
+                            <span>C.</span> The investor's age
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('ar-q2', this)">
+                            <span>D.</span> Interest payments
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="ar-q3">
+                    <p><strong>Question 3:</strong> What is a reasonable average annual return to expect from a diversified stock portfolio over the long term?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('ar-q3', this)">
+                            <span>A.</span> 1-3%
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('ar-q3', this)">
+                            <span>B.</span> 7-10%
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('ar-q3', this)">
+                            <span>C.</span> 15-20%
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('ar-q3', this)">
+                            <span>D.</span> 25-30%
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="ar-q4">
+                    <p><strong>Question 4:</strong> If your portfolio had a return of -5% in year 1 and +15% in year 2, what was your average annual return?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('ar-q4', this)">
+                            <span>A.</span> 5%
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('ar-q4', this)">
+                            <span>B.</span> 4.5%
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('ar-q4', this)">
+                            <span>C.</span> 10%
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('ar-q4', this)">
+                            <span>D.</span> 0%
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="ar-q5">
+                    <p><strong>Question 5:</strong> Which statement about annual returns is TRUE?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('ar-q5', this)">
+                            <span>A.</span> Past returns guarantee future performance
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('ar-q5', this)">
+                            <span>B.</span> Higher annual returns always mean higher risk
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('ar-q5', this)">
+                            <span>C.</span> Annual returns can be negative
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('ar-q5', this)">
+                            <span>D.</span> Annual returns are the same for all investment types
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('annualReturnQuiz', {'ar-q1': 'B', 'ar-q2': 'C', 'ar-q3': 'B', 'ar-q4': 'A', 'ar-q5': 'C'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="annualizedVolatilityQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('annualizedVolatilityQuiz')">&times;</span>
+            <h2>Quiz: Annualized Volatility</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="av-q1">
+                    <p><strong>Question 1:</strong> What does annualized volatility measure?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('av-q1', this)">
+                            <span>A.</span> The expected return of an investment over a year
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('av-q1', this)">
+                            <span>B.</span> How much an investment's returns fluctuate around its average return
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('av-q1', this)">
+                            <span>C.</span> The maximum loss an investment might experience
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('av-q1', this)">
+                            <span>D.</span> The dividend yield of a stock
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="av-q2">
+                    <p><strong>Question 2:</strong> An investment with higher volatility generally indicates:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('av-q2', this)">
+                            <span>A.</span> Lower potential risk and lower potential return
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('av-q2', this)">
+                            <span>B.</span> Higher potential risk and higher potential return
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('av-q2', this)">
+                            <span>C.</span> Higher potential risk and lower potential return
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('av-q2', this)">
+                            <span>D.</span> Lower potential risk and higher potential return
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="av-q3">
+                    <p><strong>Question 3:</strong> Which investment typically has the LOWEST volatility?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('av-q3', this)">
+                            <span>A.</span> Small-cap stocks
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('av-q3', this)">
+                            <span>B.</span> Emerging market stocks
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('av-q3', this)">
+                            <span>C.</span> Government bonds
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('av-q3', this)">
+                            <span>D.</span> Cryptocurrency
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="av-q4">
+                    <p><strong>Question 4:</strong> If an investment has an annualized volatility of 15%, what does this mean?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('av-q4', this)">
+                            <span>A.</span> The investment will return 15% annually
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('av-q4', this)">
+                            <span>B.</span> The investment's returns will fluctuate by approximately 15% around its average
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('av-q4', this)">
+                            <span>C.</span> The investment will lose 15% of its value annually
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('av-q4', this)">
+                            <span>D.</span> The investment has a 15% chance of losing money
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="av-q5">
+                    <p><strong>Question 5:</strong> Why is understanding volatility important for investors?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('av-q5', this)">
+                            <span>A.</span> It helps predict exact future returns
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('av-q5', this)">
+                            <span>B.</span> It guarantees that investments won't lose money
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('av-q5', this)">
+                            <span>C.</span> It helps assess risk tolerance and set appropriate asset allocation
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('av-q5', this)">
+                            <span>D.</span> It determines which stocks will pay the highest dividends
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('annualizedVolatilityQuiz', {'av-q1': 'B', 'av-q2': 'B', 'av-q3': 'C', 'av-q4': 'B', 'av-q5': 'C'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add R-Squared Quiz Modal -->
+    <div id="rSquaredQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('rSquaredQuiz')">&times;</span>
+            <h2>Quiz: R² (R-Squared)</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="rs-q1">
+                    <p><strong>Question 1:</strong> What does R-Squared measure in the context of investments?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('rs-q1', this)">
+                            <span>A.</span> The expected return of a portfolio
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('rs-q1', this)">
+                            <span>B.</span> How much of a portfolio's performance can be explained by movements in a benchmark index
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('rs-q1', this)">
+                            <span>C.</span> The volatility of an investment
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('rs-q1', this)">
+                            <span>D.</span> The maximum potential loss of a portfolio
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="rs-q2">
+                    <p><strong>Question 2:</strong> What range does R-Squared typically fall within?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('rs-q2', this)">
+                            <span>A.</span> -1 to +1
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('rs-q2', this)">
+                            <span>B.</span> 0 to 100 (or 0 to 1)
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('rs-q2', this)">
+                            <span>C.</span> -100 to +100
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('rs-q2', this)">
+                            <span>D.</span> No specific range; it can be any value
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="rs-q3">
+                    <p><strong>Question 3:</strong> If a mutual fund has an R-Squared value of 95 relative to the S&P 500, what does this indicate?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('rs-q3', this)">
+                            <span>A.</span> The fund will return 95% of what the S&P 500 returns
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('rs-q3', this)">
+                            <span>B.</span> The fund is 95% likely to outperform the S&P 500
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('rs-q3', this)">
+                            <span>C.</span> 95% of the fund's movements can be explained by movements in the S&P 500
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('rs-q3', this)">
+                            <span>D.</span> The fund holds 95% of the same stocks as the S&P 500
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="rs-q4">
+                    <p><strong>Question 4:</strong> A low R-Squared value (below 50) for an actively managed fund could suggest:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('rs-q4', this)">
+                            <span>A.</span> The fund manager is not doing their job well
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('rs-q4', this)">
+                            <span>B.</span> The fund's performance has little relation to the benchmark index and may be following a unique strategy
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('rs-q4', this)">
+                            <span>C.</span> The fund's fees are too high
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('rs-q4', this)">
+                            <span>D.</span> The fund will likely underperform the market
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="rs-q5">
+                    <p><strong>Question 5:</strong> How might R-Squared influence an investor's decision about fees for an actively managed fund?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('rs-q5', this)">
+                            <span>A.</span> It has no relevance to fee considerations
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('rs-q5', this)">
+                            <span>B.</span> Higher R-Squared values might justify higher fees
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('rs-q5', this)">
+                            <span>C.</span> A very high R-Squared might make an investor question paying higher fees for active management that closely tracks the index
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('rs-q5', this)">
+                            <span>D.</span> R-Squared directly determines the fee structure
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('rSquaredQuiz', {'rs-q1': 'B', 'rs-q2': 'B', 'rs-q3': 'C', 'rs-q4': 'B', 'rs-q5': 'C'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add VaR Quiz Modal -->
+    <div id="varQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('varQuiz')">&times;</span>
+            <h2>Quiz: VaR (Value at Risk)</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="var-q1">
+                    <p><strong>Question 1:</strong> What does Value at Risk (VaR) estimate?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('var-q1', this)">
+                            <span>A.</span> The maximum potential loss over a specific time period at a given confidence level
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('var-q1', this)">
+                            <span>B.</span> The average return of an investment
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('var-q1', this)">
+                            <span>C.</span> The minimum guaranteed return of a portfolio
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('var-q1', this)">
+                            <span>D.</span> The total value of a portfolio at risk of market fluctuations
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="var-q2">
+                    <p><strong>Question 2:</strong> If a portfolio has a one-day 95% VaR of $10,000, what does this mean?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('var-q2', this)">
+                            <span>A.</span> The portfolio will lose $10,000 tomorrow
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('var-q2', this)">
+                            <span>B.</span> There's a 95% chance that the portfolio won't lose more than $10,000 in a single day
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('var-q2', this)">
+                            <span>C.</span> The portfolio is expected to gain $10,000 with 95% confidence
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('var-q2', this)">
+                            <span>D.</span> 95% of the portfolio ($10,000) is at risk of loss
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="var-q3">
+                    <p><strong>Question 3:</strong> Which of the following is NOT a common method for calculating VaR?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('var-q3', this)">
+                            <span>A.</span> Historical simulation
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('var-q3', this)">
+                            <span>B.</span> Variance-covariance method
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('var-q3', this)">
+                            <span>C.</span> Monte Carlo simulation
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('var-q3', this)">
+                            <span>D.</span> Dividend discount model
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="var-q4">
+                    <p><strong>Question 4:</strong> What is a key limitation of Value at Risk (VaR)?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('var-q4', this)">
+                            <span>A.</span> It doesn't tell you how severe losses might be beyond the confidence threshold
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('var-q4', this)">
+                            <span>B.</span> It can only be used for stock investments
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('var-q4', this)">
+                            <span>C.</span> It requires at least 10 years of historical data
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('var-q4', this)">
+                            <span>D.</span> It cannot be calculated for individual securities
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="var-q5">
+                    <p><strong>Question 5:</strong> Which type of investors or institutions are most likely to regularly use VaR in their risk management?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('var-q5', this)">
+                            <span>A.</span> Individual retail investors
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('var-q5', this)">
+                            <span>B.</span> Day traders
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('var-q5', this)">
+                            <span>C.</span> Financial institutions and portfolio managers
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('var-q5', this)">
+                            <span>D.</span> Real estate investors
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('varQuiz', {'var-q1': 'A', 'var-q2': 'B', 'var-q3': 'D', 'var-q4': 'A', 'var-q5': 'C'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add CVaR Quiz Modal -->
+    <div id="cvarQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('cvarQuiz')">&times;</span>
+            <h2>Quiz: CVaR (Conditional Value at Risk)</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="cvar-q1">
+                    <p><strong>Question 1:</strong> What is another name for Conditional Value at Risk (CVaR)?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('cvar-q1', this)">
+                            <span>A.</span> Expected Shortfall
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('cvar-q1', this)">
+                            <span>B.</span> Tail Risk
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('cvar-q1', this)">
+                            <span>C.</span> Modified Value at Risk
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('cvar-q1', this)">
+                            <span>D.</span> Downside Deviation
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="cvar-q2">
+                    <p><strong>Question 2:</strong> How does CVaR differ from traditional VaR?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('cvar-q2', this)">
+                            <span>A.</span> CVaR measures average gains, while VaR measures potential losses
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('cvar-q2', this)">
+                            <span>B.</span> CVaR measures the average loss in the worst-case scenarios, beyond the VaR threshold
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('cvar-q2', this)">
+                            <span>C.</span> CVaR only applies to bond portfolios, while VaR applies to all investments
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('cvar-q2', this)">
+                            <span>D.</span> CVaR requires less historical data than VaR
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="cvar-q3">
+                    <p><strong>Question 3:</strong> If a portfolio has a 95% CVaR of $15,000, what does this indicate?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('cvar-q3', this)">
+                            <span>A.</span> The portfolio will lose $15,000 with 95% probability
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('cvar-q3', this)">
+                            <span>B.</span> In the worst 5% of scenarios, the average loss would be $15,000
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('cvar-q3', this)">
+                            <span>C.</span> The portfolio has a 95% chance of gaining at least $15,000
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('cvar-q3', this)">
+                            <span>D.</span> $15,000 is at risk of conditional market variations
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="cvar-q4">
+                    <p><strong>Question 4:</strong> Why did CVaR become more important after financial crises?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('cvar-q4', this)">
+                            <span>A.</span> Because traditional VaR underestimated tail risk and extreme events proved more common than statistical models predicted
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('cvar-q4', this)">
+                            <span>B.</span> Because CVaR is easier to calculate than VaR
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('cvar-q4', this)">
+                            <span>C.</span> Because regulators mandated CVaR instead of VaR
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('cvar-q4', this)">
+                            <span>D.</span> Because CVaR focuses only on market risk, not credit risk
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="cvar-q5">
+                    <p><strong>Question 5:</strong> Which type of investment might particularly benefit from CVaR analysis rather than just VaR?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('cvar-q5', this)">
+                            <span>A.</span> Government bonds
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('cvar-q5', this)">
+                            <span>B.</span> Blue-chip stocks
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('cvar-q5', this)">
+                            <span>C.</span> High-yield bonds or investments with non-normal return distributions
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('cvar-q5', this)">
+                            <span>D.</span> Money market funds
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('cvarQuiz', {'cvar-q1': 'A', 'cvar-q2': 'B', 'cvar-q3': 'B', 'cvar-q4': 'A', 'cvar-q5': 'C'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Asset Allocation Quiz Modal -->
+    <div id="assetAllocationQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('assetAllocationQuiz')">&times;</span>
+            <h2>Quiz: Asset Allocation</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="aa-q1">
+                    <p><strong>Question 1:</strong> What is asset allocation?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('aa-q1', this)">
+                            <span>A.</span> The process of selecting individual stocks for a portfolio
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('aa-q1', this)">
+                            <span>B.</span> The process of dividing investments among different asset categories like stocks, bonds, and cash
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('aa-q1', this)">
+                            <span>C.</span> The method of timing market entries and exits
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('aa-q1', this)">
+                            <span>D.</span> The approach of investing only in low-cost index funds
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="aa-q2">
+                    <p><strong>Question 2:</strong> According to studies, approximately what percentage of a portfolio's return variability over time is determined by asset allocation?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('aa-q2', this)">
+                            <span>A.</span> About 30%
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('aa-q2', this)">
+                            <span>B.</span> About 50%
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('aa-q2', this)">
+                            <span>C.</span> About 70%
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('aa-q2', this)">
+                            <span>D.</span> About 90%
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="aa-q3">
+                    <p><strong>Question 3:</strong> Which of the following factors should NOT influence your asset allocation decision?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('aa-q3', this)">
+                            <span>A.</span> Your financial goals
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('aa-q3', this)">
+                            <span>B.</span> Your time horizon
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('aa-q3', this)">
+                            <span>C.</span> Your risk tolerance
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('aa-q3', this)">
+                            <span>D.</span> Recent stock market performance
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="aa-q4">
+                    <p><strong>Question 4:</strong> Which asset allocation approach would typically be more appropriate for a 65-year-old retiree?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('aa-q4', this)">
+                            <span>A.</span> 90% stocks, 10% bonds
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('aa-q4', this)">
+                            <span>B.</span> 70% stocks, 30% bonds
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('aa-q4', this)">
+                            <span>C.</span> 30% stocks, 60% bonds, 10% cash
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('aa-q4', this)">
+                            <span>D.</span> 100% cryptocurrencies
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="aa-q5">
+                    <p><strong>Question 5:</strong> How often should you review your asset allocation?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('aa-q5', this)">
+                            <span>A.</span> Daily, to respond to market changes
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('aa-q5', this)">
+                            <span>B.</span> Never, once set it should remain unchanged
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('aa-q5', this)">
+                            <span>C.</span> Periodically (such as annually) and when life circumstances change
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('aa-q5', this)">
+                            <span>D.</span> Only when the market drops significantly
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('assetAllocationQuiz', {'aa-q1': 'B', 'aa-q2': 'D', 'aa-q3': 'D', 'aa-q4': 'C', 'aa-q5': 'C'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dollar-Cost Averaging Quiz Modal -->
+    <div id="dollarCostAveragingQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('dollarCostAveragingQuiz')">&times;</span>
+            <h2>Quiz: Dollar-Cost Averaging</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="dca-q1">
+                    <p><strong>Question 1:</strong> What is dollar-cost averaging (DCA)?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('dca-q1', this)">
+                            <span>A.</span> Investing all your money at once when the market is low
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('dca-q1', this)">
+                            <span>B.</span> Investing a fixed amount of money at regular intervals, regardless of market conditions
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('dca-q1', this)">
+                            <span>C.</span> Investing in only US dollar-denominated assets
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('dca-q1', this)">
+                            <span>D.</span> Converting all investments to cash during market downturns
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="dca-q2">
+                    <p><strong>Question 2:</strong> What happens when you use dollar-cost averaging and the price of an investment drops?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('dca-q2', this)">
+                            <span>A.</span> You automatically buy more shares with your fixed investment amount
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('dca-q2', this)">
+                            <span>B.</span> You should pause your investments until prices recover
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('dca-q2', this)">
+                            <span>C.</span> You should double your investment amount
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('dca-q2', this)">
+                            <span>D.</span> You buy the same number of shares but at a lower cost
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="dca-q3">
+                    <p><strong>Question 3:</strong> Which of the following is a primary benefit of dollar-cost averaging?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('dca-q3', this)">
+                            <span>A.</span> It guarantees higher returns than lump-sum investing
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('dca-q3', this)">
+                            <span>B.</span> It eliminates all investment risk
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('dca-q3', this)">
+                            <span>C.</span> It reduces the impact of volatility and the risk of investing a large sum at an unfavorable time
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('dca-q3', this)">
+                            <span>D.</span> It always results in buying at the lowest possible price
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="dca-q4">
+                    <p><strong>Question 4:</strong> In which market conditions might dollar-cost averaging potentially underperform a lump-sum investment?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('dca-q4', this)">
+                            <span>A.</span> In a consistently rising market
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('dca-q4', this)">
+                            <span>B.</span> In a volatile market with no clear direction
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('dca-q4', this)">
+                            <span>C.</span> In a consistently falling market
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('dca-q4', this)">
+                            <span>D.</span> In a market crash
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="dca-q5">
+                    <p><strong>Question 5:</strong> Which of the following is a common way that many investors implement dollar-cost averaging?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('dca-q5', this)">
+                            <span>A.</span> Through day trading
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('dca-q5', this)">
+                            <span>B.</span> Through automatic contributions to retirement accounts like 401(k)s or IRAs
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('dca-q5', this)">
+                            <span>C.</span> By timing market bottoms
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('dca-q5', this)">
+                            <span>D.</span> Through annual lump-sum investments
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('dollarCostAveragingQuiz', {'dca-q1': 'B', 'dca-q2': 'A', 'dca-q3': 'C', 'dca-q4': 'A', 'dca-q5': 'B'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Compound Interest Quiz Modal -->
+    <div id="compoundInterestQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('compoundInterestQuiz')">&times;</span>
+            <h2>Quiz: Compound Interest</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="ci-q1">
+                    <p><strong>Question 1:</strong> What is compound interest?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('ci-q1', this)">
+                            <span>A.</span> Interest calculated only on the initial principal
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('ci-q1', this)">
+                            <span>B.</span> Interest calculated on both the initial principal and the accumulated interest
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('ci-q1', this)">
+                            <span>C.</span> Interest paid only at the end of an investment term
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('ci-q1', this)">
+                            <span>D.</span> A flat fee charged by banks for loans
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="ci-q2">
+                    <p><strong>Question 2:</strong> Which of the following factors does NOT affect the power of compound interest?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('ci-q2', this)">
+                            <span>A.</span> The interest rate
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('ci-q2', this)">
+                            <span>B.</span> The time period of investment
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('ci-q2', this)">
+                            <span>C.</span> The frequency of compounding
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('ci-q2', this)">
+                            <span>D.</span> The day of the week you invest
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="ci-q3">
+                    <p><strong>Question 3:</strong> If you invest $10,000 at 8% annual interest compounded annually, approximately how much would you have after 30 years (without adding any additional money)?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('ci-q3', this)">
+                            <span>A.</span> $34,000
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('ci-q3', this)">
+                            <span>B.</span> $100,600
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('ci-q3', this)">
+                            <span>C.</span> $24,000
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('ci-q3', this)">
+                            <span>D.</span> $80,000
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="ci-q4">
+                    <p><strong>Question 4:</strong> Why is starting to invest early so valuable for compound interest?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('ci-q4', this)">
+                            <span>A.</span> Because interest rates are always higher for younger investors
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('ci-q4', this)">
+                            <span>B.</span> Because time is the most important factor in the compound interest formula
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('ci-q4', this)">
+                            <span>C.</span> Because banks offer special compounding rates to new investors
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('ci-q4', this)">
+                            <span>D.</span> Because investment fees decrease over time
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="ci-q5">
+                    <p><strong>Question 5:</strong> Which of the following best demonstrates the concept of compound interest in investing?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('ci-q5', this)">
+                            <span>A.</span> Withdrawing all dividends from a stock investment as cash
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('ci-q5', this)">
+                            <span>B.</span> Keeping money in a no-interest checking account
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('ci-q5', this)">
+                            <span>C.</span> Reinvesting dividends from stocks to buy additional shares
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('ci-q5', this)">
+                            <span>D.</span> Spending investment gains on consumer goods
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('compoundInterestQuiz', {'ci-q1': 'B', 'ci-q2': 'D', 'ci-q3': 'B', 'ci-q4': 'B', 'ci-q5': 'C'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diversification Quiz Modal -->
+    <div id="diversificationQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('diversificationQuiz')">&times;</span>
+            <h2>Quiz: Diversification</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="div-q1">
+                    <p><strong>Question 1:</strong> What is the main purpose of diversification in investing?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('div-q1', this)">
+                            <span>A.</span> To maximize returns by picking the best performing assets
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('div-q1', this)">
+                            <span>B.</span> To reduce risk by spreading investments across different assets
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('div-q1', this)">
+                            <span>C.</span> To avoid paying taxes on investment gains
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('div-q1', this)">
+                            <span>D.</span> To simplify investment decision-making
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="div-q2">
+                    <p><strong>Question 2:</strong> Which phrase best describes the concept of diversification?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('div-q2', this)">
+                            <span>A.</span> "Don't put all your eggs in one basket"
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('div-q2', this)">
+                            <span>B.</span> "The early bird gets the worm"
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('div-q2', this)">
+                            <span>C.</span> "Buy low, sell high"
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('div-q2', this)">
+                            <span>D.</span> "Time in the market beats timing the market"
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="div-q3">
+                    <p><strong>Question 3:</strong> Which of these portfolios is MOST diversified?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('div-q3', this)">
+                            <span>A.</span> 100% in U.S. technology stocks
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('div-q3', this)">
+                            <span>B.</span> 50% in Apple stock and 50% in Microsoft stock
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('div-q3', this)">
+                            <span>C.</span> 100% in an S&P 500 index fund
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('div-q3', this)">
+                            <span>D.</span> A mix of U.S. stocks, international stocks, bonds, and real estate investments
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="div-q4">
+                    <p><strong>Question 4:</strong> Which of the following statements about diversification is TRUE?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('div-q4', this)">
+                            <span>A.</span> Diversification guarantees you won't lose money
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('div-q4', this)">
+                            <span>B.</span> A properly diversified portfolio will always outperform the market
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('div-q4', this)">
+                            <span>C.</span> Diversification can reduce risk but cannot eliminate it entirely
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('div-q4', this)">
+                            <span>D.</span> Diversification works best during market booms but not during crashes
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="div-q5">
+                    <p><strong>Question 5:</strong> How can beginning investors achieve broad diversification with a relatively small amount of money?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('div-q5', this)">
+                            <span>A.</span> By purchasing shares in at least 30 individual companies
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('div-q5', this)">
+                            <span>B.</span> By investing in mutual funds or ETFs that hold hundreds or thousands of securities
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('div-q5', this)">
+                            <span>C.</span> By frequently trading between different stocks
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('div-q5', this)">
+                            <span>D.</span> By focusing only on blue-chip stocks
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('diversificationQuiz', {'div-q1': 'B', 'div-q2': 'A', 'div-q3': 'D', 'div-q4': 'C', 'div-q5': 'B'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Risk vs. Return Tradeoff Quiz Modal -->
+    <div id="riskReturnQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('riskReturnQuiz')">&times;</span>
+            <h2>Quiz: Risk vs. Return Tradeoff</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="rr-q1">
+                    <p><strong>Question 1:</strong> What is the risk-return tradeoff?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('rr-q1', this)">
+                            <span>A.</span> The principle that potential return increases with an increase in risk
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('rr-q1', this)">
+                            <span>B.</span> The idea that higher returns always come with lower risk
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('rr-q1', this)">
+                            <span>C.</span> The concept that all investments have the same risk-return profile
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('rr-q1', this)">
+                            <span>D.</span> The theory that risk can be eliminated through proper timing
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="rr-q2">
+                    <p><strong>Question 2:</strong> Generally, which of the following investments would have the LOWEST risk and return?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('rr-q2', this)">
+                            <span>A.</span> Small-cap stocks
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('rr-q2', this)">
+                            <span>B.</span> Government bonds
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('rr-q2', this)">
+                            <span>C.</span> Emerging market stocks
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('rr-q2', this)">
+                            <span>D.</span> Real estate investment trusts
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="rr-q3">
+                    <p><strong>Question 3:</strong> Why is understanding your risk tolerance important?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('rr-q3', this)">
+                            <span>A.</span> To maximize returns regardless of volatility
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('rr-q3', this)">
+                            <span>B.</span> To avoid all risk in your investments
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('rr-q3', this)">
+                            <span>C.</span> To build a portfolio that you can stick with through market ups and downs
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('rr-q3', this)">
+                            <span>D.</span> To time the market for optimal entry and exit points
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="rr-q4">
+                    <p><strong>Question 4:</strong> For a long-term goal that's 30 years away, which approach to the risk-return tradeoff might be most appropriate?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('rr-q4', this)">
+                            <span>A.</span> Accepting more risk for higher potential returns
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('rr-q4', this)">
+                            <span>B.</span> Taking minimal risk to ensure capital preservation
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('rr-q4', this)">
+                            <span>C.</span> Keeping all money in cash or cash equivalents
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('rr-q4', this)">
+                            <span>D.</span> Avoiding the stock market entirely
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="rr-q5">
+                    <p><strong>Question 5:</strong> Which statement about the risk-return tradeoff is FALSE?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('rr-q5', this)">
+                            <span>A.</span> Higher risk investments must provide the potential for higher returns to attract investors
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('rr-q5', this)">
+                            <span>B.</span> Each investor must find their own optimal balance between risk and return
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('rr-q5', this)">
+                            <span>C.</span> Higher returns always indicate a better investment
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('rr-q5', this)">
+                            <span>D.</span> Risk can be managed but not eliminated entirely
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('riskReturnQuiz', {'rr-q1': 'A', 'rr-q2': 'B', 'rr-q3': 'C', 'rr-q4': 'A', 'rr-q5': 'C'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Market Capitalization Quiz Modal -->
+    <div id="marketCapQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('marketCapQuiz')">&times;</span>
+            <h2>Quiz: Market Capitalization</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="mc-q1">
+                    <p><strong>Question 1:</strong> How is market capitalization calculated?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('mc-q1', this)">
+                            <span>A.</span> Total assets minus total liabilities
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('mc-q1', this)">
+                            <span>B.</span> Current share price multiplied by the total number of outstanding shares
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('mc-q1', this)">
+                            <span>C.</span> Annual revenue divided by net profit margin
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('mc-q1', this)">
+                            <span>D.</span> Price-to-earnings ratio multiplied by annual earnings
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="mc-q2">
+                    <p><strong>Question 2:</strong> Which of the following market cap ranges correctly defines a "large-cap" company?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('mc-q2', this)">
+                            <span>A.</span> $300 million to $2 billion
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('mc-q2', this)">
+                            <span>B.</span> $2 billion to $10 billion
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('mc-q2', this)">
+                            <span>C.</span> Over $10 billion
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('mc-q2', this)">
+                            <span>D.</span> Under $300 million
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="mc-q3">
+                    <p><strong>Question 3:</strong> Generally, how do large-cap companies compare to small-cap companies in terms of risk and growth potential?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('mc-q3', this)">
+                            <span>A.</span> Large-caps typically offer higher growth potential and higher risk
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('mc-q3', this)">
+                            <span>B.</span> Large-caps typically offer lower growth potential and lower risk
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('mc-q3', this)">
+                            <span>C.</span> Large-caps typically offer higher growth potential and lower risk
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('mc-q3', this)">
+                            <span>D.</span> There's no correlation between market cap and risk or growth potential
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="mc-q4">
+                    <p><strong>Question 4:</strong> Why might an investor want to include companies with different market capitalizations in their portfolio?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('mc-q4', this)">
+                            <span>A.</span> For diversification, as different sized companies may perform differently under various market conditions
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('mc-q4', this)">
+                            <span>B.</span> Because all companies eventually reach the same market cap over time
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('mc-q4', this)">
+                            <span>C.</span> To ensure that the portfolio only includes the largest companies
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('mc-q4', this)">
+                            <span>D.</span> Because market cap has no impact on investment performance
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="mc-q5">
+                    <p><strong>Question 5:</strong> Which of the following is an example of a market cap-weighted index?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('mc-q5', this)">
+                            <span>A.</span> Dow Jones Industrial Average
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('mc-q5', this)">
+                            <span>B.</span> S&P 500
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('mc-q5', this)">
+                            <span>C.</span> An equal-weighted fund of the top 100 tech companies
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('mc-q5', this)">
+                            <span>D.</span> A price-weighted index of dividend stocks
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('marketCapQuiz', {'mc-q1': 'B', 'mc-q2': 'C', 'mc-q3': 'B', 'mc-q4': 'A', 'mc-q5': 'B'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Market Indices Quiz Modal -->
+    <div id="marketIndicesQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('marketIndicesQuiz')">&times;</span>
+            <h2>Quiz: Market Indices</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="mi-q1">
+                    <p><strong>Question 1:</strong> What is the primary purpose of a market index?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('mi-q1', this)">
+                            <span>A.</span> To guarantee returns for investors
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('mi-q1', this)">
+                            <span>B.</span> To measure the performance of a selection of securities that represent a particular market or segment
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('mi-q1', this)">
+                            <span>C.</span> To recommend which stocks investors should buy
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('mi-q1', this)">
+                            <span>D.</span> To regulate stock exchanges
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="mi-q2">
+                    <p><strong>Question 2:</strong> Which of the following is NOT one of the major U.S. stock indices?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('mi-q2', this)">
+                            <span>A.</span> S&P 500
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('mi-q2', this)">
+                            <span>B.</span> Dow Jones Industrial Average
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('mi-q2', this)">
+                            <span>C.</span> Nasdaq Composite
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('mi-q2', this)">
+                            <span>D.</span> FTSE 100
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="mi-q3">
+                    <p><strong>Question 3:</strong> Which index is frequently used as a benchmark for the overall U.S. stock market performance?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('mi-q3', this)">
+                            <span>A.</span> The S&P 500
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('mi-q3', this)">
+                            <span>B.</span> The Nikkei 225
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('mi-q3', this)">
+                            <span>C.</span> The CAC 40
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('mi-q3', this)">
+                            <span>D.</span> The Hang Seng Index
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="mi-q4">
+                    <p><strong>Question 4:</strong> How can investors gain exposure to a market index?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('mi-q4', this)">
+                            <span>A.</span> By purchasing individual shares of all companies in the index
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('mi-q4', this)">
+                            <span>B.</span> By investing in index funds or ETFs that track the index
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('mi-q4', this)">
+                            <span>C.</span> By buying shares directly from the stock exchange
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('mi-q4', this)">
+                            <span>D.</span> It's not possible for retail investors to gain exposure to indices
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="mi-q5">
+                    <p><strong>Question 5:</strong> What is the main difference between the Dow Jones Industrial Average and the S&P 500 in terms of how they're calculated?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('mi-q5', this)">
+                            <span>A.</span> The Dow is price-weighted, while the S&P 500 is market cap-weighted
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('mi-q5', this)">
+                            <span>B.</span> The Dow includes international stocks, while the S&P 500 only includes U.S. stocks
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('mi-q5', this)">
+                            <span>C.</span> The Dow focuses on small-cap stocks, while the S&P 500 focuses on large-cap stocks
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('mi-q5', this)">
+                            <span>D.</span> There is no difference in how they're calculated
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('marketIndicesQuiz', {'mi-q1': 'B', 'mi-q2': 'D', 'mi-q3': 'A', 'mi-q4': 'B', 'mi-q5': 'A'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ETFs vs. Mutual Funds Quiz Modal -->
+    <div id="etfsMutualFundsQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('etfsMutualFundsQuiz')">&times;</span>
+            <h2>Quiz: ETFs vs. Mutual Funds</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="ef-q1">
+                    <p><strong>Question 1:</strong> What is a key difference between how ETFs and mutual funds are traded?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('ef-q1', this)">
+                            <span>A.</span> ETFs trade throughout the day like stocks, while mutual funds trade once per day at the closing NAV
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('ef-q1', this)">
+                            <span>B.</span> Mutual funds can be traded online, but ETFs must be purchased through a broker by phone
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('ef-q1', this)">
+                            <span>C.</span> ETFs can only be purchased in whole shares, while mutual funds allow for fractional shares
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('ef-q1', this)">
+                            <span>D.</span> Mutual funds trade throughout the day, while ETFs only trade once per month
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="ef-q2">
+                    <p><strong>Question 2:</strong> Which investment vehicle typically has lower expense ratios?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('ef-q2', this)">
+                            <span>A.</span> Actively managed mutual funds
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('ef-q2', this)">
+                            <span>B.</span> ETFs
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('ef-q2', this)">
+                            <span>C.</span> All mutual funds, regardless of management style
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('ef-q2', this)">
+                            <span>D.</span> Both have identical expense ratios by law
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="ef-q3">
+                    <p><strong>Question 3:</strong> Which statement about tax efficiency is generally true?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('ef-q3', this)">
+                            <span>A.</span> ETFs are typically more tax-efficient than mutual funds due to their structure
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('ef-q3', this)">
+                            <span>B.</span> Mutual funds never generate capital gains distributions
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('ef-q3', this)">
+                            <span>C.</span> ETFs always have higher tax bills than mutual funds
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('ef-q3', this)">
+                            <span>D.</span> There is no difference in tax treatment between ETFs and mutual funds
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="ef-q4">
+                    <p><strong>Question 4:</strong> Which of the following might be an advantage of mutual funds over ETFs?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('ef-q4', this)">
+                            <span>A.</span> The ability to automatically invest specific dollar amounts and reinvest dividends without commission fees
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('ef-q4', this)">
+                            <span>B.</span> Lower minimum investment requirements
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('ef-q4', this)">
+                            <span>C.</span> The ability to trade options on the fund
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('ef-q4', this)">
+                            <span>D.</span> Real-time pricing throughout the trading day
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="ef-q5">
+                    <p><strong>Question 5:</strong> Both ETFs and mutual funds offer which important benefit for beginning investors?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('ef-q5', this)">
+                            <span>A.</span> Guaranteed returns
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('ef-q5', this)">
+                            <span>B.</span> Government insurance against losses
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('ef-q5', this)">
+                            <span>C.</span> Instant diversification across many securities with a single purchase
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('ef-q5', this)">
+                            <span>D.</span> Professional stock picking advice
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('etfsMutualFundsQuiz', {'ef-q1': 'A', 'ef-q2': 'B', 'ef-q3': 'A', 'ef-q4': 'A', 'ef-q5': 'C'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stock Fundamentals Quiz Modal -->
+    <div id="stockFundamentalsQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('stockFundamentalsQuiz')">&times;</span>
+            <h2>Quiz: Stock Fundamentals</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="sf-q1">
+                    <p><strong>Question 1:</strong> What does the Price-to-Earnings (P/E) ratio measure?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('sf-q1', this)">
+                            <span>A.</span> How many years it would take for a company to generate earnings equal to its market price
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('sf-q1', this)">
+                            <span>B.</span> The company's annual revenue growth rate
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('sf-q1', this)">
+                            <span>C.</span> The percentage of earnings paid out as dividends
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('sf-q1', this)">
+                            <span>D.</span> The company's total debt relative to its assets
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="sf-q2">
+                    <p><strong>Question 2:</strong> What does EPS stand for in stock analysis?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('sf-q2', this)">
+                            <span>A.</span> Equity Per Share
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('sf-q2', this)">
+                            <span>B.</span> Earnings Per Share
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('sf-q2', this)">
+                            <span>C.</span> Estimated Price Stability
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('sf-q2', this)">
+                            <span>D.</span> Effective Profit Strategy
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="sf-q3">
+                    <p><strong>Question 3:</strong> Which financial statement shows a company's revenues, expenses, and profits over a specific period?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('sf-q3', this)">
+                            <span>A.</span> Balance Sheet
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('sf-q3', this)">
+                            <span>B.</span> Cash Flow Statement
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('sf-q3', this)">
+                            <span>C.</span> Income Statement
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('sf-q3', this)">
+                            <span>D.</span> Statement of Shareholders' Equity
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="sf-q4">
+                    <p><strong>Question 4:</strong> What does a high dividend yield generally indicate?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('sf-q4', this)">
+                            <span>A.</span> The company is growing quickly
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('sf-q4', this)">
+                            <span>B.</span> The stock price is low relative to the dividend payment
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('sf-q4', this)">
+                            <span>C.</span> The company has no debt
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('sf-q4', this)">
+                            <span>D.</span> The company will definitely increase dividends in the future
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="sf-q5">
+                    <p><strong>Question 5:</strong> When analyzing stock fundamentals, which of the following statements is most accurate?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('sf-q5', this)">
+                            <span>A.</span> A single financial metric can tell you everything you need to know about a stock
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('sf-q5', this)">
+                            <span>B.</span> Different industries have different typical ranges for fundamental metrics
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('sf-q5', this)">
+                            <span>C.</span> Technical analysis is always more reliable than fundamental analysis
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('sf-q5', this)">
+                            <span>D.</span> Fundamental metrics remain constant regardless of market conditions
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('stockFundamentalsQuiz', {'sf-q1': 'A', 'sf-q2': 'B', 'sf-q3': 'C', 'sf-q4': 'B', 'sf-q5': 'B'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inflation and Investing Quiz Modal -->
+    <div id="inflationQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('inflationQuiz')">&times;</span>
+            <h2>Quiz: Inflation and Investing</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="inf-q1">
+                    <p><strong>Question 1:</strong> What is inflation?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('inf-q1', this)">
+                            <span>A.</span> The rate at which the general level of prices for goods and services rises
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('inf-q1', this)">
+                            <span>B.</span> The increase in the value of money over time
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('inf-q1', this)">
+                            <span>C.</span> The growth rate of the stock market
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('inf-q1', this)">
+                            <span>D.</span> The interest rate set by central banks
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="inf-q2">
+                    <p><strong>Question 2:</strong> How does inflation affect the purchasing power of money?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('inf-q2', this)">
+                            <span>A.</span> It increases purchasing power
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('inf-q2', this)">
+                            <span>B.</span> It has no effect on purchasing power
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('inf-q2', this)">
+                            <span>C.</span> It decreases purchasing power
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('inf-q2', this)">
+                            <span>D.</span> It only affects foreign currencies
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="inf-q3">
+                    <p><strong>Question 3:</strong> Which of the following asset classes has historically performed well during periods of inflation?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('inf-q3', this)">
+                            <span>A.</span> Cash in savings accounts
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('inf-q3', this)">
+                            <span>B.</span> Long-term government bonds
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('inf-q3', this)">
+                            <span>C.</span> Real assets like real estate and commodities
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('inf-q3', this)">
+                            <span>D.</span> Fixed-rate certificates of deposit
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="inf-q4">
+                    <p><strong>Question 4:</strong> Why are fixed-income investments like bonds often negatively affected by high inflation?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('inf-q4', this)">
+                            <span>A.</span> Because their fixed interest payments become less valuable in real terms
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('inf-q4', this)">
+                            <span>B.</span> Because bondholders receive more interest during inflation
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('inf-q4', this)">
+                            <span>C.</span> Because bonds are not affected by economic conditions
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('inf-q4', this)">
+                            <span>D.</span> Because inflation always causes bond issuers to default
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="inf-q5">
+                    <p><strong>Question 5:</strong> What is a "real return"?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('inf-q5', this)">
+                            <span>A.</span> The return on real estate investments
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('inf-q5', this)">
+                            <span>B.</span> The return after fees and expenses
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('inf-q5', this)">
+                            <span>C.</span> The return after taxes
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('inf-q5', this)">
+                            <span>D.</span> The return after adjusting for inflation
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('inflationQuiz', {'inf-q1': 'A', 'inf-q2': 'C', 'inf-q3': 'C', 'inf-q4': 'A', 'inf-q5': 'D'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tax-Efficient Investing Quiz Modal -->
+    <div id="taxEfficientQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('taxEfficientQuiz')">&times;</span>
+            <h2>Quiz: Tax-Efficient Investing</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="tax-q1">
+                    <p><strong>Question 1:</strong> What is tax-efficient investing?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('tax-q1', this)">
+                            <span>A.</span> Investing exclusively in tax-free municipal bonds
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('tax-q1', this)">
+                            <span>B.</span> Strategies that minimize the tax impact on investment returns
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('tax-q1', this)">
+                            <span>C.</span> Investing only through tax-deferred accounts like 401(k)s
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('tax-q1', this)">
+                            <span>D.</span> Illegally avoiding taxes on investment income
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="tax-q2">
+                    <p><strong>Question 2:</strong> Which of the following investments is generally more tax-efficient in a taxable account?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('tax-q2', this)">
+                            <span>A.</span> High-dividend stocks
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('tax-q2', this)">
+                            <span>B.</span> Corporate bonds
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('tax-q2', this)">
+                            <span>C.</span> Index ETFs with low turnover
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('tax-q2', this)">
+                            <span>D.</span> Actively managed mutual funds with high turnover
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="tax-q3">
+                    <p><strong>Question 3:</strong> What type of investment account offers tax-free growth and withdrawals in retirement (if qualified)?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('tax-q3', this)">
+                            <span>A.</span> Traditional IRA
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('tax-q3', this)">
+                            <span>B.</span> Roth IRA
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('tax-q3', this)">
+                            <span>C.</span> Standard brokerage account
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('tax-q3', this)">
+                            <span>D.</span> Checking account
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="tax-q4">
+                    <p><strong>Question 4:</strong> What is tax-loss harvesting?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('tax-q4', this)">
+                            <span>A.</span> Taking capital losses to offset capital gains and reduce tax liability
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('tax-q4', this)">
+                            <span>B.</span> Investing exclusively in companies that pay no dividends
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('tax-q4', this)">
+                            <span>C.</span> Collecting tax refunds from the government
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('tax-q4', this)">
+                            <span>D.</span> Selling investments only when they've lost all value
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="tax-q5">
+                    <p><strong>Question 5:</strong> Which of the following assets is generally more appropriate for a tax-deferred account like a traditional IRA?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('tax-q5', this)">
+                            <span>A.</span> Municipal bonds
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('tax-q5', this)">
+                            <span>B.</span> Growth stocks that pay no dividends
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('tax-q5', this)">
+                            <span>C.</span> Corporate bonds that generate regular taxable income
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('tax-q5', this)">
+                            <span>D.</span> Tax-efficient index funds
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('taxEfficientQuiz', {'tax-q1': 'B', 'tax-q2': 'C', 'tax-q3': 'B', 'tax-q4': 'A', 'tax-q5': 'C'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Investment Time Horizon Quiz Modal -->
+    <div id="timeHorizonQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('timeHorizonQuiz')">&times;</span>
+            <h2>Quiz: Investment Time Horizon</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="th-q1">
+                    <p><strong>Question 1:</strong> What is an investment time horizon?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('th-q1', this)">
+                            <span>A.</span> The expected length of time you will hold an investment before needing the funds
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('th-q1', this)">
+                            <span>B.</span> The time it takes for an investment to double in value
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('th-q1', this)">
+                            <span>C.</span> The time of day when it's best to buy or sell investments
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('th-q1', this)">
+                            <span>D.</span> The trading hours of the stock market
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="th-q2">
+                    <p><strong>Question 2:</strong> How does time horizon typically affect asset allocation?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('th-q2', this)">
+                            <span>A.</span> Longer time horizons usually allow for higher allocations to more volatile assets like stocks
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('th-q2', this)">
+                            <span>B.</span> Time horizon has no effect on how investments should be allocated
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('th-q2', this)">
+                            <span>C.</span> Shorter time horizons are better for higher stock allocations
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('th-q2', this)">
+                            <span>D.</span> All investors should have the same asset allocation regardless of time horizon
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="th-q3">
+                    <p><strong>Question 3:</strong> Which of these financial goals would typically have the shortest investment time horizon?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('th-q3', this)">
+                            <span>A.</span> Retirement in 30 years
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('th-q3', this)">
+                            <span>B.</span> College education for a newborn child
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('th-q3', this)">
+                            <span>C.</span> Down payment on a house in 2 years
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('th-q3', this)">
+                            <span>D.</span> Legacy planning for future generations
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="th-q4">
+                    <p><strong>Question 4:</strong> Why does short-term market volatility matter less for investors with long time horizons?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('th-q4', this)">
+                            <span>A.</span> Because short-term fluctuations tend to even out over long periods
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('th-q4', this)">
+                            <span>B.</span> Because long-term investors never experience losses
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('th-q4', this)">
+                            <span>C.</span> Because market volatility only affects short-term investors
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('th-q4', this)">
+                            <span>D.</span> Because all investments always go up in the long run
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="th-q5">
+                    <p><strong>Question 5:</strong> As you get closer to your financial goal (such as retirement), what adjustment might you consider making to your investment strategy?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('th-q5', this)">
+                            <span>A.</span> Increasing the allocation to more aggressive investments
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('th-q5', this)">
+                            <span>B.</span> Making no changes regardless of the approaching goal
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('th-q5', this)">
+                            <span>C.</span> Gradually shifting to more conservative investments to protect your accumulated wealth
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('th-q5', this)">
+                            <span>D.</span> Selling all investments and holding only cash
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('timeHorizonQuiz', {'th-q1': 'A', 'th-q2': 'A', 'th-q3': 'C', 'th-q4': 'A', 'th-q5': 'C'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tax-Efficient Investing Quiz Modal (Fixed) -->
+    <div id="taxEfficientInvestingQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('taxEfficientInvestingQuiz')">&times;</span>
+            <h2>Quiz: Tax-Efficient Investing</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="tei-q1">
+                    <p><strong>Question 1:</strong> What is tax-efficient investing?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('tei-q1', this)">
+                            <span>A.</span> Investing exclusively in tax-free municipal bonds
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('tei-q1', this)">
+                            <span>B.</span> Strategies that minimize the tax impact on investment returns
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('tei-q1', this)">
+                            <span>C.</span> Investing only through tax-deferred accounts like 401(k)s
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('tei-q1', this)">
+                            <span>D.</span> Illegally avoiding taxes on investment income
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="tei-q2">
+                    <p><strong>Question 2:</strong> Which of the following investments is generally more tax-efficient in a taxable account?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('tei-q2', this)">
+                            <span>A.</span> High-dividend stocks
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('tei-q2', this)">
+                            <span>B.</span> Corporate bonds
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('tei-q2', this)">
+                            <span>C.</span> Index ETFs with low turnover
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('tei-q2', this)">
+                            <span>D.</span> Actively managed mutual funds with high turnover
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="tei-q3">
+                    <p><strong>Question 3:</strong> What type of investment account offers tax-free growth and withdrawals in retirement (if qualified)?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('tei-q3', this)">
+                            <span>A.</span> Traditional IRA
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('tei-q3', this)">
+                            <span>B.</span> Roth IRA
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('tei-q3', this)">
+                            <span>C.</span> Standard brokerage account
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('tei-q3', this)">
+                            <span>D.</span> Checking account
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="tei-q4">
+                    <p><strong>Question 4:</strong> What is tax-loss harvesting?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('tei-q4', this)">
+                            <span>A.</span> Taking capital losses to offset capital gains and reduce tax liability
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('tei-q4', this)">
+                            <span>B.</span> Investing exclusively in companies that pay no dividends
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('tei-q4', this)">
+                            <span>C.</span> Collecting tax refunds from the government
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('tei-q4', this)">
+                            <span>D.</span> Selling investments only when they've lost all value
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="tei-q5">
+                    <p><strong>Question 5:</strong> Which of the following assets is generally more appropriate for a tax-deferred account like a traditional IRA?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('tei-q5', this)">
+                            <span>A.</span> Municipal bonds
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('tei-q5', this)">
+                            <span>B.</span> Growth stocks that pay no dividends
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('tei-q5', this)">
+                            <span>C.</span> Corporate bonds that generate regular taxable income
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('tei-q5', this)">
+                            <span>D.</span> Tax-efficient index funds
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('taxEfficientInvestingQuiz', {'tei-q1': 'B', 'tei-q2': 'C', 'tei-q3': 'B', 'tei-q4': 'A', 'tei-q5': 'C'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Rebalancing Quiz Modal -->
+    <div id="portfolioRebalancingQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('portfolioRebalancingQuiz')">&times;</span>
+            <h2>Quiz: Portfolio Rebalancing</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="pr-q1">
+                    <p><strong>Question 1:</strong> What is portfolio rebalancing?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('pr-q1', this)">
+                            <span>A.</span> Completely changing all investments in your portfolio every year
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('pr-q1', this)">
+                            <span>B.</span> The process of realigning the weightings of assets in a portfolio to maintain the desired level of asset allocation
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('pr-q1', this)">
+                            <span>C.</span> Selling all your investments and starting over
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('pr-q1', this)">
+                            <span>D.</span> Moving all your investments to a different brokerage
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="pr-q2">
+                    <p><strong>Question 2:</strong> Why is portfolio rebalancing important?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('pr-q2', this)">
+                            <span>A.</span> It ensures your portfolio maintains your desired risk level over time
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('pr-q2', this)">
+                            <span>B.</span> It guarantees higher returns than a non-rebalanced portfolio
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('pr-q2', this)">
+                            <span>C.</span> It eliminates all risk from your investments
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('pr-q2', this)">
+                            <span>D.</span> It's required by law for all investment accounts
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="pr-q3">
+                    <p><strong>Question 3:</strong> In a typical 60/40 stock/bond portfolio, if stocks perform very well for a year, what might happen without rebalancing?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('pr-q3', this)">
+                            <span>A.</span> The portfolio might shift to 70/30 or 75/25, increasing the overall risk
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('pr-q3', this)">
+                            <span>B.</span> The portfolio will automatically rebalance itself
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('pr-q3', this)">
+                            <span>C.</span> The allocation would remain exactly 60/40 regardless of performance
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('pr-q3', this)">
+                            <span>D.</span> The bond portion would automatically increase to maintain the 60/40 ratio
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="pr-q4">
+                    <p><strong>Question 4:</strong> What is a common approach to rebalancing frequency?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('pr-q4', this)">
+                            <span>A.</span> Rebalancing daily to maintain perfect allocation
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('pr-q4', this)">
+                            <span>B.</span> Never rebalancing once you set your initial allocation
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('pr-q4', this)">
+                            <span>C.</span> Rebalancing on a fixed schedule (e.g., annually) or when allocations drift beyond a predetermined threshold
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('pr-q4', this)">
+                            <span>D.</span> Only rebalancing during market downturns
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="pr-q5">
+                    <p><strong>Question 5:</strong> What is one way to reduce the tax impact of rebalancing?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('pr-q5', this)">
+                            <span>A.</span> Using new contributions to buy underweighted assets rather than selling overweighted ones
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('pr-q5', this)">
+                            <span>B.</span> Rebalancing as frequently as possible, preferably weekly
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('pr-q5', this)">
+                            <span>C.</span> Always selling your worst-performing assets
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('pr-q5', this)">
+                            <span>D.</span> Avoiding rebalancing entirely to prevent any tax consequences
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('portfolioRebalancingQuiz', {'pr-q1': 'B', 'pr-q2': 'A', 'pr-q3': 'A', 'pr-q4': 'C', 'pr-q5': 'A'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Investment Fees Quiz Modal -->
+    <div id="investmentFeesQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('investmentFeesQuiz')">&times;</span>
+            <h2>Quiz: Investment Fees</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="if-q1">
+                    <p><strong>Question 1:</strong> What is an expense ratio?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('if-q1', this)">
+                            <span>A.</span> The annual fee charged by brokerages to maintain your account
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('if-q1', this)">
+                            <span>B.</span> The annual cost of operating a mutual fund or ETF, expressed as a percentage of assets
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('if-q1', this)">
+                            <span>C.</span> The commission charged when buying or selling individual stocks
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('if-q1', this)">
+                            <span>D.</span> The ratio of your expenses to your income
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="if-q2">
+                    <p><strong>Question 2:</strong> How can investment fees impact your returns over time?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('if-q2', this)">
+                            <span>A.</span> Fees have a negligible impact on long-term returns
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('if-q2', this)">
+                            <span>B.</span> Fees only matter for short-term investments
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('if-q2', this)">
+                            <span>C.</span> Higher fees guarantee better performance
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('if-q2', this)">
+                            <span>D.</span> Even small percentage differences in fees can significantly reduce your wealth over long periods due to compounding
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="if-q3">
+                    <p><strong>Question 3:</strong> Which type of investment typically has lower expense ratios?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('if-q3', this)">
+                            <span>A.</span> Actively managed mutual funds
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('if-q3', this)">
+                            <span>B.</span> Passive index funds
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('if-q3', this)">
+                            <span>C.</span> Hedge funds
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('if-q3', this)">
+                            <span>D.</span> Private equity funds
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="if-q4">
+                    <p><strong>Question 4:</strong> What is a "load" in mutual fund investing?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('if-q4', this)">
+                            <span>A.</span> The minimum investment required
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('if-q4', this)">
+                            <span>B.</span> The tax burden associated with the fund
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('if-q4', this)">
+                            <span>C.</span> A sales charge or commission paid when buying (front-load) or selling (back-load) mutual fund shares
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('if-q4', this)">
+                            <span>D.</span> The risk level of the fund
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="if-q5">
+                    <p><strong>Question 5:</strong> Which of the following statements about investment fees is TRUE?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('if-q5', this)">
+                            <span>A.</span> Higher fees always indicate better investment performance
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('if-q5', this)">
+                            <span>B.</span> Fees are standardized across all investment products
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('if-q5', this)">
+                            <span>C.</span> Most actively managed funds consistently outperform their benchmarks after fees
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('if-q5', this)">
+                            <span>D.</span> Investors should consider fees as one of several important factors when selecting investments
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('investmentFeesQuiz', {'if-q1': 'B', 'if-q2': 'D', 'if-q3': 'B', 'if-q4': 'C', 'if-q5': 'D'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Behavioral Finance Quiz Modal -->
+    <div id="behavioralFinanceQuiz" class="topic-modal quiz-modal">
+        <div class="topic-modal-content quiz-modal-content">
+            <span class="close-modal" onclick="closeQuizModal('behavioralFinanceQuiz')">&times;</span>
+            <h2>Quiz: Behavioral Finance</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="bf-q1">
+                    <p><strong>Question 1:</strong> What is behavioral finance?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('bf-q1', this)">
+                            <span>A.</span> A field that studies how psychological influences and biases affect investor behavior and market outcomes
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('bf-q1', this)">
+                            <span>B.</span> The study of how financial incentives modify human behavior
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('bf-q1', this)">
+                            <span>C.</span> A trading strategy based on investor psychology
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('bf-q1', this)">
+                            <span>D.</span> A theory that markets are perfectly rational at all times
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="bf-q2">
+                    <p><strong>Question 2:</strong> What is "loss aversion" in behavioral finance?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('bf-q2', this)">
+                            <span>A.</span> The tendency of investors to completely avoid any investments with risk
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('bf-q2', this)">
+                            <span>B.</span> The tendency to feel the pain of losses more strongly than the pleasure of equivalent gains
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('bf-q2', this)">
+                            <span>C.</span> The habit of selling winners too soon
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('bf-q2', this)">
+                            <span>D.</span> The habit of holding losers too long
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="bf-q3">
+                    <p><strong>Question 3:</strong> What is "confirmation bias" in investing?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('bf-q3', this)">
+                            <span>A.</span> The tendency to seek out information that confirms existing beliefs while ignoring contradictory evidence
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('bf-q3', this)">
+                            <span>B.</span> The tendency to follow what other investors are doing
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('bf-q3', this)">
+                            <span>C.</span> The need to confirm all trades with a financial advisor
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('bf-q3', this)">
+                            <span>D.</span> The bias toward investments that have been confirmed as safe by rating agencies
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="bf-q4">
+                    <p><strong>Question 4:</strong> How might "herd behavior" affect investment markets?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('bf-q4', this)">
+                            <span>A.</span> It can lead to market bubbles and crashes when investors follow others into and out of investments without proper analysis
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('bf-q4', this)">
+                            <span>B.</span> It always leads to optimal market outcomes as the "wisdom of crowds" prevails
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('bf-q4', this)">
+                            <span>C.</span> It has no significant effect on market prices
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('bf-q4', this)">
+                            <span>D.</span> It only affects inexperienced investors, not professionals
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <div class="quiz-question" id="bf-q5">
+                    <p><strong>Question 5:</strong> Which of the following strategies can help combat behavioral biases in investing?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="A" onclick="selectAnswer('bf-q5', this)">
+                            <span>A.</span> Following your gut feelings about market movements
+                        </div>
+                        <div class="quiz-option" data-value="B" onclick="selectAnswer('bf-q5', this)">
+                            <span>B.</span> Making investment decisions based primarily on recent news headlines
+                        </div>
+                        <div class="quiz-option" data-value="C" onclick="selectAnswer('bf-q5', this)">
+                            <span>C.</span> Using a systematic investment approach with clear rules and periodic rebalancing
+                        </div>
+                        <div class="quiz-option" data-value="D" onclick="selectAnswer('bf-q5', this)">
+                            <span>D.</span> Checking your portfolio value multiple times per day
+                        </div>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+                
+                <button class="quiz-submit-btn" onclick="submitQuiz('behavioralFinanceQuiz', {'bf-q1': 'A', 'bf-q2': 'B', 'bf-q3': 'A', 'bf-q4': 'A', 'bf-q5': 'C'})">Submit Answers</button>
+                
+                <div class="quiz-results"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="{{ url_for('static', filename='account.js') }}"></script>
     <script src="{{ url_for('static', filename='theme.js') }}"></script>
     <script>
@@ -581,6 +2968,105 @@
                     document.body.style.overflow = 'auto';
                 }
             }
+        }
+        
+        // Quiz functions
+        function openQuizModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+            
+            // Reset quiz state when opening
+            const modal = document.getElementById(modalId);
+            const options = modal.querySelectorAll('.quiz-option');
+            const feedback = modal.querySelectorAll('.quiz-feedback');
+            const results = modal.querySelector('.quiz-results');
+            
+            options.forEach(option => {
+                option.classList.remove('selected', 'correct', 'incorrect');
+            });
+            
+            feedback.forEach(item => {
+                item.innerHTML = '';
+            });
+            
+            if (results) {
+                results.innerHTML = '';
+            }
+        }
+        
+        function closeQuizModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+        
+        function selectAnswer(questionId, option) {
+            // Deselect all options in this question
+            const questionContainer = document.getElementById(questionId);
+            const options = questionContainer.querySelectorAll('.quiz-option');
+            
+            options.forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Select the clicked option
+            option.classList.add('selected');
+        }
+        
+        function submitQuiz(quizId, correctAnswers) {
+            const quiz = document.getElementById(quizId);
+            const questions = Object.keys(correctAnswers);
+            let correctCount = 0;
+            let feedbackHtml = '';
+            
+            questions.forEach(questionId => {
+                const questionElement = document.getElementById(questionId);
+                const selectedOption = questionElement.querySelector('.quiz-option.selected');
+                const feedbackElement = questionElement.querySelector('.quiz-feedback');
+                const correctAnswer = correctAnswers[questionId];
+                
+                // Reset previous feedback
+                questionElement.querySelectorAll('.quiz-option').forEach(option => {
+                    option.classList.remove('correct', 'incorrect');
+                });
+                
+                if (selectedOption) {
+                    const selectedValue = selectedOption.getAttribute('data-value');
+                    
+                    if (selectedValue === correctAnswer) {
+                        feedbackElement.innerHTML = 'Correct.';
+                        feedbackElement.style.color = '#4CAF50';
+                        selectedOption.classList.add('correct');
+                        correctCount++;
+                    } else {
+                        feedbackElement.innerHTML = 'Incorrect.';
+                        feedbackElement.style.color = '#F44336';
+                        selectedOption.classList.add('incorrect');
+                        
+                        // Highlight the correct answer
+                        const options = questionElement.querySelectorAll('.quiz-option');
+                        options.forEach(option => {
+                            if (option.getAttribute('data-value') === correctAnswer) {
+                                option.classList.add('correct');
+                            }
+                        });
+                    }
+                } else {
+                    feedbackElement.innerHTML = "Didn't Answer.";
+                    feedbackElement.style.color = '#FF9800';
+                    
+                    // Highlight the correct answer
+                    const options = questionElement.querySelectorAll('.quiz-option');
+                    options.forEach(option => {
+                        if (option.getAttribute('data-value') === correctAnswer) {
+                            option.classList.add('correct');
+                        }
+                    });
+                }
+            });
+            
+            // Show overall results
+            const resultsElement = quiz.querySelector('.quiz-results');
+            resultsElement.innerHTML = `You got ${correctCount} out of ${questions.length} questions correct.`;
         }
     </script>
 </body>

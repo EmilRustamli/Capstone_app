@@ -1,14 +1,40 @@
 # Large data files
 trade_data.csv
-stock_data/*.csv
+stock_data/*
 *.ipynb
 Capstone_Full_Draft.ipynb
+*.csv
+*.json
+!stock_data.json
+!package.json
 
 # Python environment files
 .venv
+venv
 __pycache__
 *.pyc
+*.pyo
+*.pyd
+.Python
+.pytest_cache
+.coverage
+htmlcov/
+
+# Development files
+.git
+.github
+.gitignore
+*.md
+LICENSE
+*.lock
+.env.local
+.env.development
 
 # Other large files
 *.db
-flask_session/ 
+instance/
+flask_session/
+*.sqlite*
+*.log
+.DS_Store
+node_modules/ 

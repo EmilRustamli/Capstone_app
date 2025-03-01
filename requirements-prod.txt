@@ -1,0 +1,11 @@
+Flask==2.3.3
+Flask-SQLAlchemy==3.1.1
+Flask-Mail==0.9.1
+yfinance==0.2.36
+pandas
+numpy
+Flask-Session==0.5.0
+Werkzeug==2.3.7
+pytz
+gunicorn
+python-dotenv 

@@ -77,7 +77,48 @@ class Portfolio:
     @classmethod
     def load_data(cls, csv_path):
         """Load pre-downloaded stock data from a CSV file."""
-        cls.trade_data = pd.read_csv(csv_path, index_col=0, parse_dates=True)
+        try:
+            if os.environ.get('VERCEL_ENV') == 'production':
+                print("Running in production environment - using lightweight data source")
+                # In production, create a minimal dataset with the most important stocks
+                minimal_data = {}
+                
+                # Use yfinance to fetch data for a limited set of stocks (TOP_TICKERS)
+                for ticker in TOP_TICKERS:
+                    try:
+                        data = yf.download(ticker, period="5y")['Adj Close']
+                        minimal_data[ticker] = data
+                    except Exception as e:
+                        print(f"Error fetching data for {ticker}: {str(e)}")
+                
+                if minimal_data:
+                    # Create a DataFrame with the downloaded data
+                    cls.trade_data = pd.DataFrame(minimal_data)
+                    print(f"Loaded data for {len(minimal_data)} tickers in production")
+                else:
+                    raise ValueError("Failed to load any stock data in production")
+            else:
+                # In development, use the local CSV
+                cls.trade_data = pd.read_csv(csv_path, index_col=0, parse_dates=True)
+                print(f"Loaded data from CSV in development")
+        except Exception as e:
+            print(f"Error loading data: {str(e)}")
+            # Create minimal fallback data if loading fails
+            fallback_data = {}
+            for ticker in TOP_TICKERS[:5]:  # Use only 5 tickers for fallback
+                try:
+                    data = yf.download(ticker, period="2y")['Adj Close']
+                    fallback_data[ticker] = data
+                except:
+                    continue
+            
+            if fallback_data:
+                cls.trade_data = pd.DataFrame(fallback_data)
+                print(f"Using fallback data with {len(fallback_data)} tickers")
+            else:
+                # Last resort - create empty DataFrame with minimal structure
+                cls.trade_data = pd.DataFrame()
+                print("Using empty DataFrame as last resort")
 
     @classmethod
     def monte_carlo_simulation(cls, portfolio, num_simulations=100, confidence_interval=0.95, 
@@ -789,20 +830,36 @@ def get_stock_info(ticker):
 
 def search_stocks(query):
     try:
-        with open('stock_data.json', 'r') as f:
-            company_info = json.load(f)
-        
-        query = query.upper()
-        results = []
-        for ticker, info in company_info.items():
-            if query in ticker.upper() or query in info['name'].upper():
-                results.append({
-                    'ticker': ticker,
-                    'name': info['name']
-                })
-        return results[:10]  # Return top 10 matches
-    except:
-        return []
+        # In production, use a minimal approach
+        if os.environ.get('VERCEL_ENV') == 'production':
+            # Use TOP_TICKERS as a minimal dataset
+            results = []
+            query = query.upper()
+            for ticker in TOP_TICKERS:
+                if query in ticker:
+                    results.append({
+                        'ticker': ticker,
+                        'name': f"{ticker} Stock" # Simple placeholder name
+                    })
+            return results[:10]
+        else:
+            # In development, use the local JSON file
+            with open('stock_data.json', 'r') as f:
+                company_info = json.load(f)
+            
+            query = query.upper()
+            results = []
+            for ticker, info in company_info.items():
+                if query in ticker.upper() or query in info['name'].upper():
+                    results.append({
+                        'ticker': ticker,
+                        'name': info['name']
+                    })
+            return results[:10]  # Return top 10 matches
+    except Exception as e:
+        print(f"Error in search_stocks: {str(e)}")
+        # Minimal fallback
+        return [{'ticker': t, 'name': f"{t} Stock"} for t in TOP_TICKERS if query.upper() in t][:10]
 
 @app.route('/reset-portfolio', methods=['POST'])
 def reset_portfolio():
@@ -882,23 +939,51 @@ def delete_portfolio_item():
 @app.route('/get-top-stocks')
 def get_top_stocks():
     try:
-        with open('stock_data.json', 'r') as f:
-            companies = json.load(f)
-        
-        # Debug: Print all TOP_TICKERS and which ones are missing
-        logger.info(f"Looking for these tickers: {TOP_TICKERS}")
-        
-        # Get info for our predefined TOP_TICKERS in the exact order
-        top_companies = []
-        for ticker in TOP_TICKERS:
-            if ticker in companies:
-                company_data = companies[ticker].copy()
+        # In production environment, don't try to load the JSON file
+        if os.environ.get('VERCEL_ENV') == 'production':
+            logger.info("Production environment detected, using generated data")
+            # Create simplified data for top tickers
+            top_companies = []
+            for ticker in TOP_TICKERS:
+                # Create basic info for each ticker
+                company_data = {
+                    'ticker': ticker,
+                    'name': f"{ticker} Stock",
+                    'sector': 'Technology',
+                    'industry': 'Various',
+                    'country': 'USA',
+                    'exchange': 'NASDAQ/NYSE'
+                }
                 top_companies.append(company_data)
-        
-        return jsonify(top_companies)
+            return jsonify(top_companies)
+        else:
+            # In development, use the local JSON file
+            with open('stock_data.json', 'r') as f:
+                companies = json.load(f)
+            
+            # Debug: Print all TOP_TICKERS and which ones are missing
+            logger.info(f"Looking for these tickers: {TOP_TICKERS}")
+            
+            # Get info for our predefined TOP_TICKERS in the exact order
+            top_companies = []
+            for ticker in TOP_TICKERS:
+                if ticker in companies:
+                    company_data = companies[ticker].copy()
+                    top_companies.append(company_data)
+            
+            return jsonify(top_companies)
     except Exception as e:
         logger.error(f"Error in get_top_stocks: {str(e)}")
-        return jsonify({'error': str(e)}), 500
+        # Provide fallback data
+        fallback_companies = []
+        for ticker in TOP_TICKERS:
+            fallback_companies.append({
+                'ticker': ticker,
+                'name': f"{ticker} Stock",
+                'sector': 'Unknown',
+                'industry': 'Unknown'
+            })
+        return jsonify(fallback_companies)
 
 @app.route('/get-portfolio-stocks')
 def get_portfolio_stocks():
@@ -909,21 +994,54 @@ def get_portfolio_stocks():
         user = User.query.filter_by(email=session['user_email']).first()
         portfolio_items = PortfolioItem.query.filter_by(user_id=user.id).all()
         
-        # Get stock info from stock_data.json
-        with open('stock_data.json', 'r') as f:
-            stock_data = json.load(f)
-        
-        portfolio_stocks = []
-        for item in portfolio_items:
-            if item.ticker in stock_data:
-                stock_info = stock_data[item.ticker].copy()
-                stock_info['amount'] = item.amount
+        # In production environment, don't try to load the JSON file
+        if os.environ.get('VERCEL_ENV') == 'production':
+            print("Production environment detected, using generated portfolio data")
+            # Create simplified data for portfolio stocks
+            portfolio_stocks = []
+            for item in portfolio_items:
+                # Create basic info for each ticker
+                stock_info = {
+                    'ticker': item.ticker,
+                    'name': f"{item.ticker} Stock",
+                    'sector': 'Various',
+                    'industry': 'Various',
+                    'amount': item.amount
+                }
                 portfolio_stocks.append(stock_info)
+            return jsonify(portfolio_stocks)
+        else:
+            # In development, use the local JSON file
+            with open('stock_data.json', 'r') as f:
+                stock_data = json.load(f)
+            
+            portfolio_stocks = []
+            for item in portfolio_items:
+                if item.ticker in stock_data:
+                    stock_info = stock_data[item.ticker].copy()
+                    stock_info['amount'] = item.amount
+                    portfolio_stocks.append(stock_info)
+                else:
+                    # Fallback for tickers not in the data
+                    stock_info = {
+                        'ticker': item.ticker,
+                        'name': f"{item.ticker} Stock",
+                        'amount': item.amount
+                    }
+                    portfolio_stocks.append(stock_info)
         
-        return jsonify(portfolio_stocks)
+            return jsonify(portfolio_stocks)
     except Exception as e:
         print(f"Error getting portfolio stocks: {str(e)}")
-        return jsonify([])
+        # Provide fallback data
+        fallback_stocks = []
+        for item in portfolio_items:
+            fallback_stocks.append({
+                'ticker': item.ticker,
+                'name': f"{item.ticker} Stock",
+                'amount': item.amount
+            })
+        return jsonify(fallback_stocks)
 
 # Add this helper function to get companies data
 def get_all_companies():

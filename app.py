@@ -79,6 +79,145 @@ class Portfolio:
         """Load pre-downloaded stock data from a CSV file."""
         cls.trade_data = pd.read_csv(csv_path, index_col=0, parse_dates=True)
 
+    @classmethod
+    def monte_carlo_simulation(cls, portfolio, num_simulations=100, confidence_interval=0.95, 
+                              start_date=None, end_date=None, prediction_days=90):
+        """
+        Perform Monte Carlo simulation for the portfolio.
+        
+        Args:
+            portfolio: Dict of {ticker: investment_amount}
+            num_simulations: Number of simulation paths to generate
+            confidence_interval: Confidence interval for the prediction bounds
+            start_date: Start date for historical data
+            end_date: End date for historical data
+            prediction_days: Number of days to predict into the future
+            
+        Returns:
+            dict: Monte Carlo simulation results
+        """
+        try:
+            # Convert start_date and end_date to datetime objects
+            start_date_dt = pd.to_datetime(start_date)
+            end_date_dt = pd.to_datetime(end_date)
+            #start_date_dt = end_date_dt - pd.Timedelta(days=365)
+            
+            # Filter the data for the specified date range
+            tickers = list(portfolio.keys())
+            filtered_data = cls.trade_data.loc[start_date_dt:end_date_dt, tickers]
+            
+            # Calculate daily returns
+            returns = filtered_data.pct_change().dropna()
+            
+            # Calculate the covariance matrix
+            cov_matrix = returns.cov()
+            
+            # Create a multivariate normal distribution
+            mean_returns = returns.mean().values
+            
+            # Get the last prices for each ticker
+            last_prices = filtered_data.iloc[-1]
+            
+            # Calculate initial portfolio value and shares
+            total_investment = sum(portfolio.values())
+            shares = {ticker: portfolio[ticker] / last_prices[ticker] for ticker in tickers}
+            
+            # Generate future dates for the prediction period
+            last_date = filtered_data.index[-1]
+            future_dates = pd.date_range(start=last_date + pd.Timedelta(days=1), periods=prediction_days, freq='B')
+            
+            # Combine historical and future dates
+            all_dates = pd.DatetimeIndex(filtered_data.index.tolist() + future_dates.tolist())
+            
+            # Separate historical data index for resampling later
+            historical_dates = filtered_data.index
+            
+            # Create an array to store all simulations
+            all_simulations = np.zeros((num_simulations, len(all_dates)))
+            
+            # Fill in the historical data for all simulations
+            historical_values = sum(filtered_data[ticker] * shares[ticker] for ticker in tickers)
+            for i in range(num_simulations):
+                all_simulations[i, :len(historical_dates)] = historical_values.values
+            
+            # Simulate future prices using Geometric Brownian Motion
+            for i in range(num_simulations):
+                # Generate correlated random returns
+                random_returns = np.random.multivariate_normal(mean_returns, cov_matrix, prediction_days)
+                
+                # Simulate future prices
+                future_prices = np.zeros((prediction_days, len(tickers)))
+                for j in range(len(tickers)):
+                    future_prices[0, j] = last_prices[tickers[j]]
+                    for k in range(1, prediction_days):
+                        future_prices[k, j] = future_prices[k-1, j] * (1 + random_returns[k-1, j])
+                
+                # Calculate portfolio values
+                for k in range(prediction_days):
+                    all_simulations[i, len(historical_dates) + k] = sum(future_prices[k, j] * shares[tickers[j]] 
+                                                                     for j in range(len(tickers)))
+            
+            # Resample all dates to weekly - selecting the last value of each week
+            all_dates_df = pd.DataFrame(index=all_dates)
+            weekly_dates = all_dates_df.resample('W').last().index
+            
+            # Create a dataframe to store the weekly resampled simulations
+            weekly_simulations = pd.DataFrame(index=all_dates, data={f'sim_{i}': all_simulations[i] for i in range(num_simulations)})
+            weekly_simulations = weekly_simulations.resample('W').last()
+            
+            # Convert simulations back to numpy array
+            resampled_sims = np.array([weekly_simulations[f'sim_{i}'].values for i in range(num_simulations)])
+            
+            # Calculate statistics from the simulations at each time point
+            median_path = np.median(resampled_sims, axis=0)
+            mean_path = np.mean(resampled_sims, axis=0)
+            
+            # Calculate confidence intervals
+            lower_bound = np.percentile(resampled_sims, (1 - confidence_interval) * 100 / 2, axis=0)
+            upper_bound = np.percentile(resampled_sims, 100 - (1 - confidence_interval) * 100 / 2, axis=0)
+            
+            # Calculate the historical path (resampled to weekly)
+            historical_weekly_values = historical_values.resample('W').last()
+            
+            # Calculate final value statistics
+            final_values = resampled_sims[:, -1]
+            final_mean_value = np.mean(final_values)
+            final_median_value = np.median(final_values)
+            final_lower_bound = np.percentile(final_values, (1 - confidence_interval) * 100 / 2)
+            final_upper_bound = np.percentile(final_values, 100 - (1 - confidence_interval) * 100 / 2)
+            
+            # Calculate VaR
+            initial_value = historical_values.iloc[-1]
+            changes = final_values - initial_value
+            var_95 = np.percentile(changes, 5)
+            
+            # Probability of gain
+            probability_of_gain = np.mean(final_values > initial_value)
+            
+            # Max potential gain
+            max_gain = np.max(final_values) - initial_value
+            
+            # Prepare results
+            return {
+                'dates': weekly_dates.strftime('%Y-%m-%d').tolist(),
+                'median_path': median_path.tolist(),
+                'mean_path': mean_path.tolist(),
+                'upper_bound': upper_bound.tolist(),
+                'lower_bound': lower_bound.tolist(),
+                'historical_path': historical_weekly_values.values.tolist(),
+                'sample_paths': resampled_sims[:20].tolist(),  # Include only 20 sample paths to reduce payload size
+                'final_mean_value': float(final_mean_value),
+                'final_median_value': float(final_median_value),
+                'final_lower_bound': float(final_lower_bound),
+                'final_upper_bound': float(final_upper_bound),
+                'var_95': float(var_95),
+                'probability_of_gain': float(probability_of_gain),
+                'max_gain': float(max_gain)
+            }
+        except Exception as e:
+            print(f"Error in Monte Carlo simulation: {str(e)}")
+            raise
+
     def __init__(self, tickers, weights, start_date, end_date):
         self.tickers = tickers
         self.weights = np.array(weights)
@@ -93,7 +232,30 @@ class Portfolio:
         if Portfolio.trade_data.empty:
             raise ValueError("Stock data is not loaded. Use Portfolio.load_data(csv_path) first")
 
-        filtered_data = Portfolio.trade_data.loc[self.start_date:self.end_date, self.tickers]
+        # Convert string dates to datetime objects if they're not already
+        start_date = pd.to_datetime(self.start_date)
+        end_date = pd.to_datetime(self.end_date)
+        
+        # Find nearest previous valid dates if the exact dates don't exist
+        valid_dates = Portfolio.trade_data.index
+        
+        if start_date not in valid_dates:
+            # Find the nearest previous date that exists in the dataset
+            valid_previous_dates = valid_dates[valid_dates < start_date]
+            if len(valid_previous_dates) == 0:
+                raise ValueError(f"No valid dates before start_date {start_date}")
+            start_date = valid_previous_dates[-1]
+            print(f"Adjusted start_date to nearest previous valid date: {start_date}")
+        
+        if end_date not in valid_dates:
+            # Find the nearest previous date that exists in the dataset
+            valid_previous_dates = valid_dates[valid_dates < end_date]
+            if len(valid_previous_dates) == 0:
+                raise ValueError(f"No valid dates before end_date {end_date}")
+            end_date = valid_previous_dates[-1]
+            print(f"Adjusted end_date to nearest previous valid date: {end_date}")
+
+        filtered_data = Portfolio.trade_data.loc[start_date:end_date, self.tickers]
         if filtered_data.isnull().values.any():
             raise ValueError("Missing data for selected tickers in the specified date range.")
         return filtered_data
@@ -107,6 +269,7 @@ class Portfolio:
         return {
             'Annualized Return': self.calculate_annualized_return() * 100,
             'Annualized Volatility': self.calculate_annualized_volatility() * 100,
+            'Sharpe Ratio': self.calculate_annualized_return() / self.calculate_annualized_volatility(),
             'R²': self.calculate_r_squared() * 100,
             'Idiosyncratic Risk': self.calculate_idiosyncratic_risk() * 100,
             'VaR': self.calculate_var() * 100,
@@ -159,7 +322,7 @@ class Portfolio:
             'VaR': f"Maximum potential loss over a specified period with a 95% confidence.",
             'CVaR': f"Average loss expected in the worst 5% of scenarios."
         }
-    
+
     @classmethod
     def optimize_user_portfolio(cls, portfolio_input, start_date, end_date, optimize_for="sharpe", build_new=False, full_tickers_list=None):
         try:
@@ -175,39 +338,49 @@ class Portfolio:
             # Filter data for the specified date range
             data = cls.trade_data.loc[start_date:end_date, tickers]
             
-            if build_new:
-                # For new portfolio, start with equal weights
-                total_value = sum(portfolio_input.values())  # Use total value from current portfolio
-                num_stocks = len(tickers)
-                original_weights = {ticker: 1.0/num_stocks for ticker in tickers}
-            else:
-                # Calculate current portfolio weights
-                total_value = sum(portfolio_input.values())
-                original_weights = {ticker: value/total_value for ticker, value in portfolio_input.items()}
+            # Calculate current portfolio weights - always use actual portfolio metrics
+            total_value = sum(portfolio_input.values())
+            current_portfolio_tickers = list(portfolio_input.keys())
+            current_portfolio_weights = {ticker: value/total_value for ticker, value in portfolio_input.items()}
             
-            # Calculate current portfolio metrics
-            returns = data.pct_change()
-            mean_returns = returns.mean() * 252
-            cov_matrix = returns.cov() * 252
+            # Get data for current portfolio evaluation
+            current_portfolio_data = cls.trade_data.loc[start_date:end_date, current_portfolio_tickers]
+            current_returns = current_portfolio_data.pct_change()
+            current_mean_returns = current_returns.mean() * 252
+            current_cov_matrix = current_returns.cov() * 252
             
-            current_return = sum(original_weights[ticker] * mean_returns[ticker] 
-                               for ticker in original_weights)
+            # Calculate current portfolio metrics - this will always be the same regardless of build_new
+            current_return = sum(current_portfolio_weights[ticker] * current_mean_returns[ticker] 
+                             for ticker in current_portfolio_weights)
             current_volatility = np.sqrt(
-                sum(sum(original_weights[ticker1] * original_weights[ticker2] * cov_matrix.loc[ticker1, ticker2]
-                    for ticker2 in original_weights)
-                    for ticker1 in original_weights)
+                sum(sum(current_portfolio_weights[ticker1] * current_portfolio_weights[ticker2] * current_cov_matrix.loc[ticker1, ticker2]
+                    for ticker2 in current_portfolio_weights)
+                    for ticker1 in current_portfolio_weights)
             )
-
+            
+            # For optimization, use different weights based on build_new
+            if build_new:
+                # For new portfolio, start with equal weights for optimization
+                num_stocks = len(tickers)
+                optimization_weights = {ticker: 1.0/num_stocks for ticker in tickers}
+            else:
+                # Use current weights for optimization
+                optimization_weights = current_portfolio_weights
+            
             # Optimize portfolio
             optimized_weights = cls.optimize_with_pypfopt(
                 data=data,
-                original_weights=original_weights,
+                original_weights=optimization_weights,
                 original_return=current_return,
                 original_volatility=current_volatility,
                 optimize_for=optimize_for
             )
 
             # Calculate metrics for optimized portfolio
+            returns = data.pct_change()
+            mean_returns = returns.mean() * 252
+            cov_matrix = returns.cov() * 252
+            
             opt_return = sum(optimized_weights[ticker] * mean_returns[ticker] 
                            for ticker in optimized_weights)
             opt_volatility = np.sqrt(
@@ -246,6 +419,14 @@ class Portfolio:
             # Calculate expected returns and sample covariance
             mu = expected_returns.mean_historical_return(data)
             S = risk_models.sample_cov(data)
+            
+            # Check if any assets have expected returns exceeding risk-free rate
+            # PyPortfolioOpt assumes a risk-free rate of 0.02 (2%) by default
+            risk_free_rate = 0.02
+            if not any(mu > risk_free_rate):
+                print("Warning: No assets have expected returns exceeding the risk-free rate. Returning original weights.")
+                # Return the original weights since optimization would fail
+                return original_weights
 
             try:
                 # Try OSQP first (faster)
@@ -282,7 +463,8 @@ class Portfolio:
             
         except Exception as e:
             print(f"Error in optimize_with_pypfopt: {str(e)}")
-            raise
+            # In case of any error, return the original weights
+            return original_weights
 
     @classmethod
     def calculate_portfolio_value(cls, portfolio, data, start_date):
@@ -292,11 +474,24 @@ class Portfolio:
         data: DataFrame of price data
         start_date: date to start calculating from
         """
-        # Get data after start_date
-        future_data = data[data.index >= start_date]
+        # Convert start_date to datetime if it's a string
+        start_date_dt = pd.to_datetime(start_date)
+        
+        # Find nearest previous valid date if start_date doesn't exist in the dataset
+        valid_dates = data.index
+        if start_date_dt not in valid_dates:
+            # Find the nearest previous date that exists in the dataset
+            valid_previous_dates = valid_dates[valid_dates < start_date_dt]
+            if len(valid_previous_dates) == 0:
+                raise ValueError(f"No valid dates before start_date {start_date_dt}")
+            start_date_dt = valid_previous_dates[-1]
+            print(f"Adjusted calculation start_date to nearest previous valid date: {start_date_dt}")
+        
+        # Get data after adjusted start_date
+        future_data = data[data.index >= start_date_dt]
         
         # Calculate initial prices and shares
-        initial_prices = data.loc[start_date]
+        initial_prices = data.loc[start_date_dt]
         shares = {ticker: amount/initial_prices[ticker] for ticker, amount in portfolio.items()}
         
         # Calculate portfolio values
@@ -423,7 +618,7 @@ def logout():
 def check_session():
     if 'user_email' in session:
         # Check if the route requires authentication
-        protected_routes = ['dashboard', 'portfolio', 'account']
+        protected_routes = ['dashboard', 'portfolio', 'education', 'account']
         if request.endpoint in protected_routes:
             # Verify user exists and session is valid
             user = User.query.filter_by(email=session['user_email']).first()
@@ -470,6 +665,18 @@ def portfolio():
     
     portfolio_items = PortfolioItem.query.filter_by(user_id=user.id).all()
     return render_template('portfolio.html', username=user.username, portfolio_items=portfolio_items)
+
+@app.route('/education')
+def education():
+    if 'user_email' not in session:
+        return redirect(url_for('home'))
+    
+    user = User.query.filter_by(email=session['user_email']).first()
+    if not user:
+        session.pop('user_email', None)
+        return redirect(url_for('home'))
+    
+    return render_template('education.html', username=user.username)
 
 @app.route('/add-portfolio-item', methods=['POST'])
 def add_portfolio_item():
@@ -848,22 +1055,22 @@ def internal_error(error):
     db.session.rollback()  # Rollback any failed database transactions
     return jsonify({'error': str(error)}), 500
 
-def update_all_stock_data():
-    """Update data for all stocks in portfolios and TOP_TICKERS"""
-    try:
-        # Get all unique tickers from portfolios
-        portfolio_tickers = PortfolioItem.query.with_entities(
-            PortfolioItem.ticker).distinct().all()
-        portfolio_tickers = [item[0] for item in portfolio_tickers]
+# def update_all_stock_data():
+#     """Update data for all stocks in portfolios and TOP_TICKERS"""
+#     try:
+#         # Get all unique tickers from portfolios
+#         portfolio_tickers = PortfolioItem.query.with_entities(
+#             PortfolioItem.ticker).distinct().all()
+#         portfolio_tickers = [item[0] for item in portfolio_tickers]
         
-        # Combine with TOP_TICKERS
-        all_tickers = list(set(TOP_TICKERS + portfolio_tickers))
+#         # Combine with TOP_TICKERS
+#         all_tickers = list(set(TOP_TICKERS + portfolio_tickers))
         
-        # Update data for all tickers
-        update_stock_data(all_tickers)
-        print("Successfully updated all stock data")
-    except Exception as e:
-        print(f"Error updating stock data: {e}")
+#         # Update data for all tickers
+#         update_stock_data(all_tickers)
+#         print("Successfully updated all stock data")
+#     except Exception as e:
+#         print(f"Error updating stock data: {e}")
 
 @app.route('/calculate-future-performance', methods=['POST'])
 def calculate_future_performance():
@@ -875,14 +1082,42 @@ def calculate_future_performance():
         
         # Ensure consistent date formatting
         try:
-            start_date = pd.to_datetime(data['start_date']).strftime('%Y-%m-%d')
-            end_date = pd.to_datetime(data['end_date']).strftime('%Y-%m-%d')
+            start_date_str = pd.to_datetime(data['start_date']).strftime('%Y-%m-%d')
+            end_date_str = pd.to_datetime(data['end_date']).strftime('%Y-%m-%d')
             include_build_new = data['include_build_new']
+            
+            # Get valid dates from the dataset (dates that exist in the index)
+            df = Portfolio.trade_data
+            valid_dates = df.index
+            
+            # Find nearest previous valid dates if the exact dates don't exist
+            start_date = pd.to_datetime(start_date_str)
+            if start_date not in valid_dates:
+                # Find the nearest previous date that exists in the dataset
+                valid_previous_dates = valid_dates[valid_dates < start_date]
+                if len(valid_previous_dates) == 0:
+                    return jsonify({'error': 'No valid dates before the specified start date'}), 400
+                start_date = valid_previous_dates[-1]
+                print(f"Adjusted start_date to nearest previous valid date: {start_date}")
+            
+            end_date = pd.to_datetime(end_date_str)
+            if end_date not in valid_dates:
+                # Find the nearest previous date that exists in the dataset
+                valid_previous_dates = valid_dates[valid_dates < end_date]
+                if len(valid_previous_dates) == 0:
+                    return jsonify({'error': 'No valid dates before the specified end date'}), 400
+                end_date = valid_previous_dates[-1]
+                print(f"Adjusted end_date to nearest previous valid date: {end_date}")
+            
+            # Convert dates back to string format for consistency
+            start_date_str = start_date.strftime('%Y-%m-%d')
+            end_date_str = end_date.strftime('%Y-%m-%d')
+            
         except Exception as e:
             print(f"Date parsing error: {str(e)}")
             return jsonify({'error': 'Invalid date format. Please use YYYY-MM-DD format.'}), 400
 
-        # Get current user's portfolio (fix: filter by user_id)
+        # Get current user's portfolio
         user = User.query.filter_by(email=session['user_email']).first()
         if not user:
             return jsonify({'error': 'User not found'}), 404
@@ -899,78 +1134,165 @@ def calculate_future_performance():
         portfolios = []
         colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2']
         
-        # Add current portfolio performance
-        base_values = Portfolio.calculate_portfolio_value(current_portfolio, df, end_date)
+        # Add current portfolio performance without optimization
+        base_values = Portfolio.calculate_portfolio_value(current_portfolio, df, end_date_str)
         
-        # Get optimization results for current portfolio
-        current_portfolio_metrics = Portfolio.optimize_user_portfolio(
-            portfolio_input=current_portfolio,
-            start_date=start_date,
-            end_date=end_date,
-            optimize_for='sharpe',
-            build_new=False,
-            full_tickers_list=TOP_TICKERS
-        )
+        # Calculate metrics for current portfolio without optimization
+        # Create a Portfolio object to evaluate the current portfolio
+        tickers = list(current_portfolio.keys())
+        total_value = sum(current_portfolio.values())
+        weights = [current_portfolio[ticker]/total_value for ticker in tickers]
+        
+        try:
+            portfolio_eval = Portfolio(tickers, weights, start_date_str, end_date_str)
+            metrics = portfolio_eval.get_risk_metrics()
+            
+            # Format metrics for the details modal
+            current_metrics = {
+                'metrics': {
+                    'Current Return': metrics['Annualized Return'],
+                    'Current Volatility': metrics['Annualized Volatility'],
+                    'Current Sharpe': metrics['Sharpe Ratio'],
+                    'Optimized Return': metrics['Annualized Return'],  # Same as current
+                    'Optimized Volatility': metrics['Annualized Volatility'],  # Same as current
+                    'Optimized Sharpe': metrics['Sharpe Ratio']  # Same as current
+                },
+                'allocation': current_portfolio  # Use the actual current allocation
+            }
+        except Exception as e:
+            print(f"Error evaluating current portfolio: {str(e)}")
+            # Fallback to a simple structure if evaluation fails
+            current_metrics = {
+                'metrics': {
+                    'Current Return': 0,
+                    'Current Volatility': 0,
+                    'Current Sharpe': 0,
+                    'Optimized Return': 0,
+                    'Optimized Volatility': 0,
+                    'Optimized Sharpe': 0
+                },
+                'allocation': current_portfolio
+            }
         
         portfolios.append({
             'name': 'User Portfolio',
             'values': base_values.tolist(),
             'color': colors[0],
-            'optimizationData': current_portfolio_metrics
+            'optimizationData': current_metrics
         })
         
         # Load full ticker list for build_new portfolios
         full_tickers = pd.read_csv('updated_tickers.csv')['0'].tolist()
         
-        # Optimize for different strategies
-        strategies = ['sharpe', 'return', 'volatility']
-        for i, strategy in enumerate(strategies):
-            optimized_result = Portfolio.optimize_user_portfolio(
+        # Get and store the current portfolio metrics first to ensure consistency
+        # This will be used for all optimization methods
+        current_portfolio_metrics = None
+        
+        # First get current portfolio metrics that will stay consistent
+        try:
+            first_result = Portfolio.optimize_user_portfolio(
                 portfolio_input=current_portfolio,
-                start_date=start_date,
-                end_date=end_date,
-                optimize_for=strategy,
+                start_date=start_date_str,
+                end_date=end_date_str,
+                optimize_for='sharpe',
                 build_new=False,
                 full_tickers_list=full_tickers
             )
             
-            values = Portfolio.calculate_portfolio_value(optimized_result['allocation'], df, end_date)
-            portfolios.append({
-                'name': f'Adjusted Portfolio ({strategy})',
-                'values': values.tolist(),
-                'color': colors[i+1],
-                'optimizationData': optimized_result
-            })
-            
-            if include_build_new:
-                new_portfolio_result = Portfolio.optimize_user_portfolio(
+            current_portfolio_metrics = {
+                'Current Return': first_result['metrics']['Current Return'],
+                'Current Volatility': first_result['metrics']['Current Volatility'],
+                'Current Sharpe': first_result['metrics']['Current Sharpe']
+            }
+        except Exception as e:
+            print(f"Error getting baseline portfolio metrics: {str(e)}")
+            current_portfolio_metrics = {
+                'Current Return': 0,
+                'Current Volatility': 0,
+                'Current Sharpe': 0
+            }
+        
+        # Optimize for different strategies
+        strategies = ['sharpe', 'return', 'volatility']
+        for i, strategy in enumerate(strategies):
+            try:
+                optimized_result = Portfolio.optimize_user_portfolio(
                     portfolio_input=current_portfolio,
-                    start_date=start_date,
-                    end_date=end_date,
+                    start_date=start_date_str,
+                    end_date=end_date_str,
                     optimize_for=strategy,
-                    build_new=True,
+                    build_new=False,
                     full_tickers_list=full_tickers
                 )
                 
-                values = Portfolio.calculate_portfolio_value(new_portfolio_result['allocation'], df, end_date)
+                # Keep the current portfolio metrics consistent
+                optimized_result['metrics']['Current Return'] = current_portfolio_metrics['Current Return']
+                optimized_result['metrics']['Current Volatility'] = current_portfolio_metrics['Current Volatility']
+                optimized_result['metrics']['Current Sharpe'] = current_portfolio_metrics['Current Sharpe']
+                
+                values = Portfolio.calculate_portfolio_value(optimized_result['allocation'], df, end_date_str)
                 portfolios.append({
-                    'name': f'Built New Portfolio ({strategy})',
+                    'name': f'Adjusted Portfolio ({strategy})',
                     'values': values.tolist(),
-                    'color': colors[i+4],
-                    'optimizationData': new_portfolio_result
+                    'color': colors[i+1],
+                    'optimizationData': optimized_result
                 })
+            except Exception as e:
+                print(f"Error optimizing portfolio with strategy {strategy}: {str(e)}")
+                # Skip adding this portfolio if optimization fails
+                continue
+                
+            if include_build_new:
+                try:
+                    new_portfolio_result = Portfolio.optimize_user_portfolio(
+                        portfolio_input=current_portfolio,
+                        start_date=start_date_str,
+                        end_date=end_date_str,
+                        optimize_for=strategy,
+                        build_new=True,
+                        full_tickers_list=full_tickers
+                    )
+                    
+                    # Keep the current portfolio metrics consistent
+                    new_portfolio_result['metrics']['Current Return'] = current_portfolio_metrics['Current Return']
+                    new_portfolio_result['metrics']['Current Volatility'] = current_portfolio_metrics['Current Volatility']
+                    new_portfolio_result['metrics']['Current Sharpe'] = current_portfolio_metrics['Current Sharpe']
+                    
+                    values = Portfolio.calculate_portfolio_value(new_portfolio_result['allocation'], df, end_date_str)
+                    portfolios.append({
+                        'name': f'Built New Portfolio ({strategy})',
+                        'values': values.tolist(),
+                        'color': colors[i+4],
+                        'optimizationData': new_portfolio_result
+                    })
+                except Exception as e:
+                    print(f"Error building new portfolio with strategy {strategy}: {str(e)}")
+                    # Skip adding this portfolio if optimization fails
+                    continue
+        
+        # Check if we have any portfolios after attempting optimization
+        if len(portfolios) <= 1:  # Only the original portfolio is available
+            return jsonify({'error': 'Unable to optimize portfolio with the selected date range. Try a different period with positive returns.'}), 400
         
         # Resample data to weekly points before calculating values
-        df = Portfolio.trade_data.resample('W').last()  # Resample to weekly data
+        weekly_df = Portfolio.trade_data.resample('W').last()  # Resample to weekly data
+        
+        # For future dates, we need to ensure we find dates after our end_date
+        # First convert end_date back to datetime to compare with index
+        end_date_dt = pd.to_datetime(end_date)
+        future_dates = weekly_df.index[weekly_df.index >= end_date_dt]
+        
+        if len(future_dates) == 0:
+            return jsonify({'error': 'No future dates available after the specified end date'}), 400
         
         return jsonify({
-            'dates': df.index[df.index >= end_date].strftime('%Y-%m-%d').tolist(),
+            'dates': future_dates.strftime('%Y-%m-%d').tolist(),
             'portfolios': portfolios
         })
         
     except Exception as e:
         print(f"Error in calculate_future_performance: {str(e)}")
-        return jsonify({'error': str(e)}), 500
+        return jsonify({'error': f'Error calculating future performance: {str(e)}'}), 500
 
 @app.route('/update-portfolio', methods=['POST'])
 def update_portfolio():
@@ -1005,6 +1327,71 @@ def update_portfolio():
         db.session.rollback()
         print(f"Error updating portfolio: {str(e)}")
         return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/monte-carlo-prediction', methods=['POST'])
+def monte_carlo_prediction():
+    if 'user_email' not in session:
+        return jsonify({'error': 'Not logged in'}), 401
+    
+    try:
+        data = request.json
+        
+        # Extract parameters from request
+        start_date_str = pd.to_datetime(data['start_date']).strftime('%Y-%m-%d')
+        end_date_str = pd.to_datetime(data['end_date']).strftime('%Y-%m-%d')
+        num_simulations = int(data.get('num_simulations', 100))
+        confidence_interval = float(data.get('confidence_interval', 0.95))
+        
+        # Get portfolio data from the request or user's database record
+        if 'portfolio' in data and data['portfolio']:
+            # Use the provided portfolio
+            portfolio_data = {item['ticker']: item['amount'] for item in data['portfolio']}
+        else:
+            # Get user's portfolio from database
+            user = User.query.filter_by(email=session['user_email']).first()
+            if not user:
+                return jsonify({'error': 'User not found'}), 404
+                
+            portfolio_items = PortfolioItem.query.filter_by(user_id=user.id).all()
+            if not portfolio_items:
+                return jsonify({'error': 'Portfolio is empty'}), 400
+                
+            portfolio_data = {item.ticker: item.amount for item in portfolio_items}
+        
+        # Validate portfolio data
+        if not portfolio_data:
+            return jsonify({'error': 'No portfolio data available'}), 400
+        
+        # Validate tickers
+        valid_tickers = [ticker for ticker in portfolio_data.keys() if ticker in Portfolio.trade_data.columns]
+        if not valid_tickers:
+            return jsonify({'error': 'No valid tickers in portfolio'}), 400
+        
+        # Filter out invalid tickers
+        valid_portfolio = {ticker: portfolio_data[ticker] for ticker in valid_tickers}
+        
+        # Get the last date in the dataset for determining prediction period
+        last_date = Portfolio.trade_data.index[-1]
+        may_29_2025 = pd.to_datetime('2025-05-29')
+        
+        # Calculate business days between last date and may_29_2025
+        prediction_days = len(pd.date_range(start=last_date, end=may_29_2025, freq='B')) - 1
+        
+        # Run Monte Carlo simulation
+        result = Portfolio.monte_carlo_simulation(
+            portfolio=valid_portfolio,
+            num_simulations=num_simulations,
+            confidence_interval=confidence_interval,
+            start_date=start_date_str,
+            end_date=end_date_str,
+            prediction_days=prediction_days
+        )
+        
+        return jsonify(result)
+        
+    except Exception as e:
+        print(f"Error in monte_carlo_prediction: {str(e)}")
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     # Create necessary directories

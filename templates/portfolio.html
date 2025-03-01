@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -13,6 +14,7 @@
             <div class="nav-links">
                 <a href="{{ url_for('dashboard') }}">Home</a>
                 <a href="{{ url_for('portfolio') }}" class="active">Portfolio</a>
+                <a href="{{ url_for('education') }}">Education</a>
                 <a href="{{ url_for('account') }}">Account</a>
             </div>
             <a href="/logout" class="logout-btn" onclick="showLogoutModal(event)">Logout</a>
@@ -64,9 +66,10 @@
         </div>
 
         <div class="portfolio-action-buttons">
-            <button onclick="evaluatePortfolio()" class="evaluate-btn">Evaluate Portfolio</button>
+        <button onclick="evaluatePortfolio()" class="evaluate-btn">Evaluate Portfolio</button>
             <button onclick="optimizePortfolio()" class="optimize-btn">Optimize Portfolio</button>
             <button onclick="showFuturePerformance()" class="future-btn">Future Performance</button>
+            <button onclick="showMonteCarloPrediction()" class="mc-btn">MC Prediction</button>
         </div>
     </div>
     <div class="modal-overlay" id="logoutModal">
@@ -231,10 +234,57 @@
             </div>
         </div>
     </div>
-    <script src="{{ url_for('static', filename='portfolio.js') }}"></script>
-    <script src="{{ url_for('static', filename='theme.js') }}"></script>
-    <script src="{{ url_for('static', filename='logout.js') }}"></script>
+    <div id="monteCarloModal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <h2>Monte Carlo Prediction</h2>
+            <div class="modal-content">
+                <div class="mc-inputs">
+                    <p class="mc-description">Select a historical date range for analysis. The simulation will use this data to project performance from the end date through June 2025, including actual data where available.</p>
+                    <div class="date-inputs">
+                        <div>
+                            <label for="mcStartDate">Historical Start Date:</label>
+                            <input type="date" id="mcStartDate" required>
+                        </div>
+                        <div>
+                            <label for="mcEndDate">Historical End Date:</label>
+                            <input type="date" id="mcEndDate" required>
+                        </div>
+                    </div>
+                    <div class="mc-options">
+                        <div>
+                            <label for="numSimulations">Number of Simulations:</label>
+                            <input type="number" id="numSimulations" value="500" min="100" max="1000">
+                        </div>
+                        <div>
+                            <label for="confidenceInterval">Confidence Interval:</label>
+                            <select id="confidenceInterval">
+                                <option value="0.90">90%</option>
+                                <option value="0.95" selected>95%</option>
+                                <option value="0.99">99%</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div id="mcResults" style="display: none;">
+                    <h3>Monte Carlo Portfolio Prediction</h3>
+                    <div class="chart-container">
+                        <canvas id="monteCarloChart"></canvas>
+                    </div>
+                    <div class="chart-actions">
+                        <button class="reset-zoom-btn" onclick="resetMonteCarloZoom()">Reset Zoom</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button onclick="runMonteCarloPrediction()" class="analyze-btn">Analyze</button>
+                <button onclick="closeMonteCarloModal()" class="cancel-btn">Close</button>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@2.0.1"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const tickerInput = document.getElementById('stock-ticker');
@@ -791,8 +841,11 @@
 
         // Show loading state
         const analyzeBtn = document.querySelector('.analyze-btn');
+        const resultsDiv = document.getElementById('futureResults');
         analyzeBtn.textContent = 'Analyzing...';
         analyzeBtn.disabled = true;
+        resultsDiv.innerHTML = '<div class="loading-spinner"></div>';
+        resultsDiv.style.display = 'block';
 
         fetch('/calculate-future-performance', {
             method: 'POST',
@@ -805,24 +858,47 @@
                 include_build_new: includeBuildNew
             })
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
             analyzeBtn.textContent = 'Analyze';
             analyzeBtn.disabled = false;
 
             if (data.error) {
-                alert(data.error);
+                resultsDiv.innerHTML = `<div class="error-message">
+                    <p>Error: ${data.error}</p>
+                    <p>Try selecting a different date range. The selected period may have unusual market conditions or negative returns.</p>
+                </div>`;
                 return;
             }
 
-            // First, get all values from all portfolios
-            const allValues = data.portfolios.flatMap(p => p.values);
-            const maxValue = Math.max(...allValues);
-            const minValue = Math.min(...allValues);
+            // Check if we have valid portfolios data
+            if (!data.portfolios || data.portfolios.length === 0 || !data.dates || data.dates.length === 0) {
+                resultsDiv.innerHTML = `<div class="error-message">
+                    <p>Error: No portfolio data available for the selected period.</p>
+                    <p>Try selecting a different date range with more positive market performance.</p>
+                </div>`;
+                return;
+            }
+            
+            const maxValue = Math.max(...data.portfolios.flatMap(p => p.values));
+            const minValue = Math.min(...data.portfolios.flatMap(p => p.values));
 
-            // Round to exact 0.1 intervals
-            const yMax = roundUp01(maxValue);    // If max is 1.23, this will give 1.3
-            const yMin = roundDown01(minValue);  // If min is 0.87, this will give 0.8
+            // Calculate a more dynamic and tighter y-axis range
+            // Find the range of the data
+            const dataRange = maxValue - minValue;
+            // Add just 10% padding above and below
+            const padding = dataRange * 0.1;
+            // Round to 2 decimal places for clean limits
+            const yMax = Math.ceil((maxValue + padding) * 100) / 100;
+            const yMin = Math.floor((minValue - padding) * 100) / 100;
+
+            resultsDiv.innerHTML = '<div class="chart-container"><canvas id="performanceChart"></canvas></div>';
+            resultsDiv.style.display = 'block';
 
             // Create the chart
             const ctx = document.getElementById('performanceChart').getContext('2d');
@@ -850,6 +926,31 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
+                        zoom: {
+                            pan: {
+                                enabled: true,
+                                mode: 'xy'
+                            },
+                            zoom: {
+                                wheel: {
+                                    enabled: true,
+                                    modifierKey: 'meta',  // For macOS (Cmd key)
+                                    // Speed factor for zoom via wheel
+                                    speed: 0.1
+                                },
+                                pinch: {
+                                    enabled: true
+                                },
+                                mode: 'xy'
+                            },
+                            limits: {
+                                y: {
+                                    // Use the same padding as the y-axis limits
+                                    min: yMin,
+                                    max: yMax
+                                }
+                            }
+                        },
                         title: {
                             display: true,
                             text: 'Portfolio Performance Over Time',
@@ -935,6 +1036,22 @@
             });
 
             document.getElementById('futureResults').style.display = 'block';
+
+            // Remove any existing reset zoom buttons first
+            document.querySelectorAll('.reset-zoom-btn').forEach(function(btn) {
+                btn.remove();
+            });
+            
+            // Add a reset zoom button
+            const resetZoomBtn = document.createElement('button');
+            resetZoomBtn.textContent = 'Reset Zoom';
+            resetZoomBtn.className = 'reset-zoom-btn';
+            resetZoomBtn.onclick = function() {
+                performanceChart.resetZoom();
+            };
+            
+            const chartContainer = document.getElementById('performanceChart').parentElement;
+            chartContainer.parentNode.insertBefore(resetZoomBtn, chartContainer.nextSibling);
         })
         .catch(error => {
             analyzeBtn.textContent = 'Analyze';
@@ -1078,6 +1195,9 @@
         });
     }
 
+    // Expose the showPortfolioDetails function globally
+    window.showPortfolioDetails = showPortfolioDetails;
+
     // Add this variable to store the last portfolio details
     let lastPortfolioDetails = null;
 
@@ -1090,5 +1210,8 @@
         return Math.ceil(x * 10) / 10;
     }
     </script>
+    <script src="{{ url_for('static', filename='portfolio.js') }}"></script>
+    <script src="{{ url_for('static', filename='theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='logout.js') }}"></script>
 </body>
 </html> 

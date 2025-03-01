@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .topic-list {
+            margin-top: 30px;
+        }
+        
+        .topic-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .topic-card h3 {
+            margin: 0;
+            color: var(--text-color);
+        }
+        
+        .topic-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+        
+        .topic-modal-content {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+        
+        .topic-modal h2 {
+            margin-top: 0;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .topic-modal p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .education-sections {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .education-section {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            min-width: 0; /* For proper flex behavior */
+        }
+        
+        .education-section:first-child {
+            flex: 1;
+        }
+        
+        .education-section:last-child {
+            flex: 1;
+        }
+        
+        .education-section h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+        
+        .quiz-list {
+            min-height: 100px;
+        }
+        
+        .container.dashboard {
+            max-width: 1400px;
+            width: 95%;
+        }
+        
+        .quiz-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .quiz-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .quiz-card h3 {
+            margin: 0;
+            color: var(--text-color);
+        }
+        
+        /* Make responsive for smaller screens */
+        @media (max-width: 900px) {
+            .education-sections {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <div class="nav-links">
+                <a href="{{ url_for('dashboard') }}">Home</a>
+                <a href="{{ url_for('portfolio') }}">Portfolio</a>
+                <a href="{{ url_for('education') }}" class="active">Education</a>
+                <a href="{{ url_for('account') }}">Account</a>
+            </div>
+            <a href="/logout" class="logout-btn" onclick="showLogoutModal(event)">Logout</a>
+        </div>
+    </div>
+    
+    <div class="container dashboard">
+        <div class="header-actions">
+            <h1>Financial Education</h1>
+        </div>
+        
+        <div class="education-content">
+            <p>Click on any topic below to learn more about key investment concepts:</p>
+            
+            <div class="education-sections">
+                <div class="education-section">
+                    <h2>Lessons</h2>
+                    <div class="topic-list">
+                        <div class="topic-card" onclick="openModal('annualReturn')">
+                            <h3>Topic 1: Annual Return</h3>
+                        </div>
+                        
+                        <div class="topic-card" onclick="openModal('annualizedVolatility')">
+                            <h3>Topic 2: Annualized Volatility</h3>
+                        </div>
+                        
+                        <div class="topic-card" onclick="openModal('rSquared')">
+                            <h3>Topic 3: R² (Proportion of portfolio variance due to market movements)</h3>
+                        </div>
+                        
+                        <div class="topic-card" onclick="openModal('var')">
+                            <h3>Topic 4: VaR (Value at Risk)</h3>
+                        </div>
+                        
+                        <div class="topic-card" onclick="openModal('cvar')">
+                            <h3>Topic 5: CVaR (Conditional Value at Risk)</h3>
+                        </div>
+                        
+                        <div class="topic-card" onclick="openModal('assetAllocation')">
+                            <h3>Topic 6: Asset Allocation</h3>
+                        </div>
+                        
+                        <div class="topic-card" onclick="openModal('dollarCostAveraging')">
+                            <h3>Topic 7: Dollar-Cost Averaging</h3>
+                        </div>
+                        
+                        <div class="topic-card" onclick="openModal('compoundInterest')">
+                            <h3>Topic 8: Compound Interest</h3>
+                        </div>
+                        
+                        <div class="topic-card" onclick="openModal('diversification')">
+                            <h3>Topic 9: Diversification</h3>
+                        </div>
+                        
+                        <div class="topic-card" onclick="openModal('riskReturn')">
+                            <h3>Topic 10: Risk vs. Return Tradeoff</h3>
+                        </div>
+                        
+                        <div class="topic-card" onclick="openModal('marketCap')">
+                            <h3>Topic 11: Market Capitalization</h3>
+                        </div>
+                        
+                        <div class="topic-card" onclick="openModal('marketIndices')">
+                            <h3>Topic 12: Market Indices</h3>
+                        </div>
+                        
+                        <div class="topic-card" onclick="openModal('etfsMutualFunds')">
+                            <h3>Topic 13: ETFs vs. Mutual Funds</h3>
+                        </div>
+                        
+                        <div class="topic-card" onclick="openModal('stockFundamentals')">
+                            <h3>Topic 14: Stock Fundamentals</h3>
+                        </div>
+                        
+                        <div class="topic-card" onclick="openModal('inflation')">
+                            <h3>Topic 15: Inflation and Investing</h3>
+                        </div>
+                        
+                        <div class="topic-card" onclick="openModal('taxEfficiency')">
+                            <h3>Topic 16: Tax-Efficient Investing</h3>
+                        </div>
+                        
+                        <div class="topic-card" onclick="openModal('timeHorizon')">
+                            <h3>Topic 17: Investment Time Horizon</h3>
+                        </div>
+                        
+                        <div class="topic-card" onclick="openModal('rebalancing')">
+                            <h3>Topic 18: Portfolio Rebalancing</h3>
+                        </div>
+                        
+                        <div class="topic-card" onclick="openModal('fees')">
+                            <h3>Topic 19: Investment Fees</h3>
+                        </div>
+                        
+                        <div class="topic-card" onclick="openModal('behavioralFinance')">
+                            <h3>Topic 20: Behavioral Finance</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="education-section">
+                    <h2>Quizzes</h2>
+                    <div class="quiz-list">
+                        <div class="quiz-card">
+                            <h3>Quiz 1: Annual Return</h3>
+                        </div>
+                        
+                        <div class="quiz-card">
+                            <h3>Quiz 2: Annualized Volatility</h3>
+                        </div>
+                        
+                        <div class="quiz-card">
+                            <h3>Quiz 3: R² (Proportion of portfolio variance due to market movements)</h3>
+                        </div>
+                        
+                        <div class="quiz-card">
+                            <h3>Quiz 4: VaR (Value at Risk)</h3>
+                        </div>
+                        
+                        <div class="quiz-card">
+                            <h3>Quiz 5: CVaR (Conditional Value at Risk)</h3>
+                        </div>
+                        
+                        <div class="quiz-card">
+                            <h3>Quiz 6: Asset Allocation</h3>
+                        </div>
+                        
+                        <div class="quiz-card">
+                            <h3>Quiz 7: Dollar-Cost Averaging</h3>
+                        </div>
+                        
+                        <div class="quiz-card">
+                            <h3>Quiz 8: Compound Interest</h3>
+                        </div>
+                        
+                        <div class="quiz-card">
+                            <h3>Quiz 9: Diversification</h3>
+                        </div>
+                        
+                        <div class="quiz-card">
+                            <h3>Quiz 10: Risk vs. Return Tradeoff</h3>
+                        </div>
+                        
+                        <div class="quiz-card">
+                            <h3>Quiz 11: Market Capitalization</h3>
+                        </div>
+                        
+                        <div class="quiz-card">
+                            <h3>Quiz 12: Market Indices</h3>
+                        </div>
+                        
+                        <div class="quiz-card">
+                            <h3>Quiz 13: ETFs vs. Mutual Funds</h3>
+                        </div>
+                        
+                        <div class="quiz-card">
+                            <h3>Quiz 14: Stock Fundamentals</h3>
+                        </div>
+                        
+                        <div class="quiz-card">
+                            <h3>Quiz 15: Inflation and Investing</h3>
+                        </div>
+                        
+                        <div class="quiz-card">
+                            <h3>Quiz 16: Tax-Efficient Investing</h3>
+                        </div>
+                        
+                        <div class="quiz-card">
+                            <h3>Quiz 17: Investment Time Horizon</h3>
+                        </div>
+                        
+                        <div class="quiz-card">
+                            <h3>Quiz 18: Portfolio Rebalancing</h3>
+                        </div>
+                        
+                        <div class="quiz-card">
+                            <h3>Quiz 19: Investment Fees</h3>
+                        </div>
+                        
+                        <div class="quiz-card">
+                            <h3>Quiz 20: Behavioral Finance</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Topic Modals -->
+    <div id="annualReturn" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('annualReturn')">&times;</span>
+            <h2>Annual Return</h2>
+            <p>Annual Return represents the percentage change in the value of an investment over a one-year period. It's one of the most fundamental metrics used to evaluate investment performance, telling you how much your investment has grown (or shrunk) during that time.</p>
+            <p>For example, if you invested $1,000 and it's worth $1,100 after one year, your annual return would be 10%. Annual returns can be calculated on a calendar year basis or on a rolling 12-month period. When comparing investments, looking at annual returns over several years can help you understand consistency and performance patterns.</p>
+            <p>While past performance doesn't guarantee future results, understanding the annual return of your investments helps you evaluate whether they're meeting your financial goals. Remember that returns can vary widely—a diversified portfolio may have more stable, moderate returns compared to individual stocks which might have higher but more volatile returns.</p>
+        </div>
+    </div>
+    
+    <div id="annualizedVolatility" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('annualizedVolatility')">&times;</span>
+            <h2>Annualized Volatility</h2>
+            <p>Annualized Volatility measures how much an investment's returns fluctuate around its average return over time. Think of it as a statistical measure of the dispersion of returns—essentially, how "bumpy" your investment journey might be. It's typically expressed as a percentage.</p>
+            <p>Higher volatility indicates larger price swings and potentially greater risk. For example, an investment with 20% annualized volatility could potentially rise or fall by about 20% in a year. Lower volatility suggests more stable, predictable returns. Volatility is calculated using standard deviation of returns and then annualized to provide a yearly perspective.</p>
+            <p>Understanding the volatility of your investments is crucial for assessing risk tolerance. A retiree might prefer low-volatility investments for stability, while a younger investor might accept higher volatility for potentially greater long-term growth. Remember that volatility works both ways—it measures both upward and downward movements in value.</p>
+        </div>
+    </div>
+    
+    <div id="rSquared" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('rSquared')">&times;</span>
+            <h2>R² (R-Squared)</h2>
+            <p>R-Squared (R²) is a statistical measure that indicates how much of a portfolio's performance can be explained by movements in a benchmark index, like the S&P 500. It ranges from 0 to 100 (or 0 to 1), with higher values indicating stronger correlation with the market.</p>
+            <p>For example, if your portfolio has an R² of 85, it means that approximately 85% of your portfolio's movements can be attributed to market movements, while the remaining 15% is due to other factors like security selection or market timing. A low R² (below 50) suggests that your portfolio's performance has little relation to the benchmark and is influenced more by specific holdings or strategies.</p>
+            <p>Understanding your portfolio's R² helps evaluate the effectiveness of active management. If you're paying higher fees for active management but have a very high R², you might consider whether those fees are justified, as your returns closely track the market. Conversely, a lower R² indicates unique exposure, which could be beneficial for diversification but might also reflect higher specific risk.</p>
+        </div>
+    </div>
+    
+    <div id="var" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('var')">&times;</span>
+            <h2>VaR (Value at Risk)</h2>
+            <p>Value at Risk (VaR) is a risk measurement that estimates the maximum potential loss an investment might experience over a specific time period at a given confidence level. Simply put, it answers the question: "How bad could things get?" For example, a one-day 95% VaR of $1,000 means there's a 95% chance that your portfolio won't lose more than $1,000 in a single day.</p>
+            <p>VaR is commonly used by financial institutions and portfolio managers to assess and manage risk exposure. It can be calculated using different methodologies, including historical simulation (using past data), variance-covariance (statistical assumptions), or Monte Carlo simulation (random sampling). Each method has its strengths and limitations in predicting potential losses.</p>
+            <p>While VaR is a useful tool for understanding downside risk, it's important to recognize its limitations. It doesn't tell you how severe losses might be beyond the confidence threshold, and it relies on historical data or assumptions that may not reflect future market conditions, especially during extreme events. This is why many risk managers complement VaR with other risk measures like CVaR (Conditional Value at Risk).</p>
+        </div>
+    </div>
+    
+    <div id="cvar" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('cvar')">&times;</span>
+            <h2>CVaR (Conditional Value at Risk)</h2>
+            <p>Conditional Value at Risk (CVaR), also known as Expected Shortfall, addresses a key limitation of traditional VaR by measuring the average loss in the worst-case scenarios. While VaR tells you the maximum loss at a certain confidence level, CVaR tells you what to expect when those worst outcomes actually occur.</p>
+            <p>For example, if your portfolio has a 95% CVaR of $1,500, it means that in the worst 5% of scenarios, your average loss would be $1,500. This provides more insight into tail risk—the risk of extreme events—than regular VaR. CVaR is considered a more conservative and comprehensive risk measure because it accounts for the severity of losses beyond the VaR threshold.</p>
+            <p>CVaR has become increasingly important following financial crises where extreme events proved more common than statistical models predicted. It's particularly valuable for evaluating investments with non-normal return distributions or those susceptible to "black swan" events. Many institutional investors and risk managers now use CVaR alongside VaR for a more complete picture of potential downside risk in their portfolios.</p>
+        </div>
+    </div>
+
+    <!-- Additional Topic Modals -->
+    <div id="assetAllocation" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('assetAllocation')">&times;</span>
+            <h2>Asset Allocation</h2>
+            <p>Asset allocation is the process of dividing your investment portfolio among different asset categories such as stocks, bonds, and cash. It's one of the most important decisions you can make as an investor because it has an enormous impact on your risk and returns.</p>
+            <p>The right asset allocation for you depends on your financial goals, time horizon, and risk tolerance. Generally, younger investors with longer time horizons might have higher allocations to stocks for growth potential, while those approaching retirement might shift toward bonds and cash for stability. There's no perfect asset allocation that fits everyone—it's a personal decision that should align with your unique situation.</p>
+            <p>Studies have shown that asset allocation determines approximately 90% of a portfolio's overall return variability over time, making it far more important than individual security selection. Regular review and potential adjustments to your asset allocation are necessary as your life circumstances and market conditions change.</p>
+        </div>
+    </div>
+
+    <div id="dollarCostAveraging" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('dollarCostAveraging')">&times;</span>
+            <h2>Dollar-Cost Averaging</h2>
+            <p>Dollar-cost averaging (DCA) is an investment strategy where you invest a fixed amount of money at regular intervals, regardless of market conditions. This approach means you buy more shares when prices are lower and fewer shares when prices are higher, potentially lowering your average cost per share over time.</p>
+            <p>For example, if you invest $500 monthly in a mutual fund, you'll automatically buy more shares when the fund's price drops and fewer when it rises. This can help reduce the impact of market volatility and the risk of investing a large sum at an unfavorable time. DCA is particularly useful for beginning investors because it creates discipline and removes the temptation to time the market.</p>
+            <p>While dollar-cost averaging doesn't guarantee profits or protect against losses in declining markets, it can be an effective way to build wealth over the long term. Many investors implement this strategy through automatic contributions to retirement accounts like 401(k)s or IRAs.</p>
+        </div>
+    </div>
+
+    <div id="compoundInterest" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('compoundInterest')">&times;</span>
+            <h2>Compound Interest</h2>
+            <p>Compound interest is often called the "eighth wonder of the world" because it allows your money to grow exponentially over time. It's the process of earning interest on both your original investment and on the interest you've already earned. This creates a snowball effect that can dramatically increase your wealth over long periods.</p>
+            <p>For example, if you invest $10,000 with an 8% annual return, after 10 years you'd have about $21,600. After 30 years, that same initial investment would grow to approximately $100,600, with over 90% of that amount coming from compound interest. The power of compounding depends on three main factors: the interest rate, the frequency of compounding, and most importantly, time.</p>
+            <p>Understanding compound interest highlights why starting to invest early is so valuable. Even small investments can grow substantially given enough time to compound. This concept applies not just to interest-bearing accounts but also to reinvested dividends from stocks and the growth of diversified investment portfolios over time.</p>
+        </div>
+    </div>
+
+    <div id="diversification" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('diversification')">&times;</span>
+            <h2>Diversification</h2>
+            <p>Diversification is an investment strategy that involves spreading your money across various investments to reduce risk. It's often summed up by the phrase "don't put all your eggs in one basket." By investing in different asset classes, industries, geographic regions, and individual securities, you can potentially minimize the impact of poor performance from any single investment.</p>
+            <p>For example, a diversified portfolio might include U.S. and international stocks, government and corporate bonds, real estate investments, and perhaps some alternative assets. When certain investments in your portfolio underperform, others might outperform, helping to smooth out your overall returns. Diversification won't eliminate all investment risk or guarantee against loss, but it can significantly reduce the volatility of your portfolio.</p>
+            <p>Many beginning investors achieve diversification through mutual funds or exchange-traded funds (ETFs) that hold hundreds or thousands of individual securities. These investment vehicles make it possible to achieve broad diversification even with a relatively small amount of money.</p>
+        </div>
+    </div>
+
+    <div id="riskReturn" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('riskReturn')">&times;</span>
+            <h2>Risk vs. Return Tradeoff</h2>
+            <p>The risk-return tradeoff is a fundamental principle in investing that states that potential return rises with an increase in risk. In other words, to achieve higher potential returns, you generally need to accept greater risk of losses. This relationship is central to understanding how investments work and making informed decisions about your portfolio.</p>
+            <p>For example, government bonds typically offer lower returns but come with lower risk, while stocks historically have provided higher average returns but with much greater volatility and risk of loss. Understanding your own risk tolerance—your emotional and financial ability to withstand investment losses—is crucial for building a portfolio that you can stick with through market ups and downs.</p>
+            <p>Every investor must find their own optimal balance between risk and return based on their goals, time horizon, and personal comfort level. If you're investing for a goal that's 30 years away, you might accept more risk for higher potential returns. For goals that are just a few years away, a more conservative approach might be appropriate.</p>
+        </div>
+    </div>
+
+    <div id="marketCap" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('marketCap')">&times;</span>
+            <h2>Market Capitalization</h2>
+            <p>Market capitalization (or "market cap") is the total dollar value of a company's outstanding shares, calculated by multiplying the current share price by the total number of shares. It's a measure of a company's size and can help investors understand a stock's risk profile and growth potential.</p>
+            <p>Companies are typically categorized as large-cap (over $10 billion), mid-cap ($2-10 billion), or small-cap ($300 million-$2 billion), with some additional categories like mega-cap (over $200 billion) and micro-cap (under $300 million). Generally, larger companies tend to be more stable but might offer slower growth, while smaller companies might offer more growth potential but with greater volatility and risk.</p>
+            <p>A well-diversified portfolio often includes companies with different market capitalizations. This approach can provide exposure to both the stability of established large companies and the growth potential of smaller, emerging businesses. Many index funds and ETFs are specifically designed to track companies of certain market cap ranges.</p>
+        </div>
+    </div>
+
+    <div id="marketIndices" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('marketIndices')">&times;</span>
+            <h2>Market Indices</h2>
+            <p>Market indices are tools that measure the performance of a selection of stocks, bonds, or other securities that represent a particular market or segment. They serve as benchmarks for measuring investment performance and as barometers of market sentiment. When you hear that "the market was up today," it's usually referring to one of these indices.</p>
+            <p>Some of the most well-known indices include the S&P 500 (tracking 500 large U.S. companies), the Dow Jones Industrial Average (tracking 30 blue-chip stocks), the Nasdaq Composite (heavily weighted toward technology stocks), and the Russell 2000 (representing small-cap U.S. companies). International indices include the FTSE 100 (UK), Nikkei 225 (Japan), and MSCI EAFE (developed markets outside North America).</p>
+            <p>Investors can gain exposure to these indices through index funds or ETFs, which aim to replicate the performance of a specific index. This approach, known as passive investing, provides broad market exposure, diversification, and typically lower fees compared to actively managed funds that try to outperform the market.</p>
+        </div>
+    </div>
+
+    <div id="etfsMutualFunds" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('etfsMutualFunds')">&times;</span>
+            <h2>ETFs vs. Mutual Funds</h2>
+            <p>Exchange-Traded Funds (ETFs) and mutual funds are both popular investment vehicles that pool money from many investors to buy a diversified collection of securities. However, they differ in several important ways that can affect which is more suitable for your investing style and goals.</p>
+            <p>ETFs trade throughout the day like stocks, with prices changing in real-time, while mutual funds trade only once per day at the closing net asset value (NAV). ETFs typically have lower expense ratios and minimum investments, and they can be more tax-efficient because they generally trigger fewer capital gains distributions. Mutual funds, on the other hand, may allow for automatic investments of specific dollar amounts and reinvestment of dividends without commission fees.</p>
+            <p>Both ETFs and mutual funds come in passive (index-tracking) and active (manager-selected) varieties. For beginning investors, both can offer instant diversification across hundreds or thousands of securities with a single purchase. Your choice between the two might depend on your preferred trading approach, tax considerations, and the specific funds available in your investment account.</p>
+        </div>
+    </div>
+
+    <div id="stockFundamentals" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('stockFundamentals')">&times;</span>
+            <h2>Stock Fundamentals</h2>
+            <p>Stock fundamentals are key metrics and indicators that help investors evaluate a company's financial health and potential as an investment. While there are dozens of metrics that professional analysts use, beginning investors can focus on a few essential ones to get started.</p>
+            <p>Some of the most important fundamental metrics include: Price-to-Earnings (P/E) ratio, which compares a company's share price to its earnings per share; Earnings Per Share (EPS), which measures a company's profit allocated to each outstanding share; Price-to-Book (P/B) ratio, comparing share price to book value; and Dividend Yield, which shows the annual dividend payment as a percentage of the stock price.</p>
+            <p>Understanding these fundamentals can help you make more informed investment decisions, but it's important to remember that no single metric tells the whole story. Different industries have different typical ranges for these metrics, and a company's growth prospects, competitive position, and market conditions are also crucial factors to consider.</p>
+        </div>
+    </div>
+
+    <div id="inflation" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('inflation')">&times;</span>
+            <h2>Inflation and Investing</h2>
+            <p>Inflation is the rate at which the general level of prices for goods and services rises, causing purchasing power to fall over time. It's a critical factor for investors to consider because it erodes the real value of money and investment returns. If your investments aren't growing at least as fast as inflation, you're effectively losing money in terms of purchasing power.</p>
+            <p>Historically, certain asset classes have performed better than others during inflationary periods. Stocks have generally provided positive real returns (returns after inflation) over long periods. Real assets like real estate and commodities often perform well during inflation because their prices tend to rise with overall price levels. Fixed-income investments like bonds, however, can suffer during high inflation as their fixed interest payments become less valuable in real terms.</p>
+            <p>When planning your investment strategy, it's essential to factor in a realistic inflation rate—typically around 2-3% annually for long-term planning in developed economies. This means that a seemingly safe investment returning 2% annually would barely preserve purchasing power, highlighting why many investors need growth assets in their portfolios even if they come with higher short-term volatility.</p>
+        </div>
+    </div>
+
+    <div id="taxEfficiency" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('taxEfficiency')">&times;</span>
+            <h2>Tax-Efficient Investing</h2>
+            <p>Tax-efficient investing involves strategies to minimize the impact of taxes on your investment returns. Since taxes can significantly reduce your net returns, understanding basic tax principles can help you keep more of what your investments earn.</p>
+            <p>Some key tax-efficiency strategies include: utilizing tax-advantaged accounts like 401(k)s, IRAs, and HSAs; holding investments long-term to qualify for lower long-term capital gains rates rather than higher short-term rates; considering municipal bonds, which are generally exempt from federal taxes; and placing tax-inefficient investments (like those that generate high ordinary income) in tax-advantaged accounts while holding more tax-efficient investments (like those focusing on long-term appreciation) in taxable accounts.</p>
+            <p>While tax considerations are important, they shouldn't override sound investment principles. Make investment decisions based primarily on your financial goals, risk tolerance, and time horizon, with tax efficiency as a secondary consideration. Tax laws change frequently, so it's valuable to consult with a tax professional about your specific situation.</p>
+        </div>
+    </div>
+
+    <div id="timeHorizon" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('timeHorizon')">&times;</span>
+            <h2>Investment Time Horizon</h2>
+            <p>Your investment time horizon is the length of time you expect to hold an investment before you need the money. It's one of the most critical factors in determining your appropriate asset allocation and risk level. Generally, the longer your time horizon, the more risk you can afford to take in pursuit of higher returns.</p>
+            <p>For long-term goals (10+ years away), like retirement for younger investors, portfolios can typically include higher allocations to stocks and other growth assets. These investments may experience significant short-term volatility but have historically delivered superior long-term returns. For medium-term goals (3-10 years), a more balanced approach with a mix of stocks and bonds might be appropriate. For short-term goals (less than 3 years), conservative investments like high-yield savings accounts, certificates of deposit, or short-term bond funds are often more suitable.</p>
+            <p>Your time horizon isn't static—it changes as you get closer to your financial goals. This is why many investors gradually shift to more conservative allocations as they approach retirement or other significant financial milestones, a strategy sometimes called a "glide path."</p>
+        </div>
+    </div>
+
+    <div id="rebalancing" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('rebalancing')">&times;</span>
+            <h2>Portfolio Rebalancing</h2>
+            <p>Portfolio rebalancing is the process of realigning the weightings of assets in your portfolio to maintain your desired level of asset allocation and risk. Over time, as different investments perform differently, your portfolio's allocation will naturally drift from your target mix, potentially increasing risk or reducing expected returns.</p>
+            <p>For example, if your target allocation is 60% stocks and 40% bonds, and stocks perform well over a period, your allocation might drift to 70% stocks and 30% bonds. Rebalancing would involve selling some stocks and buying bonds to return to your target allocation. This process enforces a disciplined "buy low, sell high" approach, as you're selling assets that have performed well and buying those that have underperformed.</p>
+            <p>Most financial experts recommend rebalancing periodically, whether on a fixed schedule (such as annually or semi-annually) or when your allocations drift beyond predetermined thresholds (such as 5 percentage points from targets). Many 401(k) plans and robo-advisors offer automatic rebalancing, making it easier to maintain your investment strategy without having to monitor and adjust your portfolio manually.</p>
+        </div>
+    </div>
+
+    <div id="fees" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('fees')">&times;</span>
+            <h2>Investment Fees</h2>
+            <p>Investment fees can significantly impact your long-term returns, even when they seem small. Common fees include expense ratios on mutual funds and ETFs, advisory fees, trading commissions, account maintenance fees, and load fees (sales charges). These costs compound over time just like your returns, but in the opposite direction—reducing your wealth accumulation.</p>
+            <p>For perspective, a difference of just 1% in annual fees can reduce your portfolio value by approximately 28% over 30 years. This is why many investors prefer low-cost index funds and ETFs, which typically have expense ratios well below 0.20%, compared to some actively managed funds that may charge 1% or more. When evaluating investments, it's essential to understand all fees involved and consider them alongside potential returns.</p>
+            <p>While minimizing fees is important, it doesn't mean the cheapest option is always best. Some services, like personalized financial advice, may be worth paying for depending on your needs and circumstances. The key is ensuring that any fees you pay provide corresponding value and being aware of the long-term impact of those costs on your investment results.</p>
+        </div>
+    </div>
+
+    <div id="behavioralFinance" class="topic-modal">
+        <div class="topic-modal-content">
+            <span class="close-modal" onclick="closeModal('behavioralFinance')">&times;</span>
+            <h2>Behavioral Finance</h2>
+            <p>Behavioral finance examines how psychological influences and biases affect financial behaviors and decisions. Understanding these biases can help you become a more disciplined and successful investor by recognizing when emotions might be clouding your judgment.</p>
+            <p>Common investor biases include: loss aversion (feeling the pain of losses more intensely than the pleasure of gains), recency bias (overemphasizing recent events when making decisions), confirmation bias (seeking information that confirms existing beliefs), herd mentality (following what others are doing), and overconfidence (overestimating one's ability to predict market movements). These psychological tendencies can lead to poor investment timing, inadequate diversification, excessive trading, and panic selling during market downturns.</p>
+            <p>To counter these biases, consider implementing automatic investment strategies, creating a written investment plan to follow during market volatility, purposely seeking out views that challenge your investment thesis, and potentially working with a financial advisor who can provide objective guidance. Remember that disciplined adherence to a sound investment strategy often leads to better outcomes than acting on emotional responses to market events.</p>
+        </div>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3>Confirm Logout</h3>
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-actions">
+                <button onclick="closeLogoutModal()">Cancel</button>
+                <a href="{{ url_for('logout') }}" class="logout-confirm">Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='account.js') }}"></script>
+    <script src="{{ url_for('static', filename='theme.js') }}"></script>
+    <script>
+        function showLogoutModal(event) {
+            event.preventDefault();
+            document.getElementById('logoutModal').style.display = 'flex';
+        }
+        
+        function closeLogoutModal() {
+            document.getElementById('logoutModal').style.display = 'none';
+        }
+        
+        // Topic modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+        
+        // Close modal if user clicks outside of modal content
+        window.onclick = function(event) {
+            const modals = document.getElementsByClassName('topic-modal');
+            for (let i = 0; i < modals.length; i++) {
+                if (event.target == modals[i]) {
+                    modals[i].style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        }
+    </script>
+</body>
+</html> 

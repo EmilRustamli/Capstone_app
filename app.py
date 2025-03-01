@@ -23,18 +23,25 @@ from pypfopt import EfficientFrontier, risk_models, expected_returns
 app = Flask(__name__)
 
 # Configure SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+if os.environ.get('DATABASE_URL'):
+    # Use PostgreSQL in production
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+    print("Using production database")
+else:
+    # Use SQLite in development
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+    print("Using development database")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Configure Mail Settings
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
+app.config['MAIL_SERVER'] = os.environ.get('MAIL_SERVER', 'smtp.gmail.com')
+app.config['MAIL_PORT'] = int(os.environ.get('MAIL_PORT', 587))
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'rustamliemiluni@gmail.com'
-app.config['MAIL_PASSWORD'] = 'ganh bjho orkp tkkw'  # From personal google account
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME', 'rustamliemiluni@gmail.com')
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD', 'ganh bjho orkp tkkw')  # From personal google account
 
 # Session and Security configurations
-app.config['SECRET_KEY'] = secrets.token_hex(16)
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', secrets.token_hex(16))
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
 app.config['SESSION_COOKIE_SECURE'] = False
@@ -1522,4 +1529,5 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     
-    app.run(debug=True, port=5001) 
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port) 

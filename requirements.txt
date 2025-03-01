@@ -9,3 +9,10 @@ scikit-learn
 urllib3<2.0.0 
 schedule
 PyPortfolioOpt==1.5.5
+Flask==2.3.3
+Flask-SQLAlchemy==3.1.1
+Flask-Mail==0.9.1
+Werkzeug==2.3.7
+pytz
+gunicorn==20.1.0
+psycopg2-binary

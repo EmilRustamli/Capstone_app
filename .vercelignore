@@ -1,0 +1,14 @@
+# Large data files
+trade_data.csv
+stock_data/*.csv
+*.ipynb
+Capstone_Full_Draft.ipynb
+
+# Python environment files
+.venv
+__pycache__
+*.pyc
+
+# Other large files
+*.db
+flask_session/ 

@@ -10,8 +10,8 @@ from app import app
 
 # This is the handler that Vercel will use
 # Do not modify this function name or signature
-def handler(request, response):
+def handler(request):
     """
     Vercel serverless function handler that exposes the Flask app
     """
-    return app(request, response) 
+    return app 

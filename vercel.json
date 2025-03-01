@@ -11,5 +11,14 @@
       "src": "/(.*)",
       "dest": "/api/index.py"
     }
+  ],
+  "excludeFiles": [
+    "trade_data.csv",
+    "stock_data/*.csv",
+    "*.ipynb",
+    "Capstone_Full_Draft.ipynb",
+    ".venv/**",
+    "__pycache__/**",
+    "*.pyc"
   ]
 } 

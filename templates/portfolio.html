@@ -53,10 +53,10 @@
                     <span class="ticker">{{ item.ticker }}</span>
                     <span class="amount">${{ "%.2f"|format(item.amount) }}</span>
                     <div class="item-actions">
-                        <button class="action-btn edit-btn" onclick="showEditModal('{{ item.id }}', '{{ item.ticker }}', {{ item.amount }})">
+                        <button class="action-btn edit-btn" data-id="{{ item.id }}" data-ticker="{{ item.ticker }}" data-amount="{{ item.amount }}" onclick="showEditModal(this.dataset.id, this.dataset.ticker, parseFloat(this.dataset.amount))">
                             <i class="fas fa-edit"></i>
                         </button>
-                        <button class="action-btn delete-btn" onclick="showDeleteModal('{{ item.id }}', '{{ item.ticker }}')">
+                        <button class="action-btn delete-btn" data-id="{{ item.id }}" data-ticker="{{ item.ticker }}" onclick="showDeleteModal(this.dataset.id, this.dataset.ticker)">
                             <i class="fas fa-trash"></i>
                         </button>
                     </div>

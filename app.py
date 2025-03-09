@@ -991,16 +991,16 @@ def search_stocks(query):
             # In development, use the local JSON file
             with open('stock_data.json', 'r') as f:
                 company_info = json.load(f)
-            
-            query = query.upper()
-            results = []
-            for ticker, info in company_info.items():
-                if query in ticker.upper() or query in info['name'].upper():
-                    results.append({
-                        'ticker': ticker,
-                        'name': info['name']
-                    })
-            return results[:10]  # Return top 10 matches
+        
+        query = query.upper()
+        results = []
+        for ticker, info in company_info.items():
+            if query in ticker.upper() or query in info['name'].upper():
+                results.append({
+                    'ticker': ticker,
+                    'name': info['name']
+                })
+        return results[:10]  # Return top 10 matches
     except Exception as e:
         print(f"Error in search_stocks: {str(e)}")
         # Minimal fallback
@@ -1105,18 +1105,18 @@ def get_top_stocks():
             # In development, use the local JSON file
             with open('stock_data.json', 'r') as f:
                 companies = json.load(f)
-            
+        
             # Debug: Print all TOP_TICKERS and which ones are missing
             logger.info(f"Looking for these tickers: {TOP_TICKERS}")
             
             # Get info for our predefined TOP_TICKERS in the exact order
-            top_companies = []
-            for ticker in TOP_TICKERS:
-                if ticker in companies:
+        top_companies = []
+        for ticker in TOP_TICKERS:
+            if ticker in companies:
                     company_data = companies[ticker].copy()
                     top_companies.append(company_data)
-            
-            return jsonify(top_companies)
+        
+        return jsonify(top_companies)
     except Exception as e:
         logger.error(f"Error in get_top_stocks: {str(e)}")
         # Provide fallback data
@@ -1159,23 +1159,23 @@ def get_portfolio_stocks():
             # In development, use the local JSON file
             with open('stock_data.json', 'r') as f:
                 stock_data = json.load(f)
-            
-            portfolio_stocks = []
-            for item in portfolio_items:
-                if item.ticker in stock_data:
-                    stock_info = stock_data[item.ticker].copy()
-                    stock_info['amount'] = item.amount
-                    portfolio_stocks.append(stock_info)
-                else:
-                    # Fallback for tickers not in the data
-                    stock_info = {
-                        'ticker': item.ticker,
-                        'name': f"{item.ticker} Stock",
-                        'amount': item.amount
-                    }
-                    portfolio_stocks.append(stock_info)
         
-            return jsonify(portfolio_stocks)
+        portfolio_stocks = []
+        for item in portfolio_items:
+            if item.ticker in stock_data:
+                stock_info = stock_data[item.ticker].copy()
+                stock_info['amount'] = item.amount
+                portfolio_stocks.append(stock_info)
+            else:
+                # Fallback for tickers not in the data
+                stock_info = {
+                    'ticker': item.ticker,
+                    'name': f"{item.ticker} Stock",
+                    'amount': item.amount
+                }
+                portfolio_stocks.append(stock_info)
+        
+        return jsonify(portfolio_stocks)
     except Exception as e:
         print(f"Error getting portfolio stocks: {str(e)}")
         # Provide fallback data
@@ -1674,5 +1674,5 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 8080))
     app.run(host='0.0.0.0', port=port) 

@@ -111,17 +111,15 @@
         
         .education-sections {
             display: flex;
-            flex-direction: row;
-            gap: 30px;
+            flex-direction: column;
+            gap: 0;
             margin-top: 20px;
         }
         
         .education-section {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            min-width: 0; /* For proper flex behavior */
+            background-color: transparent;
+            box-shadow: none;
+            padding: 0;
         }
         
         .education-section:first-child {
@@ -258,11 +256,80 @@
         .quiz-modal-content {
             max-width: 700px;
         }
+        
+        /* Toggle container styles */
+        .toggle-container {
+            display: flex;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.06);
+            border-radius: 8px;
+            padding: 4px;
+            width: 300px;
+            margin: 20px auto 30px;
+        }
+        
+        .toggle-btn {
+            flex: 1;
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-color);
+            transition: all 0.2s ease;
+        }
+        
+        .toggle-btn.active {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Update education sections for toggle view */
+        .education-sections {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-top: 20px;
+        }
+        
+        .view-container {
+            width: 100%;
+            box-sizing: border-box;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            min-width: 0; /* For proper flex behavior */
+        }
+        
+        /* Override existing education-section styles */
+        .education-section.view-container {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .education-section:first-child,
+        .education-section:last-child {
+            flex: 1;
+        }
+        
+        @media (max-width: 900px) {
+            .education-sections {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="top-bar">
         <div class="container">
+            <div class="logo">
+                <a href="/">Stox</a>
+            </div>
             <div class="nav-links">
                 <a href="{{ url_for('dashboard') }}">Home</a>
                 <a href="{{ url_for('portfolio') }}">Portfolio</a>
@@ -274,15 +341,16 @@
     </div>
     
     <div class="container dashboard">
-        <div class="header-actions">
-            <h1>Financial Education</h1>
-        </div>
+        <h1 style="text-align: center; margin-bottom: 30px;">Financial Education</h1>
         
         <div class="education-content">
-            <p>Click on any topic below to learn more about key investment concepts:</p>
+            <div class="toggle-container">
+                <button class="toggle-btn active" onclick="switchView('lessons')">Lessons</button>
+                <button class="toggle-btn" onclick="switchView('quizzes')">Quizzes</button>
+            </div>
             
             <div class="education-sections">
-                <div class="education-section">
+                <div id="lessons-view" class="education-section view-container">
                     <h2>Lessons</h2>
                     <div class="topic-list">
                         <div class="topic-card" onclick="openModal('annualReturn')">
@@ -367,7 +435,7 @@
                     </div>
                 </div>
                 
-                <div class="education-section">
+                <div id="quizzes-view" class="education-section view-container" style="display: none;">
                     <h2>Quizzes</h2>
                     <div class="quiz-cards">
                         <div class="quiz-card" onclick="openQuizModal('annualReturnQuiz')">
@@ -3070,5 +3138,25 @@
         }
     </script>
     <script src="{{ url_for('static', filename='logout.js') }}"></script>
+    <script>
+    // Add this script at the end of the body
+    function switchView(view) {
+        // Hide all views
+        document.querySelectorAll('.view-container').forEach(container => {
+            container.style.display = 'none';
+        });
+        
+        // Show the selected view
+        document.getElementById(`${view}-view`).style.display = 'block';
+        
+        // Update toggle buttons
+        document.querySelectorAll('.toggle-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Find the button for this view and activate it
+        document.querySelector(`.toggle-btn[onclick="switchView('${view}')"]`).classList.add('active');
+    }
+    </script>
 </body>
 </html> 

@@ -127,7 +127,23 @@ input:focus {
     max-width: 1200px;
 }
 
+.logo {
+    margin-right: var(--spacing-xl);
+    position: absolute;
+    left: 20px;
+}
+
+.logo a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+
 .nav-links {
+    margin-left: 100px; /* Add space for the logo that's now positioned absolutely */
     display: flex;
     gap: var(--spacing-xl);
     height: 100%;
@@ -1064,6 +1080,10 @@ form {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .logo a {
+    color: var(--primary-color);
 }
 
 [data-theme="dark"] .nav-links a {

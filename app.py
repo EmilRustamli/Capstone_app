@@ -38,7 +38,7 @@ app.config['MAIL_SERVER'] = os.environ.get('MAIL_SERVER', 'smtp.gmail.com')
 app.config['MAIL_PORT'] = int(os.environ.get('MAIL_PORT', 587))
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME', 'rustamliemiluni@gmail.com')
-app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD', 'ganh bjho orkp tkkw')  # From personal google account
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD', 'xhpq hrqs pbmd ypli')  # From personal google account
 
 # Session and Security configurations
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', secrets.token_hex(16))

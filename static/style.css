@@ -2108,4 +2108,138 @@ form {
 
 [data-theme="dark"] .ci-item.active {
     background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* About Us Page Styles */
+.content-section {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow);
+    padding: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+/* Full-width container for About Us page */
+.main-header + .content-section {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Override the container max-width for About Us page */
+.about-us-container {
+    max-width: 95% !important;
+    width: 95% !important;
+}
+
+.content-section h2 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+    font-size: 28px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--spacing-sm);
+}
+
+.content-section h3 {
+    color: var(--text-color);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    font-size: 22px;
+}
+
+.content-section h4 {
+    color: var(--text-color);
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    font-size: 18px;
+}
+
+.content-section p {
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.6;
+}
+
+.feature-section {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+/* Two-column layout for feature sections on larger screens */
+@media (min-width: 1024px) {
+    .feature-sections-container {
+        display: flex;
+        gap: var(--spacing-xl);
+    }
+    
+    .feature-section {
+        flex: 1;
+        min-width: 0; /* Prevent flex items from overflowing */
+    }
+}
+
+.feature-section h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.feature-section ol, 
+.feature-section ul {
+    padding-left: 25px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.feature-section li {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.feature-section ul li {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Dark mode styles for About Us page */
+[data-theme="dark"] .content-section {
+    background-color: var(--dark-card-bg);
+}
+
+[data-theme="dark"] .content-section h2 {
+    color: var(--primary-color);
+    border-bottom-color: var(--dark-border);
+}
+
+[data-theme="dark"] .feature-section {
+    background-color: rgba(45, 45, 45, 0.5);
+    border-color: var(--dark-border);
+}
+
+[data-theme="dark"] .content-section h3,
+[data-theme="dark"] .content-section h4 {
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] .content-section p,
+[data-theme="dark"] .feature-section li {
+    color: var(--dark-text);
+}
+
+/* Responsive styles for About Us page */
+@media (max-width: 768px) {
+    .feature-section {
+        padding: var(--spacing-lg);
+    }
+    
+    .content-section h2 {
+        font-size: 24px;
+    }
+    
+    .content-section h3 {
+        font-size: 20px;
+    }
+    
+    .content-section h4 {
+        font-size: 16px;
+    }
 } 

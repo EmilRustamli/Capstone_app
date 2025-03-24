@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <div class="logo">
+                <a href="/">Stox</a>
+            </div>
+            <div class="nav-links">
+                <a href="{{ url_for('dashboard') }}">Home</a>
+                <a href="{{ url_for('portfolio') }}">Portfolio</a>
+                <a href="{{ url_for('education') }}">Education</a>
+                <a href="{{ url_for('account') }}">Account</a>
+                <a href="{{ url_for('about') }}" class="active">About Us</a>
+            </div>
+            <a href="/logout" class="logout-btn" onclick="showLogoutModal(event)">Logout</a>
+        </div>
+    </div>
+    
+    <div class="container about-us-container">
+        <h1 class="main-header">About Us</h1>
+        
+        <div class="content-section">
+            <h2>What is Stox?</h2>
+            <p>Stox is a comprehensive investment platform designed to empower investors of all experience levels to build, analyze, and optimize their stock portfolios. With powerful portfolio management tools, educational resources, and advanced analytical features, Stox helps you make more informed investment decisions while learning fundamental investing concepts. Our platform combines user-friendly interfaces with sophisticated financial analysis to provide a complete solution for managing your investments.</p>
+
+            <h2>How to Use Stox</h2>
+            <p>Stox offers several powerful tools to help you analyze and optimize your portfolio. Below you'll find step-by-step guides for using two of our most powerful features: Backtest Performance and Monte Carlo Predictions.</p>
+
+            <div class="feature-sections-container">
+                <div class="feature-section">
+                    <h3>Backtest Performance</h3>
+                    <p>Backtesting allows you to see how your current portfolio and optimized alternatives would have performed over specific historical time periods. This helps you understand the potential performance of different portfolio strategies based on actual market data.</p>
+                    
+                    <h4>How to Use Backtest:</h4>
+                    <ol>
+                        <li><strong>Access the Tool:</strong> Go to the Portfolio page and click the "Backtest Performance" button.</li>
+                        <li><strong>Select Date Range:</strong> Choose a historical start date and end date for your backtest analysis. This defines the period of market data that will be used to evaluate performance.</li>
+                        <li><strong>Include Build New Portfolios (Optional):</strong> Check this box if you want to include completely rebuilt portfolio alternatives in your comparison, not just adjusted versions of your current portfolio.</li>
+                        <li><strong>Run Analysis:</strong> Click the "Analyze" button to process your request. The system will calculate how your portfolio would have performed during the selected time period.</li>
+                        <li><strong>Review Results:</strong> The results will show multiple lines on a chart representing:
+                            <ul>
+                                <li>Your actual portfolio performance (blue line)</li>
+                                <li>Adjusted portfolios optimized for different metrics like Sharpe ratio, return, or volatility</li>
+                                <li>If selected, newly built portfolios optimized from scratch</li>
+                            </ul>
+                        </li>
+                        <li><strong>Interact with the Chart:</strong> You can:
+                            <ul>
+                                <li>Hover over lines to see specific values at different dates</li>
+                                <li>Use the legend at the top to toggle visibility of different portfolios</li>
+                                <li>To zoom in on a specific time period, hold the Command key (Mac) or Control key (Windows) while scrolling on the chart</li>
+                                <li>Reset zoom with the "Reset Zoom" button</li>
+                            </ul>
+                        </li>
+                        <li><strong>Portfolio Details:</strong> To see detailed information about any portfolio in the chart, hold the Command key (Mac) or Control key (Windows) while clicking on the portfolio's name in the legend.</li>
+                    </ol>
+                    <p><strong>Why Use Backtest:</strong> Backtesting helps you understand how robust your investment strategy would have been during various market conditions, including periods of growth, decline, or volatility. It's an essential tool for evaluating the potential risk and return characteristics of your portfolio before making investment decisions.</p>
+                </div>
+
+                <div class="feature-section">
+                    <h3>Monte Carlo (MC) Predictions</h3>
+                    <p>Monte Carlo simulation is a sophisticated forecasting method that runs hundreds of random simulations to project potential future portfolio performance based on historical patterns. This helps you understand the range of possible outcomes and the probability of achieving your investment goals.</p>
+                    
+                    <h4>How to Use MC Predictions:</h4>
+                    <ol>
+                        <li><strong>Access the Tool:</strong> Go to the Portfolio page and click the "MC Prediction" button.</li>
+                        <li><strong>Select Historical Data Range:</strong> Choose a start and end date for the historical data that will be used as the basis for the simulations. This data determines the statistical properties (returns, volatility, correlations) used in the forecasting model.</li>
+                        <li><strong>Configure Simulation Parameters:</strong>
+                            <ul>
+                                <li><strong>Number of Simulations:</strong> Select how many random simulations to run (default is 500). More simulations provide more reliable results but take longer to process.</li>
+                                <li><strong>Confidence Interval:</strong> Choose your preferred confidence level (90%, 95%, or 99%). This determines the range of projected outcomes shown in the results.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Run Analysis:</strong> Click the "Analyze" button to start the simulations. The system will:
+                            <ul>
+                                <li>Generate optimized portfolio alternatives</li>
+                                <li>Run Monte Carlo simulations for each portfolio</li>
+                                <li>Calculate projected performance through June 2025</li>
+                            </ul>
+                        </li>
+                        <li><strong>Review Results:</strong> The results display:
+                            <ul>
+                                <li>A chart showing projected performance paths and confidence intervals</li>
+                                <li>Statistical data including expected final value, confidence ranges, Value at Risk (VaR), and probability of gain</li>
+                                <li>Comparisons between different portfolio options</li>
+                            </ul>
+                        </li>
+                        <li><strong>Interact with the Chart:</strong> You can:
+                            <ul>
+                                <li>Hover over lines to see specific values at different dates</li>
+                                <li>Use the legend at the top to toggle visibility of different portfolios and/or click on "CI" on the legend to toggle visibility of the confidence intervals</li>
+                                <li>To zoom in on a specific time period, hold the Command key (Mac) or Control key (Windows) while scrolling on the chart</li>
+                                <li>Reset zoom with the "Reset Zoom" button</li>
+                            </ul>
+                        </li>
+                        <li><strong>Portfolio Details:</strong> To see detailed information about any portfolio in the chart, hold the Command key (Mac) or Control key (Windows) while clicking on the portfolio's name in the legend.</li>
+                    </ol>
+                    <p><strong>Why Use MC Predictions:</strong> Monte Carlo simulations acknowledge that future market movements are unpredictable but follow statistical patterns. This tool gives you a more nuanced understanding of potential outcomes than simple linear projections, helping you set realistic expectations and make better-informed investment decisions. It's especially valuable for understanding the probability of reaching specific financial goals and the range of possible outcomes for your portfolio.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout confirmation modal -->
+    <div class="modal-overlay" id="logoutModal" style="display: none;">
+        <div class="modal">
+            <h2>Confirm Logout</h2>
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-buttons">
+                <button onclick="confirmLogout()">Log Out</button>
+                <button class="cancel-btn" onclick="closeLogoutModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='about.js') }}"></script>
+</body>
+</html> 

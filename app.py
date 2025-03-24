@@ -804,7 +804,7 @@ def logout():
 def check_session():
     if 'user_email' in session:
         # Check if the route requires authentication
-        protected_routes = ['dashboard', 'portfolio', 'education', 'account']
+        protected_routes = ['dashboard', 'portfolio', 'education', 'account', 'about']
         if request.endpoint in protected_routes:
             # Verify user exists and session is valid
             user = User.query.filter_by(email=session['user_email']).first()
@@ -1662,6 +1662,15 @@ def monte_carlo_prediction():
     except Exception as e:
         print(f"Error in monte_carlo_prediction: {str(e)}")
         return jsonify({'error': str(e)}), 500
+
+@app.route('/about')
+def about():
+    """Route for the About Us page"""
+    if 'user_email' in session:
+        user = User.query.filter_by(email=session['user_email']).first()
+        if user:
+            return render_template('about.html', username=user.username)
+    return render_template('about.html')
 
 if __name__ == '__main__':
     # Create necessary directories

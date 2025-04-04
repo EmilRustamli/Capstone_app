@@ -18,6 +18,7 @@ import schedule
 import threading
 import pytz
 from pypfopt import EfficientFrontier, risk_models, expected_returns
+import sqlalchemy.exc
 
 app = Flask(__name__)
 
@@ -25,6 +26,13 @@ app = Flask(__name__)
 if os.environ.get('DATABASE_URL'):
     # Use PostgreSQL in production
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+    # Configure connection pool to handle disconnections
+    app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+        'pool_pre_ping': True,  # Test connections before using them
+        'pool_recycle': 300,    # Recycle connections after 5 minutes
+        'pool_timeout': 30,     # Timeout after 30 seconds when getting connection
+        'max_overflow': 10      # Allow up to 10 extra connections in the pool
+    }
     print("Using production database")
 else:
     # Use SQLite in development
@@ -836,10 +844,25 @@ def check_session():
         protected_routes = ['dashboard', 'portfolio', 'education', 'account', 'about']
         if request.endpoint in protected_routes:
             # Verify user exists and session is valid
-            user = User.query.filter_by(email=session['user_email']).first()
-            if not user:
-                session.clear()
-                return redirect(url_for('home'))
+            max_retries = 3
+            retry_count = 0
+            while retry_count < max_retries:
+                try:
+                    user = User.query.filter_by(email=session['user_email']).first()
+                    if not user:
+                        session.clear()
+                        return redirect(url_for('home'))
+                    # Success, exit the retry loop
+                    break
+                except Exception as e:
+                    retry_count += 1
+                    if retry_count >= max_retries:
+                        # Log the error and clear the session if we can't connect after max retries
+                        print(f"Database connection error in check_session after {max_retries} retries: {str(e)}")
+                        session.clear()
+                        return redirect(url_for('home'))
+                    # Wait briefly before retrying
+                    time.sleep(0.5)
 
 @app.route('/account')
 def account():
@@ -1342,29 +1365,37 @@ def forbidden_error(error):
     session.clear()  # Clear any corrupted session
     return redirect(url_for('home'))
 
-@app.errorhandler(500)
-def internal_error(error):
-    """Handle internal server errors with better logging"""
+@app.errorhandler(sqlalchemy.exc.OperationalError)
+def handle_db_connection_error(error):
+    """Handle database connection errors gracefully"""
+    db.session.remove()  # Remove the session to force a new connection on next try
+    
+    # Log the error
+    print(f"Database connection error: {str(error)}")
+    
+    # For API endpoints, return JSON
+    if request.path.startswith('/api') or request.is_json:
+        return jsonify({
+            'error': 'Database connection error. Please try again.',
+            'details': 'The application is experiencing temporary connectivity issues with the database.'
+        }), 503
+    
+    # For regular requests, redirect to an error page or home
+    session.clear()  # Clear session data as it might be stale
+    # Flash a message about the error
+    return redirect(url_for('home'))
+
+@app.route('/health')
+def health_check():
+    """Simple health check endpoint to verify the app and database are running."""
     try:
-        # First rollback any failed database transactions
-        db.session.rollback()
-        
-        # Log the error with detailed information
-        import traceback
-        error_details = traceback.format_exc()
-        print(f"500 Internal Server Error: {str(error)}")
-        print(f"Error details: {error_details}")
-        
-        # In production, return a simplified error message to the user
-        if os.environ.get('RENDER') == 'production':
-            return jsonify({'error': 'The server encountered an internal error. Please try again later.'}), 500
-        else:
-            # In development, return more details
-            return jsonify({'error': str(error), 'details': error_details}), 500
+        # Attempt a simple database query to verify the connection
+        User.query.limit(1).all()
+        return jsonify({"status": "healthy", "database": "connected"})
     except Exception as e:
-        # If error handling itself fails, return a basic response
-        print(f"Error in error handler: {str(e)}")
-        return jsonify({'error': 'Internal server error'}), 500
+        # Log the error for debugging
+        print(f"Database connection error in health check: {str(e)}")
+        return jsonify({"status": "unhealthy", "database": "disconnected", "error": str(e)}), 500
 
 # def update_all_stock_data():
 #     """Update data for all stocks in portfolios and TOP_TICKERS"""
@@ -1722,6 +1753,30 @@ def about():
         if user:
             return render_template('about.html', username=user.username)
     return render_template('about.html')
+
+@app.errorhandler(500)
+def internal_error(error):
+    """Handle internal server errors with better logging"""
+    try:
+        # First rollback any failed database transactions
+        db.session.rollback()
+        
+        # Log the error with detailed information
+        import traceback
+        error_details = traceback.format_exc()
+        print(f"500 Internal Server Error: {str(error)}")
+        print(f"Error details: {error_details}")
+        
+        # In production, return a simplified error message to the user
+        if os.environ.get('RENDER') == 'production':
+            return jsonify({'error': 'The server encountered an internal error. Please try again later.'}), 500
+        else:
+            # In development, return more details
+            return jsonify({'error': str(error), 'details': error_details}), 500
+    except Exception as e:
+        # If error handling itself fails, return a basic response
+        print(f"Error in error handler: {str(e)}")
+        return jsonify({'error': 'Internal server error'}), 500
 
 if __name__ == '__main__':
     # Create necessary directories

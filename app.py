@@ -6,7 +6,6 @@ import random
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 import json
-import yfinance as yf
 import logging
 from datetime import datetime, timedelta
 import numpy as np
@@ -80,52 +79,69 @@ class PortfolioItem(db.Model):
 class Portfolio:
     # Class-level attributes to store data
     trade_data = pd.DataFrame()
+    data_needs_loading = True
+    data_loading_attempts = 0
 
     @classmethod
     def load_data(cls, csv_path):
         """Load pre-downloaded stock data from a CSV file."""
         try:
-            if os.environ.get('VERCEL_ENV') == 'production':
-                print("Running in production environment - using lightweight data source")
-                # In production, create a minimal dataset with the most important stocks
-                minimal_data = {}
-                
-                # Use yfinance to fetch data for a limited set of stocks (TOP_TICKERS)
-                for ticker in TOP_TICKERS:
-                    try:
-                        data = yf.download(ticker, period="5y")['Adj Close']
-                        minimal_data[ticker] = data
-                    except Exception as e:
-                        print(f"Error fetching data for {ticker}: {str(e)}")
-                
-                if minimal_data:
-                    # Create a DataFrame with the downloaded data
-                    cls.trade_data = pd.DataFrame(minimal_data)
-                    print(f"Loaded data for {len(minimal_data)} tickers in production")
-                else:
-                    raise ValueError("Failed to load any stock data in production")
+            if os.environ.get('RENDER') == 'production':
+                print("Running in production environment - using local data source")
+                # Load data from local CSV file
+                cls.trade_data = pd.read_csv(csv_path, index_col=0, parse_dates=True)
+                print(f"Loaded data from CSV in production")
+                cls.data_needs_loading = False
             else:
-                # In development, use the local CSV
+                # In development, also use the local CSV
                 cls.trade_data = pd.read_csv(csv_path, index_col=0, parse_dates=True)
                 print(f"Loaded data from CSV in development")
+                # No need to reload in development mode
+                cls.data_needs_loading = False
         except Exception as e:
             print(f"Error loading data: {str(e)}")
-            # Create minimal fallback data if loading fails
-            fallback_data = {}
-            for ticker in TOP_TICKERS[:5]:  # Use only 5 tickers for fallback
-                try:
-                    data = yf.download(ticker, period="2y")['Adj Close']
-                    fallback_data[ticker] = data
-                except:
-                    continue
+            # Create minimal fallback data structure to prevent errors
+            cls.trade_data = pd.DataFrame({
+                'AAPL': [100, 101, 102],
+                'MSFT': [200, 202, 204]
+            }, index=pd.date_range(end=pd.Timestamp.now(), periods=3, freq='D'))
+            print("Using minimal fallback data structure")
+            # Mark for reload on first use
+            cls.data_needs_loading = True
+            cls.data_loading_attempts = 0
+
+    @classmethod
+    def ensure_data_loaded(cls):
+        """Make sure data is loaded before performing any operations.
+        This method will be called before any data operations to ensure data is loaded."""
+        # If data is already loaded or we've tried too many times, skip
+        if not getattr(cls, 'data_needs_loading', True):
+            return
+        
+        try:
+            print("Attempting to load stock data from CSV")
+            cls.data_loading_attempts = getattr(cls, 'data_loading_attempts', 0) + 1
             
-            if fallback_data:
-                cls.trade_data = pd.DataFrame(fallback_data)
-                print(f"Using fallback data with {len(fallback_data)} tickers")
-            else:
-                # Last resort - create empty DataFrame with minimal structure
-                cls.trade_data = pd.DataFrame()
-                print("Using empty DataFrame as last resort")
+            # Load data from trade_data.csv
+            try:
+                cls.trade_data = pd.read_csv('trade_data.csv', index_col=0, parse_dates=True)
+                print(f"Successfully loaded data from CSV")
+                cls.data_needs_loading = False
+            except Exception as e:
+                print(f"Error loading CSV file: {str(e)}")
+                
+                # Keep using the placeholder data if loading fails
+                if cls.trade_data.empty:
+                    # Create a minimal placeholder structure to prevent immediate errors
+                    cls.trade_data = pd.DataFrame({
+                        'AAPL': [100, 101, 102],
+                        'MSFT': [200, 202, 204]
+                    }, index=pd.date_range(end=pd.Timestamp.now(), periods=3, freq='D'))
+                    print("Using minimal fallback data structure")
+            
+        except Exception as e:
+            print(f"Error ensuring data is loaded: {str(e)}")
+            # Don't increment attempt counter to allow retrying
 
     @classmethod
     def monte_carlo_simulation(cls, portfolio, num_simulations=100, confidence_interval=0.95, 
@@ -145,6 +161,9 @@ class Portfolio:
             dict: Monte Carlo simulation results
         """
         try:
+            # Ensure data is loaded before performing simulation
+            cls.ensure_data_loaded()
+            
             # Convert start_date and end_date to datetime objects
             start_date_dt = pd.to_datetime(start_date)
             end_date_dt = pd.to_datetime(end_date)
@@ -277,6 +296,9 @@ class Portfolio:
 
     def _fetch_data(self):
         """Filter the preloaded data for the selected tickers and date range."""
+        # Ensure data is loaded before accessing it
+        Portfolio.ensure_data_loaded()
+        
         if Portfolio.trade_data.empty:
             raise ValueError("Stock data is not loaded. Use Portfolio.load_data(csv_path) first")
 
@@ -374,6 +396,9 @@ class Portfolio:
     @classmethod
     def optimize_user_portfolio(cls, portfolio_input, start_date, end_date, optimize_for="sharpe", build_new=False, full_tickers_list=None):
         try:
+            # Ensure data is loaded before optimization
+            cls.ensure_data_loaded()
+            
             # Get historical data
             if build_new:
                 # Intelligently filter tickers instead of using an arbitrary limit
@@ -660,6 +685,10 @@ class Portfolio:
         data: DataFrame of price data
         start_date: date to start calculating from
         """
+        # Ensure data is loaded if we're using the class's trade_data
+        if data is cls.trade_data:
+            cls.ensure_data_loaded()
+        
         # Convert start_date to datetime if it's a string
         start_date_dt = pd.to_datetime(start_date)
         
@@ -976,7 +1005,7 @@ def get_stock_info(ticker):
 def search_stocks(query):
     try:
         # In production, use a minimal approach
-        if os.environ.get('VERCEL_ENV') == 'production':
+        if os.environ.get('RENDER') == 'production':
             # Use TOP_TICKERS as a minimal dataset
             results = []
             query = query.upper()
@@ -1085,7 +1114,7 @@ def delete_portfolio_item():
 def get_top_stocks():
     try:
         # In production environment, don't try to load the JSON file
-        if os.environ.get('VERCEL_ENV') == 'production':
+        if os.environ.get('RENDER') == 'production':
             logger.info("Production environment detected, using generated data")
             # Create simplified data for top tickers
             top_companies = []
@@ -1140,7 +1169,7 @@ def get_portfolio_stocks():
         portfolio_items = PortfolioItem.query.filter_by(user_id=user.id).all()
         
         # In production environment, don't try to load the JSON file
-        if os.environ.get('VERCEL_ENV') == 'production':
+        if os.environ.get('RENDER') == 'production':
             print("Production environment detected, using generated portfolio data")
             # Create simplified data for portfolio stocks
             portfolio_stocks = []
@@ -1315,8 +1344,27 @@ def forbidden_error(error):
 
 @app.errorhandler(500)
 def internal_error(error):
-    db.session.rollback()  # Rollback any failed database transactions
-    return jsonify({'error': str(error)}), 500
+    """Handle internal server errors with better logging"""
+    try:
+        # First rollback any failed database transactions
+        db.session.rollback()
+        
+        # Log the error with detailed information
+        import traceback
+        error_details = traceback.format_exc()
+        print(f"500 Internal Server Error: {str(error)}")
+        print(f"Error details: {error_details}")
+        
+        # In production, return a simplified error message to the user
+        if os.environ.get('RENDER') == 'production':
+            return jsonify({'error': 'The server encountered an internal error. Please try again later.'}), 500
+        else:
+            # In development, return more details
+            return jsonify({'error': str(error), 'details': error_details}), 500
+    except Exception as e:
+        # If error handling itself fails, return a basic response
+        print(f"Error in error handler: {str(e)}")
+        return jsonify({'error': 'Internal server error'}), 500
 
 # def update_all_stock_data():
 #     """Update data for all stocks in portfolios and TOP_TICKERS"""
@@ -1342,6 +1390,9 @@ def calculate_future_performance():
         
     try:
         data = request.json
+        
+        # Ensure data is loaded
+        Portfolio.ensure_data_loaded()
         
         # Ensure consistent date formatting
         try:

@@ -757,6 +757,9 @@
                 }
                 return optimized >= current ? 'better' : 'worse';
             };
+            
+            // Check if we're in the backtesting context
+            const isFutureContext = document.getElementById('futureModal').style.display === 'flex';
 
             resultsDiv.innerHTML = `
                 <div class="optimization-summary">
@@ -795,7 +798,7 @@
                     </div>
                     
                     <h4>Recommended Allocation:</h4>
-                    <p class="tooltip-hint">(⌘+click on any ticker to view analyst ratings)</p>
+                    ${!isFutureContext ? '<p class="tooltip-hint">(⌘+click on any ticker to view analyst ratings)</p>' : ''}
                     <div class="allocation-grid">
                         ${Object.entries(data.optimized_portfolio.allocation)
                             .map(([ticker, amount]) => `
@@ -1146,6 +1149,9 @@
             return isPositiveChange(current, optimized, isVolatility) ? 'better' : 'worse';
         };
         
+        // Check if we're in the backtesting context
+        const isFutureContext = document.getElementById('futureModal').style.display === 'flex';
+        
         // Create metrics comparison HTML
         const metricsHtml = `
             <h3>${portfolioName}</h3>
@@ -1191,7 +1197,7 @@
                 </div>
             </div>
             <h4>Recommended Allocation:</h4>
-            <p class="tooltip-hint">(⌘+click on any ticker to view analyst ratings)</p>
+            ${!isFutureContext ? '<p class="tooltip-hint">(⌘+click on any ticker to view analyst ratings)</p>' : ''}
             <div class="allocation-grid">
                 ${Object.entries(optimizationData.allocation)
                     .map(([ticker, amount]) => `
@@ -1412,8 +1418,13 @@
     function handleAllocationItemClick(event, ticker) {
         // Check if the command/ctrl key is pressed
         if (event.metaKey || event.ctrlKey) {
-            // Show analyst ratings for this ticker
-            showAnalystRatings(ticker);
+            // Check if we're in the backtesting modal
+            const isFutureContext = document.getElementById('futureModal').style.display === 'flex';
+            
+            // Only show analyst ratings if not in backtesting context
+            if (!isFutureContext) {
+                showAnalystRatings(ticker);
+            }
         } else {
             // Toggle selection of the allocation item
             const allocationItem = event.currentTarget;

@@ -245,6 +245,48 @@
             </div>
         </div>
     </div>
+    <div id="analystRatingsModal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <h2>Analyst Ratings for <span id="analystRatingsTicker"></span></h2>
+            <div class="modal-content">
+                <div class="analyst-ratings-container">
+                    <div class="analyst-ratings-summary">
+                        <div class="ratings-chart-container">
+                            <canvas id="analystRatingsChart"></canvas>
+                        </div>
+                        <div class="price-targets">
+                            <h3>Price Targets</h3>
+                            <div class="price-targets-grid">
+                                <div class="price-target-item">
+                                    <div class="price-label">Current</div>
+                                    <div id="currentPrice" class="price-value">$0.00</div>
+                                </div>
+                                <div class="price-target-item">
+                                    <div class="price-label">Low</div>
+                                    <div id="targetLow" class="price-value">$0.00</div>
+                                </div>
+                                <div class="price-target-item">
+                                    <div class="price-label">Median</div>
+                                    <div id="targetMedian" class="price-value">$0.00</div>
+                                </div>
+                                <div class="price-target-item">
+                                    <div class="price-label">Mean</div>
+                                    <div id="targetMean" class="price-value">$0.00</div>
+                                </div>
+                                <div class="price-target-item">
+                                    <div class="price-label">High</div>
+                                    <div id="targetHigh" class="price-value">$0.00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button onclick="closeAnalystRatingsModal()" class="cancel-btn">Close</button>
+            </div>
+        </div>
+    </div>
     <div id="monteCarloModal" class="modal-overlay" style="display: none;">
         <div class="modal">
             <h2>Monte Carlo Prediction</h2>
@@ -444,6 +486,9 @@
         }
         if (e.target === document.getElementById('evaluateModal')) {
             closeEvaluateModal();
+        }
+        if (e.target === document.getElementById('analystRatingsModal')) {
+            closeAnalystRatingsModal();
         }
     });
 
@@ -750,12 +795,15 @@
                     </div>
                     
                     <h4>Recommended Allocation:</h4>
+                    <p class="tooltip-hint">(⌘+click on any ticker to view analyst ratings)</p>
                     <div class="allocation-grid">
-                        ${Object.entries(data.optimized_portfolio.allocation).map(([ticker, amount]) => 
-                            `<div class="allocation-item">
-                                ${ticker}: $${parseFloat(amount).toFixed(2)}
-                            </div>`
-                        ).join('')}
+                        ${Object.entries(data.optimized_portfolio.allocation)
+                            .map(([ticker, amount]) => `
+                                <div class="allocation-item" onclick="handleAllocationItemClick(event, '${ticker}')">
+                                    <span class="ticker">${ticker}</span>
+                                    <span class="amount">$${amount.toFixed(2)}</span>
+                                </div>
+                            `).join('')}
                     </div>
                 </div>
             `;
@@ -1099,8 +1147,9 @@
         };
         
         // Create metrics comparison HTML
-        let metricsHtml = `
+        const metricsHtml = `
             <h3>${portfolioName}</h3>
+            <p>These metrics show how your portfolio's performance can be optimized.</p>
             <div class="metric-row">
                 <div class="metric-label">Return:</div>
                 <div class="metric-values">
@@ -1142,10 +1191,11 @@
                 </div>
             </div>
             <h4>Recommended Allocation:</h4>
+            <p class="tooltip-hint">(⌘+click on any ticker to view analyst ratings)</p>
             <div class="allocation-grid">
                 ${Object.entries(optimizationData.allocation)
                     .map(([ticker, amount]) => `
-                        <div class="allocation-item">
+                        <div class="allocation-item" onclick="handleAllocationItemClick(event, '${ticker}')">
                             <span class="ticker">${ticker}</span>
                             <span class="amount">$${amount.toFixed(2)}</span>
                         </div>
@@ -1157,7 +1207,10 @@
         modal.style.display = 'flex';
         
         // Store the current optimization data for the accept button
-        lastPortfolioDetails = optimizationData;
+        lastPortfolioDetails = {
+            ...optimizationData,
+            originalAllocation: {...optimizationData.allocation} // Store original allocation
+        };
         
         // Show the accept button
         document.getElementById('acceptPortfolioBtn').style.display = 'block';
@@ -1220,6 +1273,185 @@
     function roundUp01(x) {
         return Math.ceil(x * 10) / 10;
     }
+
+    // Analyst Ratings Modal Functions
+    let analystRatingsChart = null;
+    
+    function showAnalystRatings(ticker) {
+        const modal = document.getElementById('analystRatingsModal');
+        document.getElementById('analystRatingsTicker').textContent = ticker;
+        
+        // Make sure the analyst ratings modal appears on top of other modals
+        modal.style.zIndex = 1200; // Higher than other modals
+        
+        // Fetch analyst ratings data
+        fetch(`/get-analyst-ratings/${ticker}`)
+            .then(response => response.json())
+            .then(data => {
+                // Update price targets
+                updatePriceTargets(data.Target_Price, data.Current_Price);
+                
+                // Create pie chart for analyst ratings
+                createRatingsPieChart(data.Analyst_Rating);
+                
+                // Display the modal
+                modal.style.display = 'flex';
+            })
+            .catch(error => {
+                console.error('Error fetching analyst ratings:', error);
+                // Display modal with default values even if fetch fails
+                updatePriceTargets(null, 0);
+                modal.style.display = 'flex';
+            });
+    }
+    
+    function closeAnalystRatingsModal() {
+        document.getElementById('analystRatingsModal').style.display = 'none';
+        
+        // Destroy chart to prevent memory leaks
+        if (analystRatingsChart) {
+            analystRatingsChart.destroy();
+            analystRatingsChart = null;
+        }
+    }
+    
+    function updatePriceTargets(targets, currentPrice) {
+        // Set default values if data is missing
+        const targetData = targets || {
+            targetLow: 0,
+            targetHigh: 0,
+            targetMean: 0,
+            targetMedian: 0
+        };
+        
+        // Update the DOM elements
+        document.getElementById('currentPrice').textContent = `$${currentPrice?.toFixed(2) || '0.00'}`;
+        document.getElementById('targetLow').textContent = `$${targetData.targetLow?.toFixed(2) || '0.00'}`;
+        document.getElementById('targetHigh').textContent = `$${targetData.targetHigh?.toFixed(2) || '0.00'}`;
+        document.getElementById('targetMean').textContent = `$${targetData.targetMean?.toFixed(2) || '0.00'}`;
+        document.getElementById('targetMedian').textContent = `$${targetData.targetMedian?.toFixed(2) || '0.00'}`;
+    }
+    
+    function createRatingsPieChart(ratings) {
+        // Set default values if data is missing
+        const ratingData = ratings || {
+            strongBuy: 0,
+            buy: 0,
+            hold: 0,
+            sell: 0,
+            strongSell: 0
+        };
+        
+        // Get the canvas context
+        const ctx = document.getElementById('analystRatingsChart').getContext('2d');
+        
+        // Destroy previous chart if it exists
+        if (analystRatingsChart) {
+            analystRatingsChart.destroy();
+        }
+        
+        // Create data for the pie chart
+        const data = {
+            labels: ['Strong Buy', 'Buy', 'Hold', 'Sell', 'Strong Sell'],
+            datasets: [{
+                data: [
+                    ratingData.strongBuy || 0,
+                    ratingData.buy || 0,
+                    ratingData.hold || 0,
+                    ratingData.sell || 0,
+                    ratingData.strongSell || 0
+                ],
+                backgroundColor: [
+                    '#28a745', // Strong Buy - Green
+                    '#5cb85c', // Buy - Light Green
+                    '#ffc107', // Hold - Yellow
+                    '#dc3545', // Sell - Red
+                    '#9d0208'  // Strong Sell - Dark Red
+                ],
+                borderWidth: 1
+            }]
+        };
+        
+        // Chart options
+        const options = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        padding: 20,
+                        font: {
+                            size: 12
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const label = context.label || '';
+                            const value = context.raw;
+                            const total = context.dataset.data.reduce((acc, curr) => acc + curr, 0);
+                            const percentage = total > 0 ? Math.round((value / total) * 100) : 0;
+                            return `${label}: ${value} (${percentage}%)`;
+                        }
+                    }
+                }
+            }
+        };
+        
+        // Create the chart
+        analystRatingsChart = new Chart(ctx, {
+            type: 'pie',
+            data: data,
+            options: options
+        });
+    }
+
+    // Add a handler for the allocation item clicks
+    function handleAllocationItemClick(event, ticker) {
+        // Check if the command/ctrl key is pressed
+        if (event.metaKey || event.ctrlKey) {
+            // Show analyst ratings for this ticker
+            showAnalystRatings(ticker);
+        } else {
+            // Toggle selection of the allocation item
+            const allocationItem = event.currentTarget;
+            allocationItem.classList.toggle('deselected');
+            
+            // Update the lastPortfolioDetails object when items are selected/deselected
+            updateSelectedAllocation();
+        }
+    }
+
+    // Add a function to update the selected allocation
+    function updateSelectedAllocation() {
+        if (!lastPortfolioDetails) return;
+        
+        // Create a copy of the original allocation
+        const selectedAllocation = {...lastPortfolioDetails.originalAllocation || lastPortfolioDetails.allocation};
+        
+        // Get all deselected items
+        const deselectedItems = document.querySelectorAll('.allocation-item.deselected');
+        
+        // Remove deselected items from the allocation
+        deselectedItems.forEach(item => {
+            const ticker = item.querySelector('.ticker').textContent.trim();
+            delete selectedAllocation[ticker];
+        });
+        
+        // Update lastPortfolioDetails with the selected allocation
+        lastPortfolioDetails.allocation = selectedAllocation;
+        
+        // Log the current selected allocation for debugging
+        console.log('Updated allocation:', lastPortfolioDetails.allocation);
+    }
+
+    // Expose the showPortfolioDetails function globally
+    window.showPortfolioDetails = showPortfolioDetails;
+    window.showAnalystRatings = showAnalystRatings;
+    window.closeAnalystRatingsModal = closeAnalystRatingsModal;
+    window.handleAllocationItemClick = handleAllocationItemClick;
     </script>
     <script src="{{ url_for('static', filename='portfolio.js') }}"></script>
     <script src="{{ url_for('static', filename='theme.js') }}"></script>

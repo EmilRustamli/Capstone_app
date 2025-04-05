@@ -1828,6 +1828,48 @@ def check_auth():
     response.headers['Expires'] = '-1'
     return response
 
+@app.route('/get-analyst-ratings/<ticker>')
+def get_analyst_ratings(ticker):
+    """Get analyst ratings and price targets for a specific ticker"""
+    try:
+        with open('analyst_ratings.json', 'r') as f:
+            analyst_data = json.load(f)
+        
+        # Get current price from stock_data.json
+        with open('stock_data.json', 'r') as f:
+            stock_data = json.load(f)
+        
+        if ticker in analyst_data:
+            response_data = analyst_data[ticker]
+            
+            # Add current price if available
+            if ticker in stock_data:
+                response_data['Current_Price'] = stock_data[ticker]['price']
+            else:
+                response_data['Current_Price'] = 0
+                
+            return jsonify(response_data)
+        else:
+            return jsonify({
+                'Analyst_Rating': {
+                    'strongBuy': 0,
+                    'buy': 0,
+                    'hold': 0,
+                    'sell': 0,
+                    'strongSell': 0
+                },
+                'Target_Price': {
+                    'targetHigh': 0,
+                    'targetLow': 0,
+                    'targetMean': 0,
+                    'targetMedian': 0
+                },
+                'Current_Price': 0
+            }), 404
+    except Exception as e:
+        print(f"Error getting analyst ratings: {str(e)}")
+        return jsonify({'error': str(e)}), 500
+
 if __name__ == '__main__':
     # Create necessary directories
     if not os.path.exists('instance'):

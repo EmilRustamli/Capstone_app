@@ -1912,40 +1912,80 @@ form {
     align-items: center;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    position: relative;
+}
+
+.allocation-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Default state is selected (active) */
+.allocation-item {
+    background-color: #333333; /* Apple space grey color */
+    color: #ffffff; /* White text for better contrast */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* When deselected, use light background like legend-pill */
+.allocation-item.deselected {
+    background-color: #f8f9fa;
+    color: #333;
+    opacity: 1;
+    text-decoration: none;
+    transform: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.allocation-item.deselected:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-1px);
+}
+
+/* Remove the X icon */
+.allocation-item.deselected::before {
+    content: none;
 }
 
 .allocation-item .ticker {
     font-weight: 600;
-    color: var(--primary-color);
+    color: inherit; /* Use parent color instead of fixed color */
     margin-right: 5px;
 }
 
 .allocation-item .amount {
-    color: #555;
+    color: inherit; /* Use parent color instead of fixed color */
 }
 
-/* Dark mode overrides */
-[data-theme="dark"] .optimized-value.better {
-    color: #4ade80;
-    background-color: rgba(74, 222, 128, 0.15);
-}
-
-[data-theme="dark"] .optimized-value.worse {
-    color: #f87171;
-    background-color: rgba(248, 113, 113, 0.15);
-}
-
+/* Dark mode adjustments */
 [data-theme="dark"] .allocation-item {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .allocation-item:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .allocation-item.deselected {
     background-color: rgba(255, 255, 255, 0.05);
+    color: #e0e0e0;
     border-color: rgba(255, 255, 255, 0.1);
 }
 
+[data-theme="dark"] .allocation-item.deselected:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
 [data-theme="dark"] .allocation-item .ticker {
-    color: #4ade80;
+    color: inherit;
 }
 
 [data-theme="dark"] .allocation-item .amount {
-    color: #e0e0e0;
+    color: inherit;
 }
 
 /* Custom Legend Styles for Charts */
@@ -2283,4 +2323,91 @@ form {
 [data-theme="dark"] .logout-spinner {
     border: 4px solid rgba(255, 255, 255, 0.1);
     border-left-color: #2196f3;
+}
+
+/* Analyst Ratings Modal */
+.analyst-ratings-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.analyst-ratings-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ratings-chart-container {
+    height: 250px;
+    width: 100%;
+}
+
+.price-targets {
+    width: 100%;
+}
+
+.price-targets h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.price-targets-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.price-target-item {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+[data-theme="dark"] .price-target-item {
+    background-color: #2a2a2a;
+}
+
+.price-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.price-value {
+    font-size: 1.1rem;
+    color: #2196f3;
+}
+
+/* Clickable allocation items */
+.allocation-item {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.allocation-item:hover {
+    background-color: #f0f0f0;
+}
+
+.allocation-item .ticker {
+    color: #1a73e8;
+}
+
+@media (max-width: 768px) {
+    .price-targets-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .analyst-ratings-summary {
+        flex-direction: column;
+    }
+}
+
+.tooltip-hint {
+    font-size: 13px;
+    color: #666;
+    margin: 5px 0 10px;
+    font-style: italic;
+    text-align: center;
 } 

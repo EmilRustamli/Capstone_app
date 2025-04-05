@@ -1,0 +1,7037 @@
+{
+    "A": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 7,
+            "hold": 13,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 165.0,
+            "targetLow": 132.0,
+            "targetMean": 151.0625,
+            "targetMedian": 153.0
+        }
+    },
+    "AAPL": {
+        "Analyst_Rating": {
+            "strongBuy": 12,
+            "buy": 23,
+            "hold": 12,
+            "sell": 3,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 325.0,
+            "targetLow": 175.0,
+            "targetMean": 250.40076,
+            "targetMedian": 253.0
+        }
+    },
+    "ABBV": {
+        "Analyst_Rating": {
+            "strongBuy": 10,
+            "buy": 14,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 250.0,
+            "targetLow": 173.0,
+            "targetMean": 211.7324,
+            "targetMedian": 214.0
+        }
+    },
+    "ABT": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 13,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 160.0,
+            "targetLow": 111.34,
+            "targetMean": 136.68083,
+            "targetMedian": 135.0
+        }
+    },
+    "ACGL": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 12,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 128.0,
+            "targetLow": 97.0,
+            "targetMean": 113.33333,
+            "targetMedian": 110.0
+        }
+    },
+    "ACN": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 14,
+            "hold": 7,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 415.0,
+            "targetLow": 290.0,
+            "targetMean": 363.78918,
+            "targetMedian": 368.5
+        }
+    },
+    "ADBE": {
+        "Analyst_Rating": {
+            "strongBuy": 14,
+            "buy": 19,
+            "hold": 14,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 640.0,
+            "targetLow": 407.0,
+            "targetMean": 519.3669,
+            "targetMedian": 525.0
+        }
+    },
+    "ADI": {
+        "Analyst_Rating": {
+            "strongBuy": 10,
+            "buy": 14,
+            "hold": 12,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 300.0,
+            "targetLow": 192.0,
+            "targetMean": 259.15463,
+            "targetMedian": 262.5
+        }
+    },
+    "ADM": {
+        "Analyst_Rating": {
+            "strongBuy": 0,
+            "buy": 0,
+            "hold": 11,
+            "sell": 7,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 56.0,
+            "targetLow": 45.0,
+            "targetMean": 50.09091,
+            "targetMedian": 50.0
+        }
+    },
+    "ADP": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 5,
+            "hold": 14,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 350.0,
+            "targetLow": 284.15,
+            "targetMean": 309.94333,
+            "targetMedian": 310.0
+        }
+    },
+    "ADSK": {
+        "Analyst_Rating": {
+            "strongBuy": 10,
+            "buy": 17,
+            "hold": 11,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 430.0,
+            "targetLow": 275.0,
+            "targetMean": 335.28967,
+            "targetMedian": 335.5
+        }
+    },
+    "AEE": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 7,
+            "hold": 9,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 113.0,
+            "targetLow": 81.33,
+            "targetMean": 100.55533,
+            "targetMedian": 104.0
+        }
+    },
+    "AEP": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 6,
+            "hold": 14,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 116.0,
+            "targetLow": 95.0,
+            "targetMean": 105.17235,
+            "targetMedian": 105.0
+        }
+    },
+    "AES": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 9,
+            "hold": 5,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 23.0,
+            "targetLow": 7.0,
+            "targetMean": 15.01615,
+            "targetMedian": 15.0
+        }
+    },
+    "AFL": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 4,
+            "hold": 12,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 124.0,
+            "targetLow": 93.0,
+            "targetMean": 106.0,
+            "targetMedian": 105.0
+        }
+    },
+    "AIG": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 11,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 98.0,
+            "targetLow": 76.22,
+            "targetMean": 87.01222,
+            "targetMedian": 86.5
+        }
+    },
+    "AIZ": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 6,
+            "hold": 4,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 250.0,
+            "targetLow": 220.0,
+            "targetMean": 232.6,
+            "targetMedian": 230.0
+        }
+    },
+    "AJG": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 10,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 388.0,
+            "targetLow": 267.0,
+            "targetMean": 329.472,
+            "targetMedian": 335.0
+        }
+    },
+    "AKAM": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 11,
+            "hold": 11,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 136.32,
+            "targetLow": 72.0,
+            "targetMean": 105.03864,
+            "targetMedian": 103.5
+        }
+    },
+    "ALB": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 6,
+            "hold": 18,
+            "sell": 3,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 225.0,
+            "targetLow": 68.0,
+            "targetMean": 101.31111,
+            "targetMedian": 88.0
+        }
+    },
+    "ALGN": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 9,
+            "hold": 6,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 290.0,
+            "targetLow": 150.54,
+            "targetMean": 249.30267,
+            "targetMedian": 255.0
+        }
+    },
+    "ALL": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 13,
+            "hold": 4,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 279.0,
+            "targetLow": 149.0,
+            "targetMean": 225.4706,
+            "targetMedian": 227.0
+        }
+    },
+    "ALLE": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 7,
+            "hold": 7,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 165.0,
+            "targetLow": 110.0,
+            "targetMean": 142.39455,
+            "targetMedian": 143.0
+        }
+    },
+    "AMAT": {
+        "Analyst_Rating": {
+            "strongBuy": 10,
+            "buy": 22,
+            "hold": 8,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 250.0,
+            "targetLow": 164.0,
+            "targetMean": 206.32,
+            "targetMedian": 205.0
+        }
+    },
+    "AMCR": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 5,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 12.3,
+            "targetLow": 10.83,
+            "targetMean": 11.4675,
+            "targetMedian": 11.305
+        }
+    },
+    "AMD": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 27,
+            "hold": 18,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 225.0,
+            "targetLow": 90.0,
+            "targetMean": 146.53227,
+            "targetMedian": 140.0
+        }
+    },
+    "AME": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 12,
+            "hold": 5,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 225.0,
+            "targetLow": 158.0,
+            "targetMean": 199.15062,
+            "targetMedian": 203.5
+        }
+    },
+    "AMGN": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 13,
+            "hold": 14,
+            "sell": 2,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 389.0,
+            "targetLow": 185.0,
+            "targetMean": 316.1027,
+            "targetMedian": 326.0
+        }
+    },
+    "AMP": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 4,
+            "hold": 8,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 642.0,
+            "targetLow": 442.0,
+            "targetMean": 558.1111,
+            "targetMedian": 570.0
+        }
+    },
+    "AMT": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 18,
+            "hold": 4,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 250.0,
+            "targetLow": 204.0,
+            "targetMean": 235.05,
+            "targetMedian": 236.0
+        }
+    },
+    "AMZN": {
+        "Analyst_Rating": {
+            "strongBuy": 23,
+            "buy": 50,
+            "hold": 4,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 306.0,
+            "targetLow": 203.0,
+            "targetMean": 263.60925,
+            "targetMedian": 270.0
+        }
+    },
+    "ANET": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 17,
+            "hold": 4,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 145.0,
+            "targetLow": 80.75,
+            "targetMean": 116.17174,
+            "targetMedian": 119.75
+        }
+    },
+    "ANSS": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 4,
+            "hold": 10,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 372.0,
+            "targetLow": 340.0,
+            "targetMean": 356.14285,
+            "targetMedian": 360.0
+        }
+    },
+    "AON": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 9,
+            "hold": 13,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 468.0,
+            "targetLow": 315.34,
+            "targetMean": 403.804,
+            "targetMedian": 399.87
+        }
+    },
+    "AOS": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 4,
+            "hold": 10,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 84.0,
+            "targetLow": 60.0,
+            "targetMean": 76.01,
+            "targetMedian": 76.56
+        }
+    },
+    "APA": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 9,
+            "hold": 17,
+            "sell": 5,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 36.0,
+            "targetLow": 20.0,
+            "targetMean": 27.16893,
+            "targetMedian": 26.0
+        }
+    },
+    "APD": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 13,
+            "hold": 11,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 417.0,
+            "targetLow": 285.0,
+            "targetMean": 347.47455,
+            "targetMedian": 348.0
+        }
+    },
+    "APH": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 11,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 102.0,
+            "targetLow": 63.0,
+            "targetMean": 84.14118,
+            "targetMedian": 88.0
+        }
+    },
+    "APTV": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 14,
+            "hold": 6,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 102.0,
+            "targetLow": 60.0,
+            "targetMean": 80.877,
+            "targetMedian": 80.77
+        }
+    },
+    "ARE": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 5,
+            "hold": 10,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 144.0,
+            "targetLow": 100.0,
+            "targetMean": 116.53846,
+            "targetMedian": 114.0
+        }
+    },
+    "ATO": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 7,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 165.0,
+            "targetLow": 137.0,
+            "targetMean": 153.03455,
+            "targetMedian": 151.38
+        }
+    },
+    "AVB": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 9,
+            "hold": 15,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 265.0,
+            "targetLow": 220.0,
+            "targetMean": 237.04762,
+            "targetMedian": 238.0
+        }
+    },
+    "AVGO": {
+        "Analyst_Rating": {
+            "strongBuy": 13,
+            "buy": 28,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 300.0,
+            "targetLow": 200.0,
+            "targetMean": 249.03223,
+            "targetMedian": 250.0
+        }
+    },
+    "AVY": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 7,
+            "hold": 5,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 236.0,
+            "targetLow": 169.0,
+            "targetMean": 207.27385,
+            "targetMedian": 208.0
+        }
+    },
+    "AWK": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 4,
+            "hold": 10,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 159.0,
+            "targetLow": 115.0,
+            "targetMean": 138.34332,
+            "targetMedian": 138.56
+        }
+    },
+    "AXON": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 13,
+            "hold": 4,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 800.0,
+            "targetLow": 413.11,
+            "targetMean": 665.0299,
+            "targetMedian": 688.1545
+        }
+    },
+    "AXP": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 10,
+            "hold": 18,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 371.0,
+            "targetLow": 231.57,
+            "targetMean": 310.5404,
+            "targetMedian": 313.2
+        }
+    },
+    "AZO": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 18,
+            "hold": 7,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 4192.0,
+            "targetLow": 2830.0,
+            "targetMean": 3781.1687,
+            "targetMedian": 3845.5
+        }
+    },
+    "BA": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 17,
+            "hold": 8,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 220.0,
+            "targetLow": 113.0,
+            "targetMean": 194.0888,
+            "targetMedian": 200.0
+        }
+    },
+    "BAC": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 16,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 58.0,
+            "targetLow": 43.0,
+            "targetMean": 50.92857,
+            "targetMedian": 50.0
+        }
+    },
+    "BALL": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 8,
+            "hold": 8,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 83.0,
+            "targetLow": 44.0,
+            "targetMean": 61.89625,
+            "targetMedian": 61.5
+        }
+    },
+    "BAX": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 5,
+            "hold": 12,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 55.0,
+            "targetLow": 30.0,
+            "targetMean": 39.86562,
+            "targetMedian": 38.0
+        }
+    },
+    "BBY": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 9,
+            "hold": 19,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 110.0,
+            "targetLow": 70.0,
+            "targetMean": 88.89391,
+            "targetMedian": 88.56
+        }
+    },
+    "BDX": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 9,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 325.0,
+            "targetLow": 245.0,
+            "targetMean": 276.56668,
+            "targetMedian": 275.0
+        }
+    },
+    "BEN": {
+        "Analyst_Rating": {
+            "strongBuy": 0,
+            "buy": 0,
+            "hold": 10,
+            "sell": 8,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 24.0,
+            "targetLow": 17.0,
+            "targetMean": 20.59091,
+            "targetMedian": 21.0
+        }
+    },
+    "BG": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 8,
+            "hold": 7,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 100.0,
+            "targetLow": 74.0,
+            "targetMean": 87.434,
+            "targetMedian": 88.5
+        }
+    },
+    "BIIB": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 15,
+            "hold": 20,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 342.0,
+            "targetLow": 135.0,
+            "targetMean": 198.22414,
+            "targetMedian": 185.0
+        }
+    },
+    "BK": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 14,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 104.0,
+            "targetLow": 80.0,
+            "targetMean": 93.35714,
+            "targetMedian": 95.0
+        }
+    },
+    "BKNG": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 25,
+            "hold": 13,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 6500.0,
+            "targetLow": 4411.11,
+            "targetMean": 5628.1084,
+            "targetMedian": 5712.5
+        }
+    },
+    "BKR": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 19,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 58.0,
+            "targetLow": 40.0,
+            "targetMean": 51.2044,
+            "targetMedian": 53.0
+        }
+    },
+    "BLDR": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 12,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 230.0,
+            "targetLow": 147.0,
+            "targetMean": 177.36842,
+            "targetMedian": 175.0
+        }
+    },
+    "BLK": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 13,
+            "hold": 4,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 1275.0,
+            "targetLow": 1045.0,
+            "targetMean": 1146.7323,
+            "targetMedian": 1150.0
+        }
+    },
+    "BMY": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 5,
+            "hold": 19,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 70.0,
+            "targetLow": 37.0,
+            "targetMean": 61.24381,
+            "targetMedian": 62.0
+        }
+    },
+    "BR": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 7,
+            "hold": 7,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 275.0,
+            "targetLow": 220.0,
+            "targetMean": 245.66624,
+            "targetMedian": 252.5
+        }
+    },
+    "BRO": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 8,
+            "hold": 10,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 128.0,
+            "targetLow": 97.0,
+            "targetMean": 115.97462,
+            "targetMedian": 118.0
+        }
+    },
+    "BSX": {
+        "Analyst_Rating": {
+            "strongBuy": 12,
+            "buy": 20,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 135.0,
+            "targetLow": 84.0,
+            "targetMean": 115.46438,
+            "targetMedian": 117.5
+        }
+    },
+    "BWA": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 11,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 46.0,
+            "targetLow": 31.0,
+            "targetMean": 37.47706,
+            "targetMedian": 38.0
+        }
+    },
+    "BX": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 11,
+            "hold": 14,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 233.0,
+            "targetLow": 147.0,
+            "targetMean": 181.4,
+            "targetMedian": 181.0
+        }
+    },
+    "BXP": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 7,
+            "hold": 13,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 100.0,
+            "targetLow": 62.0,
+            "targetMean": 79.63158,
+            "targetMedian": 80.0
+        }
+    },
+    "C": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 14,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 110.0,
+            "targetLow": 70.0,
+            "targetMean": 88.65789,
+            "targetMedian": 86.0
+        }
+    },
+    "CAG": {
+        "Analyst_Rating": {
+            "strongBuy": 1,
+            "buy": 4,
+            "hold": 18,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 31.13,
+            "targetLow": 24.0,
+            "targetMean": 27.45421,
+            "targetMedian": 27.0
+        }
+    },
+    "CAH": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 10,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 156.0,
+            "targetLow": 116.0,
+            "targetMean": 141.87466,
+            "targetMedian": 150.0
+        }
+    },
+    "CAT": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 7,
+            "hold": 15,
+            "sell": 2,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 490.0,
+            "targetLow": 250.0,
+            "targetMean": 386.8213,
+            "targetMedian": 390.0
+        }
+    },
+    "CB": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 14,
+            "hold": 10,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 335.0,
+            "targetLow": 245.22,
+            "targetMean": 302.20096,
+            "targetMedian": 307.0
+        }
+    },
+    "CBOE": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 5,
+            "hold": 12,
+            "sell": 3,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 260.0,
+            "targetLow": 172.0,
+            "targetMean": 214.53333,
+            "targetMedian": 216.0
+        }
+    },
+    "CBRE": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 8,
+            "hold": 4,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 169.0,
+            "targetLow": 112.0,
+            "targetMean": 153.72726,
+            "targetMedian": 159.0
+        }
+    },
+    "CCI": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 8,
+            "hold": 13,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 125.0,
+            "targetLow": 90.0,
+            "targetMean": 110.41176,
+            "targetMedian": 110.0
+        }
+    },
+    "CCL": {
+        "Analyst_Rating": {
+            "strongBuy": 10,
+            "buy": 15,
+            "hold": 5,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 34.0,
+            "targetLow": 14.0,
+            "targetMean": 28.46708,
+            "targetMedian": 30.0
+        }
+    },
+    "CDNS": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 15,
+            "hold": 4,
+            "sell": 0,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 355.0,
+            "targetLow": 200.0,
+            "targetMean": 317.84863,
+            "targetMedian": 331.5
+        }
+    },
+    "CDW": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 7,
+            "hold": 7,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 240.0,
+            "targetLow": 201.0,
+            "targetMean": 224.42728,
+            "targetMedian": 225.0
+        }
+    },
+    "CE": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 7,
+            "hold": 12,
+            "sell": 3,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 120.0,
+            "targetLow": 46.0,
+            "targetMean": 63.57895,
+            "targetMedian": 59.0
+        }
+    },
+    "CF": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 9,
+            "hold": 14,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 115.0,
+            "targetLow": 75.0,
+            "targetMean": 89.64818,
+            "targetMedian": 89.63
+        }
+    },
+    "CFG": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 8,
+            "hold": 11,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 58.0,
+            "targetLow": 43.0,
+            "targetMean": 50.83333,
+            "targetMedian": 51.0
+        }
+    },
+    "CHD": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 8,
+            "hold": 13,
+            "sell": 4,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 126.0,
+            "targetLow": 72.12,
+            "targetMean": 106.96174,
+            "targetMedian": 109.0
+        }
+    },
+    "CHRW": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 13,
+            "hold": 13,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 140.0,
+            "targetLow": 71.0,
+            "targetMean": 114.35077,
+            "targetMedian": 117.5
+        }
+    },
+    "CHTR": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 8,
+            "hold": 13,
+            "sell": 4,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 525.0,
+            "targetLow": 273.0,
+            "targetMean": 406.6187,
+            "targetMedian": 400.0
+        }
+    },
+    "CI": {
+        "Analyst_Rating": {
+            "strongBuy": 10,
+            "buy": 15,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 405.0,
+            "targetLow": 323.0,
+            "targetMean": 362.5479,
+            "targetMedian": 360.0
+        }
+    },
+    "CINF": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 7,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 182.0,
+            "targetLow": 134.0,
+            "targetMean": 157.0,
+            "targetMedian": 159.0
+        }
+    },
+    "CL": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 14,
+            "hold": 10,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 110.0,
+            "targetLow": 83.98,
+            "targetMean": 97.95364,
+            "targetMedian": 99.5
+        }
+    },
+    "CLX": {
+        "Analyst_Rating": {
+            "strongBuy": 1,
+            "buy": 2,
+            "hold": 17,
+            "sell": 8,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 189.0,
+            "targetLow": 138.0,
+            "targetMean": 163.16422,
+            "targetMedian": 165.0
+        }
+    },
+    "CMCSA": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 15,
+            "hold": 16,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 55.0,
+            "targetLow": 35.0,
+            "targetMean": 43.04333,
+            "targetMedian": 44.0
+        }
+    },
+    "CME": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 6,
+            "hold": 9,
+            "sell": 3,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 290.0,
+            "targetLow": 212.0,
+            "targetMean": 260.2353,
+            "targetMedian": 263.0
+        }
+    },
+    "CMG": {
+        "Analyst_Rating": {
+            "strongBuy": 16,
+            "buy": 15,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 72.0,
+            "targetLow": 46.0,
+            "targetMean": 64.3475,
+            "targetMedian": 65.5
+        }
+    },
+    "CMI": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 7,
+            "hold": 16,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 460.0,
+            "targetLow": 281.0,
+            "targetMean": 377.9679,
+            "targetMedian": 384.0
+        }
+    },
+    "CMS": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 8,
+            "hold": 10,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 80.0,
+            "targetLow": 59.0,
+            "targetMean": 73.80235,
+            "targetMedian": 76.0
+        }
+    },
+    "CNC": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 11,
+            "hold": 8,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 93.0,
+            "targetLow": 53.0,
+            "targetMean": 78.62471,
+            "targetMedian": 80.0
+        }
+    },
+    "CNP": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 6,
+            "hold": 12,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 42.0,
+            "targetLow": 30.0,
+            "targetMean": 35.64471,
+            "targetMedian": 35.0
+        }
+    },
+    "COF": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 10,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 251.0,
+            "targetLow": 160.0,
+            "targetMean": 210.372,
+            "targetMedian": 208.0
+        }
+    },
+    "COO": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 9,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 120.0,
+            "targetLow": 90.0,
+            "targetMean": 107.41143,
+            "targetMedian": 110.0
+        }
+    },
+    "COP": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 21,
+            "hold": 4,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 165.0,
+            "targetLow": 109.0,
+            "targetMean": 128.00378,
+            "targetMedian": 126.0
+        }
+    },
+    "COR": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 10,
+            "hold": 7,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 317.0,
+            "targetLow": 242.0,
+            "targetMean": 282.15533,
+            "targetMedian": 280.0
+        }
+    },
+    "COST": {
+        "Analyst_Rating": {
+            "strongBuy": 13,
+            "buy": 17,
+            "hold": 16,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 1205.0,
+            "targetLow": 610.0,
+            "targetMean": 1063.1584,
+            "targetMedian": 1095.0
+        }
+    },
+    "CPAY": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 11,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 450.0,
+            "targetLow": 370.0,
+            "targetMean": 415.18353,
+            "targetMedian": 417.0
+        }
+    },
+    "CPB": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 4,
+            "hold": 14,
+            "sell": 3,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 61.33,
+            "targetLow": 36.0,
+            "targetMean": 43.18238,
+            "targetMedian": 40.0
+        }
+    },
+    "CPRT": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 7,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 69.0,
+            "targetLow": 56.0,
+            "targetMean": 61.8875,
+            "targetMedian": 62.0
+        }
+    },
+    "CPT": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 5,
+            "hold": 15,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 148.0,
+            "targetLow": 115.0,
+            "targetMean": 129.34782,
+            "targetMedian": 128.0
+        }
+    },
+    "CRL": {
+        "Analyst_Rating": {
+            "strongBuy": 1,
+            "buy": 4,
+            "hold": 18,
+            "sell": 0,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 215.0,
+            "targetLow": 130.0,
+            "targetMean": 179.72221,
+            "targetMedian": 177.0
+        }
+    },
+    "CRM": {
+        "Analyst_Rating": {
+            "strongBuy": 14,
+            "buy": 31,
+            "hold": 11,
+            "sell": 0,
+            "strongSell": 2
+        },
+        "Target_Price": {
+            "targetHigh": 442.0,
+            "targetLow": 243.0,
+            "targetMean": 375.04733,
+            "targetMedian": 380.0
+        }
+    },
+    "CSCO": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 11,
+            "hold": 13,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 80.0,
+            "targetLow": 54.0,
+            "targetMean": 70.36652,
+            "targetMedian": 72.0
+        }
+    },
+    "CSGP": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 12,
+            "hold": 4,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 103.0,
+            "targetLow": 63.0,
+            "targetMean": 85.872,
+            "targetMedian": 86.0
+        }
+    },
+    "CSX": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 14,
+            "hold": 11,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 42.0,
+            "targetLow": 28.0,
+            "targetMean": 35.49333,
+            "targetMedian": 36.0
+        }
+    },
+    "CTAS": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 8,
+            "hold": 11,
+            "sell": 2,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 245.0,
+            "targetLow": 163.0,
+            "targetMean": 206.846,
+            "targetMedian": 213.0
+        }
+    },
+    "CTRA": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 20,
+            "hold": 4,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 40.0,
+            "targetLow": 27.0,
+            "targetMean": 34.98185,
+            "targetMedian": 35.0
+        }
+    },
+    "CTSH": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 7,
+            "hold": 21,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 103.0,
+            "targetLow": 80.0,
+            "targetMean": 89.07435,
+            "targetMedian": 89.0
+        }
+    },
+    "CVS": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 15,
+            "hold": 12,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 86.0,
+            "targetLow": 48.01,
+            "targetMean": 72.2576,
+            "targetMedian": 73.0
+        }
+    },
+    "CVX": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 15,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 203.0,
+            "targetLow": 156.0,
+            "targetMean": 176.88913,
+            "targetMedian": 176.0
+        }
+    },
+    "CZR": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 12,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 62.0,
+            "targetLow": 30.0,
+            "targetMean": 48.13333,
+            "targetMedian": 49.0
+        }
+    },
+    "D": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 5,
+            "hold": 17,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 69.0,
+            "targetLow": 52.0,
+            "targetMean": 59.245,
+            "targetMedian": 60.0
+        }
+    },
+    "DAL": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 18,
+            "hold": 1,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 100.0,
+            "targetLow": 44.0,
+            "targetMean": 69.20136,
+            "targetMedian": 70.15
+        }
+    },
+    "DD": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 15,
+            "hold": 4,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 116.0,
+            "targetLow": 47.0,
+            "targetMean": 97.40778,
+            "targetMedian": 100.0
+        }
+    },
+    "DE": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 11,
+            "hold": 14,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 583.0,
+            "targetLow": 400.0,
+            "targetMean": 492.61273,
+            "targetMedian": 500.5
+        }
+    },
+    "DECK": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 17,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 284.0,
+            "targetLow": 120.0,
+            "targetMean": 210.75381,
+            "targetMedian": 225.0
+        }
+    },
+    "DFS": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 7,
+            "hold": 11,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 244.0,
+            "targetLow": 167.0,
+            "targetMean": 204.0,
+            "targetMedian": 209.0
+        }
+    },
+    "DG": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 8,
+            "hold": 22,
+            "sell": 0,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 115.0,
+            "targetLow": 69.0,
+            "targetMean": 86.73036,
+            "targetMedian": 82.0
+        }
+    },
+    "DGX": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 5,
+            "hold": 11,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 195.0,
+            "targetLow": 159.0,
+            "targetMean": 178.14824,
+            "targetMedian": 180.0
+        }
+    },
+    "DHI": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 9,
+            "hold": 12,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 220.0,
+            "targetLow": 125.0,
+            "targetMean": 165.1906,
+            "targetMedian": 165.0
+        }
+    },
+    "DHR": {
+        "Analyst_Rating": {
+            "strongBuy": 11,
+            "buy": 15,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 310.0,
+            "targetLow": 240.0,
+            "targetMean": 264.47708,
+            "targetMedian": 265.0
+        }
+    },
+    "DIS": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 20,
+            "hold": 7,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 147.0,
+            "targetLow": 79.0,
+            "targetMean": 125.88846,
+            "targetMedian": 130.0
+        }
+    },
+    "DLR": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 16,
+            "hold": 6,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 220.0,
+            "targetLow": 129.0,
+            "targetMean": 189.13043,
+            "targetMedian": 190.0
+        }
+    },
+    "DLTR": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 10,
+            "hold": 20,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 104.0,
+            "targetLow": 70.0,
+            "targetMean": 82.92783,
+            "targetMedian": 81.0
+        }
+    },
+    "DOC": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 11,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 29.0,
+            "targetLow": 22.0,
+            "targetMean": 24.67647,
+            "targetMedian": 24.0
+        }
+    },
+    "DOV": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 9,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 250.0,
+            "targetLow": 166.0,
+            "targetMean": 215.28474,
+            "targetMedian": 215.0
+        }
+    },
+    "DPZ": {
+        "Analyst_Rating": {
+            "strongBuy": 11,
+            "buy": 14,
+            "hold": 12,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 555.0,
+            "targetLow": 414.0,
+            "targetMean": 487.24066,
+            "targetMedian": 500.0
+        }
+    },
+    "DRI": {
+        "Analyst_Rating": {
+            "strongBuy": 11,
+            "buy": 11,
+            "hold": 13,
+            "sell": 0,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 238.0,
+            "targetLow": 145.0,
+            "targetMean": 208.24724,
+            "targetMedian": 215.0
+        }
+    },
+    "DTE": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 9,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 148.0,
+            "targetLow": 124.0,
+            "targetMean": 138.65312,
+            "targetMedian": 140.5
+        }
+    },
+    "DUK": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 7,
+            "hold": 12,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 135.0,
+            "targetLow": 111.0,
+            "targetMean": 123.76875,
+            "targetMedian": 122.5
+        }
+    },
+    "DVA": {
+        "Analyst_Rating": {
+            "strongBuy": 0,
+            "buy": 1,
+            "hold": 10,
+            "sell": 5,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 186.0,
+            "targetLow": 145.0,
+            "targetMean": 164.56778,
+            "targetMedian": 165.0
+        }
+    },
+    "DVN": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 15,
+            "hold": 12,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 66.0,
+            "targetLow": 41.0,
+            "targetMean": 48.46621,
+            "targetMedian": 47.0
+        }
+    },
+    "DXCM": {
+        "Analyst_Rating": {
+            "strongBuy": 15,
+            "buy": 12,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 120.0,
+            "targetLow": 82.0,
+            "targetMean": 101.78783,
+            "targetMedian": 100.0
+        }
+    },
+    "EA": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 10,
+            "hold": 19,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 179.0,
+            "targetLow": 125.0,
+            "targetMean": 146.2176,
+            "targetMedian": 145.0
+        }
+    },
+    "EBAY": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 10,
+            "hold": 21,
+            "sell": 2,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 80.0,
+            "targetLow": 49.0,
+            "targetMean": 65.00036,
+            "targetMedian": 64.0
+        }
+    },
+    "ECL": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 9,
+            "hold": 15,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 313.0,
+            "targetLow": 230.0,
+            "targetMean": 283.71237,
+            "targetMedian": 285.0
+        }
+    },
+    "ED": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 0,
+            "hold": 14,
+            "sell": 7,
+            "strongSell": 3
+        },
+        "Target_Price": {
+            "targetHigh": 122.0,
+            "targetLow": 91.0,
+            "targetMean": 103.03333,
+            "targetMedian": 102.5
+        }
+    },
+    "EFX": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 11,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 315.11,
+            "targetLow": 255.0,
+            "targetMean": 285.7426,
+            "targetMedian": 281.0
+        }
+    },
+    "EG": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 7,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 476.0,
+            "targetLow": 340.0,
+            "targetMean": 404.5,
+            "targetMedian": 400.0
+        }
+    },
+    "EIX": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 9,
+            "hold": 6,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 94.89,
+            "targetLow": 52.0,
+            "targetMean": 70.61118,
+            "targetMedian": 69.0
+        }
+    },
+    "EL": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 8,
+            "hold": 25,
+            "sell": 3,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 120.0,
+            "targetLow": 60.0,
+            "targetMean": 76.30143,
+            "targetMedian": 73.5
+        }
+    },
+    "ELV": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 13,
+            "hold": 6,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 625.0,
+            "targetLow": 405.0,
+            "targetMean": 498.18158,
+            "targetMedian": 480.0
+        }
+    },
+    "EMN": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 8,
+            "hold": 12,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 128.0,
+            "targetLow": 101.0,
+            "targetMean": 114.7105,
+            "targetMedian": 113.0
+        }
+    },
+    "EMR": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 19,
+            "hold": 5,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 168.0,
+            "targetLow": 105.0,
+            "targetMean": 139.39241,
+            "targetMedian": 140.0
+        }
+    },
+    "ENPH": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 17,
+            "hold": 23,
+            "sell": 2,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 125.0,
+            "targetLow": 44.0,
+            "targetMean": 79.21167,
+            "targetMedian": 77.0
+        }
+    },
+    "EOG": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 15,
+            "hold": 16,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 161.0,
+            "targetLow": 109.0,
+            "targetMean": 140.78162,
+            "targetMedian": 144.0
+        }
+    },
+    "EPAM": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 13,
+            "hold": 8,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 300.0,
+            "targetLow": 200.0,
+            "targetMean": 254.92094,
+            "targetMedian": 263.0
+        }
+    },
+    "EQIX": {
+        "Analyst_Rating": {
+            "strongBuy": 11,
+            "buy": 19,
+            "hold": 3,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 1200.0,
+            "targetLow": 834.0,
+            "targetMean": 1025.4,
+            "targetMedian": 1031.0
+        }
+    },
+    "EQR": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 11,
+            "hold": 16,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 87.0,
+            "targetLow": 72.0,
+            "targetMean": 77.875,
+            "targetMedian": 77.0
+        }
+    },
+    "EQT": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 11,
+            "hold": 11,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 73.0,
+            "targetLow": 35.0,
+            "targetMean": 56.4444,
+            "targetMedian": 59.0
+        }
+    },
+    "ERIE": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 3,
+            "hold": 2,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": null,
+            "targetLow": null,
+            "targetMean": null,
+            "targetMedian": null
+        }
+    },
+    "ES": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 10,
+            "hold": 9,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 85.0,
+            "targetLow": 47.0,
+            "targetMean": 69.85529,
+            "targetMedian": 71.0
+        }
+    },
+    "ESS": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 9,
+            "hold": 18,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 370.0,
+            "targetLow": 282.0,
+            "targetMean": 312.125,
+            "targetMedian": 309.5
+        }
+    },
+    "ETN": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 15,
+            "hold": 11,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 418.18,
+            "targetLow": 288.0,
+            "targetMean": 352.7264,
+            "targetMedian": 355.0
+        }
+    },
+    "ETR": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 10,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 106.0,
+            "targetLow": 65.0,
+            "targetMean": 88.45222,
+            "targetMedian": 90.0
+        }
+    },
+    "EVRG": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 6,
+            "hold": 7,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 77.0,
+            "targetLow": 67.0,
+            "targetMean": 71.42917,
+            "targetMedian": 71.5
+        }
+    },
+    "EW": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 14,
+            "hold": 18,
+            "sell": 0,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 96.8,
+            "targetLow": 61.0,
+            "targetMean": 80.14233,
+            "targetMedian": 80.0
+        }
+    },
+    "EXC": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 6,
+            "hold": 11,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 48.0,
+            "targetLow": 41.0,
+            "targetMean": 45.28375,
+            "targetMedian": 46.0
+        }
+    },
+    "EXPD": {
+        "Analyst_Rating": {
+            "strongBuy": 0,
+            "buy": 0,
+            "hold": 13,
+            "sell": 7,
+            "strongSell": 3
+        },
+        "Target_Price": {
+            "targetHigh": 129.0,
+            "targetLow": 86.0,
+            "targetMean": 115.1325,
+            "targetMedian": 115.0
+        }
+    },
+    "EXPE": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 12,
+            "hold": 24,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 290.0,
+            "targetLow": 175.0,
+            "targetMean": 212.53912,
+            "targetMedian": 210.0
+        }
+    },
+    "EXR": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 7,
+            "hold": 12,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 181.0,
+            "targetLow": 141.0,
+            "targetMean": 164.94444,
+            "targetMedian": 165.0
+        }
+    },
+    "F": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 3,
+            "hold": 19,
+            "sell": 4,
+            "strongSell": 5
+        },
+        "Target_Price": {
+            "targetHigh": 17.0,
+            "targetLow": 8.0,
+            "targetMean": 10.4472,
+            "targetMedian": 10.0
+        }
+    },
+    "FANG": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 23,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 240.0,
+            "targetLow": 157.0,
+            "targetMean": 202.83173,
+            "targetMedian": 205.0
+        }
+    },
+    "FAST": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 0,
+            "hold": 12,
+            "sell": 3,
+            "strongSell": 3
+        },
+        "Target_Price": {
+            "targetHigh": 85.0,
+            "targetLow": 54.0,
+            "targetMean": 75.11182,
+            "targetMedian": 76.0
+        }
+    },
+    "FCX": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 14,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 60.04,
+            "targetLow": 25.0,
+            "targetMean": 47.543,
+            "targetMedian": 49.0
+        }
+    },
+    "FDS": {
+        "Analyst_Rating": {
+            "strongBuy": 0,
+            "buy": 3,
+            "hold": 13,
+            "sell": 10,
+            "strongSell": 2
+        },
+        "Target_Price": {
+            "targetHigh": 503.0,
+            "targetLow": 390.0,
+            "targetMean": 444.8053,
+            "targetMedian": 450.0
+        }
+    },
+    "FDX": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 16,
+            "hold": 9,
+            "sell": 3,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 354.0,
+            "targetLow": 200.0,
+            "targetMean": 287.5972,
+            "targetMedian": 291.0
+        }
+    },
+    "FE": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 10,
+            "hold": 10,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 48.0,
+            "targetLow": 39.0,
+            "targetMean": 43.22667,
+            "targetMedian": 43.0
+        }
+    },
+    "FFIV": {
+        "Analyst_Rating": {
+            "strongBuy": 0,
+            "buy": 1,
+            "hold": 13,
+            "sell": 2,
+            "strongSell": 2
+        },
+        "Target_Price": {
+            "targetHigh": 360.0,
+            "targetLow": 260.0,
+            "targetMean": 303.6,
+            "targetMedian": 301.0
+        }
+    },
+    "FI": {
+        "Analyst_Rating": {
+            "strongBuy": 17,
+            "buy": 21,
+            "hold": 7,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 300.0,
+            "targetLow": 172.34,
+            "targetMean": 254.86295,
+            "targetMedian": 261.0
+        }
+    },
+    "FICO": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 11,
+            "hold": 6,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 2600.0,
+            "targetLow": 1257.0,
+            "targetMean": 2027.0673,
+            "targetMedian": 2112.045
+        }
+    },
+    "FIS": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 12,
+            "hold": 16,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 113.0,
+            "targetLow": 66.0,
+            "targetMean": 84.59423,
+            "targetMedian": 85.0
+        }
+    },
+    "FITB": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 10,
+            "hold": 11,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 56.0,
+            "targetLow": 42.0,
+            "targetMean": 47.78571,
+            "targetMedian": 47.0
+        }
+    },
+    "FMC": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 7,
+            "hold": 14,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 95.0,
+            "targetLow": 36.0,
+            "targetMean": 49.58474,
+            "targetMedian": 48.0
+        }
+    },
+    "FRT": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 11,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 142.0,
+            "targetLow": 105.0,
+            "targetMean": 117.94118,
+            "targetMedian": 117.0
+        }
+    },
+    "FSLR": {
+        "Analyst_Rating": {
+            "strongBuy": 12,
+            "buy": 26,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 304.0,
+            "targetLow": 145.0,
+            "targetMean": 240.88147,
+            "targetMedian": 242.95
+        }
+    },
+    "FTNT": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 16,
+            "hold": 26,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 135.0,
+            "targetLow": 83.0,
+            "targetMean": 114.59405,
+            "targetMedian": 115.0
+        }
+    },
+    "GD": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 13,
+            "hold": 12,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 335.0,
+            "targetLow": 231.0,
+            "targetMean": 288.638,
+            "targetMedian": 284.5
+        }
+    },
+    "GE": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 16,
+            "hold": 4,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 261.0,
+            "targetLow": 191.34,
+            "targetMean": 227.46333,
+            "targetMedian": 230.0
+        }
+    },
+    "GEN": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 5,
+            "hold": 5,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 37.0,
+            "targetLow": 25.0,
+            "targetMean": 30.98556,
+            "targetMedian": 30.0
+        }
+    },
+    "GILD": {
+        "Analyst_Rating": {
+            "strongBuy": 11,
+            "buy": 13,
+            "hold": 12,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 140.0,
+            "targetLow": 82.0,
+            "targetMean": 111.6688,
+            "targetMedian": 110.0
+        }
+    },
+    "GIS": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 4,
+            "hold": 18,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 72.11,
+            "targetLow": 53.0,
+            "targetMean": 62.6719,
+            "targetMedian": 62.0
+        }
+    },
+    "GL": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 10,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 188.0,
+            "targetLow": 115.0,
+            "targetMean": 143.0,
+            "targetMedian": 143.0
+        }
+    },
+    "GLW": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 9,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 68.0,
+            "targetLow": 43.92,
+            "targetMean": 55.45538,
+            "targetMedian": 57.0
+        }
+    },
+    "GM": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 17,
+            "hold": 12,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 105.0,
+            "targetLow": 37.0,
+            "targetMean": 61.10481,
+            "targetMedian": 58.0
+        }
+    },
+    "GNRC": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 10,
+            "hold": 13,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 205.0,
+            "targetLow": 94.0,
+            "targetMean": 173.20216,
+            "targetMedian": 173.0
+        }
+    },
+    "GOOG": {
+        "Analyst_Rating": {
+            "strongBuy": 18,
+            "buy": 33,
+            "hold": 13,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 237.0,
+            "targetLow": 164.0,
+            "targetMean": 215.17647,
+            "targetMedian": 220.0
+        }
+    },
+    "GOOGL": {
+        "Analyst_Rating": {
+            "strongBuy": 18,
+            "buy": 33,
+            "hold": 13,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 240.0,
+            "targetLow": 167.0,
+            "targetMean": 215.9188,
+            "targetMedian": 220.0
+        }
+    },
+    "GPC": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 5,
+            "hold": 11,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 155.0,
+            "targetLow": 114.0,
+            "targetMean": 130.31364,
+            "targetMedian": 130.0
+        }
+    },
+    "GPN": {
+        "Analyst_Rating": {
+            "strongBuy": 10,
+            "buy": 13,
+            "hold": 15,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 194.0,
+            "targetLow": 92.83,
+            "targetMean": 131.13467,
+            "targetMedian": 125.5
+        }
+    },
+    "GRMN": {
+        "Analyst_Rating": {
+            "strongBuy": 1,
+            "buy": 2,
+            "hold": 6,
+            "sell": 4,
+            "strongSell": 2
+        },
+        "Target_Price": {
+            "targetHigh": 285.0,
+            "targetLow": 175.0,
+            "targetMean": 212.57,
+            "targetMedian": 197.28
+        }
+    },
+    "GS": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 12,
+            "hold": 11,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 760.0,
+            "targetLow": 490.0,
+            "targetMean": 631.6842,
+            "targetMedian": 625.0
+        }
+    },
+    "GWW": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 2,
+            "hold": 16,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 1250.0,
+            "targetLow": 700.0,
+            "targetMean": 1045.9521,
+            "targetMedian": 1055.0
+        }
+    },
+    "HAL": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 16,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 41.0,
+            "targetLow": 28.0,
+            "targetMean": 34.04444,
+            "targetMedian": 34.0
+        }
+    },
+    "HAS": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 7,
+            "hold": 4,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 86.12,
+            "targetLow": 64.0,
+            "targetMean": 79.09333,
+            "targetMedian": 80.0
+        }
+    },
+    "HBAN": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 12,
+            "hold": 7,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 21.0,
+            "targetLow": 14.9,
+            "targetMean": 18.17895,
+            "targetMedian": 18.5
+        }
+    },
+    "HCA": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 12,
+            "hold": 8,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 438.0,
+            "targetLow": 316.0,
+            "targetMean": 374.88913,
+            "targetMedian": 377.0
+        }
+    },
+    "HD": {
+        "Analyst_Rating": {
+            "strongBuy": 13,
+            "buy": 23,
+            "hold": 13,
+            "sell": 0,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 484.0,
+            "targetLow": 297.34,
+            "targetMean": 429.3335,
+            "targetMedian": 437.0
+        }
+    },
+    "HES": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 6,
+            "hold": 10,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 199.0,
+            "targetLow": 146.0,
+            "targetMean": 170.0,
+            "targetMedian": 168.5
+        }
+    },
+    "HIG": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 10,
+            "hold": 12,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 150.0,
+            "targetLow": 115.0,
+            "targetMean": 130.17647,
+            "targetMedian": 126.0
+        }
+    },
+    "HII": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 3,
+            "hold": 9,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 312.0,
+            "targetLow": 145.0,
+            "targetMean": 205.67583,
+            "targetMedian": 191.0
+        }
+    },
+    "HLT": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 9,
+            "hold": 19,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 312.0,
+            "targetLow": 225.0,
+            "targetMean": 264.7128,
+            "targetMedian": 267.0
+        }
+    },
+    "HOLX": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 7,
+            "hold": 16,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 90.0,
+            "targetLow": 65.0,
+            "targetMean": 78.0275,
+            "targetMedian": 77.5
+        }
+    },
+    "HON": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 13,
+            "hold": 14,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 300.0,
+            "targetLow": 196.12,
+            "targetMean": 237.61874,
+            "targetMedian": 236.5
+        }
+    },
+    "HPQ": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 4,
+            "hold": 13,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 40.0,
+            "targetLow": 30.0,
+            "targetMean": 35.85467,
+            "targetMedian": 35.0
+        }
+    },
+    "HRL": {
+        "Analyst_Rating": {
+            "strongBuy": 1,
+            "buy": 1,
+            "hold": 9,
+            "sell": 7,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 36.0,
+            "targetLow": 27.0,
+            "targetMean": 31.432,
+            "targetMedian": 31.16
+        }
+    },
+    "HSIC": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 5,
+            "hold": 10,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 90.0,
+            "targetLow": 55.0,
+            "targetMean": 79.38462,
+            "targetMedian": 80.0
+        }
+    },
+    "HST": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 9,
+            "hold": 6,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 22.0,
+            "targetLow": 15.0,
+            "targetMean": 19.5,
+            "targetMedian": 20.0
+        }
+    },
+    "HSY": {
+        "Analyst_Rating": {
+            "strongBuy": 1,
+            "buy": 2,
+            "hold": 21,
+            "sell": 8,
+            "strongSell": 2
+        },
+        "Target_Price": {
+            "targetHigh": 211.56,
+            "targetLow": 120.0,
+            "targetMean": 163.52155,
+            "targetMedian": 161.5
+        }
+    },
+    "HUBB": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 7,
+            "hold": 10,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 507.0,
+            "targetLow": 383.0,
+            "targetMean": 439.61084,
+            "targetMedian": 427.5
+        }
+    },
+    "HUM": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 5,
+            "hold": 21,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 402.23,
+            "targetLow": 241.0,
+            "targetMean": 296.91956,
+            "targetMedian": 286.5
+        }
+    },
+    "IBM": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 8,
+            "hold": 9,
+            "sell": 3,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 320.0,
+            "targetLow": 160.0,
+            "targetMean": 254.24895,
+            "targetMedian": 265.0
+        }
+    },
+    "ICE": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 13,
+            "hold": 4,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 230.0,
+            "targetLow": 158.0,
+            "targetMean": 189.1875,
+            "targetMedian": 190.5
+        }
+    },
+    "IDXX": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 8,
+            "hold": 7,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 566.0,
+            "targetLow": 385.0,
+            "targetMean": 496.625,
+            "targetMedian": 517.5
+        }
+    },
+    "IEX": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 6,
+            "hold": 7,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 264.0,
+            "targetLow": 200.0,
+            "targetMean": 229.92308,
+            "targetMedian": 226.0
+        }
+    },
+    "IFF": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 10,
+            "hold": 6,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 120.0,
+            "targetLow": 77.0,
+            "targetMean": 99.57714,
+            "targetMedian": 101.0
+        }
+    },
+    "INCY": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 6,
+            "hold": 17,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 92.0,
+            "targetLow": 52.0,
+            "targetMean": 74.35304,
+            "targetMedian": 73.0
+        }
+    },
+    "INTC": {
+        "Analyst_Rating": {
+            "strongBuy": 1,
+            "buy": 2,
+            "hold": 40,
+            "sell": 4,
+            "strongSell": 3
+        },
+        "Target_Price": {
+            "targetHigh": 31.0,
+            "targetLow": 17.7,
+            "targetMean": 22.89853,
+            "targetMedian": 23.0
+        }
+    },
+    "INTU": {
+        "Analyst_Rating": {
+            "strongBuy": 10,
+            "buy": 19,
+            "hold": 8,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 860.0,
+            "targetLow": 530.0,
+            "targetMean": 703.509,
+            "targetMedian": 725.0
+        }
+    },
+    "IP": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 8,
+            "hold": 5,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 71.0,
+            "targetLow": 44.9,
+            "targetMean": 57.63583,
+            "targetMedian": 59.5
+        }
+    },
+    "IPG": {
+        "Analyst_Rating": {
+            "strongBuy": 1,
+            "buy": 6,
+            "hold": 7,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 39.01,
+            "targetLow": 27.0,
+            "targetMean": 35.12625,
+            "targetMedian": 36.0
+        }
+    },
+    "IQV": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 16,
+            "hold": 7,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 269.88,
+            "targetLow": 195.0,
+            "targetMean": 244.54,
+            "targetMedian": 250.0
+        }
+    },
+    "IRM": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 8,
+            "hold": 2,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 140.0,
+            "targetLow": 45.0,
+            "targetMean": 116.125,
+            "targetMedian": 121.5
+        }
+    },
+    "ISRG": {
+        "Analyst_Rating": {
+            "strongBuy": 12,
+            "buy": 14,
+            "hold": 13,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 711.0,
+            "targetLow": 350.0,
+            "targetMean": 622.27856,
+            "targetMedian": 631.5
+        }
+    },
+    "IT": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 7,
+            "hold": 6,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 622.0,
+            "targetLow": 455.0,
+            "targetMean": 533.912,
+            "targetMedian": 538.06
+        }
+    },
+    "ITW": {
+        "Analyst_Rating": {
+            "strongBuy": 1,
+            "buy": 2,
+            "hold": 15,
+            "sell": 7,
+            "strongSell": 2
+        },
+        "Target_Price": {
+            "targetHigh": 302.0,
+            "targetLow": 215.0,
+            "targetMean": 259.37317,
+            "targetMedian": 259.0
+        }
+    },
+    "IVZ": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 4,
+            "hold": 12,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 22.0,
+            "targetLow": 16.0,
+            "targetMean": 18.80769,
+            "targetMedian": 19.0
+        }
+    },
+    "J": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 10,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 176.0,
+            "targetLow": 134.0,
+            "targetMean": 151.35143,
+            "targetMedian": 150.0
+        }
+    },
+    "JBHT": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 12,
+            "hold": 10,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 202.0,
+            "targetLow": 157.0,
+            "targetMean": 180.20833,
+            "targetMedian": 177.5
+        }
+    },
+    "JBL": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 8,
+            "hold": 3,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 184.0,
+            "targetLow": 155.0,
+            "targetMean": 171.01375,
+            "targetMedian": 173.555
+        }
+    },
+    "JCI": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 10,
+            "hold": 11,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 105.0,
+            "targetLow": 79.0,
+            "targetMean": 94.15381,
+            "targetMedian": 95.0
+        }
+    },
+    "JKHY": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 4,
+            "hold": 14,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 212.0,
+            "targetLow": 155.0,
+            "targetMean": 190.58133,
+            "targetMedian": 190.0
+        }
+    },
+    "JNJ": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 9,
+            "hold": 14,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 190.0,
+            "targetLow": 150.0,
+            "targetMean": 169.06525,
+            "targetMedian": 166.37
+        }
+    },
+    "JNPR": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 4,
+            "hold": 10,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 40.0,
+            "targetLow": 39.0,
+            "targetMean": 39.88889,
+            "targetMedian": 40.0
+        }
+    },
+    "JPM": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 13,
+            "hold": 11,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 330.0,
+            "targetLow": 180.51,
+            "targetMean": 263.5957,
+            "targetMedian": 270.0
+        }
+    },
+    "K": {
+        "Analyst_Rating": {
+            "strongBuy": 0,
+            "buy": 0,
+            "hold": 18,
+            "sell": 2,
+            "strongSell": 2
+        },
+        "Target_Price": {
+            "targetHigh": 83.5,
+            "targetLow": 83.0,
+            "targetMean": 83.42857,
+            "targetMedian": 83.5
+        }
+    },
+    "KDP": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 10,
+            "hold": 10,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 42.0,
+            "targetLow": 33.23,
+            "targetMean": 37.8615,
+            "targetMedian": 39.0
+        }
+    },
+    "KEY": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 9,
+            "hold": 13,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 43.0,
+            "targetLow": 16.5,
+            "targetMean": 20.055,
+            "targetMedian": 19.0
+        }
+    },
+    "KEYS": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 12,
+            "hold": 2,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 200.0,
+            "targetLow": 157.0,
+            "targetMean": 184.85538,
+            "targetMedian": 190.0
+        }
+    },
+    "KIM": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 4,
+            "hold": 17,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 30.0,
+            "targetLow": 20.0,
+            "targetMean": 24.7381,
+            "targetMedian": 24.0
+        }
+    },
+    "KKR": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 15,
+            "hold": 3,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 194.0,
+            "targetLow": 130.0,
+            "targetMean": 165.0375,
+            "targetMedian": 168.5
+        }
+    },
+    "KLAC": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 13,
+            "hold": 11,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 950.0,
+            "targetLow": 655.0,
+            "targetMean": 820.5304,
+            "targetMedian": 830.0
+        }
+    },
+    "KMB": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 7,
+            "hold": 13,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 168.0,
+            "targetLow": 118.0,
+            "targetMean": 144.73053,
+            "targetMedian": 144.0
+        }
+    },
+    "KMI": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 10,
+            "hold": 10,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 38.0,
+            "targetLow": 22.0,
+            "targetMean": 30.35333,
+            "targetMedian": 31.0
+        }
+    },
+    "KMX": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 9,
+            "hold": 5,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 123.0,
+            "targetLow": 56.0,
+            "targetMean": 90.51875,
+            "targetMedian": 95.0
+        }
+    },
+    "KO": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 21,
+            "hold": 7,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 85.0,
+            "targetLow": 59.6,
+            "targetMean": 75.0768,
+            "targetMedian": 77.0
+        }
+    },
+    "KR": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 11,
+            "hold": 13,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 76.0,
+            "targetLow": 57.0,
+            "targetMean": 67.32273,
+            "targetMedian": 68.5
+        }
+    },
+    "L": {
+        "Analyst_Rating": {
+            "strongBuy": 0,
+            "buy": 0,
+            "hold": 3,
+            "sell": 2,
+            "strongSell": 2
+        },
+        "Target_Price": {
+            "targetHigh": null,
+            "targetLow": null,
+            "targetMean": null,
+            "targetMedian": null
+        }
+    },
+    "LDOS": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 8,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 220.0,
+            "targetLow": 144.0,
+            "targetMean": 171.87466,
+            "targetMedian": 165.0
+        }
+    },
+    "LEN": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 7,
+            "hold": 16,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 200.0,
+            "targetLow": 110.0,
+            "targetMean": 137.26666,
+            "targetMedian": 128.0
+        }
+    },
+    "LH": {
+        "Analyst_Rating": {
+            "strongBuy": 10,
+            "buy": 13,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 300.0,
+            "targetLow": 232.12,
+            "targetMean": 273.67334,
+            "targetMedian": 275.5
+        }
+    },
+    "LHX": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 12,
+            "hold": 7,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 324.0,
+            "targetLow": 198.0,
+            "targetMean": 257.12546,
+            "targetMedian": 255.88
+        }
+    },
+    "LIN": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 17,
+            "hold": 9,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 540.0,
+            "targetLow": 381.0,
+            "targetMean": 496.05,
+            "targetMedian": 505.5
+        }
+    },
+    "LKQ": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 6,
+            "hold": 3,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 60.0,
+            "targetLow": 48.0,
+            "targetMean": 52.465,
+            "targetMedian": 50.86
+        }
+    },
+    "LLY": {
+        "Analyst_Rating": {
+            "strongBuy": 10,
+            "buy": 16,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 1190.0,
+            "targetLow": 620.0,
+            "targetMean": 1010.47156,
+            "targetMedian": 1010.0
+        }
+    },
+    "LMT": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 8,
+            "hold": 15,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 670.0,
+            "targetLow": 418.0,
+            "targetMean": 523.76044,
+            "targetMedian": 522.5
+        }
+    },
+    "LNT": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 3,
+            "hold": 11,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 71.0,
+            "targetLow": 57.0,
+            "targetMean": 64.79583,
+            "targetMedian": 65.525
+        }
+    },
+    "LOW": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 16,
+            "hold": 15,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 309.0,
+            "targetLow": 217.0,
+            "targetMean": 279.80646,
+            "targetMedian": 286.0
+        }
+    },
+    "LRCX": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 19,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 125.0,
+            "targetLow": 75.0,
+            "targetMean": 95.57633,
+            "targetMedian": 95.5
+        }
+    },
+    "LULU": {
+        "Analyst_Rating": {
+            "strongBuy": 11,
+            "buy": 15,
+            "hold": 11,
+            "sell": 2,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 500.0,
+            "targetLow": 194.0,
+            "targetMean": 356.94736,
+            "targetMedian": 364.5
+        }
+    },
+    "LUV": {
+        "Analyst_Rating": {
+            "strongBuy": 1,
+            "buy": 4,
+            "hold": 14,
+            "sell": 9,
+            "strongSell": 2
+        },
+        "Target_Price": {
+            "targetHigh": 44.0,
+            "targetLow": 24.0,
+            "targetMean": 32.98429,
+            "targetMedian": 32.0
+        }
+    },
+    "LVS": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 13,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 67.0,
+            "targetLow": 47.0,
+            "targetMean": 57.41824,
+            "targetMedian": 58.0
+        }
+    },
+    "LYB": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 8,
+            "hold": 16,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 115.0,
+            "targetLow": 60.0,
+            "targetMean": 83.29095,
+            "targetMedian": 82.0
+        }
+    },
+    "LYV": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 15,
+            "hold": 3,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 180.0,
+            "targetLow": 124.0,
+            "targetMean": 164.62476,
+            "targetMedian": 170.0
+        }
+    },
+    "MA": {
+        "Analyst_Rating": {
+            "strongBuy": 13,
+            "buy": 27,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 690.0,
+            "targetLow": 466.1,
+            "targetMean": 618.2361,
+            "targetMedian": 627.5
+        }
+    },
+    "MAA": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 9,
+            "hold": 12,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 190.0,
+            "targetLow": 149.0,
+            "targetMean": 168.73077,
+            "targetMedian": 167.0
+        }
+    },
+    "MAR": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 9,
+            "hold": 18,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 348.0,
+            "targetLow": 205.0,
+            "targetMean": 289.16666,
+            "targetMedian": 291.5
+        }
+    },
+    "MAS": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 8,
+            "hold": 14,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 96.0,
+            "targetLow": 71.0,
+            "targetMean": 84.1905,
+            "targetMedian": 84.5
+        }
+    },
+    "MCD": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 21,
+            "hold": 14,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 360.0,
+            "targetLow": 280.0,
+            "targetMean": 328.1358,
+            "targetMedian": 335.0
+        }
+    },
+    "MCHP": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 13,
+            "hold": 8,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 80.0,
+            "targetLow": 53.0,
+            "targetMean": 65.60565,
+            "targetMedian": 66.0
+        }
+    },
+    "MCK": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 11,
+            "hold": 4,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 745.0,
+            "targetLow": 550.0,
+            "targetMean": 682.846,
+            "targetMedian": 692.0
+        }
+    },
+    "MCO": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 8,
+            "hold": 12,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 610.0,
+            "targetLow": 430.0,
+            "targetMean": 537.9624,
+            "targetMedian": 545.0
+        }
+    },
+    "MDLZ": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 18,
+            "hold": 10,
+            "sell": 0,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 81.0,
+            "targetLow": 59.0,
+            "targetMean": 68.74519,
+            "targetMedian": 70.0
+        }
+    },
+    "MDT": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 13,
+            "hold": 16,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 112.46,
+            "targetLow": 85.0,
+            "targetMean": 97.09111,
+            "targetMedian": 95.0
+        }
+    },
+    "MET": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 11,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 110.0,
+            "targetLow": 73.0,
+            "targetMean": 96.14286,
+            "targetMedian": 97.5
+        }
+    },
+    "META": {
+        "Analyst_Rating": {
+            "strongBuy": 24,
+            "buy": 44,
+            "hold": 7,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 935.0,
+            "targetLow": 505.0,
+            "targetMean": 762.9873,
+            "targetMedian": 772.5
+        }
+    },
+    "MGM": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 16,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 60.0,
+            "targetLow": 37.0,
+            "targetMean": 49.04211,
+            "targetMedian": 50.0
+        }
+    },
+    "MHK": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 8,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 165.0,
+            "targetLow": 121.0,
+            "targetMean": 143.14412,
+            "targetMedian": 145.0
+        }
+    },
+    "MKC": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 5,
+            "hold": 11,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 101.0,
+            "targetLow": 67.0,
+            "targetMean": 83.84375,
+            "targetMedian": 82.695
+        }
+    },
+    "MKTX": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 5,
+            "hold": 10,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 305.0,
+            "targetLow": 191.0,
+            "targetMean": 234.33333,
+            "targetMedian": 226.0
+        }
+    },
+    "MLM": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 12,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 715.0,
+            "targetLow": 380.0,
+            "targetMean": 603.32477,
+            "targetMedian": 610.0
+        }
+    },
+    "MMC": {
+        "Analyst_Rating": {
+            "strongBuy": 1,
+            "buy": 8,
+            "hold": 15,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 281.0,
+            "targetLow": 181.02,
+            "targetMean": 235.651,
+            "targetMedian": 236.5
+        }
+    },
+    "MMM": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 10,
+            "hold": 6,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 184.0,
+            "targetLow": 96.0,
+            "targetMean": 154.62944,
+            "targetMedian": 164.5
+        }
+    },
+    "MNST": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 11,
+            "hold": 12,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 65.0,
+            "targetLow": 40.0,
+            "targetMean": 56.67542,
+            "targetMedian": 57.5
+        }
+    },
+    "MO": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 6,
+            "hold": 7,
+            "sell": 3,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 73.0,
+            "targetLow": 46.0,
+            "targetMean": 56.91667,
+            "targetMedian": 59.0
+        }
+    },
+    "MOH": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 8,
+            "hold": 9,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 376.0,
+            "targetLow": 279.0,
+            "targetMean": 338.4643,
+            "targetMedian": 339.5
+        }
+    },
+    "MOS": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 8,
+            "hold": 10,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 44.0,
+            "targetLow": 25.0,
+            "targetMean": 32.51,
+            "targetMedian": 32.0
+        }
+    },
+    "MPC": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 10,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 193.0,
+            "targetLow": 141.0,
+            "targetMean": 165.6842,
+            "targetMedian": 170.0
+        }
+    },
+    "MPWR": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 12,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 1100.0,
+            "targetLow": 665.0,
+            "targetMean": 817.7386,
+            "targetMedian": 800.0
+        }
+    },
+    "MRK": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 11,
+            "hold": 10,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 146.0,
+            "targetLow": 95.0,
+            "targetMean": 112.06682,
+            "targetMedian": 111.5
+        }
+    },
+    "MS": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 8,
+            "hold": 17,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 156.0,
+            "targetLow": 101.0,
+            "targetMean": 131.23529,
+            "targetMedian": 130.0
+        }
+    },
+    "MSCI": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 14,
+            "hold": 5,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 723.0,
+            "targetLow": 530.0,
+            "targetMean": 657.2143,
+            "targetMedian": 674.0
+        }
+    },
+    "MSFT": {
+        "Analyst_Rating": {
+            "strongBuy": 21,
+            "buy": 38,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 650.0,
+            "targetLow": 415.0,
+            "targetMean": 503.86472,
+            "targetMedian": 500.0
+        }
+    },
+    "MSI": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 9,
+            "hold": 3,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 570.0,
+            "targetLow": 460.0,
+            "targetMean": 508.8878,
+            "targetMedian": 515.0
+        }
+    },
+    "MTB": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 7,
+            "hold": 9,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 253.0,
+            "targetLow": 175.0,
+            "targetMean": 210.55263,
+            "targetMedian": 208.0
+        }
+    },
+    "MTCH": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 10,
+            "hold": 16,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 52.0,
+            "targetLow": 32.0,
+            "targetMean": 36.44381,
+            "targetMedian": 35.0
+        }
+    },
+    "MTD": {
+        "Analyst_Rating": {
+            "strongBuy": 1,
+            "buy": 1,
+            "hold": 13,
+            "sell": 5,
+            "strongSell": 2
+        },
+        "Target_Price": {
+            "targetHigh": 1530.0,
+            "targetLow": 1120.0,
+            "targetMean": 1360.7966,
+            "targetMedian": 1369.5
+        }
+    },
+    "MU": {
+        "Analyst_Rating": {
+            "strongBuy": 14,
+            "buy": 26,
+            "hold": 6,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 200.0,
+            "targetLow": 75.0,
+            "targetMean": 129.075,
+            "targetMedian": 130.0
+        }
+    },
+    "NCLH": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 12,
+            "hold": 10,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 38.0,
+            "targetLow": 21.0,
+            "targetMean": 29.86636,
+            "targetMedian": 30.5
+        }
+    },
+    "NDAQ": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 13,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 105.0,
+            "targetLow": 68.0,
+            "targetMean": 88.38889,
+            "targetMedian": 89.0
+        }
+    },
+    "NDSN": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 8,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 285.0,
+            "targetLow": 219.0,
+            "targetMean": 252.06444,
+            "targetMedian": 247.58
+        }
+    },
+    "NEE": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 12,
+            "hold": 8,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 103.0,
+            "targetLow": 52.0,
+            "targetMean": 84.50952,
+            "targetMedian": 84.0
+        }
+    },
+    "NEM": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 9,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 65.43,
+            "targetLow": 45.0,
+            "targetMean": 55.89,
+            "targetMedian": 57.0
+        }
+    },
+    "NFLX": {
+        "Analyst_Rating": {
+            "strongBuy": 15,
+            "buy": 26,
+            "hold": 13,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 1494.0,
+            "targetLow": 700.0,
+            "targetMean": 1073.9572,
+            "targetMedian": 1100.0
+        }
+    },
+    "NI": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 13,
+            "hold": 3,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 48.15,
+            "targetLow": 35.0,
+            "targetMean": 41.766,
+            "targetMedian": 42.0
+        }
+    },
+    "NKE": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 15,
+            "hold": 19,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 120.0,
+            "targetLow": 40.0,
+            "targetMean": 80.53382,
+            "targetMedian": 77.96
+        }
+    },
+    "NOC": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 12,
+            "hold": 11,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 600.0,
+            "targetLow": 424.0,
+            "targetMean": 548.6104,
+            "targetMedian": 552.0
+        }
+    },
+    "NOW": {
+        "Analyst_Rating": {
+            "strongBuy": 14,
+            "buy": 29,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 1426.0,
+            "targetLow": 716.0,
+            "targetMean": 1118.6608,
+            "targetMedian": 1145.0
+        }
+    },
+    "NRG": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 6,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 165.0,
+            "targetLow": 52.0,
+            "targetMean": 113.89636,
+            "targetMedian": 115.0
+        }
+    },
+    "NSC": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 13,
+            "hold": 13,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 300.0,
+            "targetLow": 175.0,
+            "targetMean": 273.0169,
+            "targetMedian": 277.5
+        }
+    },
+    "NTAP": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 8,
+            "hold": 17,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 153.0,
+            "targetLow": 105.0,
+            "targetMean": 121.20875,
+            "targetMedian": 120.0
+        }
+    },
+    "NTRS": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 5,
+            "hold": 12,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 132.0,
+            "targetLow": 96.0,
+            "targetMean": 112.96429,
+            "targetMedian": 113.5
+        }
+    },
+    "NUE": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 9,
+            "hold": 6,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 169.0,
+            "targetLow": 135.0,
+            "targetMean": 152.6525,
+            "targetMedian": 155.0
+        }
+    },
+    "NVDA": {
+        "Analyst_Rating": {
+            "strongBuy": 26,
+            "buy": 38,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 220.0,
+            "targetLow": 125.0,
+            "targetMean": 171.01328,
+            "targetMedian": 175.0
+        }
+    },
+    "NVR": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 2,
+            "hold": 7,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 9300.0,
+            "targetLow": 8570.0,
+            "targetMean": 8923.333,
+            "targetMedian": 8900.0
+        }
+    },
+    "NWS": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 10,
+            "hold": 2,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 26.5,
+            "targetLow": 26.5,
+            "targetMean": 26.5,
+            "targetMedian": 26.5
+        }
+    },
+    "NWSA": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 10,
+            "hold": 2,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 44.0,
+            "targetLow": 26.5,
+            "targetMean": 35.627,
+            "targetMedian": 36.5
+        }
+    },
+    "NXPI": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 21,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 301.12,
+            "targetLow": 205.0,
+            "targetMean": 254.71033,
+            "targetMedian": 254.0
+        }
+    },
+    "O": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 5,
+            "hold": 19,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 75.0,
+            "targetLow": 57.0,
+            "targetMean": 61.7,
+            "targetMedian": 61.0
+        }
+    },
+    "ODFL": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 6,
+            "hold": 17,
+            "sell": 2,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 240.0,
+            "targetLow": 155.0,
+            "targetMean": 190.57523,
+            "targetMedian": 186.0
+        }
+    },
+    "OKE": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 9,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 147.0,
+            "targetLow": 100.0,
+            "targetMean": 111.49737,
+            "targetMedian": 109.0
+        }
+    },
+    "OMC": {
+        "Analyst_Rating": {
+            "strongBuy": 1,
+            "buy": 9,
+            "hold": 4,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 121.0,
+            "targetLow": 83.0,
+            "targetMean": 109.133,
+            "targetMedian": 111.0
+        }
+    },
+    "ON": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 19,
+            "hold": 14,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 85.0,
+            "targetLow": 43.0,
+            "targetMean": 61.00462,
+            "targetMedian": 60.0
+        }
+    },
+    "ORCL": {
+        "Analyst_Rating": {
+            "strongBuy": 11,
+            "buy": 20,
+            "hold": 15,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 246.0,
+            "targetLow": 135.0,
+            "targetMean": 184.91176,
+            "targetMedian": 185.5
+        }
+    },
+    "ORLY": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 20,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 1550.0,
+            "targetLow": 920.0,
+            "targetMean": 1411.6573,
+            "targetMedian": 1450.0
+        }
+    },
+    "OXY": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 8,
+            "hold": 18,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 73.0,
+            "targetLow": 47.0,
+            "targetMean": 58.00407,
+            "targetMedian": 58.0
+        }
+    },
+    "PANW": {
+        "Analyst_Rating": {
+            "strongBuy": 15,
+            "buy": 30,
+            "hold": 12,
+            "sell": 2,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 240.0,
+            "targetLow": 123.0,
+            "targetMean": 213.44939,
+            "targetMedian": 220.0
+        }
+    },
+    "PARA": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 2,
+            "hold": 13,
+            "sell": 7,
+            "strongSell": 5
+        },
+        "Target_Price": {
+            "targetHigh": 20.0,
+            "targetLow": 9.0,
+            "targetMean": 12.80737,
+            "targetMedian": 12.0
+        }
+    },
+    "PAYC": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 7,
+            "hold": 16,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 278.0,
+            "targetLow": 187.0,
+            "targetMean": 224.89,
+            "targetMedian": 222.62
+        }
+    },
+    "PAYX": {
+        "Analyst_Rating": {
+            "strongBuy": 1,
+            "buy": 0,
+            "hold": 16,
+            "sell": 3,
+            "strongSell": 3
+        },
+        "Target_Price": {
+            "targetHigh": 158.0,
+            "targetLow": 130.0,
+            "targetMean": 144.95866,
+            "targetMedian": 147.0
+        }
+    },
+    "PCAR": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 7,
+            "hold": 14,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 134.0,
+            "targetLow": 92.0,
+            "targetMean": 111.71778,
+            "targetMedian": 114.0
+        }
+    },
+    "PCG": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 8,
+            "hold": 8,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 23.0,
+            "targetLow": 15.0,
+            "targetMean": 20.53529,
+            "targetMedian": 21.0
+        }
+    },
+    "PEG": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 7,
+            "hold": 13,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 100.0,
+            "targetLow": 70.0,
+            "targetMean": 87.75688,
+            "targetMedian": 87.5
+        }
+    },
+    "PEP": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 7,
+            "hold": 17,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 185.0,
+            "targetLow": 124.0,
+            "targetMean": 162.95955,
+            "targetMedian": 166.0
+        }
+    },
+    "PFE": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 7,
+            "hold": 14,
+            "sell": 0,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 42.0,
+            "targetLow": 25.0,
+            "targetMean": 31.25857,
+            "targetMedian": 30.0
+        }
+    },
+    "PFG": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 4,
+            "hold": 9,
+            "sell": 3,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 99.0,
+            "targetLow": 74.0,
+            "targetMean": 88.07692,
+            "targetMedian": 92.0
+        }
+    },
+    "PG": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 19,
+            "hold": 11,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 209.0,
+            "targetLow": 143.0,
+            "targetMean": 178.66231,
+            "targetMedian": 183.5
+        }
+    },
+    "PGR": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 13,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 327.0,
+            "targetLow": 183.0,
+            "targetMean": 290.0588,
+            "targetMedian": 290.0
+        }
+    },
+    "PH": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 17,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 850.0,
+            "targetLow": 500.0,
+            "targetMean": 742.1842,
+            "targetMedian": 775.0
+        }
+    },
+    "PHM": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 7,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 161.0,
+            "targetLow": 100.0,
+            "targetMean": 135.00932,
+            "targetMedian": 135.0
+        }
+    },
+    "PKG": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 5,
+            "hold": 4,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 266.0,
+            "targetLow": 144.0,
+            "targetMean": 225.82,
+            "targetMedian": 234.0
+        }
+    },
+    "PLD": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 11,
+            "hold": 8,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 150.0,
+            "targetLow": 105.0,
+            "targetMean": 129.7,
+            "targetMedian": 130.0
+        }
+    },
+    "PM": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 12,
+            "hold": 2,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 175.0,
+            "targetLow": 102.0,
+            "targetMean": 151.65533,
+            "targetMedian": 156.0
+        }
+    },
+    "PNC": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 11,
+            "hold": 7,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 257.0,
+            "targetLow": 180.0,
+            "targetMean": 206.256,
+            "targetMedian": 203.5
+        }
+    },
+    "PNR": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 10,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 125.0,
+            "targetLow": 91.0,
+            "targetMean": 111.5285,
+            "targetMedian": 112.785
+        }
+    },
+    "PNW": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 4,
+            "hold": 10,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 111.0,
+            "targetLow": 80.0,
+            "targetMean": 95.422,
+            "targetMedian": 95.0
+        }
+    },
+    "PODD": {
+        "Analyst_Rating": {
+            "strongBuy": 12,
+            "buy": 14,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 355.0,
+            "targetLow": 234.0,
+            "targetMean": 314.65695,
+            "targetMedian": 322.0
+        }
+    },
+    "POOL": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 5,
+            "hold": 8,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 400.0,
+            "targetLow": 325.0,
+            "targetMean": 362.63635,
+            "targetMedian": 370.0
+        }
+    },
+    "PPG": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 9,
+            "hold": 18,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 166.0,
+            "targetLow": 115.0,
+            "targetMean": 131.5509,
+            "targetMedian": 130.0
+        }
+    },
+    "PPL": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 10,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 39.0,
+            "targetLow": 33.0,
+            "targetMean": 36.56875,
+            "targetMedian": 37.0
+        }
+    },
+    "PRU": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 3,
+            "hold": 14,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 140.0,
+            "targetLow": 99.0,
+            "targetMean": 124.76923,
+            "targetMedian": 125.0
+        }
+    },
+    "PSA": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 7,
+            "hold": 12,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 378.0,
+            "targetLow": 299.0,
+            "targetMean": 334.0,
+            "targetMedian": 331.5
+        }
+    },
+    "PSX": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 9,
+            "hold": 8,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 162.0,
+            "targetLow": 124.43,
+            "targetMean": 139.44368,
+            "targetMedian": 140.0
+        }
+    },
+    "PTC": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 10,
+            "hold": 7,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 240.0,
+            "targetLow": 178.45,
+            "targetMean": 209.3225,
+            "targetMedian": 210.0
+        }
+    },
+    "PWR": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 14,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 418.0,
+            "targetLow": 200.0,
+            "targetMean": 334.17374,
+            "targetMedian": 341.0
+        }
+    },
+    "QCOM": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 20,
+            "hold": 18,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 250.0,
+            "targetLow": 160.0,
+            "targetMean": 197.92793,
+            "targetMedian": 190.0
+        }
+    },
+    "RCL": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 17,
+            "hold": 7,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 330.0,
+            "targetLow": 185.0,
+            "targetMean": 277.58478,
+            "targetMedian": 290.0
+        }
+    },
+    "REG": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 10,
+            "hold": 7,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 84.0,
+            "targetLow": 75.0,
+            "targetMean": 79.84211,
+            "targetMedian": 79.0
+        }
+    },
+    "REGN": {
+        "Analyst_Rating": {
+            "strongBuy": 10,
+            "buy": 15,
+            "hold": 8,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 1152.0,
+            "targetLow": 575.0,
+            "targetMean": 914.54626,
+            "targetMedian": 937.5
+        }
+    },
+    "RF": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 10,
+            "hold": 12,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 30.0,
+            "targetLow": 23.0,
+            "targetMean": 25.88095,
+            "targetMedian": 25.5
+        }
+    },
+    "RJF": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 6,
+            "hold": 10,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 190.0,
+            "targetLow": 139.0,
+            "targetMean": 166.23077,
+            "targetMedian": 172.0
+        }
+    },
+    "RL": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 14,
+            "hold": 5,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 348.0,
+            "targetLow": 165.0,
+            "targetMean": 292.48352,
+            "targetMedian": 310.0
+        }
+    },
+    "RMD": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 11,
+            "hold": 7,
+            "sell": 0,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 295.0,
+            "targetLow": 195.0,
+            "targetMean": 269.42133,
+            "targetMedian": 280.0
+        }
+    },
+    "ROK": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 9,
+            "hold": 14,
+            "sell": 3,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 365.0,
+            "targetLow": 215.0,
+            "targetMean": 305.5431,
+            "targetMedian": 310.0
+        }
+    },
+    "ROL": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 5,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 58.0,
+            "targetLow": 39.32,
+            "targetMean": 50.30182,
+            "targetMedian": 50.0
+        }
+    },
+    "ROP": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 7,
+            "hold": 7,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 741.0,
+            "targetLow": 540.0,
+            "targetMean": 630.09436,
+            "targetMedian": 645.0
+        }
+    },
+    "ROST": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 12,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 188.0,
+            "targetLow": 127.0,
+            "targetMean": 156.3775,
+            "targetMedian": 158.0
+        }
+    },
+    "RSG": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 10,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 279.0,
+            "targetLow": 176.0,
+            "targetMean": 241.1842,
+            "targetMedian": 243.0
+        }
+    },
+    "RTX": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 12,
+            "hold": 10,
+            "sell": 0,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 160.0,
+            "targetLow": 120.0,
+            "targetMean": 143.33363,
+            "targetMedian": 147.0
+        }
+    },
+    "RVTY": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 11,
+            "hold": 8,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 162.0,
+            "targetLow": 120.0,
+            "targetMean": 140.38,
+            "targetMedian": 140.5
+        }
+    },
+    "SBAC": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 12,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 280.0,
+            "targetLow": 221.0,
+            "targetMean": 247.70589,
+            "targetMedian": 244.0
+        }
+    },
+    "SBUX": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 14,
+            "hold": 15,
+            "sell": 3,
+            "strongSell": 2
+        },
+        "Target_Price": {
+            "targetHigh": 125.0,
+            "targetLow": 76.0,
+            "targetMean": 107.17433,
+            "targetMedian": 110.5
+        }
+    },
+    "SCHW": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 14,
+            "hold": 5,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 108.0,
+            "targetLow": 62.0,
+            "targetMean": 90.35,
+            "targetMedian": 93.0
+        }
+    },
+    "SHW": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 14,
+            "hold": 13,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 430.0,
+            "targetLow": 247.0,
+            "targetMean": 380.93173,
+            "targetMedian": 400.0
+        }
+    },
+    "SJM": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 4,
+            "hold": 15,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 135.0,
+            "targetLow": 104.0,
+            "targetMean": 119.55529,
+            "targetMedian": 120.0
+        }
+    },
+    "SLB": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 18,
+            "hold": 7,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 64.0,
+            "targetLow": 44.0,
+            "targetMean": 52.61133,
+            "targetMedian": 52.5
+        }
+    },
+    "SMCI": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 8,
+            "hold": 8,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 93.0,
+            "targetLow": 15.0,
+            "targetMean": 52.47929,
+            "targetMedian": 54.5
+        }
+    },
+    "SNA": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 5,
+            "hold": 7,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 400.0,
+            "targetLow": 240.0,
+            "targetMean": 331.69333,
+            "targetMedian": 350.0
+        }
+    },
+    "SNPS": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 17,
+            "hold": 3,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 690.0,
+            "targetLow": 502.41,
+            "targetMean": 622.655,
+            "targetMedian": 644.0
+        }
+    },
+    "SO": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 8,
+            "hold": 14,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 104.0,
+            "targetLow": 72.0,
+            "targetMean": 91.10941,
+            "targetMedian": 93.0
+        }
+    },
+    "SPG": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 6,
+            "hold": 12,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 220.0,
+            "targetLow": 168.0,
+            "targetMean": 190.88889,
+            "targetMedian": 191.5
+        }
+    },
+    "SPGI": {
+        "Analyst_Rating": {
+            "strongBuy": 11,
+            "buy": 17,
+            "hold": 3,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 650.0,
+            "targetLow": 540.0,
+            "targetMean": 606.43384,
+            "targetMedian": 610.0
+        }
+    },
+    "SRE": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 8,
+            "hold": 10,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 93.0,
+            "targetLow": 72.0,
+            "targetMean": 81.475,
+            "targetMedian": 80.25
+        }
+    },
+    "STE": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 5,
+            "hold": 4,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 265.0,
+            "targetLow": 230.0,
+            "targetMean": 250.12714,
+            "targetMedian": 263.0
+        }
+    },
+    "STLD": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 9,
+            "hold": 6,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 165.0,
+            "targetLow": 128.91,
+            "targetMean": 146.08769,
+            "targetMedian": 145.0
+        }
+    },
+    "STT": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 10,
+            "hold": 8,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 132.0,
+            "targetLow": 89.0,
+            "targetMean": 107.3,
+            "targetMedian": 105.0
+        }
+    },
+    "STX": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 13,
+            "hold": 7,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 150.0,
+            "targetLow": 68.0,
+            "targetMean": 116.88,
+            "targetMedian": 120.0
+        }
+    },
+    "STZ": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 16,
+            "hold": 12,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 300.0,
+            "targetLow": 165.0,
+            "targetMean": 225.924,
+            "targetMedian": 215.0
+        }
+    },
+    "SWK": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 5,
+            "hold": 14,
+            "sell": 1,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 120.15,
+            "targetLow": 77.0,
+            "targetMean": 98.8975,
+            "targetMedian": 96.0
+        }
+    },
+    "SWKS": {
+        "Analyst_Rating": {
+            "strongBuy": 0,
+            "buy": 1,
+            "hold": 25,
+            "sell": 4,
+            "strongSell": 3
+        },
+        "Target_Price": {
+            "targetHigh": 100.0,
+            "targetLow": 55.0,
+            "targetMean": 70.6615,
+            "targetMedian": 70.0
+        }
+    },
+    "SYF": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 13,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 88.0,
+            "targetLow": 57.0,
+            "targetMean": 73.57143,
+            "targetMedian": 73.0
+        }
+    },
+    "SYK": {
+        "Analyst_Rating": {
+            "strongBuy": 10,
+            "buy": 17,
+            "hold": 10,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 465.0,
+            "targetLow": 306.0,
+            "targetMean": 423.39822,
+            "targetMedian": 435.0
+        }
+    },
+    "SYY": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 10,
+            "hold": 10,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 95.0,
+            "targetLow": 77.0,
+            "targetMean": 83.6125,
+            "targetMedian": 84.0
+        }
+    },
+    "T": {
+        "Analyst_Rating": {
+            "strongBuy": 10,
+            "buy": 17,
+            "hold": 8,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 32.0,
+            "targetLow": 15.49,
+            "targetMean": 27.63808,
+            "targetMedian": 28.0
+        }
+    },
+    "TAP": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 7,
+            "hold": 16,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 86.9,
+            "targetLow": 54.0,
+            "targetMean": 66.75348,
+            "targetMedian": 65.0
+        }
+    },
+    "TDG": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 14,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 1627.0,
+            "targetLow": 1250.0,
+            "targetMean": 1508.9576,
+            "targetMedian": 1515.0
+        }
+    },
+    "TDY": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 10,
+            "hold": 2,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 600.0,
+            "targetLow": 521.11,
+            "targetMean": 573.64636,
+            "targetMedian": 585.0
+        }
+    },
+    "TECH": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 11,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 95.0,
+            "targetLow": 68.0,
+            "targetMean": 83.48769,
+            "targetMedian": 87.0
+        }
+    },
+    "TEL": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 9,
+            "hold": 11,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 190.0,
+            "targetLow": 145.0,
+            "targetMean": 170.7289,
+            "targetMedian": 168.5
+        }
+    },
+    "TER": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 12,
+            "hold": 3,
+            "sell": 3,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 155.0,
+            "targetLow": 81.0,
+            "targetMean": 116.90235,
+            "targetMedian": 115.0
+        }
+    },
+    "TFC": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 9,
+            "hold": 12,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 57.0,
+            "targetLow": 42.0,
+            "targetMean": 49.04263,
+            "targetMedian": 50.0
+        }
+    },
+    "TFX": {
+        "Analyst_Rating": {
+            "strongBuy": 0,
+            "buy": 1,
+            "hold": 14,
+            "sell": 5,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 200.0,
+            "targetLow": 140.0,
+            "targetMean": 165.223,
+            "targetMedian": 157.5
+        }
+    },
+    "TGT": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 12,
+            "hold": 23,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 160.0,
+            "targetLow": 100.0,
+            "targetMean": 135.6875,
+            "targetMedian": 139.5
+        }
+    },
+    "TJX": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 13,
+            "hold": 5,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 158.0,
+            "targetLow": 86.0,
+            "targetMean": 135.14857,
+            "targetMedian": 140.0
+        }
+    },
+    "TMO": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 20,
+            "hold": 7,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 767.0,
+            "targetLow": 560.77,
+            "targetMean": 657.5068,
+            "targetMedian": 665.0
+        }
+    },
+    "TMUS": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 16,
+            "hold": 11,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 300.0,
+            "targetLow": 184.95,
+            "targetMean": 259.19705,
+            "targetMedian": 268.0
+        }
+    },
+    "TPL": {
+        "Analyst_Rating": {
+            "strongBuy": 0,
+            "buy": 0,
+            "hold": 3,
+            "sell": 4,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": null,
+            "targetLow": null,
+            "targetMean": null,
+            "targetMedian": null
+        }
+    },
+    "TPR": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 10,
+            "hold": 9,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 110.0,
+            "targetLow": 59.84,
+            "targetMean": 89.292,
+            "targetMedian": 93.5
+        }
+    },
+    "TRGP": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 16,
+            "hold": 4,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 259.0,
+            "targetLow": 157.0,
+            "targetMean": 217.84773,
+            "targetMedian": 220.0
+        }
+    },
+    "TRMB": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 9,
+            "hold": 2,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 95.0,
+            "targetLow": 84.0,
+            "targetMean": 87.951,
+            "targetMedian": 86.255
+        }
+    },
+    "TROW": {
+        "Analyst_Rating": {
+            "strongBuy": 0,
+            "buy": 0,
+            "hold": 12,
+            "sell": 6,
+            "strongSell": 2
+        },
+        "Target_Price": {
+            "targetHigh": 125.0,
+            "targetLow": 85.0,
+            "targetMean": 107.53846,
+            "targetMedian": 110.0
+        }
+    },
+    "TRV": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 9,
+            "hold": 15,
+            "sell": 3,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 310.0,
+            "targetLow": 215.21,
+            "targetMean": 270.5338,
+            "targetMedian": 275.0
+        }
+    },
+    "TSCO": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 14,
+            "hold": 16,
+            "sell": 3,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 67.0,
+            "targetLow": 46.0,
+            "targetMean": 58.22,
+            "targetMedian": 60.0
+        }
+    },
+    "TSLA": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 22,
+            "hold": 16,
+            "sell": 9,
+            "strongSell": 3
+        },
+        "Target_Price": {
+            "targetHigh": 550.0,
+            "targetLow": 120.0,
+            "targetMean": 323.86832,
+            "targetMedian": 320.09
+        }
+    },
+    "TSN": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 6,
+            "hold": 10,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 80.0,
+            "targetLow": 58.0,
+            "targetMean": 67.26538,
+            "targetMedian": 65.0
+        }
+    },
+    "TT": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 8,
+            "hold": 19,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 476.0,
+            "targetLow": 237.34,
+            "targetMean": 398.27237,
+            "targetMedian": 405.0
+        }
+    },
+    "TTWO": {
+        "Analyst_Rating": {
+            "strongBuy": 11,
+            "buy": 19,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 270.0,
+            "targetLow": 135.0,
+            "targetMean": 216.92703,
+            "targetMedian": 215.0
+        }
+    },
+    "TXN": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 12,
+            "hold": 21,
+            "sell": 1,
+            "strongSell": 2
+        },
+        "Target_Price": {
+            "targetHigh": 284.0,
+            "targetLow": 130.0,
+            "targetMean": 204.70068,
+            "targetMedian": 200.0
+        }
+    },
+    "TXT": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 7,
+            "hold": 9,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 111.0,
+            "targetLow": 72.0,
+            "targetMean": 89.39,
+            "targetMedian": 90.0
+        }
+    },
+    "TYL": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 11,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 785.0,
+            "targetLow": 595.0,
+            "targetMean": 704.6333,
+            "targetMedian": 707.5
+        }
+    },
+    "UAL": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 19,
+            "hold": 1,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 150.0,
+            "targetLow": 39.0,
+            "targetMean": 117.97227,
+            "targetMedian": 124.0
+        }
+    },
+    "UDR": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 10,
+            "hold": 14,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 50.0,
+            "targetLow": 40.0,
+            "targetMean": 46.5,
+            "targetMedian": 46.5
+        }
+    },
+    "UHS": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 9,
+            "hold": 13,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 280.0,
+            "targetLow": 186.41,
+            "targetMean": 228.65062,
+            "targetMedian": 225.5
+        }
+    },
+    "ULTA": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 13,
+            "hold": 18,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 526.0,
+            "targetLow": 310.0,
+            "targetMean": 412.1336,
+            "targetMedian": 404.0
+        }
+    },
+    "UNH": {
+        "Analyst_Rating": {
+            "strongBuy": 12,
+            "buy": 20,
+            "hold": 1,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 700.0,
+            "targetLow": 518.76,
+            "targetMean": 628.30426,
+            "targetMedian": 628.0
+        }
+    },
+    "UNP": {
+        "Analyst_Rating": {
+            "strongBuy": 9,
+            "buy": 12,
+            "hold": 13,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 295.0,
+            "targetLow": 200.0,
+            "targetMean": 260.7662,
+            "targetMedian": 265.0
+        }
+    },
+    "UPS": {
+        "Analyst_Rating": {
+            "strongBuy": 10,
+            "buy": 12,
+            "hold": 12,
+            "sell": 3,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 179.0,
+            "targetLow": 82.0,
+            "targetMean": 130.43121,
+            "targetMedian": 130.0
+        }
+    },
+    "URI": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 9,
+            "hold": 11,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 1238.0,
+            "targetLow": 535.0,
+            "targetMean": 788.9537,
+            "targetMedian": 765.0
+        }
+    },
+    "USB": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 10,
+            "hold": 12,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 63.0,
+            "targetLow": 43.5,
+            "targetMean": 53.79545,
+            "targetMedian": 54.5
+        }
+    },
+    "V": {
+        "Analyst_Rating": {
+            "strongBuy": 12,
+            "buy": 26,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 410.0,
+            "targetLow": 289.0,
+            "targetMean": 377.08945,
+            "targetMedian": 391.0
+        }
+    },
+    "VLO": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 12,
+            "hold": 5,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 174.0,
+            "targetLow": 124.0,
+            "targetMean": 149.26315,
+            "targetMedian": 152.0
+        }
+    },
+    "VMC": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 14,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 343.0,
+            "targetLow": 184.78,
+            "targetMean": 297.9582,
+            "targetMedian": 310.0
+        }
+    },
+    "VRSK": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 7,
+            "hold": 12,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 325.0,
+            "targetLow": 230.0,
+            "targetMean": 295.39813,
+            "targetMedian": 304.5
+        }
+    },
+    "VRSN": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 3,
+            "hold": 2,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 275.0,
+            "targetLow": 196.11,
+            "targetMean": 235.2775,
+            "targetMedian": 235.0
+        }
+    },
+    "VRTX": {
+        "Analyst_Rating": {
+            "strongBuy": 10,
+            "buy": 16,
+            "hold": 13,
+            "sell": 0,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 615.0,
+            "targetLow": 330.0,
+            "targetMean": 497.83932,
+            "targetMedian": 512.0
+        }
+    },
+    "VTR": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 11,
+            "hold": 4,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 93.0,
+            "targetLow": 65.0,
+            "targetMean": 75.94737,
+            "targetMedian": 75.0
+        }
+    },
+    "VTRS": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 4,
+            "hold": 7,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 14.1,
+            "targetLow": 10.0,
+            "targetMean": 12.15714,
+            "targetMedian": 13.0
+        }
+    },
+    "VZ": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 11,
+            "hold": 17,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 55.0,
+            "targetLow": 42.0,
+            "targetMean": 47.57609,
+            "targetMedian": 47.0
+        }
+    },
+    "WAB": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 6,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 240.0,
+            "targetLow": 186.24,
+            "targetMean": 215.124,
+            "targetMedian": 219.0
+        }
+    },
+    "WAT": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 6,
+            "hold": 16,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 460.0,
+            "targetLow": 340.0,
+            "targetMean": 401.937,
+            "targetMedian": 403.5
+        }
+    },
+    "WBA": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 3,
+            "hold": 14,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 19.21,
+            "targetLow": 10.0,
+            "targetMean": 12.2925,
+            "targetMedian": 11.45
+        }
+    },
+    "WBD": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 11,
+            "hold": 15,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 22.0,
+            "targetLow": 9.0,
+            "targetMean": 13.52417,
+            "targetMedian": 13.0
+        }
+    },
+    "WDC": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 15,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 100.0,
+            "targetLow": 41.0,
+            "targetMean": 73.61947,
+            "targetMedian": 80.0
+        }
+    },
+    "WEC": {
+        "Analyst_Rating": {
+            "strongBuy": 2,
+            "buy": 7,
+            "hold": 12,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 115.0,
+            "targetLow": 93.0,
+            "targetMean": 104.20688,
+            "targetMedian": 103.905
+        }
+    },
+    "WELL": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 13,
+            "hold": 4,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 242.0,
+            "targetLow": 127.0,
+            "targetMean": 165.15788,
+            "targetMedian": 166.0
+        }
+    },
+    "WFC": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 14,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 92.0,
+            "targetLow": 65.0,
+            "targetMean": 82.02381,
+            "targetMedian": 83.0
+        }
+    },
+    "WM": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 11,
+            "hold": 12,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 274.0,
+            "targetLow": 191.0,
+            "targetMean": 235.52444,
+            "targetMedian": 236.0
+        }
+    },
+    "WMB": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 11,
+            "hold": 10,
+            "sell": 0,
+            "strongSell": 1
+        },
+        "Target_Price": {
+            "targetHigh": 74.0,
+            "targetLow": 41.76,
+            "targetMean": 59.78333,
+            "targetMedian": 62.0
+        }
+    },
+    "WMT": {
+        "Analyst_Rating": {
+            "strongBuy": 13,
+            "buy": 30,
+            "hold": 4,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 120.0,
+            "targetLow": 63.0,
+            "targetMean": 108.1085,
+            "targetMedian": 110.0
+        }
+    },
+    "WRB": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 8,
+            "hold": 9,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 80.0,
+            "targetLow": 52.0,
+            "targetMean": 66.07,
+            "targetMedian": 67.0
+        }
+    },
+    "WST": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 7,
+            "hold": 5,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 325.0,
+            "targetLow": 240.0,
+            "targetMean": 285.012,
+            "targetMedian": 285.0
+        }
+    },
+    "WTW": {
+        "Analyst_Rating": {
+            "strongBuy": 4,
+            "buy": 13,
+            "hold": 7,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 408.0,
+            "targetLow": 302.0,
+            "targetMean": 364.58334,
+            "targetMedian": 370.0
+        }
+    },
+    "WY": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 11,
+            "hold": 4,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 40.0,
+            "targetLow": 33.0,
+            "targetMean": 36.0,
+            "targetMedian": 35.0
+        }
+    },
+    "WYNN": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 14,
+            "hold": 3,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 132.0,
+            "targetLow": 89.0,
+            "targetMean": 113.11125,
+            "targetMedian": 113.39
+        }
+    },
+    "XEL": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 9,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 80.0,
+            "targetLow": 62.0,
+            "targetMean": 73.44375,
+            "targetMedian": 74.5
+        }
+    },
+    "XOM": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 12,
+            "hold": 12,
+            "sell": 1,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 146.0,
+            "targetLow": 105.0,
+            "targetMean": 128.71461,
+            "targetMedian": 128.0
+        }
+    },
+    "XYL": {
+        "Analyst_Rating": {
+            "strongBuy": 7,
+            "buy": 9,
+            "hold": 8,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 174.0,
+            "targetLow": 114.15,
+            "targetMean": 145.94688,
+            "targetMedian": 150.0
+        }
+    },
+    "YUM": {
+        "Analyst_Rating": {
+            "strongBuy": 5,
+            "buy": 6,
+            "hold": 23,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 185.0,
+            "targetLow": 138.0,
+            "targetMean": 155.74583,
+            "targetMedian": 152.5
+        }
+    },
+    "ZBH": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 8,
+            "hold": 19,
+            "sell": 2,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 150.0,
+            "targetLow": 105.0,
+            "targetMean": 122.27385,
+            "targetMedian": 119.0
+        }
+    },
+    "ZBRA": {
+        "Analyst_Rating": {
+            "strongBuy": 6,
+            "buy": 9,
+            "hold": 10,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 433.0,
+            "targetLow": 326.0,
+            "targetMean": 387.8747,
+            "targetMedian": 380.0
+        }
+    },
+    "BRK-B": {
+        "Analyst_Rating": {
+            "strongBuy": 3,
+            "buy": 5,
+            "hold": 3,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 557.0,
+            "targetLow": 467.0,
+            "targetMean": 502.0,
+            "targetMedian": 482.0
+        }
+    },
+    "TSM": {
+        "Analyst_Rating": {
+            "strongBuy": 11,
+            "buy": 25,
+            "hold": 2,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 273.0,
+            "targetLow": 207.8,
+            "targetMean": 247.06764,
+            "targetMedian": 255.0
+        }
+    },
+    "ZTS": {
+        "Analyst_Rating": {
+            "strongBuy": 8,
+            "buy": 10,
+            "hold": 6,
+            "sell": 0,
+            "strongSell": 0
+        },
+        "Target_Price": {
+            "targetHigh": 238.0,
+            "targetLow": 171.0,
+            "targetMean": 199.86938,
+            "targetMedian": 200.0
+        }
+    }
+}

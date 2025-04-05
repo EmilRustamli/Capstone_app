@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education</title>
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Clear-Site-Data" content='"cache", "cookies", "storage"'>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
         .topic-list {
@@ -3007,16 +3012,9 @@
 
     <script src="{{ url_for('static', filename='account.js') }}"></script>
     <script src="{{ url_for('static', filename='theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='auth-check.js') }}"></script>
+    <script src="{{ url_for('static', filename='logout.js') }}"></script>
     <script>
-        function showLogoutModal(event) {
-            event.preventDefault();
-            document.getElementById('logoutModal').style.display = 'flex';
-        }
-        
-        function closeLogoutModal() {
-            document.getElementById('logoutModal').style.display = 'none';
-        }
-        
         // Topic modal functions
         function openModal(modalId) {
             document.getElementById(modalId).style.display = 'flex';
@@ -3026,6 +3024,16 @@
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = 'none';
             document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+        
+        function openQuizModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeQuizModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
         
         // Close modal if user clicks outside of modal content
@@ -3040,124 +3048,91 @@
         }
         
         // Quiz functions
-        function openQuizModal(modalId) {
-            document.getElementById(modalId).style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-            
-            // Reset quiz state when opening
-            const modal = document.getElementById(modalId);
-            const options = modal.querySelectorAll('.quiz-option');
-            const feedback = modal.querySelectorAll('.quiz-feedback');
-            const results = modal.querySelector('.quiz-results');
-            
-            options.forEach(option => {
-                option.classList.remove('selected', 'correct', 'incorrect');
-            });
-            
-            feedback.forEach(item => {
-                item.innerHTML = '';
-            });
-            
-            if (results) {
-                results.innerHTML = '';
-            }
-        }
-        
-        function closeQuizModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore scrolling
-        }
-        
         function selectAnswer(questionId, option) {
-            // Deselect all options in this question
-            const questionContainer = document.getElementById(questionId);
-            const options = questionContainer.querySelectorAll('.quiz-option');
+            // Remove selected class from all options in this question
+            const options = document.querySelectorAll(`#${questionId} .quiz-option`);
+            options.forEach(opt => opt.classList.remove('selected'));
             
-            options.forEach(opt => {
-                opt.classList.remove('selected');
-            });
-            
-            // Select the clicked option
+            // Add selected class to the clicked option
             option.classList.add('selected');
         }
         
-        function submitQuiz(quizId, correctAnswers) {
+        function submitQuiz(quizId, answerKey) {
             const quiz = document.getElementById(quizId);
-            const questions = Object.keys(correctAnswers);
             let correctCount = 0;
-            let feedbackHtml = '';
             
-            questions.forEach(questionId => {
-                const questionElement = document.getElementById(questionId);
-                const selectedOption = questionElement.querySelector('.quiz-option.selected');
-                const feedbackElement = questionElement.querySelector('.quiz-feedback');
-                const correctAnswer = correctAnswers[questionId];
+            // Check each question
+            Object.keys(answerKey).forEach(questionId => {
+                const correctAnswer = answerKey[questionId];
+                const selectedOption = document.querySelector(`#${questionId} .quiz-option.selected`);
                 
-                // Reset previous feedback
-                questionElement.querySelectorAll('.quiz-option').forEach(option => {
-                    option.classList.remove('correct', 'incorrect');
-                });
+                // Clear any previous feedback
+                const feedbackDiv = document.querySelector(`#${questionId} .quiz-feedback`);
+                feedbackDiv.innerHTML = '';
                 
+                // If an option was selected
                 if (selectedOption) {
-                    const selectedValue = selectedOption.getAttribute('data-value');
+                    const selectedAnswer = selectedOption.getAttribute('data-value');
                     
-                    if (selectedValue === correctAnswer) {
-                        feedbackElement.innerHTML = 'Correct.';
-                        feedbackElement.style.color = '#4CAF50';
-                        selectedOption.classList.add('correct');
+                    // Reset classes
+                    document.querySelectorAll(`#${questionId} .quiz-option`).forEach(opt => {
+                        opt.classList.remove('correct', 'incorrect');
+                    });
+                    
+                    // Mark the correct answer
+                    document.querySelectorAll(`#${questionId} .quiz-option`).forEach(opt => {
+                        if (opt.getAttribute('data-value') === correctAnswer) {
+                            opt.classList.add('correct');
+                        }
+                    });
+                    
+                    // Check if selected answer is correct
+                    if (selectedAnswer === correctAnswer) {
                         correctCount++;
+                        feedbackDiv.innerHTML = 'Correct!';
+                        feedbackDiv.style.color = '#4CAF50';
                     } else {
-                        feedbackElement.innerHTML = 'Incorrect.';
-                        feedbackElement.style.color = '#F44336';
                         selectedOption.classList.add('incorrect');
-                        
-                        // Highlight the correct answer
-                        const options = questionElement.querySelectorAll('.quiz-option');
-                        options.forEach(option => {
-                            if (option.getAttribute('data-value') === correctAnswer) {
-                                option.classList.add('correct');
-                            }
-                        });
+                        feedbackDiv.innerHTML = 'Incorrect. The correct answer is shown in green.';
+                        feedbackDiv.style.color = '#F44336';
                     }
                 } else {
-                    feedbackElement.innerHTML = "Didn't Answer.";
-                    feedbackElement.style.color = '#FF9800';
+                    // If no option was selected
+                    feedbackDiv.innerHTML = 'No answer selected. The correct answer is shown in green.';
+                    feedbackDiv.style.color = '#FF9800';
                     
-                    // Highlight the correct answer
-                    const options = questionElement.querySelectorAll('.quiz-option');
-                    options.forEach(option => {
-                        if (option.getAttribute('data-value') === correctAnswer) {
-                            option.classList.add('correct');
+                    // Mark the correct answer
+                    document.querySelectorAll(`#${questionId} .quiz-option`).forEach(opt => {
+                        if (opt.getAttribute('data-value') === correctAnswer) {
+                            opt.classList.add('correct');
                         }
                     });
                 }
             });
             
-            // Show overall results
+            // Display results
             const resultsElement = quiz.querySelector('.quiz-results');
-            resultsElement.innerHTML = `You got ${correctCount} out of ${questions.length} questions correct.`;
+            resultsElement.innerHTML = `You got ${correctCount} out of ${Object.keys(answerKey).length} questions correct.`;
         }
-    </script>
-    <script src="{{ url_for('static', filename='logout.js') }}"></script>
-    <script>
-    // Add this script at the end of the body
-    function switchView(view) {
-        // Hide all views
-        document.querySelectorAll('.view-container').forEach(container => {
-            container.style.display = 'none';
-        });
         
-        // Show the selected view
-        document.getElementById(`${view}-view`).style.display = 'block';
-        
-        // Update toggle buttons
-        document.querySelectorAll('.toggle-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        
-        // Find the button for this view and activate it
-        document.querySelector(`.toggle-btn[onclick="switchView('${view}')"]`).classList.add('active');
-    }
+        // Add this function to switch between views
+        function switchView(view) {
+            // Hide all views
+            document.querySelectorAll('.view-container').forEach(container => {
+                container.style.display = 'none';
+            });
+            
+            // Show the selected view
+            document.getElementById(`${view}-view`).style.display = 'block';
+            
+            // Update toggle buttons
+            document.querySelectorAll('.toggle-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Find the button for this view and activate it
+            document.querySelector(`.toggle-btn[onclick="switchView('${view}')"]`).classList.add('active');
+        }
     </script>
 </body>
 </html> 

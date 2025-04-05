@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, url_for, redirect, session
+from flask import Flask, render_template, request, jsonify, url_for, redirect, session, make_response
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail, Message
 import secrets
@@ -19,6 +19,18 @@ import threading
 import pytz
 from pypfopt import EfficientFrontier, risk_models, expected_returns
 import sqlalchemy.exc
+from functools import wraps
+
+# Add a decorator for adding cache control headers to protected routes
+def nocache(view):
+    @wraps(view)
+    def no_cache(*args, **kwargs):
+        response = make_response(view(*args, **kwargs))
+        response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+        response.headers['Pragma'] = 'no-cache'
+        response.headers['Expires'] = '-1'
+        return response
+    return no_cache
 
 app = Flask(__name__)
 
@@ -53,6 +65,8 @@ app.config['SESSION_TYPE'] = 'filesystem'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
 app.config['SESSION_COOKIE_SECURE'] = False
 app.config['SESSION_COOKIE_HTTPONLY'] = True
+app.config['SESSION_USE_SIGNER'] = False  # Don't sign the session cookie
+app.config['SESSION_FILE_THRESHOLD'] = 500  # Limit number of sessions stored
 
 # Initialize extensions
 db = SQLAlchemy(app)
@@ -793,6 +807,7 @@ def verify_code():
     return jsonify({'error': 'Invalid confirmation code'}), 400
 
 @app.route('/dashboard')
+@nocache
 def dashboard():
     # Check if user is logged in
     if 'user_email' not in session:
@@ -821,19 +836,20 @@ def login():
 
 @app.route('/logout')
 def logout():
+    # Clear the session immediately
+    if 'user_email' in session:
+        session.pop('user_email', None)
     session.clear()
-    response = redirect(url_for('home'))
     
-    # Clear cache and prevent back navigation
-    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate, post-check=0, pre-check=0'
+    # Create response with stronger cache control headers
+    response = redirect(url_for('home'))
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
     response.headers['Pragma'] = 'no-cache'
     response.headers['Expires'] = '-1'
-    response.headers['X-Frame-Options'] = 'DENY'
     response.headers['Clear-Site-Data'] = '"cache", "cookies", "storage"'
     
-    # Clear all cookies
-    for cookie in request.cookies:
-        response.delete_cookie(cookie)
+    # Delete the session cookie
+    response.delete_cookie('session')
     
     return response
 
@@ -843,28 +859,24 @@ def check_session():
         # Check if the route requires authentication
         protected_routes = ['dashboard', 'portfolio', 'education', 'account', 'about']
         if request.endpoint in protected_routes:
-            # Verify user exists and session is valid
-            max_retries = 3
-            retry_count = 0
-            while retry_count < max_retries:
-                try:
-                    user = User.query.filter_by(email=session['user_email']).first()
-                    if not user:
-                        session.clear()
-                        return redirect(url_for('home'))
-                    # Success, exit the retry loop
-                    break
-                except Exception as e:
-                    retry_count += 1
-                    if retry_count >= max_retries:
-                        # Log the error and clear the session if we can't connect after max retries
-                        print(f"Database connection error in check_session after {max_retries} retries: {str(e)}")
-                        session.clear()
-                        return redirect(url_for('home'))
-                    # Wait briefly before retrying
-                    time.sleep(0.5)
+            # Skip session validation for logout route
+            if request.endpoint == 'logout':
+                return
+                
+            try:
+                # Single database query without retries for better performance
+                user = User.query.filter_by(email=session['user_email']).first()
+                if not user:
+                    session.clear()
+                    return redirect(url_for('home'))
+            except Exception as e:
+                # Log the error and clear the session
+                print(f"Database error in check_session: {str(e)}")
+                session.clear()
+                return redirect(url_for('home'))
 
 @app.route('/account')
+@nocache
 def account():
     if 'user_email' not in session:
         return redirect(url_for('home'))
@@ -892,6 +904,7 @@ def update_password():
     return jsonify({'error': 'Current password is incorrect'}), 400
 
 @app.route('/portfolio')
+@nocache
 def portfolio():
     if 'user_email' not in session:
         return redirect(url_for('home'))
@@ -905,6 +918,7 @@ def portfolio():
     return render_template('portfolio.html', username=user.username, portfolio_items=portfolio_items)
 
 @app.route('/education')
+@nocache
 def education():
     if 'user_email' not in session:
         return redirect(url_for('home'))
@@ -1374,15 +1388,10 @@ def handle_db_connection_error(error):
     print(f"Database connection error: {str(error)}")
     
     # For API endpoints, return JSON
-    if request.path.startswith('/api') or request.is_json:
-        return jsonify({
-            'error': 'Database connection error. Please try again.',
-            'details': 'The application is experiencing temporary connectivity issues with the database.'
-        }), 503
+    if request.path.startswith('/api'):
+        return jsonify({'error': 'Database connection error'}), 500
     
-    # For regular requests, redirect to an error page or home
-    session.clear()  # Clear session data as it might be stale
-    # Flash a message about the error
+    # For regular routes, redirect to the home page
     return redirect(url_for('home'))
 
 @app.route('/health')
@@ -1746,6 +1755,7 @@ def monte_carlo_prediction():
         return jsonify({'error': str(e)}), 500
 
 @app.route('/about')
+@nocache
 def about():
     """Route for the About Us page"""
     if 'user_email' in session:
@@ -1777,6 +1787,46 @@ def internal_error(error):
         # If error handling itself fails, return a basic response
         print(f"Error in error handler: {str(e)}")
         return jsonify({'error': 'Internal server error'}), 500
+
+@app.route('/verify-session')
+def verify_session():
+    """Endpoint to verify if the user's session is still valid"""
+    if 'user_email' in session:
+        try:
+            # Verify the user exists
+            user = User.query.filter_by(email=session['user_email']).first()
+            if user:
+                return jsonify({'valid': True})
+        except Exception as e:
+            print(f"Error verifying session: {str(e)}")
+    
+    # If any check fails, return invalid
+    return jsonify({'valid': False}), 401
+
+@app.route('/check-auth')
+def check_auth():
+    """Endpoint to check if user is authenticated"""
+    # Check if user is logged in
+    is_authenticated = 'user_email' in session
+    
+    # If user is logged in, verify user exists in database
+    if is_authenticated:
+        try:
+            user = User.query.filter_by(email=session['user_email']).first()
+            is_authenticated = user is not None
+        except Exception as e:
+            print(f"Error in check_auth: {str(e)}")
+            is_authenticated = False
+            
+    # Set strong cache-control headers to prevent caching
+    response = jsonify({
+        'authenticated': is_authenticated,
+        'timestamp': datetime.now().isoformat()
+    })
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '-1'
+    return response
 
 if __name__ == '__main__':
     # Create necessary directories
